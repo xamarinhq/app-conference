@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:imagecircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+    xmlns:local="clr-namespace:XamarinEvolve.Clients.UI;assembly=XamarinEvolve.Clients.UI"
+    xmlns:toolkit="clr-namespace:FormsToolkit;assembly=FormsToolkit"
+    x:Class="XamarinEvolve.Clients.UI.CategoryCellView">
+    <ContentView.Resources>
+     <ResourceDictionary>
+        <toolkit:HexToColorConverter x:Key="StringToColorConverter" />
+        <toolkit:HasDataConverter x:Key="HasColorConverter" />
+     </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid Padding="16,6,16,6" ColumnSpacing="16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <imagecircle:CircleImage WidthRequest="12" HeightRequest="12" VerticalOptions="Center"
+                    FillColor="{Binding Color, Converter={StaticResource StringToColorConverter}}"
+                    IsVisible="{Binding Color, Converter={StaticResource HasColorConverter}}"/>
+            <Label Grid.Column="1" 
+                   x:Name="LabelName"
+                   Text="{Binding Name}" 
+                   VerticalTextAlignment="Center" 
+                   HorizontalOptions="StartAndExpand"
+                   Style="{DynamicResource EvolveListItemTextStyle}"
+                   />
+            <Switch Grid.Column="2" 
+                    VerticalOptions="Center"
+                    IsEnabled="{Binding IsEnabled}"
+                    IsToggled="{Binding IsFiltered}"/>
+            
+        </Grid>
+    </ContentView.Content>
+</ContentView>

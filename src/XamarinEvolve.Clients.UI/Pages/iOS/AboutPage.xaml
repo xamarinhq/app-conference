@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:imagecircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             xmlns:toolkit="clr-namespace:FormsToolkit;assembly=FormsToolkit"
+             xmlns:local="clr-namespace:XamarinEvolve.Clients.UI;assembly=XamarinEvolve.Clients.UI"
+             x:Class="XamarinEvolve.Clients.UI.AboutPage"
+             x:Name="AboutPage"
+             Title="Info"
+             Icon="tab_about.png"
+             NavigationPage.BackButtonTitle="Info"
+             BackgroundColor="{DynamicResource WindowBackgroundTable}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding LoginCommand}" Text="{Binding LoginText}"/>
+    </ContentPage.ToolbarItems>
+    <local:AlwaysScrollView  Grid.RowSpan="2">
+        <StackLayout Spacing="0"> 
+         
+
+            <StackLayout 
+                BackgroundColor="{DynamicResource WindowBackgroundTable}"
+                Spacing="{DynamicResource CardSpacing}"
+                Padding="{DynamicResource CardPadding}">
+
+             
+               <local:CardView>
+                     <StackLayout Spacing="0">
+                        <local:LabelSection Text="My Account"/>
+                        <local:HeaderDivider/>
+                        <local:NonScrollableListView 
+                            x:Name="ListViewAccount"
+                            ItemsSource="{Binding AccountItems}"
+                            RowHeight="44"> 
+                            <local:NonScrollableListView.SeparatorColor>
+                                <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}"/>
+                            </local:NonScrollableListView.SeparatorColor>
+                            <local:NonScrollableListView.ItemTemplate>
+                                <DataTemplate>
+                                    <local:TextViewValue1 Text="{Binding Name}"
+                                                Detail="{Binding Subtitle}"
+                                                Command="{Binding Command}"/>
+                                </DataTemplate>
+                            </local:NonScrollableListView.ItemTemplate>
+                        </local:NonScrollableListView>
+                        <local:FooterDivider/>
+                    </StackLayout>
+                </local:CardView>
+
+                <local:CardView Padding="0,32,0,0">
+                     <StackLayout Spacing="0">
+                        <local:HeaderDivider/>
+                        <Grid Padding="16,0" BackgroundColor="White">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                        
+                        <Button Text="{Binding SyncText}" FontAttributes="Bold"
+                            FontSize="{DynamicResource EvolveListItemTextStyleSize}"
+                            HorizontalOptions="StartAndExpand"
+                            TextColor="{DynamicResource Primary}"
+                            Command="{Binding SyncCommand}"
+                            IsEnabled="{Binding IsNotBusy}"
+                            BackgroundColor="White"/>
+                            <ActivityIndicator Grid.Column="1"
+                                IsRunning="{Binding IsBusy}"
+                                IsVisible="{Binding IsBusy}">
+                            <ActivityIndicator.Color>
+                                <OnPlatform x:TypeArguments="Color" Android="{StaticResource Accent}"/>
+                            </ActivityIndicator.Color>
+                        </ActivityIndicator>
+
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer 
+                            Command="{Binding SyncCommand}"/>
+                        </Grid.GestureRecognizers>
+                        </Grid>
+                        <local:FooterDivider/>
+                        <StackLayout Padding="16,8,16,0">
+                            <Label Text="Sign in with your Xamarin account to save and sync favorites and session feedback." 
+                                   Style="{DynamicResource EvolveListItemDetailTextStyle}"/>
+                        </StackLayout>
+                    </StackLayout>
+                </local:CardView>
+           
+
+                <local:CardView Padding="0,32,0,0">
+                     <StackLayout Spacing="0">
+                        <local:HeaderDivider/>
+                        <local:NonScrollableListView 
+                            x:Name="ListViewAbout"
+                            ItemsSource="{Binding AboutItems}"
+                            RowHeight="44"> 
+                            <local:NonScrollableListView.SeparatorColor>
+                                <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}"/>
+                            </local:NonScrollableListView.SeparatorColor>
+                            <local:NonScrollableListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextCell Text="{Binding Name}" 
+                                               StyleId="disclosure"/>
+                                </DataTemplate>
+                            </local:NonScrollableListView.ItemTemplate>
+                        </local:NonScrollableListView>
+                        <local:FooterDivider/>
+                    </StackLayout>
+                </local:CardView>
+
+                <local:CardView>
+                     <StackLayout Spacing="0">
+                        <local:LabelSection Text="Conference Info"/>
+                        <local:HeaderDivider/>
+                        <local:NonScrollableListView 
+                            x:Name="ListViewInfo"
+                            ItemsSource="{Binding InfoItems}"
+                            RowHeight="44"> 
+                            <local:NonScrollableListView.SeparatorColor>
+                                <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}"/>
+                            </local:NonScrollableListView.SeparatorColor>
+                            <local:NonScrollableListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextCell Text="{Binding Name}" 
+                                               StyleId="disclosure"/>
+                                </DataTemplate>
+                            </local:NonScrollableListView.ItemTemplate>
+                        </local:NonScrollableListView>
+                        <local:FooterDivider/>
+                    </StackLayout>
+                </local:CardView>
+            </StackLayout>
+        </StackLayout>
+    </local:AlwaysScrollView>
+</ContentPage>

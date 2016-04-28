@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:XamarinEvolve.Clients.UI;assembly=XamarinEvolve.Clients.UI"
+    x:Class="XamarinEvolve.Clients.UI.SponsorCell">
+    <StackLayout Spacing="0" HeightRequest="120">
+		<StackLayout.Padding>
+            <OnPlatform x:TypeArguments="Thickness" iOS="0" Android="0,4" WinPhone="0"/>
+        </StackLayout.Padding>
+    	<local:CardView HeightRequest="120">
+            <Grid Padding="16" ColumnSpacing="16" BackgroundColor="White">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    StyleId="SponsorImage"
+                    Aspect="AspectFit">
+                    <Image.Source>
+                        <UriImageSource Uri="{Binding ImageUri}" 
+                            CacheValidity="3" 
+                            CachingEnabled="true"/>
+                    </Image.Source>
+                </Image>
+                    <StackLayout VerticalOptions="Center" Grid.Column="1" Spacing="0" StyleId="SponsorCell">
+                      <Label Text="{Binding Name}" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SponsorName"/>
+                      <Label Text="{Binding SponsorLevel.Name, StringFormat='{0} Sponsor'}" Style="{DynamicResource EvolveListItemDetailTextStyle}" StyleId="SponsorLevel"/>
+                    </StackLayout>
+         
+            </Grid>
+        </local:CardView>
+	</StackLayout>
+</ContentView>

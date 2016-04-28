@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="XamarinEvolve.Clients.UI.MiniHacksDetailsPage"
+    xmlns:local="clr-namespace:XamarinEvolve.Clients.UI;assembly=XamarinEvolve.Clients.UI"
+    Title="Mini-Hack Details"
+    NavigationPage.BackButtonTitle="Hacks"
+    BackgroundColor="{DynamicResource WindowBackgroundTable}">
+    <local:AlwaysScrollView>
+        <StackLayout Spacing="0">
+        <StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}"
+                             Spacing="{DynamicResource CardSpacing}"
+                             Padding="{DynamicResource CardPadding}">
+            <local:CardView>
+            <StackLayout Padding="0" Spacing="0" BackgroundColor="White">
+                <local:HeaderDivider/>
+                    <StackLayout Padding="{StaticResource StandardPadding}" >
+                            <StackLayout Padding="32,16,32,0">
+                            <Image
+                                Grid.Column="1"
+                                Grid.Row="1"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Aspect="AspectFit"
+                                HeightRequest="150">
+                                <Image.Source>
+                                    <UriImageSource Uri="{Binding Hack.BadgeUri}" 
+                                        CacheValidity="4" 
+                                        CachingEnabled="true"/>
+                                </Image.Source>
+                            </Image>
+                            </StackLayout>
+                            <StackLayout Spacing="0">
+                              <Label Text="{Binding Hack.Name}" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="HackName"/>
+                              <Label Text="{Binding Hack.Subtitle}" Style="{DynamicResource EvolveListItemDetailTextStyle}" StyleId="HackSubtitle"/>
+                               <Label Text="Hack Completed!" IsVisible="{Binding Hack.IsCompleted}"  TextColor="{StaticResource Primary}"/>
+                             </StackLayout>
+                            <StackLayout Padding="0,16">
+                                <Label Text="{Binding Hack.Description}"  Style="{DynamicResource EvolveListItemTextStyle}" StyleId="HackDescription"/>
+                            </StackLayout>
+                    </StackLayout>
+                    <local:SectionDivider/>
+                    <Grid Padding="{StaticResource StandardPadding}" 
+                                   ColumnSpacing="{StaticResource StandardSpacing}" 
+                               BackgroundColor="White">
+                               <Grid.IsVisible>
+                                <OnPlatform x:TypeArguments="x:Boolean" iOS="false" Android="true" WinPhone="true"/>
+                               </Grid.IsVisible>
+                            <Button Text="Mini-Hack Directions"
+                                    StyleId="MiniHackDirections"
+									x:Name="MiniHackDirections1"
+                                    BackgroundColor="{StaticResource PrimaryDark}"
+
+                                    Command="{Binding LaunchBrowserCommand}" 
+                                    CommandParameter="{Binding Hack.GitHubUrl}" 
+                                    TextColor="White"/>
+                         </Grid>
+                         <StackLayout Padding="16,0" Spacing="8" Orientation="Horizontal" BackgroundColor="White">
+                            <StackLayout.IsVisible>
+                                <OnPlatform x:TypeArguments="x:Boolean" iOS="true" Android="false" WinPhone="false"/>
+                            </StackLayout.IsVisible>
+                            <Button Text="Mini-Hack Directions"
+                                    x:Name="MiniHackDirections2"
+                            FontAttributes="Bold"
+                            HorizontalOptions="StartAndExpand"
+                            TextColor="{DynamicResource Primary}"
+                            Command="{Binding LaunchBrowserCommand}" 
+                            CommandParameter="{Binding Hack.GitHubUrl}"
+                            StyleId="MiniHackDirections" />
+                         </StackLayout>
+                   
+                    <local:SectionDivider/>
+                    <StackLayout Padding="{StaticResource StandardPadding}" Spacing="{StaticResource StandardSpacing}" BackgroundColor="White">
+                       <Label Text="When you are finished with the Mini-Hack please see a Xamarin employee to scan the unlock code." Style="{DynamicResource EvolveListItemDetailTextStyle}"/>
+                          <Button
+                             Text="Finish Mini-Hack"                                     
+                            x:Name="ButtonFinish"
+                            StyleId="FinishButton">
+
+                            <Button.FontAttributes>
+                                <OnPlatform x:TypeArguments="FontAttributes" iOS="Bold"/>
+                            </Button.FontAttributes>
+                            <Button.BackgroundColor>
+                                <OnPlatform x:TypeArguments="Color" Android="{StaticResource PrimaryDark}" WinPhone="{StaticResource PrimaryDark}" iOS="Transparent"/>
+                            </Button.BackgroundColor>
+                            <Button.TextColor>
+                                <OnPlatform x:TypeArguments="Color" Android="White" WinPhone="White" iOS="{StaticResource PrimaryDark}"/>
+                            </Button.TextColor>
+                            <Button.BorderWidth>
+                                <OnPlatform x:TypeArguments="x:Double" iOS="1"/>
+                            </Button.BorderWidth> 
+                            <Button.BorderColor>
+                                <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ButtonBorder}"/>
+                            </Button.BorderColor> 
+                        </Button>
+                    </StackLayout>
+                <local:FooterDivider/>
+            </StackLayout>
+            </local:CardView>
+        </StackLayout>
+        </StackLayout>
+    </local:AlwaysScrollView>
+</ContentPage>

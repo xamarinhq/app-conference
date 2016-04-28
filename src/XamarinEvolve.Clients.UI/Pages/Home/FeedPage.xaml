@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:XamarinEvolve.Clients.UI;assembly=XamarinEvolve.Clients.UI"
+    xmlns:toolkit="clr-namespace:FormsToolkit;assembly=FormsToolkit"
+    xmlns:pull="clr-namespace:Refractored.XamForms.PullToRefresh;assembly=Refractored.XamForms.PullToRefresh"
+    xmlns:imagecircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+    x:Class="XamarinEvolve.Clients.UI.FeedPage"
+    x:Name="FeedPage"
+    Title="Evolve Feed"
+    Icon="tab_feed.png"
+    BackgroundColor="{DynamicResource WindowBackgroundTable}">
+    <ContentPage.Resources>
+     <ResourceDictionary>
+        <toolkit:InvertedBooleanConverter x:Key="InvertedBooleanConverter" />
+        <local:HumanizeDateConverter x:Key="HumanizeDateConverter" />
+     </ResourceDictionary>
+    </ContentPage.Resources>
+    <pull:PullToRefreshLayout
+          IsPullToRefreshEnabled="True"
+          RefreshCommand="{Binding RefreshCommand}"
+          IsRefreshing="{Binding IsBusy}"> 
+          <pull:PullToRefreshLayout.RefreshColor>
+            <OnPlatform x:TypeArguments="Color" Android="{StaticResource Primary}"/>
+          </pull:PullToRefreshLayout.RefreshColor>
+          <local:AlwaysScrollView
+          HorizontalOptions="FillAndExpand"
+          VerticalOptions="FillAndExpand">
+        <StackLayout Spacing="{DynamicResource CardSpacing}"
+                    Padding="{DynamicResource CardPadding}">
+             <local:CardView>
+                 <!--Notifications-->
+                 <StackLayout Spacing="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="34"/>
+                        </Grid.ColumnDefinitions>
+                        <local:LabelSection Text="Announcements"/>
+                    </Grid>
+                    <local:HeaderDivider/>
+                    <StackLayout IsVisible="{Binding LoadingNotifications}" 
+                                 HorizontalOptions="FillAndExpand" 
+                                 VerticalOptions="Center" 
+                                  BackgroundColor="White"
+                                  Padding="{StaticResource StandardPadding}">
+                        <ActivityIndicator IsRunning="{Binding LoadingNotifications}">
+                            <ActivityIndicator.Color>
+                                <OnPlatform x:TypeArguments="Color" Android="{StaticResource Accent}"/>
+                            </ActivityIndicator.Color>
+                        </ActivityIndicator>
+                        <Label Text="Loading Announcements..." 
+                               HorizontalOptions="Center" 
+                               Style="{DynamicResource EvolveListItemTextStyle}"/>
+                   </StackLayout>
+                    <StackLayout IsVisible="{Binding LoadingNotifications, Converter={StaticResource InvertedBooleanConverter}}}" 
+                                 HorizontalOptions="FillAndExpand" 
+                                 VerticalOptions="Center" 
+                                  BackgroundColor="White"
+                                  Padding="{StaticResource StandardPadding}"
+                                  x:Name="NotificationStack"
+                                  StyleId="AnnouncementItem" >
+                        <Label Text="{Binding Text}" 
+                               BindingContext="{Binding Notification}"
+                               Style="{DynamicResource EvolveListItemTextStyle}"
+                               StyleId="AnnouncementTitle" />
+
+                        <Label Text="{Binding Date, Converter={StaticResource HumanizeDateConverter}}"  
+                               BindingContext="{Binding Notification}"
+                               Style="{DynamicResource EvolveListItemDetailTextStyle}"
+                               StyleId="AnnouncementTime" />
+                   </StackLayout>
+                    <local:FooterDivider/>
+                </StackLayout>
+            </local:CardView>
+
+            <local:CardView>
+                 <!--Upcoming Sessions-->
+                 <StackLayout Spacing="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="34"/>
+                        </Grid.ColumnDefinitions>
+                        <local:LabelSection Text="Upcoming Favorites"/>
+                    </Grid>
+                    <local:HeaderDivider/>
+                    <StackLayout IsVisible="{Binding LoadingSessions}" 
+                                 HorizontalOptions="FillAndExpand" 
+                                 VerticalOptions="Center" 
+                                  BackgroundColor="White"
+                                  Padding="{StaticResource StandardPadding}">
+                        <ActivityIndicator IsRunning="{Binding LoadingSessions}">
+                            <ActivityIndicator.Color>
+                                <OnPlatform x:TypeArguments="Color" Android="{StaticResource Accent}"/>
+                            </ActivityIndicator.Color>
+                        </ActivityIndicator>
+                        <Label Text="Loading Favorites..." 
+                               HorizontalOptions="Center" 
+                               Style="{DynamicResource EvolveListItemTextStyle}"/>
+                   </StackLayout>
+                    <StackLayout IsVisible="{Binding NoSessions}" 
+                                 HorizontalOptions="FillAndExpand" 
+                                 VerticalOptions="Center" 
+                                  BackgroundColor="White"
+                                  Padding="{StaticResource StandardPadding}">
+                       
+                        <Label Text="No Upcoming Favorites" 
+                               HorizontalOptions="Center" 
+                               Style="{DynamicResource EvolveListItemTextStyle}"/>
+                   </StackLayout>
+                   <local:NonScrollableListView 
+                        x:Name="ListViewSessions"
+                        ItemsSource="{Binding Sessions}">
+                        <local:NonScrollableListView.SeparatorColor>
+                            <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" WinPhone="{StaticResource ListSeparator}"/>
+                        </local:NonScrollableListView.SeparatorColor>
+                        <local:NonScrollableListView.RowHeight>
+                            <OnPlatform x:TypeArguments="x:Int32" Android="120" iOS="120" WinPhone="120"/>
+                        </local:NonScrollableListView.RowHeight>
+                        <local:NonScrollableListView.ItemTemplate>
+                             <DataTemplate>
+                              <ViewCell>
+                                <local:SessionCellView FavoriteCommand="{Binding Path=BindingContext.FavoriteCommand, Source={x:Reference FeedPage}}"/>
+                              </ViewCell>
+                            </DataTemplate>
+                        </local:NonScrollableListView.ItemTemplate>
+                    </local:NonScrollableListView>
+                    <local:FooterDivider/>
+                </StackLayout>
+            </local:CardView>
+
+             <local:CardView>
+                 <!--Tweets-->
+                 <StackLayout Spacing="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="34"/>
+                        </Grid.ColumnDefinitions>
+                        <local:LabelSection Text="Social - #XamarinEvolve"/>
+                    </Grid>
+                    <local:HeaderDivider/>
+                    <StackLayout IsVisible="{Binding LoadingSocial}" 
+                                 HorizontalOptions="FillAndExpand" 
+                                 VerticalOptions="Center" 
+                                  BackgroundColor="White"
+                                  Padding="{StaticResource StandardPadding}">
+                        <ActivityIndicator IsRunning="{Binding LoadingSocial}">
+                            <ActivityIndicator.Color>
+                                <OnPlatform x:TypeArguments="Color" Android="{StaticResource Accent}"/>
+                            </ActivityIndicator.Color>
+                        </ActivityIndicator>
+                        <Label Text="Loading Social Feed..." 
+                               HorizontalOptions="Center" 
+                               Style="{DynamicResource EvolveListItemTextStyle}"/>
+                   </StackLayout>
+                   <StackLayout IsVisible="{Binding SocialError}" 
+                                 HorizontalOptions="FillAndExpand" 
+                                 VerticalOptions="Center" 
+                                  BackgroundColor="White"
+                                  Padding="{StaticResource StandardPadding}">
+                       
+                        <Label Text="Unable to load social feed" 
+                               HorizontalOptions="Center" 
+                               Style="{DynamicResource EvolveListItemTextStyle}"/>
+                   </StackLayout>
+                    <local:NonScrollableListView 
+                        x:Name="ListViewSocial"
+                        SelectedItem="{Binding SelectedTweet, Mode=TwoWay}"
+                        ItemsSource="{Binding Tweets}">
+                        <local:NonScrollableListView.SeparatorColor>
+                            <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" WinPhone="{StaticResource ListSeparator}"/>
+                        </local:NonScrollableListView.SeparatorColor>
+                        <local:NonScrollableListView.RowHeight>
+                            <OnPlatform x:TypeArguments="x:Int32" Android="145" iOS="140" WinPhone="155"/>
+                        </local:NonScrollableListView.RowHeight>
+                        <local:NonScrollableListView.ItemTemplate>
+                             <DataTemplate>
+                              <ViewCell >
+                                <local:TweetCell/>
+                              </ViewCell>
+                            </DataTemplate>
+                        </local:NonScrollableListView.ItemTemplate>
+                    </local:NonScrollableListView>
+                    <local:FooterDivider/>
+                </StackLayout>
+            </local:CardView>
+        </StackLayout>
+    </local:AlwaysScrollView>
+    </pull:PullToRefreshLayout>
+</ContentPage>

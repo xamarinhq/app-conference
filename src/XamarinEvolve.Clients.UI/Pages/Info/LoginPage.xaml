@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:local="clr-namespace:XamarinEvolve.Clients.UI;assembly=XamarinEvolve.Clients.UI"
+    xmlns:imagecircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+    xmlns:toolkit="clr-namespace:FormsToolkit;assembly=FormsToolkit"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="XamarinEvolve.Clients.UI.LoginPage"
+    Title="Sign In"
+    BackgroundColor="{DynamicResource WindowBackground}">
+    <ScrollView>
+    <Grid RowSpacing="{StaticResource MediumSpacing}" 
+          ColumnSpacing="{StaticResource MediumSpacing}">
+       <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="Auto"/>
+       </Grid.RowDefinitions>
+
+       <StackLayout Spacing="0" Padding="0">
+            <StackLayout>
+                <StackLayout.Spacing>
+                    <OnPlatform x:TypeArguments="x:Double" Android="12" iOS="30" WinPhone="12"/>
+                </StackLayout.Spacing>
+                <StackLayout.Padding>
+                    <OnPlatform x:TypeArguments="Thickness" Android="32,24,32,24" iOS="16,24,16,24" WinPhone="32,24"/>
+                </StackLayout.Padding>
+                 <imagecircle:CircleImage
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        WidthRequest="95" HeightRequest="95"
+                        BorderColor="{StaticResource Primary}"
+                        Aspect="AspectFill"
+                        x:Name="CircleImageAvatar"/>
+
+                <Label HorizontalTextAlignment="Center"
+                       HorizontalOptions="FillAndExpand"
+                       StyleId="LoginPageIdentifier"
+                       Style="{DynamicResource EvolveListItemTextStyle}"
+                       LineBreakMode="WordWrap"
+                       FontSize="Large"
+                       TextColor="{DynamicResource DetailTextColor}"
+                       Text="Sign in with your Xamarin account to save and sync favorites and session feedback.">
+
+                    <Label.FontSize>
+                        <OnPlatform x:TypeArguments="x:Double" Android="15" iOS="15" WinPhone="15"/>
+                    </Label.FontSize>
+                </Label>
+            </StackLayout>
+            <StackLayout>
+                <StackLayout.Padding>
+                    <OnPlatform x:TypeArguments="Thickness" Android="32,0" iOS="32,0" WinPhone="32,0"/>
+                </StackLayout.Padding>
+                <StackLayout.Spacing>
+                    <OnPlatform x:TypeArguments="x:Double" Android="0" iOS="15" WinPhone="10"/>
+                </StackLayout.Spacing>
+                <toolkit:EntryLine
+                       Text="{Binding Email}" 
+                       Keyboard="Email"
+                       HorizontalOptions="FillAndExpand"
+                       Placeholder="email address"
+                       x:Name="EntryEmail"
+                       StyleId="EmailTextField"
+                       IsEnabled="{Binding IsNotBusy}"
+                       BorderColor="#ECECEC">
+                       <toolkit:EntryLine.HorizontalTextAlignment>
+                        <OnPlatform x:TypeArguments="TextAlignment" iOS="Center"/>
+                       </toolkit:EntryLine.HorizontalTextAlignment>
+               </toolkit:EntryLine>
+
+               <toolkit:EntryLine 
+                       Text="{Binding Password}" 
+                       HorizontalOptions="FillAndExpand"
+                       IsPassword="true"
+                       HorizontalTextAlignment="Center"
+                       Placeholder="password"
+                       StyleId="PasswordTextField"
+                       IsEnabled="{Binding IsNotBusy}"
+                       BorderColor="#ECECEC">
+                       <toolkit:EntryLine.HorizontalTextAlignment>
+                        <OnPlatform x:TypeArguments="TextAlignment" iOS="Center"/>
+                       </toolkit:EntryLine.HorizontalTextAlignment>
+               </toolkit:EntryLine>
+           </StackLayout>
+           <StackLayout>
+           <StackLayout.Padding>
+                    <OnPlatform x:TypeArguments="Thickness" Android="32,16,32,0" iOS="32,25,32,0" WinPhone="32,16,32,0"/>
+                </StackLayout.Padding>
+                <StackLayout.Spacing>
+                    <OnPlatform x:TypeArguments="x:Double" Android="0" iOS="16" WinPhone="10"/>
+                </StackLayout.Spacing>
+                <Button 
+                    Text="Sign In"
+                    Command="{Binding LoginCommand}"
+                    HorizontalOptions="FillAndExpand"
+                    IsEnabled="{Binding IsNotBusy}"
+                    StyleId="SignInButton"
+                    TextColor="White"
+                    BackgroundColor="{StaticResource Primary}">
+
+                    <Button.FontAttributes>
+                        <OnPlatform x:TypeArguments="FontAttributes" iOS="Bold"/>
+                    </Button.FontAttributes>
+                </Button>
+                <Button
+                    Text="Not Now"                                     
+                    Command="{Binding CancelCommand}"
+                    IsEnabled="{Binding IsNotBusy}"
+                    StyleId="NotNowButton">
+
+                    <Button.FontAttributes>
+                        <OnPlatform x:TypeArguments="FontAttributes" iOS="Bold"/>
+                    </Button.FontAttributes>
+                    <Button.BackgroundColor>
+                        <OnPlatform x:TypeArguments="Color" iOS="Transparent"/>
+                    </Button.BackgroundColor>
+                    <Button.TextColor>
+                        <OnPlatform x:TypeArguments="Color" iOS="{StaticResource PrimaryDark}"/>
+                    </Button.TextColor>
+                    <Button.BorderWidth>
+                        <OnPlatform x:TypeArguments="x:Double" iOS="1"/>
+                    </Button.BorderWidth> 
+                    <Button.BorderColor>
+                       <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ButtonBorder}"/>
+                    </Button.BorderColor> 
+                </Button>
+           </StackLayout>
+        </StackLayout>
+        <StackLayout Grid.Row="1" Padding="16,0" VerticalOptions="Center" Orientation="Horizontal" HorizontalOptions="Center">
+            <ActivityIndicator IsRunning="{Binding IsBusy}">
+                <ActivityIndicator.Color>
+                    <OnPlatform x:TypeArguments="Color" Android="{StaticResource Accent}"/>
+                </ActivityIndicator.Color>
+            </ActivityIndicator>
+             <Label Text="{Binding Message}" VerticalOptions="Center"  HorizontalOptions="Center" Style="{DynamicResource EvolveListItemTextStyle}"/>
+      </StackLayout>
+
+        <StackLayout Grid.Row="2" HorizontalOptions="Center" Orientation="Horizontal" Padding="16,0,16,12" Spacing="{StaticResource SmallSpacing}">
+            <Label
+                Text="Don't have an account yet?" 
+                Style="{DynamicResource EvolveListTextStyle}"
+                TextColor="{DynamicResource DetailTextColor}"/>
+            <Label Text="Sign Up." 
+                   TextColor="{StaticResource Primary}"
+                   Style="{DynamicResource EvolveListTextStyleBold}"
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"
+                   IsEnabled="{Binding IsNotBusy}">
+                <Label.Font>
+                    <OnPlatform x:TypeArguments="Font" iOS="Semibold" Android="Semibold"/>
+                </Label.Font>
+              <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding SignupCommand}"/>
+              </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </Grid>
+    </ScrollView>
+</ContentPage>

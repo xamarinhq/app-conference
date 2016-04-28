@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:local="clr-namespace:XamarinEvolve.Clients.UI;assembly=XamarinEvolve.Clients.UI"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="XamarinEvolve.Clients.UI.NotificationCell">
+    <ContentView.Resources>
+     <ResourceDictionary>
+        <local:HumanizeDateConverter x:Key="HumanizeDateConverter" />
+     </ResourceDictionary>
+    </ContentView.Resources>
+      <StackLayout  HorizontalOptions="FillAndExpand" 
+                      Padding="{StaticResource StandardPadding}" StyleId="NotificationItem">
+            <Label Text="{Binding Text}" 
+                   Style="{DynamicResource EvolveListItemTextStyle}"/>
+
+            <Label Text="{Binding Date, Converter={StaticResource HumanizeDateConverter}}"  
+                   Style="{DynamicResource EvolveListItemDetailTextStyle}"/>
+       
+       </StackLayout>
+</ContentView>

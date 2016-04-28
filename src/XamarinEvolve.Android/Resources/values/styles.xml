@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <style name="MyTheme" parent="MyTheme.Base">
+  </style>
+  <!-- Base theme applied no matter what API -->
+  <style name="MyTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+    
+    <!-- Set theme colors from http://www.google.com/design/spec/style/color.html#color-color-palette-->
+    <!-- colorPrimary is used for the default action bar background -->
+    <item name="colorPrimary">@color/primary</item>
+    <!-- colorPrimaryDark is used for the status bar -->
+    <item name="colorPrimaryDark">@color/primaryDark</item>
+    <!-- colorAccent is used as the default value for colorControlActivated
+         which is used to tint widgets -->
+    <item name="colorAccent">@color/accent</item>
+    <!-- You can also set colorControlNormal, colorControlActivated
+         colorControlHighlight and colorSwitchThumbNormal. -->
+    <item name="android:windowBackground">@color/window_background</item>
+    <!-- Option to hide the drop shadow here
+    
+      <item name="actionBarStyle">@style/MyTheme.ActionBar</item>
+      <item name="android:windowContentOverlay">@null</item>
+    -->
+  </style>
+
+  <style name="MyTheme.ActionBar" parent="style/Widget.AppCompat.Light.ActionBar.Solid">
+    <!-- remove shadow below action bar -->
+    <!-- <item name="android:elevation">0dp</item> -->
+    <!-- Support library compatibility -->
+    <item name="elevation">0dp</item>
+  </style>
+
+   <style name="SplashTheme" parent="SplashTheme.Base">
+    <!-- Set theme colors from http://www.google.com/design/spec/style/color.html#color-color-palette-->
+    <!-- colorPrimary is used for the default action bar background -->
+    <item name="colorPrimary">@color/primary</item>
+    <!-- colorPrimaryDark is used for the status bar -->
+    <item name="colorPrimaryDark">@color/primaryDark</item>
+    <!-- colorAccent is used as the default value for colorControlActivated
+         which is used to tint widgets -->
+    <item name="colorAccent">@color/accent</item>
+   </style>
+   <style name="SplashTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/background_splash</item>
+    </style>
+
+</resources>

@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:XamarinEvolve.Clients.UI;assembly=XamarinEvolve.Clients.UI"
+    xmlns:toolkit="clr-namespace:FormsToolkit;assembly=FormsToolkit"
+             x:Class="XamarinEvolve.Clients.UI.EventDetailsPage"
+    Title="Event Details"
+    
+    BackgroundColor="{DynamicResource WindowBackgroundTable}">
+   <ContentPage.Resources>
+     <ResourceDictionary>
+        <local:EventDateDisplayConverter x:Key="EventDateDisplayConverter" />
+        <local:HasReminderEventTextConverter x:Key="HasReminderEventTextConverter" />
+     </ResourceDictionary>
+    </ContentPage.Resources>
+   <local:AlwaysScrollView>
+        <StackLayout Spacing="0" VerticalOptions="FillAndExpand">
+        <StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}"
+                             Spacing="{DynamicResource CardSpacing}"
+                             Padding="{DynamicResource CardPadding}">
+            <local:CardView>
+            <StackLayout Padding="0" Spacing="0" BackgroundColor="White">
+                <local:HeaderDivider/>
+                    <StackLayout Padding="{StaticResource StandardPadding}" >
+                        <Label Text="{Binding Event.Title}" Style="{DynamicResource EventTitleStyle}"  StyleId="EventTitle"/>
+                        <Label Text="{Binding Event, Converter={StaticResource EventDateDisplayConverter}}" Style="{DynamicResource EvolveListItemDetailTextStyle}" StyleId="EventTime"/>
+                        <StackLayout Padding="0,16,0,0">
+                            <Label Text="{Binding Event.Description}"  Style="{DynamicResource EvolveListItemTextStyle}" StyleId="EventDescription"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <local:SectionDivider IsVisible="{Binding Event.StartTime.HasValue}"/>
+                     <StackLayout Padding="16,0" IsVisible="{Binding Event.StartTime.HasValue}">
+                      <Button 
+                            Text="{Binding IsReminderSet, Converter={StaticResource HasReminderEventTextConverter}}"
+                            Command="{Binding ReminderCommand}"
+                            FontAttributes="Bold"
+                            HorizontalOptions="StartAndExpand"
+                            TextColor="{DynamicResource Primary}"
+                            BorderRadius="0"
+                            BorderWidth="0"
+                            FontSize="16"
+                            BackgroundColor="Transparent"
+                            BorderColor="Transparent"
+                            StyleId="iOSReminderButton">
+                            <Button.IsVisible>
+                                <OnPlatform x:TypeArguments="x:Boolean" iOS="true" Android="false" WinPhone="false"/>
+                            </Button.IsVisible>
+                        </Button>
+
+                        <Button 
+
+                            Text="{Binding IsReminderSet, Converter={StaticResource HasReminderEventTextConverter}}"
+                            Command="{Binding ReminderCommand}"
+                            TextColor="White"
+                            HorizontalOptions="FillAndExpand"
+                            BackgroundColor="{StaticResource Primary}"
+                            StyleId="AndroidReminderButton">
+                            <Button.IsVisible>
+                                <OnPlatform x:TypeArguments="x:Boolean" iOS="false" Android="true" WinPhone="true"/>
+                            </Button.IsVisible>
+                        </Button>
+                    </StackLayout>
+                    <local:SectionDivider/>
+                    <Grid Padding="{StaticResource StandardPadding}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Location" Style="{DynamicResource EvolveListItemTextStyle}" VerticalTextAlignment="Center"/>
+                        <Label Grid.Column="1" HorizontalOptions="End" Text="{Binding Event.LocationName}" Style="{DynamicResource EvolveListItemTextStyle}" TextColor="{DynamicResource DetailTextColor}" VerticalTextAlignment="Center" StyleId="EventLocationRoom"/>
+                    </Grid>
+                <local:FooterDivider/>
+            </StackLayout>
+            </local:CardView>
+
+           <local:CardView IsVisible="{Binding Event.HasSponsor}">
+            <StackLayout Spacing="0">
+            <local:LabelSection Text="Sponsored By"/>
+                <local:HeaderDivider/>
+                <local:NonScrollableListView 
+                    ItemsSource="{Binding Sponsors}" 
+                    VerticalOptions="Start" 
+                    x:Name="ListViewSponsors"
+                    RowHeight="100"> 
+                    <local:NonScrollableListView.SeparatorColor>
+                        <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}"/>
+                    </local:NonScrollableListView.SeparatorColor>
+                    <local:NonScrollableListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell StyleId="disclosure">
+                                <local:SponsorCell/>
+                            </ViewCell> 
+                        </DataTemplate>
+                    </local:NonScrollableListView.ItemTemplate>
+                </local:NonScrollableListView>
+                <local:FooterDivider/>
+            </StackLayout>
+            </local:CardView>
+        </StackLayout>
+        </StackLayout>
+    </local:AlwaysScrollView>
+</ContentPage>

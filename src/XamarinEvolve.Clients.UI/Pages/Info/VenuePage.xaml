@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:XamarinEvolve.Clients.UI;assembly=XamarinEvolve.Clients.UI"
+    x:Class="XamarinEvolve.Clients.UI.VenuePage"
+    xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+    Title="Venue"
+    NavigationPage.BackButtonTitle="Info"
+    BackgroundColor="{DynamicResource WindowBackgroundTable}">
+    <ContentPage.Content>
+        <Grid RowSpacing="0" ColumnSpacing="{StaticResource StandardSpacing}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <maps:Map 
+                    x:Name="EvolveMap"
+                    IsShowingUser="false" 
+                    MapType="Street" />
+
+           
+            <StackLayout Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="End"
+             BackgroundColor="#99FFFFFF" Padding="{DynamicResource StandardPadding}">
+                <Image Source="hotel_logo.png" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

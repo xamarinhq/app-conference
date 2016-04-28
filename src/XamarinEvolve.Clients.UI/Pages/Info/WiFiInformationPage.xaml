@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="XamarinEvolve.Clients.UI.WiFiInformationPage"
+    xmlns:toolkit="clr-namespace:FormsToolkit;assembly=FormsToolkit"
+    xmlns:local="clr-namespace:XamarinEvolve.Clients.UI;assembly=XamarinEvolve.Clients.UI"
+    Title="Wi-Fi Information"
+    
+    BackgroundColor="{DynamicResource WindowBackgroundTable}">
+    <ContentPage.Resources>
+     <ResourceDictionary>
+        <toolkit:InvertedBooleanConverter x:Key="InvertedBooleanConverter" />
+     </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <local:AlwaysScrollView Grid.RowSpan="2">
+        <StackLayout Spacing="0"> 
+            <StackLayout 
+                BackgroundColor="{DynamicResource WindowBackgroundTable}"
+                Spacing="{DynamicResource CardSpacing}"
+                Padding="{DynamicResource CardPadding}">
+
+                <local:CardView>
+                     <StackLayout Spacing="0" StyleId="2.4GHzCard">
+                        <local:LabelSection Text="Wi-Fi Configuration"/>
+                        <local:HeaderDivider/>  
+                        <Grid Padding="{StaticResource StandardPadding}" BackgroundColor="White">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout>
+                                <Label Text="SSID" Style="{DynamicResource EvolveListItemTextStyle}"/>
+                                <Label Text="{Binding Settings.WiFiSSID}"
+                                        Style="{DynamicResource EvolveListItemDetailTextStyle}"
+                                        StyleId="2.4GHzSSID"/>
+                            </StackLayout>
+                            <StackLayout Grid.Column="1">
+                                <Label Text="Password" Style="{DynamicResource EvolveListItemTextStyle}"/>
+                                <Label Text="{Binding Settings.WiFiPass}"
+                                        Style="{DynamicResource EvolveListItemDetailTextStyle}"
+                                        StyleId="2.4GHzPassword"/>
+                            </StackLayout>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding CopyPasswordCommand}" CommandParameter="{Binding Settings.WiFiPass}"/> 
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                        <local:FooterDivider/>
+                    </StackLayout>
+                </local:CardView>
+
+				<StackLayout Padding="4" IsVisible="{Binding IsBusy}">
+				    <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+                </StackLayout>
+
+            </StackLayout>
+        </StackLayout>
+    </local:AlwaysScrollView>
+
+</ContentPage>

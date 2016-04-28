@@ -1,0 +1,495 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Xamarin.Build.Download.0.2.1\build\Xamarin.Build.Download.props" Condition="Exists('..\packages\Xamarin.Build.Download.0.2.1\build\Xamarin.Build.Download.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{22F77CDE-8816-45D7-A7A1-CA9282145F0A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>XamarinEvolve.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>XamarinEvolveiOS</AssemblyName>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>__UNIFIED__;__MOBILE__;__IOS__;DEBUG;ENABLE_TEST_CLOUD;MOBILE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>i386</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchProfiling>true</MtouchProfiling>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFastDev>true</MtouchFastDev>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <MtouchUseLlvm>true</MtouchUseLlvm>
+    <IpaPackageName>
+    </IpaPackageName>
+    <DefineConstants>MOBILE</DefineConstants>
+    <CodesignProvision>
+    </CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>i386</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <MtouchLink>None</MtouchLink>
+    <DefineConstants>ENABLE_TEST_CLOUD;MOBILE</DefineConstants>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchSdkVersion>9.2</MtouchSdkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>__UNIFIED__;__MOBILE__;__IOS__;DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchProfiling>true</MtouchProfiling>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <IpaPackageName>
+    </IpaPackageName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <DefineConstants>ENABLE_TEST_CLOUD;MOBILE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'UITest|iPhone' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\UITest</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <DefineConstants>ENABLE_TEST_CLOUD;MOBILE</DefineConstants>
+    <MtouchUseLlvm>true</MtouchUseLlvm>
+    <IpaPackageName>
+    </IpaPackageName>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <BuildIpa>true</BuildIpa>
+    <CodesignProvision>Automatic:InHouse</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'UITest|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\UITest</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>ENABLE_TEST_CLOUD;MOBILE</DefineConstants>
+    <CodesignProvision>Automatic:InHouse</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'UITest|iPhoneSimulator' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\UITest</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <DefineConstants>ENABLE_TEST_CLOUD;MOBILE</DefineConstants>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\XamarinEvolveiOS.XML</DocumentationFile>
+    <OutputPath>bin\Debug</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Calendars">
+      <HintPath>..\packages\CClarke.Plugin.Calendars.0.4.2-beta\lib\Xamarin.iOS10\Plugin.Calendars.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Calendars.Abstractions">
+      <HintPath>..\packages\CClarke.Plugin.Calendars.0.4.2-beta\lib\Xamarin.iOS10\Plugin.Calendars.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.2.1.2\lib\Xamarin.iOS10\Plugin.Connectivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.2.1.2\lib\Xamarin.iOS10\Plugin.Connectivity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\Xamarin.iOS10\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\Xamarin.iOS10\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCL">
+      <HintPath>..\packages\SQLitePCL.3.8.7.2\lib\Xamarin.iOS10\SQLitePCL.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCL.Ext">
+      <HintPath>..\packages\SQLitePCL.3.8.7.2\lib\Xamarin.iOS10\SQLitePCL.Ext.dll</HintPath>
+    </Reference>
+    <Reference Include="PCLStorage">
+      <HintPath>..\packages\PCLStorage.1.0.2\lib\portable-Xamarin.iOS+Xamarin.Mac\PCLStorage.dll</HintPath>
+    </Reference>
+    <Reference Include="PCLStorage.Abstractions">
+      <HintPath>..\packages\PCLStorage.1.0.2\lib\portable-Xamarin.iOS+Xamarin.Mac\PCLStorage.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.EmbeddedResource">
+      <HintPath>..\packages\Xam.Plugin.EmbeddedResource.1.0.1.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Plugin.EmbeddedResource.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmHelpers">
+      <HintPath>..\packages\Refractored.MvvmHelpers.1.0.1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\MvvmHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Humanizer">
+      <HintPath>..\packages\Humanizer.1.37.7\lib\portable-win+net40+sl50+wp8+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Humanizer.dll</HintPath>
+    </Reference>
+    <Reference Include="NodaTime">
+      <HintPath>..\packages\NodaTime.1.3.1\lib\portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+XamariniOS1\NodaTime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Mobile.SQLiteStore">
+      <HintPath>..\packages\Microsoft.Azure.Mobile.Client.SQLiteStore.2.0.1\lib\portable-win+net45+wp8+wpa81+monotouch+monoandroid\Microsoft.WindowsAzure.Mobile.SQLiteStore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Mobile">
+      <HintPath>..\packages\Microsoft.Azure.Mobile.Client.2.0.1\lib\Xamarin.iOS10\Microsoft.WindowsAzure.Mobile.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Mobile.Ext">
+      <HintPath>..\packages\Microsoft.Azure.Mobile.Client.2.0.1\lib\Xamarin.iOS10\Microsoft.WindowsAzure.Mobile.Ext.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Settings">
+      <HintPath>..\packages\Xam.Plugins.Settings.2.1.0\lib\Xamarin.iOS10\Plugin.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Settings.Abstractions">
+      <HintPath>..\packages\Xam.Plugins.Settings.2.1.0\lib\Xamarin.iOS10\Plugin.Settings.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.ExternalMaps">
+      <HintPath>..\packages\Xam.Plugin.ExternalMaps.3.0.0\lib\Xamarin.iOS10\Plugin.ExternalMaps.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.ExternalMaps.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.ExternalMaps.3.0.0\lib\Xamarin.iOS10\Plugin.ExternalMaps.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Permissions">
+      <HintPath>..\packages\Plugin.Permissions.1.1.7\lib\Xamarin.iOS10\Plugin.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Permissions.Abstractions">
+      <HintPath>..\packages\Plugin.Permissions.1.1.7\lib\Xamarin.iOS10\Plugin.Permissions.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageCircle.Forms.Plugin.iOS">
+      <HintPath>..\packages\Xam.Plugins.Forms.ImageCircle.1.4.1\lib\Xamarin.iOS10\ImageCircle.Forms.Plugin.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageCircle.Forms.Plugin.Abstractions">
+      <HintPath>..\packages\Xam.Plugins.Forms.ImageCircle.1.4.1\lib\Xamarin.iOS10\ImageCircle.Forms.Plugin.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Refractored.XamForms.PullToRefresh.iOS">
+      <HintPath>..\packages\Refractored.XamForms.PullToRefresh.1.0.10\lib\Xamarin.iOS10\Refractored.XamForms.PullToRefresh.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Refractored.XamForms.PullToRefresh">
+      <HintPath>..\packages\Refractored.XamForms.PullToRefresh.1.0.10\lib\Xamarin.iOS10\Refractored.XamForms.PullToRefresh.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Share">
+      <HintPath>..\packages\Plugin.Share.4.0.0\lib\Xamarin.iOS10\Plugin.Share.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Share.Abstractions">
+      <HintPath>..\packages\Plugin.Share.4.0.0\lib\Xamarin.iOS10\Plugin.Share.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="FormsToolkit.iOS">
+      <HintPath>..\packages\FormsToolkit.1.1.14\lib\Xamarin.iOS10\FormsToolkit.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="FormsToolkit">
+      <HintPath>..\packages\FormsToolkit.1.1.14\lib\Xamarin.iOS10\FormsToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Calabash">
+      <HintPath>..\packages\Xamarin.TestCloud.Agent.0.19.0\lib\Xamarin.iOS10\Calabash.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Messaging.Abstractions">
+      <HintPath>..\packages\Xam.Plugins.Messaging.3.2.1\lib\Xamarin.iOS10\Plugin.Messaging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Messaging">
+      <HintPath>..\packages\Xam.Plugins.Messaging.3.2.1\lib\Xamarin.iOS10\Plugin.Messaging.dll</HintPath>
+    </Reference>
+    <Reference Include="ZXing.Net.Mobile.Core, Version=2.1.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.Mobile.2.1.0-beta1\lib\Xamarin.iOS10\ZXing.Net.Mobile.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="zxing.portable, Version=2.1.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.Mobile.2.1.0-beta1\lib\Xamarin.iOS10\zxing.portable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ZXingNetMobile, Version=2.1.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.Mobile.2.1.0-beta1\lib\Xamarin.iOS10\ZXingNetMobile.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.AppIndexing">
+      <HintPath>..\packages\Xamarin.Google.iOS.AppIndexing.2.0.2.2\lib\Xamarin.iOS10\Google.AppIndexing.dll</HintPath>
+    </Reference>
+    <Reference Include="HockeySDK">
+      <HintPath>..\packages\HockeySDK.Xamarin.4.1.0-beta1\lib\Xamarin.iOS10\HockeySDK.dll</HintPath>
+    </Reference>
+    <Reference Include="ZXing.Net.Mobile.Forms">
+      <HintPath>..\packages\ZXing.Net.Mobile.Forms.2.1.0-beta1\lib\Xamarin.iOS10\ZXing.Net.Mobile.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="ZXing.Net.Mobile.Forms.iOS">
+      <HintPath>..\packages\ZXing.Net.Mobile.Forms.2.1.0-beta1\lib\Xamarin.iOS10\ZXing.Net.Mobile.Forms.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform.iOS">
+      <HintPath>..\packages\Xamarin.Forms.2.3.0.34-pre1\lib\Xamarin.iOS10\Xamarin.Forms.Platform.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Core">
+      <HintPath>..\packages\Xamarin.Forms.2.3.0.34-pre1\lib\Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml">
+      <HintPath>..\packages\Xamarin.Forms.2.3.0.34-pre1\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform">
+      <HintPath>..\packages\Xamarin.Forms.2.3.0.34-pre1\lib\Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Maps.iOS">
+      <HintPath>..\packages\Xamarin.Forms.Maps.2.3.0.34-pre1\lib\Xamarin.iOS10\Xamarin.Forms.Maps.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Maps">
+      <HintPath>..\packages\Xamarin.Forms.Maps.2.3.0.34-pre1\lib\Xamarin.iOS10\Xamarin.Forms.Maps.dll</HintPath>
+    </Reference>
+    <Reference Include="ToastIOS">
+      <HintPath>..\Components\ToastIOS-1.6\lib\ios-unified\ToastIOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Messaging.iOS">
+      <HintPath>..\Components\azure-messaging-1.1.5.6\lib\ios-unified\Microsoft.WindowsAzure.Messaging.iOS.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\heart_empty.png" />
+    <BundleResource Include="Resources\heart_empty%402x.png" />
+    <BundleResource Include="Resources\heart_empty%403x.png" />
+    <BundleResource Include="Resources\heart_filled.png" />
+    <BundleResource Include="Resources\heart_filled%402x.png" />
+    <BundleResource Include="Resources\heart_filled%403x.png" />
+    <BundleResource Include="Resources\heroplaceholder.png" />
+    <BundleResource Include="Resources\tab_events_selected.png" />
+    <BundleResource Include="Resources\tab_events_selected%402x.png" />
+    <BundleResource Include="Resources\tab_events_selected%403x.png" />
+    <BundleResource Include="Resources\toolbar_share.png" />
+    <BundleResource Include="Resources\toolbar_share%402x.png" />
+    <BundleResource Include="Resources\toolbar_share%403x.png" />
+    <BundleResource Include="Resources\tab_about_selected.png" />
+    <BundleResource Include="Resources\tab_about_selected%402x.png" />
+    <BundleResource Include="Resources\tab_about_selected%403x.png" />
+    <BundleResource Include="Resources\tab_minihacks_selected.png" />
+    <BundleResource Include="Resources\tab_minihacks_selected%402x.png" />
+    <BundleResource Include="Resources\tab_minihacks_selected%403x.png" />
+    <BundleResource Include="Resources\tab_feed_selected.png" />
+    <BundleResource Include="Resources\tab_feed_selected%402x.png" />
+    <BundleResource Include="Resources\tab_feed_selected%403x.png" />
+    <BundleResource Include="Resources\tab_about.png" />
+    <BundleResource Include="Resources\tab_about%402x.png" />
+    <BundleResource Include="Resources\tab_about%403x.png" />
+    <BundleResource Include="Resources\tab_minihacks.png" />
+    <BundleResource Include="Resources\tab_minihacks%402x.png" />
+    <BundleResource Include="Resources\tab_minihacks%403x.png" />
+    <BundleResource Include="Resources\tab_events.png" />
+    <BundleResource Include="Resources\tab_events%402x.png" />
+    <BundleResource Include="Resources\tab_events%403x.png" />
+    <BundleResource Include="Resources\tab_feed.png" />
+    <BundleResource Include="Resources\tab_feed%402x.png" />
+    <BundleResource Include="Resources\tab_feed%403x.png" />
+    <BundleResource Include="Resources\Default-736h%403x.png" />
+    <BundleResource Include="Resources\Default-667h%402x.png" />
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Resources\Default.png" />
+    <BundleResource Include="Resources\Default%402x.png" />
+    <BundleResource Include="Resources\hotel_logo.png" />
+    <BundleResource Include="Resources\hotel_logo%402x.png" />
+    <BundleResource Include="Resources\hotel_logo%403x.png" />
+    <BundleResource Include="Resources\profile_generic.png" />
+    <BundleResource Include="Resources\profile_generic%402x.png" />
+    <BundleResource Include="Resources\profile_generic%403x.png" />
+    <BundleResource Include="Resources\tab_sessions_selected.png" />
+    <BundleResource Include="Resources\tab_sessions_selected%402x.png" />
+    <BundleResource Include="Resources\tab_sessions_selected%403x.png" />
+    <BundleResource Include="Resources\tab_sessions.png" />
+    <BundleResource Include="Resources\tab_sessions%402x.png" />
+    <BundleResource Include="Resources\tab_sessions%403x.png" />
+    <BundleResource Include="Resources\toolbar_overflow.png" />
+    <BundleResource Include="Resources\toolbar_overflow%402x.png" />
+    <BundleResource Include="Resources\toolbar_overflow%403x.png" />
+    <BundleResource Include="Resources\quickaction_announcements%402x.png" />
+    <BundleResource Include="Resources\quickaction_announcements%403x.png" />
+    <BundleResource Include="Resources\quickaction_events%402x.png" />
+    <BundleResource Include="Resources\quickaction_events%403x.png" />
+    <BundleResource Include="Resources\quickaction_mini-hacks%402x.png" />
+    <BundleResource Include="Resources\quickaction_mini-hacks%403x.png" />
+    <BundleResource Include="Resources\quickaction_tweet%402x.png" />
+    <BundleResource Include="Resources\quickaction_tweet%403x.png" />
+    <BundleResource Include="Resources\profile_generic_big.png" />
+    <BundleResource Include="Resources\profile_generic_big%402x.png" />
+    <BundleResource Include="Resources\profile_generic_big%403x.png" />
+    <BundleResource Include="Resources\icon_sessions_big_purple.png" />
+    <BundleResource Include="Resources\icon_sessions_big_purple%402x.png" />
+    <BundleResource Include="Resources\icon_sessions_big_purple%403x.png" />
+    <BundleResource Include="Resources\Icon.png" />
+    <BundleResource Include="Resources\Icon%402x.png" />
+    <BundleResource Include="Resources\Icon%403x.png" />
+    <BundleResource Include="Resources\profile_pic_shadow%403x.png" />
+    <BundleResource Include="Resources\profile_pic_shadow.png" />
+    <BundleResource Include="Resources\profile_pic_shadow%402x.png" />
+    <BundleResource Include="Resources\floor_1.png" />
+    <BundleResource Include="Resources\floor_1%402x.png" />
+    <BundleResource Include="Resources\floor_1%403x.png" />
+    <BundleResource Include="Resources\floor_2.png" />
+    <BundleResource Include="Resources\floor_2%402x.png" />
+    <BundleResource Include="Resources\floor_2%403x.png" />
+    <BundleResource Include="Resources\logo_launchscreen%402x.png" />
+    <BundleResource Include="Resources\logo_launchscreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="Renderers\TextViewValue1Renderer.cs" />
+    <Compile Include="Renderers\NonScrollableListViewRenderer.cs" />
+    <Compile Include="Helpers\Toaster.cs" />
+    <Compile Include="Helpers\PushNotifications.cs" />
+    <Compile Include="Renderers\SelectedTabPageRenderer.cs" />
+    <Compile Include="Helpers\LaunchTwitter.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-29.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-58.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-87.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-80.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-120-2.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-57.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-114.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-120.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-180.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\PadIcon-29.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\PadIcon-58.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\PadIcon-40.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\PadIcon-80.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\PadIcon-50.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\PadIcon-100.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\PadIcon-72.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\PadIcon-144.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\PadIcon-76.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\PadIcon-152.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\PadIcon-167.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XamarinEvolve.Clients.Portable\XamarinEvolve.Clients.Portable.csproj">
+      <Project>{434442F3-9AF2-4A19-9151-EFBD731BD367}</Project>
+      <Name>XamarinEvolve.Clients.Portable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XamarinEvolve.Clients.UI\XamarinEvolve.Clients.UI.csproj">
+      <Project>{CD2623BD-3609-4BE9-80EF-0974F3A1A27D}</Project>
+      <Name>XamarinEvolve.Clients.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XamarinEvolve.DataStore.Abstractions\XamarinEvolve.DataStore.Abstractions.csproj">
+      <Project>{50542AC8-CD37-4E51-B946-B85049D6EC11}</Project>
+      <Name>XamarinEvolve.DataStore.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XamarinEvolve.Utils\XamarinEvolve.Utils.csproj">
+      <Project>{dfa0f0f6-c396-412e-86a9-e9095f71cc36}</Project>
+      <Name>XamarinEvolve.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <XamarinComponentReference Include="ToastIOS">
+      <Version>1.6</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="azure-messaging">
+      <Version>1.1.5.6</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="googleiosappindexing">
+      <Version>2.0.2.2</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen~ipad.xib" />
+  </ItemGroup>
+  <Import Project="..\XamarinEvolve.Shared\XamarinEvolve.Shared.projitems" Label="Shared" />
+  <Import Project="..\packages\Xamarin.Build.Download.0.2.1\build\Xamarin.Build.Download.targets" Condition="Exists('..\packages\Xamarin.Build.Download.0.2.1\build\Xamarin.Build.Download.targets')" />
+  <Import Project="..\packages\Xamarin.Google.iOS.AppIndexing.2.0.2.2\build\Xamarin.Google.iOS.AppIndexing.targets" Condition="Exists('..\packages\Xamarin.Google.iOS.AppIndexing.2.0.2.2\build\Xamarin.Google.iOS.AppIndexing.targets')" />
+  <Import Project="..\packages\Xamarin.Forms.2.3.0.34-pre1\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.0.34-pre1\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+</Project>

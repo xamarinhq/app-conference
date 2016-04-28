@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="XamarinEvolve.Clients.UI.TweetImagePage"
+    Title="Tweet Image">
+
+    <ContentPage.Content>
+    <Grid>
+        <ActivityIndicator 
+            IsRunning="true" 
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            x:Name="ProgressBar">
+            <ActivityIndicator.Color>
+                <OnPlatform x:TypeArguments="Color" Android="{StaticResource Accent}"/>
+            </ActivityIndicator.Color>
+            </ActivityIndicator>
+        <Image x:Name="MainImage" 
+            HorizontalOptions="FillAndExpand" 
+            VerticalOptions="FillAndExpand" 
+            Aspect="AspectFit"/>
+    </Grid>
+        
+    </ContentPage.Content>
+</ContentPage>

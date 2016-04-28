@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:local="clr-namespace:XamarinEvolve.Clients.UI;assembly=XamarinEvolve.Clients.UI"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="XamarinEvolve.Clients.UI.NotificationsPage"
+    Title="Announcements"
+     BackgroundColor="{DynamicResource WindowBackground}">
+   <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+     <ListView 
+            x:Name="ListViewNotifications"
+            ItemsSource="{Binding NotificationsGrouped}"
+            GroupDisplayBinding="{Binding Key}"
+            IsGroupingEnabled="true"
+            HasUnevenRows ="true"
+            IsPullToRefreshEnabled="{Binding IsNotBusy}"
+            RefreshCommand="{Binding ForceRefreshCommand}"
+            IsRefreshing="{Binding IsBusy, Mode=OneWay}" 
+            CachingStrategy="RecycleElement"
+            IsVisible="{Binding IsNotBusy}"
+            AbsoluteLayout.LayoutFlags="All" 
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+			BackgroundColor="White">
+            <ListView.SeparatorColor>
+                <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" WinPhone="{StaticResource ListSeparator}"/>
+            </ListView.SeparatorColor>
+        <ListView.GroupHeaderTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <ViewCell.Height>
+                        <OnPlatform x:TypeArguments="x:Double" iOS="28"/>
+                    </ViewCell.Height>
+                    <local:EvolveGroupHeaderView/>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.GroupHeaderTemplate>
+      <ListView.ItemTemplate>
+        <DataTemplate>
+            <ViewCell>
+                <local:NotificationCell/>
+            </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+        <StackLayout IsVisible="{Binding IsBusy}"
+                                   AbsoluteLayout.LayoutFlags="PositionProportional"
+                                   AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
+                                    <StackLayout.Orientation>
+                                    <OnPlatform x:TypeArguments="StackOrientation" iOS="Horizontal"/>
+                                   </StackLayout.Orientation>
+            <ActivityIndicator IsRunning="{Binding IsBusy}" >
+                <ActivityIndicator.Color>
+                    <OnPlatform x:TypeArguments="Color" Android="{StaticResource Accent}"/>
+                </ActivityIndicator.Color>
+            </ActivityIndicator>
+            <Label Text="Loading Announcements..." HorizontalOptions="Center" Style="{DynamicResource EvolveListItemTextStyle}"/>
+       </StackLayout>
+    </AbsoluteLayout>
+</ContentPage>

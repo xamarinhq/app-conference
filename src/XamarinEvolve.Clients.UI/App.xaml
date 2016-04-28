@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Application 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="XamarinEvolve.Clients.UI.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#7635EB</Color>
+            <Color x:Key="PrimaryDark">#5D2ABB</Color>
+            <Color x:Key="PrimaryDarkTranslucent">#9926213C</Color>
+            <Color x:Key="Accent">#753BE4</Color>
+            <Color x:Key="NavigationText">White</Color>
+            <Color x:Key="LabelSectionText">#6D6D72</Color>
+            <Color x:Key="DetailTextColor">#979797</Color>
+
+
+
+            <Thickness x:Key="SmallPadding">4</Thickness>
+            <Thickness x:Key="MediumPadding">8</Thickness>
+            <Thickness x:Key="StandardPadding">16</Thickness>
+
+            <x:Double x:Key="SmallSpacing">4</x:Double>
+            <x:Double x:Key="MediumSpacing">8</x:Double>
+            <x:Double x:Key="StandardSpacing">16</x:Double>
+
+
+            <OnPlatform x:TypeArguments="Color" Android="#F5F5F5" iOS="#EFEFF4" WinPhone="#EFEFF4" x:Key="WindowBackgroundTable"/>
+            <OnPlatform x:TypeArguments="Color" Android="#F5F5F5" iOS="White" WinPhone="White" x:Key="WindowBackground"/>
+            <OnPlatform x:TypeArguments="Color" Android="#ECECEC" iOS="#C8C7CC" WinPhone="#C8C7CC" x:Key="Divider"/>
+            <Color x:Key="ButtonBorder">#C8C7CC</Color>
+            <Color x:Key="ListSeparator">#C8C7CC</Color>
+            <OnPlatform x:TypeArguments="Thickness" Android="8,16" iOS="0,0,0,16" WinPhone="0,0,0,16" x:Key="CardPadding"/>
+            <OnPlatform x:TypeArguments="x:Double" Android="16" iOS="0" WinPhone="0" x:Key="CardSpacing"/>
+            
+            <OnPlatform x:TypeArguments="x:Double" Android="16" iOS="16" WinPhone="13" x:Key="EvolveListItemTextStyleSize" />
+            <OnPlatform x:TypeArguments="x:Double" Android="13" iOS="13" WinPhone="13" x:Key="EvolveListItemDetailTextStyleSize" />
+            <OnPlatform x:TypeArguments="x:Double" Android="18" iOS="13" WinPhone="13" x:Key="LabelSectionFontSize" />
+            <OnPlatform x:TypeArguments="x:Double" Android="14" iOS="14" WinPhone="14" x:Key="TweetTextSize" />
+            <OnPlatform x:TypeArguments="Font" Android="SemiBold" iOS="SemiBold" WinPhone="SemiBold" x:Key="TweetUserTextSize" />
+            <OnPlatform x:TypeArguments="x:String" Android="sans-serif-light" x:Key="SectionLabelFontFamily" />
+
+
+            <Style x:Key="TweetUserTextStyle" TargetType="Label" BaseResourceKey="ListItemDetailTextStyle">
+                <Setter Property="Font" Value="{DynamicResource TweetUserTextSize}" />
+                <Setter Property="FontSize" Value="{DynamicResource EvolveListItemTextStyleSize}" />
+            </Style>
+
+            <Style x:Key="TweetTextStyle" TargetType="Label" BaseResourceKey="ListItemDetailTextStyle">
+                <Setter Property="FontSize" Value="{DynamicResource TweetTextSize}" />
+                <Setter Property="TextColor" Value="{DynamicResource DetailTextColor}"/>
+            </Style>
+
+            <Style x:Key="EvolveListItemTextStyle" TargetType="Label" BaseResourceKey="ListItemTextStyle">
+                <Setter Property="FontSize" Value="{DynamicResource EvolveListItemTextStyleSize}" />
+            </Style>
+
+            <Style x:Key="EvolveDetailTextStyle" TargetType="Label" BaseResourceKey="ListItemDetailTextStyle">
+                <Setter Property="FontSize" Value="{DynamicResource EvolveListItemDetailTextStyleSize}" />
+            </Style>
+
+
+            <Style x:Key="SectionLabelTextStyle" TargetType="Label" BaseResourceKey="ListItemDetailTextStyle">
+                <Setter Property="FontSize" Value="{DynamicResource LabelSectionFontSize}" />
+                <Setter Property="TextColor" Value="{DynamicResource LabelSectionText}"/>
+                <Setter Property="FontFamily" Value="{DynamicResource SectionLabelFontFamily}"/>
+            </Style>
+
+            <Style x:Key="EvolveListItemDetailTextStyle" TargetType="Label" BaseResourceKey="ListItemDetailTextStyle">
+                <Setter Property="FontSize" Value="{DynamicResource EvolveListItemDetailTextStyleSize}" />
+                <Setter Property="TextColor" Value="{DynamicResource DetailTextColor}"/>
+            </Style>
+
+            <Style x:Key="EvolveListItemDetailPrimaryTextStyle" TargetType="Label" BaseResourceKey="ListItemDetailTextStyle">
+                <Setter Property="FontSize" Value="{DynamicResource EvolveListItemDetailTextStyleSize}" />
+                <Setter Property="TextColor" Value="{DynamicResource Primary}"/>
+            </Style>
+
+             <Style x:Key="EventTitleStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="{DynamicResource EvolveListItemTextStyleSize}" />
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontFamily" Value="{DynamicResource SectionLabelFontFamily}"/>
+                <Setter Property="Font" Value="Semibold"/>
+            </Style>
+
+              <Style x:Key="EvolveListItemTextStyleBold" TargetType="Label" BaseResourceKey="ListItemTextStyle">
+                <Setter Property="FontSize" Value="{DynamicResource EvolveListItemTextStyleSize}" />
+
+                <Setter Property="Font" Value="Semibold"/>
+            </Style>
+
+            <Style x:Key="EvolveDetailTextStyleBold" TargetType="Label" BaseResourceKey="ListItemDetailTextStyle">
+                <Setter Property="FontSize" Value="{DynamicResource EvolveListItemDetailTextStyleSize}" />
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <Style x:Key="EvolveListItemDetailTextStyleBold" TargetType="Label" BaseResourceKey="ListItemDetailTextStyle">
+                <Setter Property="FontSize" Value="{DynamicResource EvolveListItemDetailTextStyleSize}" />
+                <Setter Property="TextColor" Value="{DynamicResource DetailTextColor}"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+             <Style x:Key="EvolveListItemDetailPrimaryTextStyleBold" TargetType="Label" BaseResourceKey="ListItemDetailTextStyle">
+                <Setter Property="FontSize" Value="{DynamicResource EvolveListItemDetailTextStyleSize}" />
+                <Setter Property="TextColor" Value="{DynamicResource Primary}"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/nav_section_main"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_feed"
+            android:icon="@drawable/menu_feed"
+            android:title="Evolve Feed"/>
+        <item
+            android:id="@+id/nav_sessions"
+            android:icon="@drawable/menu_sessions"
+            android:title="Sessions"/>
+        <item
+            android:id="@+id/nav_events"
+            android:icon="@drawable/menu_events"
+            android:title="Events" />
+
+        <item
+            android:title="Mini-hacks"
+            android:icon="@drawable/menu_hacks"
+            android:id="@+id/nav_mini_hacks" />
+    </group>
+
+     <item android:title="Information" >
+        <menu>
+
+            <item
+                android:id="@+id/nav_sponsors"
+                android:icon="@drawable/menu_sponsors"
+                android:title="Sponsors"
+                android:checkable="true" />
+            <item
+                android:id="@+id/nav_evals"
+                android:icon="@drawable/menu_evals"
+                android:title="Evaluations"
+                android:checkable="true" />
+            <item
+                android:id="@+id/nav_venue"
+                android:icon="@drawable/menu_venue"
+                android:title="Venue"
+                android:checkable="true" />
+            <item
+                android:id="@+id/nav_floor_map"
+                android:icon="@drawable/menu_plan"
+                android:title="Floor Maps"
+                android:checkable="true" />
+            <item
+                android:id="@+id/nav_conference_info"
+                android:icon="@drawable/menu_info"
+                android:title="Conference Info"
+                android:checkable="true" />
+            <item
+                android:title="Settings"
+                android:icon="@drawable/menu_settings"
+                android:id="@+id/nav_settings"
+                android:checkable="true" />
+        </menu>
+    </item>
+</menu>

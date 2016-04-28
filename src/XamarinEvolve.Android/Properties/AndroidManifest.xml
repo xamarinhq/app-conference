@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="50" android:versionName="1.0.50" package="com.sample.evolve">
+	<uses-sdk android:minSdkVersion="16" android:targetSdkVersion="23" />
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+	<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<uses-permission android:name="android.permission.READ_CALENDAR" />
+	<uses-permission android:name="android.permission.WRITE_CALENDAR" />
+	<uses-permission android:name="android.permission.CAMERA" />
+	<uses-permission android:name="android.permission.FLASHLIGHT" />
+	<application android:icon="@drawable/newicon" android:theme="@style/MyTheme" android:label="Evolve16">
+		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyBJ0Z_zoluz4nSQHA8NNIm8C_ch4UeN59c" />
+	</application>
+</manifest>

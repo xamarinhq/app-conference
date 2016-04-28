@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:imagecircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+    x:Class="XamarinEvolve.Clients.UI.TweetCell">
+    <ContentView.Content>
+        <Grid Padding="16,8,8,8" ColumnSpacing="{StaticResource MediumSpacing}" RowSpacing="{StaticResource MediumSpacing}">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+          </Grid.ColumnDefinitions>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+          </Grid.RowDefinitions>
+          <StackLayout Padding="0" 
+                       Spacing="4" StyleId="TweetItem">
+            <Label Text="{Binding TitleDisplay}"
+                   Style="{DynamicResource TweetUserTextStyle}"
+                   LineBreakMode="NoWrap"/>
+
+            <Label Text="{Binding Text}"  
+                   Style="{DynamicResource TweetTextStyle}"
+                   LineBreakMode="WordWrap"/>
+             
+          </StackLayout>
+
+          <Grid Grid.Row="1" Grid.ColumnSpan="2" VerticalOptions="EndAndExpand">
+             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+              </Grid.ColumnDefinitions>
+              <Label 
+                   Text="{Binding SubtitleDisplay}" 
+                   Style="{DynamicResource EvolveListItemDetailPrimaryTextStyle}"
+                   LineBreakMode="NoWrap"/>
+
+              <Label Grid.ColumnSpan="2"
+                   HorizontalOptions="End"
+                   Text="{Binding DateDisplay}" 
+                   Style="{DynamicResource EvolveListItemDetailTextStyle}"
+                   LineBreakMode="NoWrap"/>
+             </Grid>
+
+           <Image Grid.Column="1"
+                  Grid.RowSpan="1" 
+                  IsVisible="{Binding HasImage}"
+                  HeightRequest="66"
+                  WidthRequest="66"
+                  VerticalOptions="Start"
+                  HorizontalOptions="Center"
+                  Aspect="AspectFit">
+                  <Image.Source>
+                    <UriImageSource Uri="{Binding TweetedImageUri}" 
+                        CacheValidity="7" 
+                        CachingEnabled="true"/>
+                  </Image.Source>
+                  <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding FullImageCommand}"/>
+                  </Image.GestureRecognizers>
+            </Image>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

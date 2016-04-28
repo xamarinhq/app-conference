@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinEvolve.Clients.UI.MenuPageUWP"
+       Title="Xamarin Evolve">
+    <ContentPage.Content>
+        <ListView
+               CachingStrategy="RecycleElement"
+               SeparatorColor="Transparent"
+               HasUnevenRows="True"
+               x:Name="ListViewMenu">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="20,12" ColumnSpacing="20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding Icon}" HeightRequest="20" WidthRequest="20" VerticalOptions="Center"/>
+                            <Label Grid.Column="1" Text="{Binding Name}" FontSize="14" VerticalOptions="Center"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

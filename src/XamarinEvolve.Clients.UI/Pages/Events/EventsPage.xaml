@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:XamarinEvolve.Clients.UI;assembly=XamarinEvolve.Clients.UI"
+    x:Class="XamarinEvolve.Clients.UI.EventsPage"
+    xmlns:imagecircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+    Title="{Binding Title}"
+    Icon="tab_events.png"
+   
+    BackgroundColor="{DynamicResource WindowBackground}">
+   <ContentPage.Resources>
+     <ResourceDictionary>
+        <local:EventTimeDisplayConverter x:Key="EventTimeDisplayConverter" />
+        <local:EventDayNumberDisplayConverter x:Key="EventDayNumberDisplayConverter" />
+        <local:EventDayDisplayConverter x:Key="EventDayDisplayConverter" />
+        <local:EventColorDisplayConverter x:Key="EventColorDisplayConverter" />
+     </ResourceDictionary>
+    </ContentPage.Resources>
+   <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+     <ListView 
+            x:Name="ListViewEvents"
+            ItemsSource="{Binding EventsGrouped}"
+            GroupDisplayBinding="{Binding Key}"
+            IsGroupingEnabled="true"
+            HasUnevenRows ="true"
+            IsPullToRefreshEnabled="{Binding IsNotBusy}"
+            RefreshCommand="{Binding ForceRefreshCommand}"
+            IsRefreshing="{Binding IsBusy, Mode=OneWay}" 
+            CachingStrategy="RecycleElement"
+            IsVisible="{Binding IsNotBusy}"
+            StyleId="EventsPageIdentifier"
+            AbsoluteLayout.LayoutFlags="All" 
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            BackgroundColor="White">
+            <ListView.SeparatorColor>
+                <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}"  WinPhone="{StaticResource ListSeparator}"/>
+            </ListView.SeparatorColor>
+        <ListView.GroupHeaderTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <ViewCell.Height>
+                        <OnPlatform x:TypeArguments="x:Double" iOS="28"/>
+                    </ViewCell.Height>  
+                    <local:EvolveGroupHeaderView/>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.GroupHeaderTemplate>
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell StyleId="disclosure">
+            <Grid Padding="{StaticResource StandardPadding}" ColumnSpacing="{StaticResource StandardSpacing}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout Spacing="{StaticResource SmallSpacing}" VerticalOptions="Center">
+                    <Grid>
+                        <imagecircle:CircleImage WidthRequest="35" HeightRequest="35" VerticalOptions="Center" HorizontalOptions="Center"
+                            FillColor="{Binding StartTime, Converter={StaticResource EventColorDisplayConverter}}"/>
+                        <Label Text="{Binding  StartTime, Converter={StaticResource EventDayNumberDisplayConverter}}" 
+                               VerticalTextAlignment="Center" 
+                               HorizontalTextAlignment="Center"
+                               Style="{DynamicResource EvolveListItemTextStyle}"
+                               TextColor="White"
+                               StyleId="EventItemCircleDate"/>
+                    </Grid>
+                    <Label  Text="{Binding StartTime, Converter={StaticResource EventDayDisplayConverter}}" 
+                               VerticalTextAlignment="Center" 
+                               HorizontalTextAlignment="Center"
+                               Style="{DynamicResource EvolveListItemDetailTextStyle}"
+                               StyleId="EventItemDay"/>
+                </StackLayout>
+
+                <StackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                        <Label Text="{Binding Title}" 
+                               Style="{DynamicResource EvolveListItemTextStyle}" StyleId="EventItemTitle"/>
+                        <Label Text="{Binding ., Converter={StaticResource EventTimeDisplayConverter}}" 
+                               Style="{DynamicResource EvolveListItemDetailTextStyle}" StyleId="EventItemTime"/>
+                </StackLayout>
+            </Grid>
+
+            <!--<Grid HeightRequest="180" BackgroundColor="{DynamicResource Primary}">
+              <Image Source="{Binding ImageUrl, Converter={StaticResource EventImageConverter}}" 
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand"
+                Aspect="AspectFill"
+                HeightRequest="150"
+                StyleId="EventItemImage"/>
+              <StackLayout Padding="{StaticResource StandardPadding}" 
+                           Spacing="{StaticResource SmallSpacing}"
+                           VerticalOptions="End"
+                           BackgroundColor="{StaticResource PrimaryDarkTranslucent}"
+                           HorizontalOptions="FillAndExpand">
+                <Label Text="{Binding Title}" Style="{DynamicResource EvolveListItemTextStyle}" TextColor="White" LineBreakMode="NoWrap" StyleId="EventItemTitle"/>
+                <Label Text="{Binding ., Converter={StaticResource EventDateDisplayConverter}}" Style="{DynamicResource EvolveListItemDetailTextStyle}" TextColor="White" LineBreakMode="NoWrap" StyleId="EventItemDate"/>
+              </StackLayout>
+            </Grid>-->
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+        <StackLayout IsVisible="{Binding IsBusy}"
+                                   AbsoluteLayout.LayoutFlags="PositionProportional"
+                                   AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
+                                    <StackLayout.Orientation>
+                                    <OnPlatform x:TypeArguments="StackOrientation" iOS="Horizontal"/>
+                                   </StackLayout.Orientation>
+            <ActivityIndicator IsRunning="{Binding IsBusy}" >
+                <ActivityIndicator.Color>
+                    <OnPlatform x:TypeArguments="Color" Android="{StaticResource Accent}"/>
+                </ActivityIndicator.Color>
+            </ActivityIndicator>
+            <Label Text="Loading Events..." HorizontalOptions="Center" Style="{DynamicResource EvolveListItemTextStyle}"/>
+       </StackLayout>
+    </AbsoluteLayout>
+</ContentPage>

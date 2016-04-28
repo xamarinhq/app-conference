@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="XamarinEvolve.Clients.UI.SponsorsPage"
+    xmlns:local="clr-namespace:XamarinEvolve.Clients.UI;assembly=XamarinEvolve.Clients.UI"
+    Title="Sponsors"
+    x:Name="SponsorsPage"
+    Icon="tab_sponsors.png"
+    BackgroundColor="{DynamicResource WindowBackground}">
+   <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+     <ListView 
+            x:Name="ListViewSponsors"
+            ItemsSource="{Binding Sponsors}"
+            GroupDisplayBinding="{Binding Key}"
+            IsGroupingEnabled="false"
+            HasUnevenRows ="false"
+            RowHeight="120"
+            IsPullToRefreshEnabled="{Binding IsNotBusy}"
+            RefreshCommand="{Binding ForceRefreshCommand}"
+            IsRefreshing="{Binding IsBusy, Mode=OneWay}" 
+            CachingStrategy="RetainElement"
+            IsVisible="{Binding IsNotBusy}"
+            AbsoluteLayout.LayoutFlags="All" 
+            AbsoluteLayout.LayoutBounds="0,0,1,1">
+        <ListView.SeparatorColor>
+            <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" Android="Transparent"/>
+        </ListView.SeparatorColor>
+      <ListView.ItemTemplate>
+        <DataTemplate>
+            <ViewCell StyleId="disclosure">
+                <local:SponsorCell HeightRequest="120"/>
+            </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+        <StackLayout IsVisible="{Binding IsBusy}"
+                                   AbsoluteLayout.LayoutFlags="PositionProportional"
+                                   AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
+                                   <StackLayout.Orientation>
+                                    <OnPlatform x:TypeArguments="StackOrientation" iOS="Horizontal"/>
+                                   </StackLayout.Orientation>
+            <ActivityIndicator IsRunning="{Binding IsBusy}" >
+                <ActivityIndicator.Color>
+                    <OnPlatform x:TypeArguments="Color" Android="{StaticResource Accent}"/>
+                </ActivityIndicator.Color>
+            </ActivityIndicator>
+            <Label Text="Loading Sponsors..." HorizontalOptions="Center" Style="{DynamicResource EvolveListItemTextStyle}"/>
+       </StackLayout>
+    </AbsoluteLayout>
+</ContentPage>

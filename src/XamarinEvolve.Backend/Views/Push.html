@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Evolve Push Notifications</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <div>
+        <h2>Send Push Notifications</h2>
+        <br />
+        <p>Here you can send push notifications out. Select which platforms you want to send to and input a message.</p>
+    </div>
+
+    <div>
+        <h3>Password</h3>
+        You must enter this:<br />
+        <textarea name="password" id="password" cols="40" rows="1" size="256"></textarea>
+        <br />
+        <h3>Notification</h3>
+        Services<br />
+        <input type="checkbox" id="apns" name="apns" value="apns" checked /> iOS
+        <input type="checkbox" id="gcm" name="gcm" value="gcm" checked /> Android
+        <input type="checkbox" id="wns" name="wns" value="wns" checked /> Windows
+        <br /> <br />
+        <textarea name="message" id="message" cols="40" rows="5" size="256"></textarea>
+        <br />
+        
+        <input type="button" value="Send Notification" onclick="sendNotification(this)" />
+        <p id="status" />
+
+        <br />
+        <br />
+
+        <h3>Announcements</h3>
+        This are synced in the app and show up in feed.<br />
+        <textarea name="announcement" id="announcement" cols="40" rows="5" size="256"></textarea>
+        <br />
+
+        <input type="button" value="Send Announcement" onclick="sendAnnouncement(this)" />
+        <p id="status2" />
+    </div>
+    <script>
+        function sendAnnouncement(button) {
+
+            var status = document.getElementById("status2");
+            var message = document.getElementById("announcement");
+            var password = document.getElementById("password");
+            status.innerHTML = "Sending announcement : ";
+            button.disabled = true;
+
+           
+                var http = new XMLHttpRequest();
+                http.open("POST", "/api/announcement?password=" + password.value, true);
+
+                http.onreadystatechange = function () {
+                    if (http.readyState == 4) {
+                        if (http.status == 200) {
+                            status.innerHTML += "\n Sent " + http.responseText;
+                        }
+                        else {
+                            status.innerHTML += "\n Error " + http.statusText;
+                        }
+                    }
+                }
+
+                var toSendA = JSON.stringify(message.value);
+                http.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+                http.setRequestHeader("Content-length", toSendA.length);
+                http.setRequestHeader("Connection", "close");
+                http.setRequestHeader("ZUMO-API-VERSION", "2.0.0");
+                http.send(toSendA);
+
+                button.disabled = false;
+            }
+
+        function sendNotification(button) {
+
+            var status = document.getElementById("status");
+            var message = document.getElementById("message");
+            var password = document.getElementById("password");
+            status.innerHTML = "Sending notification : ";
+            button.disabled = true;
+
+            var apns = document.getElementById("apns").checked;
+            var gcm = document.getElementById("gcm").checked;
+            var wns = document.getElementById("wns").checked;
+
+            if (apns) {
+                var apnsHttp = new XMLHttpRequest();
+                apnsHttp.open("POST", "/api/evolvenotifications?pns=apns&password="+password.value, true);
+
+                apnsHttp.onreadystatechange = function () {
+                    if (apnsHttp.readyState == 4) {
+                        if (apnsHttp.status == 200) {
+                            status.innerHTML += "\n iOS: Sent " + apnsHttp.responseText;
+                        }
+                        else {
+                            status.innerHTML += "\n iOS: Error " + apnsHttp.statusText;
+                        }
+                    }
+                }
+
+                var toSendA = JSON.stringify(message.value);
+                apnsHttp.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+                apnsHttp.setRequestHeader("Content-length", toSendA.length);
+                apnsHttp.setRequestHeader("Connection", "close");
+                apnsHttp.setRequestHeader("ZUMO-API-VERSION", "2.0.0");
+                apnsHttp.send(toSendA);
+            }
+
+            if (gcm) {
+                var gcmHttp = new XMLHttpRequest();
+                gcmHttp.open("POST", "/api/evolvenotifications?pns=gcm&password=" + password.value, true);
+                gcmHttp.onreadystatechange = function () {
+                    if (gcmHttp.readyState == 4) {
+                        if (gcmHttp.status == 200) {
+                            status.innerHTML += "\n Android: Sent " + gcmHttp.responseText;
+                        }
+                        else {
+                            status.innerHTML += "\n Android: Error " + gcmHttp.statusText;
+                        }
+                    }
+                }
+
+                var toSendA = JSON.stringify(message.value);
+                gcmHttp.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+                gcmHttp.setRequestHeader("Content-length", toSendA.length);
+                gcmHttp.setRequestHeader("Connection", "close");
+                gcmHttp.setRequestHeader("ZUMO-API-VERSION", "2.0.0");
+                gcmHttp.send(toSendA);
+            }
+
+            if (wns) {
+                var wnsHttp = new XMLHttpRequest();
+                wnsHttp.open("POST", "/api/evolvenotifications?pns=wns&password=" + password.value, true);
+               
+                wnsHttp.onreadystatechange = function () {
+                    if (wnsHttp.readyState == 4) {
+                        if (wnsHttp.status == 200) {
+                            status.innerHTML += "\n Windows: Sent " + wnsHttp.responseText;
+                        }
+                        else {
+                            status.innerHTML += "\n Windows: Error " + wns.statusText;
+                        }
+                    }
+                }
+
+                var toSendW = JSON.stringify(message.value);
+                wnsHttp.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+                wnsHttp.setRequestHeader("Content-length", toSendW.length);
+                wnsHttp.setRequestHeader("Connection", "close");
+
+                wnsHttp.setRequestHeader("ZUMO-API-VERSION", "2.0.0");
+                wnsHttp.send(toSendW);
+            }
+
+            button.disabled = false;
+        }
+    </script>
+
+</body>
+</html>

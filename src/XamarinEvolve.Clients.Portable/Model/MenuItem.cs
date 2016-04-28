@@ -1,0 +1,29 @@
+﻿using System;
+using System.Windows.Input;
+using MvvmHelpers;
+
+namespace XamarinEvolve.Clients.Portable
+{
+    public class MenuItem : ObservableObject
+    {
+        string name;
+        public string Name
+        {
+            get { return name; }
+            set { SetProperty(ref name, value); }
+        }
+        string subtitle;
+        public string Subtitle
+        {
+            get { return subtitle; }
+            set { SetProperty(ref subtitle, value); }
+        }
+
+        public string Icon {get;set;}
+        public string Parameter {get;set;}
+
+        public AppPage Page { get; set; }
+        public ICommand Command {get;set;}
+    }
+}
+
