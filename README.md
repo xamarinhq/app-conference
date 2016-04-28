@@ -16,7 +16,7 @@ The Xamarin Evolve 2016 app is full of awesome and includes everything that you 
 * Push Notifications
 * Phone Dialer
 * Wi-Fi configuration
-* AppLinks (Universal Links + Google App Indexing)
+* URL Navigation (Universal Links + Google App Indexing)
 * A bunch of other great things
 
 ## Shared code details
