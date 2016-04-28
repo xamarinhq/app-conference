@@ -81,11 +81,6 @@
 	</array>
 	<key>CFBundleName</key>
 	<string>Evolve16</string>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>fetch</string>
-		<string>remote-notification</string>
-	</array>
 	<key>UILaunchImages</key>
 	<array>
 		<dict>
