@@ -175,9 +175,7 @@
     <Content Include="toolbar_call.png" />
     <Content Include="toolbar_refresh.png" />
     <Content Include="toolbar_share.png" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <None Include="packages.config" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
