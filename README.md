@@ -106,3 +106,22 @@ Simply head over to http://hockeyapp.net and register a new iOS/Android/UWP appl
 ## Build your own Backend
 
 This repo contains a full backend that you can deploy to your own Azure App Service Mobile App Backend.
+
+# About
+The Xamarin Evolve mobile apps were handcrafted by Xamarins spread out all over the world.
+
+**Development:**
+* [James Montemagno](http://github.com/jamesmontemagno)
+* [Pierce Boggan](http://github.com/pierceboggan)
+
+**Design:**
+* [Antonio García Aprea](http://github.com/deskfolio)
+
+**Testing:**
+* [Ethan Dennis](https://github.com/erdennis13)
+
+**Many thanks to:**
+* [Fabio Cavalcante](https://github.com/fabiocav)
+* [Matisse Hack](https://github.com/MatisseHack)
+* [Sweetkriti Satpathy](https://github.com/Sweekriti91)
+* [Andrew Branch](https://github.com/andrewbranch)
