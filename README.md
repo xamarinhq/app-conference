@@ -49,7 +49,7 @@ With each push of code the Xamarin Evolve app was built with [Visual Studio Team
 ![](art/testcloud2.png)
 
 ## HockeyApp crash reporting
-Not only was the Evolve 2016 app continuously deployed for testing with [HockeyApp](http://hockyapp.net), but also provided events and crash reporting.
+Not only was the Evolve 2016 app continuously deployed for testing with [HockeyApp](http://hockeyapp.net), but also provided events and crash reporting.
 
 ![](art/hockeyapp.png)
 
