@@ -130,7 +130,8 @@ namespace XamarinEvolve.DataStore.Mock
                         Room = ro,
                         Speakers = sessionSpeakers,
                         Title = titles[i],
-                        ShortTitle = titlesShort[i]
+                        ShortTitle = titlesShort[i],
+                        RemoteId = i.ToString()
                     });
                 
                 sessions[i].IsFavorite = await favoriteStore.IsFavorite(sessions[i].Id);

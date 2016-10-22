@@ -65,7 +65,7 @@ namespace XamarinEvolve.Clients.UI
                             break;
                         case "floor-maps":
                             App.Logger.TrackPage(AppPage.FloorMap.ToString());
-                            page = new FloorMapsCarouselPage();
+                            page = new FloorMapsPage();
                             break;
                     }
 

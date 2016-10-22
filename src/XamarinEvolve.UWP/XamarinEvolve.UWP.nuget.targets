@@ -5,9 +5,9 @@
   </PropertyGroup>
   <ImportGroup>
     <Import Project="$(NuGetPackageRoot)\Microsoft.Bcl.Build\1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('$(NuGetPackageRoot)\Microsoft.Bcl.Build\1.0.21\build\Microsoft.Bcl.Build.targets')" />
-    <Import Project="$(NuGetPackageRoot)\SQLitePCL\3.8.7.2\build\netcore451\SQLitePCL.targets" Condition="Exists('$(NuGetPackageRoot)\SQLitePCL\3.8.7.2\build\netcore451\SQLitePCL.targets')" />
-    <Import Project="$(NuGetPackageRoot)\Xamarin.Forms\2.3.0.34-pre1\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('$(NuGetPackageRoot)\Xamarin.Forms\2.3.0.34-pre1\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
-    <Import Project="$(NuGetPackageRoot)\Xamarin.Forms.Maps\2.3.0.34-pre1\build\win81\Xamarin.Forms.Maps.targets" Condition="Exists('$(NuGetPackageRoot)\Xamarin.Forms.Maps\2.3.0.34-pre1\build\win81\Xamarin.Forms.Maps.targets')" />
+    <Import Project="$(NuGetPackageRoot)\SQLitePCLRaw.lib.e_sqlite3.v140\1.0.0\build\SQLitePCLRaw.lib.e_sqlite3.v140.targets" Condition="Exists('$(NuGetPackageRoot)\SQLitePCLRaw.lib.e_sqlite3.v140\1.0.0\build\SQLitePCLRaw.lib.e_sqlite3.v140.targets')" />
+    <Import Project="$(NuGetPackageRoot)\Xamarin.Forms\2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('$(NuGetPackageRoot)\Xamarin.Forms\2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+    <Import Project="$(NuGetPackageRoot)\Xamarin.Forms.Maps\2.3.2.127\build\win81\Xamarin.Forms.Maps.targets" Condition="Exists('$(NuGetPackageRoot)\Xamarin.Forms.Maps\2.3.2.127\build\win81\Xamarin.Forms.Maps.targets')" />
     <Import Project="$(NuGetPackageRoot)\Xamarin.Insights\1.12.3\build\windows8\Xamarin.Insights.targets" Condition="Exists('$(NuGetPackageRoot)\Xamarin.Insights\1.12.3\build\windows8\Xamarin.Insights.targets')" />
   </ImportGroup>
 </Project>

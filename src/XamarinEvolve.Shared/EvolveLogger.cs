@@ -23,9 +23,9 @@ namespace XamarinEvolve.Clients.Portable
                 return;
 #if __ANDROID__
 
-            HockeyApp.Metrics.MetricsManager.TrackEvent($"{page}Page");
+            HockeyApp.Android.Metrics.MetricsManager.TrackEvent($"{page}Page");
 #elif __IOS__
-            HockeyApp.BITHockeyManager.SharedHockeyManager?.MetricsManager?.TrackEvent($"{page}Page");
+            HockeyApp.MetricsManager.TrackEvent($"{page}Page");
 #endif
         }
 
@@ -38,9 +38,9 @@ namespace XamarinEvolve.Clients.Portable
                 return;
 
 #if __ANDROID__
-            HockeyApp.Metrics.MetricsManager.TrackEvent(trackIdentifier);
+            HockeyApp.Android.Metrics.MetricsManager.TrackEvent(trackIdentifier);
 #elif __IOS__
-            HockeyApp.BITHockeyManager.SharedHockeyManager?.MetricsManager?.TrackEvent(trackIdentifier);
+            HockeyApp.MetricsManager.TrackEvent(trackIdentifier);
 #endif
         }
 
@@ -54,9 +54,9 @@ namespace XamarinEvolve.Clients.Portable
             trackIdentifier = $"{trackIdentifier}-{key}-{@value}";
 
 #if __ANDROID__
-            HockeyApp.Metrics.MetricsManager.TrackEvent(trackIdentifier);
+            HockeyApp.Android.Metrics.MetricsManager.TrackEvent(trackIdentifier);
 #elif __IOS__
-            HockeyApp.BITHockeyManager.SharedHockeyManager?.MetricsManager?.TrackEvent(trackIdentifier);
+            HockeyApp.MetricsManager.TrackEvent(trackIdentifier);
 #endif
         }
        

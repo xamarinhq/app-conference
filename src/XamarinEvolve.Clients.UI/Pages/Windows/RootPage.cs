@@ -88,7 +88,7 @@ namespace XamarinEvolve.Clients.UI
                         newPage = new EvolveNavigationPage(new ConferenceInformationPage());
                         break;
                     case AppPage.FloorMap://Floor Maps
-                        newPage = new EvolveNavigationPage(new FloorMapsCarouselPage());
+                        newPage = new EvolveNavigationPage(new FloorMapsPage());
                         break;
                     case AppPage.Settings://Settings
                         newPage = new EvolveNavigationPage(new SettingsPage());
