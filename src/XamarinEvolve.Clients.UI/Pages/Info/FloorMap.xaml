@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView 
+		xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		xmlns:local="clr-namespace:XamarinEvolve.Clients.UI;assembly=XamarinEvolve.Clients.UI"
+    x:Class="XamarinEvolve.Clients.UI.FloorMap">
+    <Grid>
+      <ActivityIndicator
+          IsRunning="true"
+          VerticalOptions="Center"
+          HorizontalOptions="Center"
+          x:Name="ProgressBar">
+        <ActivityIndicator.Color>
+          <OnPlatform x:TypeArguments="Color" Android="{StaticResource Accent}"/>
+        </ActivityIndicator.Color>
+      </ActivityIndicator>
+      <local:PinchToZoomContainer>
+        <local:PinchToZoomContainer.Content>
+          <Image x:Name="MainImage"
+              HorizontalOptions="FillAndExpand"
+              VerticalOptions="FillAndExpand"
+              Aspect="AspectFit"/>
+        </local:PinchToZoomContainer.Content>
+      </local:PinchToZoomContainer>
+    </Grid>
+</ContentView>

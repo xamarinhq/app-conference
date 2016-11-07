@@ -14,17 +14,12 @@ namespace XamarinEvolve.Clients.UI
             this.root = root;
             InitializeComponent();
 
-            NavView.NavigationItemSelected += (sender, e) =>
+            NavView.NavigationItemSelected += async (sender, e) =>
             {
                 this.root.IsPresented = false;
-                Device.StartTimer(TimeSpan.FromMilliseconds(300), ()=>
-                {
-                        Device.BeginInvokeOnMainThread(async () => 
-                            {
-                                await this.root.NavigateAsync(e.Index);
-                            });
-                    return false;
-                });
+
+                await Task.Delay (225);
+                await this.root.NavigateAsync (e.Index);
             };
         }
     }

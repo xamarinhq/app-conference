@@ -16,7 +16,6 @@ using Android.Runtime;
 using Android.Widget;
 using FormsToolkit;
 using FormsToolkit.Droid;
-using Gcm;
 using Plugin.Permissions;
 using Refractored.XamForms.PullToRefresh.Droid;
 using Xamarin.Forms;
@@ -26,17 +25,23 @@ using XamarinEvolve.Clients.UI;
 using XamarinEvolve.DataObjects;
 using Xamarin.Forms.Platform.Android.AppLinks;
 using Xamarin;
+using Gcm;
 
 namespace XamarinEvolve.Droid
 {
     
 
-    [Activity(Label = "Evolve16", Icon = "@drawable/newicon", LaunchMode = LaunchMode.SingleTask, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Evolve16", 
+        Name="com.xamarin.xamarinevolve.MainActivity",
+        Exported = true,
+        Icon = "@drawable/newicon", 
+        LaunchMode = LaunchMode.SingleTask, 
+        ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     [IntentFilter(new []{ Intent.ActionView },
         Categories = new []
         {
-            Android.Content.Intent.CategoryDefault,
-            Android.Content.Intent.CategoryBrowsable
+            Intent.CategoryDefault,
+            Intent.CategoryBrowsable
         },
         DataScheme = "http",
         DataPathPrefix = "/session/",
@@ -44,8 +49,8 @@ namespace XamarinEvolve.Droid
     [IntentFilter(new []{ Intent.ActionView },
         Categories = new []
         {
-            Android.Content.Intent.CategoryDefault,
-            Android.Content.Intent.CategoryBrowsable
+            Intent.CategoryDefault,
+            Intent.CategoryBrowsable
         },
         DataScheme = "https",
         DataPathPrefix = "/session/",
@@ -54,28 +59,25 @@ namespace XamarinEvolve.Droid
     [IntentFilter(new []{ Intent.ActionView },
         Categories = new []
         {
-            Android.Content.Intent.CategoryDefault,
-            Android.Content.Intent.CategoryBrowsable
+            Intent.CategoryDefault,
+            Intent.CategoryBrowsable
         },
         DataScheme = "http",
         DataHost = "evolve.xamarin.com")]
     [IntentFilter(new []{ Intent.ActionView },
         Categories = new []
         {
-            Android.Content.Intent.CategoryDefault,
-            Android.Content.Intent.CategoryBrowsable
+            Intent.CategoryDefault,
+            Intent.CategoryBrowsable
         },
         DataScheme = "https",
         DataHost = "evolve.xamarin.com")]
     public class MainActivity : FormsAppCompatActivity
     {
-        private static MainActivity current;
-        public static MainActivity Current { get { return current; } }
-        GoogleApiClient client;
         protected override void OnCreate (Bundle savedInstanceState)
         {
-            FormsAppCompatActivity.ToolbarResource = Resource.Layout.toolbar;
-            FormsAppCompatActivity.TabLayoutResource = Resource.Layout.tabs;
+            ToolbarResource = Resource.Layout.toolbar;
+            TabLayoutResource = Resource.Layout.tabs;
 
             base.OnCreate (savedInstanceState);
 
@@ -83,8 +85,7 @@ namespace XamarinEvolve.Droid
             FormsMaps.Init(this, savedInstanceState);
             AndroidAppLinks.Init(this);
             Toolkit.Init ();
-
-            //ZXing.Net.Mobile.Forms.Android.Platform.Init ();
+            
             PullToRefreshLayoutRenderer.Init ();
             typeof (Color).GetProperty ("Accent", BindingFlags.Public | BindingFlags.Static).SetValue (null, Color.FromHex ("#757575"));
 
@@ -109,14 +110,34 @@ namespace XamarinEvolve.Droid
             var gpsAvailable = IsPlayServicesAvailable ();
             Settings.Current.PushNotificationsEnabled = gpsAvailable;
 
-            if (gpsAvailable)
-            {
-                client = new GoogleApiClient.Builder(this)
-                .AddApi (AppIndex.API)
-                .Build ();
-            }
-
             OnNewIntent (Intent);
+
+
+            if(!string.IsNullOrWhiteSpace(Intent?.Data?.LastPathSegment))
+            {
+
+                switch(Intent.Data.LastPathSegment)
+                {
+                    case "sessions":
+                        MessagingService.Current.SendMessage<DeepLinkPage>("DeepLinkPage", new DeepLinkPage
+                        {
+                            Page = AppPage.Sessions
+                        });
+                        break;
+                    case "events":
+                        MessagingService.Current.SendMessage<DeepLinkPage>("DeepLinkPage", new DeepLinkPage
+                        {
+                            Page = AppPage.Events
+                        });
+                        break;
+                    case "minihacks":
+                        MessagingService.Current.SendMessage<DeepLinkPage>("DeepLinkPage", new DeepLinkPage
+                        {
+                            Page = AppPage.MiniHacks
+                        });
+                        break;
+                }
+            }
 
             if (!Settings.Current.PushNotificationsEnabled)
                 return;
@@ -135,10 +156,11 @@ namespace XamarinEvolve.Droid
             if (string.IsNullOrWhiteSpace(ApiKeys.HockeyAppAndroid) || ApiKeys.HockeyAppAndroid == nameof(ApiKeys.HockeyAppAndroid))
                 return;
 
-            HockeyApp.CrashManager.Register(this, ApiKeys.HockeyAppAndroid);
-            //HockeyApp.UpdateManager.Register(this, ApiKeys.HockeyAppAndroid);
+            
+            HockeyApp.Android.CrashManager.Register(this, ApiKeys.HockeyAppAndroid);
+            //HockeyApp.Android.UpdateManager.Register(this, ApiKeys.HockeyAppAndroid);
 
-            HockeyApp.Metrics.MetricsManager.Register(this, Application, ApiKeys.HockeyAppAndroid);
+            HockeyApp.Android.Metrics.MetricsManager.Register(Application, ApiKeys.HockeyAppAndroid);
            
         }
         

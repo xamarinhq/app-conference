@@ -183,8 +183,7 @@ namespace XamarinEvolve.Clients.Portable
                     NoSessionsFound = false;
                 }
                 
-                foreach (var session in Sessions)
-                    Application.Current.AppLinks.RegisterLink(session.GetAppLink());
+                
 
             } 
             catch (Exception ex) 

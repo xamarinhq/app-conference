@@ -63,7 +63,7 @@ namespace XamarinEvolve.Clients.UI
                         newPage = new EvolveNavigationPage(new ConferenceInformationPage());
                         break;
                     case (int)AppPage.FloorMap://Floor Maps
-                        newPage = new EvolveNavigationPage(new FloorMapsCarouselPage());
+                        newPage = new EvolveNavigationPage(new FloorMapsPage());
                         break;
                     case (int)AppPage.Settings://Settings
                         newPage = new EvolveNavigationPage(new SettingsPage());
@@ -113,13 +113,24 @@ namespace XamarinEvolve.Clients.UI
             page = null;
             switch(p)
             {
-
+                case AppPage.Sessions:
+                    await NavigateAsync((int)AppPage.Sessions);
+                    break;
                 case AppPage.Session:
                     await NavigateAsync((int)AppPage.Sessions);
+                    if (string.IsNullOrWhiteSpace(id))
+                        break;
+
                     var session = await DependencyService.Get<ISessionStore>().GetAppIndexSession(id);
                     if (session == null)
                         break;
                     await Detail.Navigation.PushAsync(new SessionDetailsPage(session));
+                    break;
+                case AppPage.Events:
+                    await NavigateAsync((int)AppPage.Events);
+                    break;
+                case AppPage.MiniHacks:
+                    await NavigateAsync((int)AppPage.MiniHacks);
                     break;
             }
 

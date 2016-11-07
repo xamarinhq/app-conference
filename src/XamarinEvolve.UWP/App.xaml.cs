@@ -21,6 +21,7 @@ using XamarinEvolve.Clients.Portable;
 using XamarinEvolve.DataStore.Abstractions;
 using Microsoft.WindowsAzure.MobileServices;
 using System.Reflection;
+using Microsoft.HockeyApp;
 
 namespace XamarinEvolve.UWP
 {

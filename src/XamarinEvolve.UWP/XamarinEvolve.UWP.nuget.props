@@ -4,7 +4,6 @@
     <NuGetPackageRoot>$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
   </PropertyGroup>
   <ImportGroup>
-    <Import Project="$(NuGetPackageRoot)\SQLitePCL\3.8.7.2\build\netcore451\SQLitePCL.props" Condition="Exists('$(NuGetPackageRoot)\SQLitePCL\3.8.7.2\build\netcore451\SQLitePCL.props')" />
-    <Import Project="$(NuGetPackageRoot)\Xamarin.Forms.Maps\2.3.0.34-pre1\build\win81\Xamarin.Forms.Maps.props" Condition="Exists('$(NuGetPackageRoot)\Xamarin.Forms.Maps\2.3.0.34-pre1\build\win81\Xamarin.Forms.Maps.props')" />
+    <Import Project="$(NuGetPackageRoot)\Xamarin.Forms.Maps\2.3.2.127\build\win81\Xamarin.Forms.Maps.props" Condition="Exists('$(NuGetPackageRoot)\Xamarin.Forms.Maps\2.3.2.127\build\win81\Xamarin.Forms.Maps.props')" />
   </ImportGroup>
 </Project>

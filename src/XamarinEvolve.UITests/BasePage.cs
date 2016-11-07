@@ -91,7 +91,7 @@ namespace XamarinEvolve.UITests
             if (OnAndroid)
             {
                 Hamburger = x => x.Class("ImageButton").Marked("OK");
-                Tab = name => x => x.Class("NavigationMenuItemView").Text(name);
+                Tab = name => x => x.Id("design_menu_item_text").Text(name);
             }
             if (OniOS)
             {
@@ -103,9 +103,9 @@ namespace XamarinEvolve.UITests
         {
             if (OnAndroid)
             {
-                if(app.Query(Hamburger).Any())
+                if (app.Query(Hamburger).Any())
                     app.Tap(Hamburger);
-                
+
                 app.Screenshot("Navigation Menu Open");
                 int count = 0;
                 while (!app.Query(tabName).Any() && count < 3)

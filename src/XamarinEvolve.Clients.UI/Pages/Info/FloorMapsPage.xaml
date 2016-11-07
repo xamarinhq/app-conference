@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinEvolve.Clients.UI.FloorMapsPage"
+		         xmlns:local="clr-namespace:XamarinEvolve.Clients.UI;assembly=XamarinEvolve.Clients.UI"
+		         xmlns:carousel="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+             Title="Floor Maps"
+	           BackgroundColor="White">
+  <carousel:CarouselView x:Name="CarouselMaps">
+    <carousel:CarouselView.ItemTemplate>
+      <DataTemplate>
+        <local:FloorMap/>
+      </DataTemplate>
+    </carousel:CarouselView.ItemTemplate>
+  </carousel:CarouselView>
+</ContentPage>

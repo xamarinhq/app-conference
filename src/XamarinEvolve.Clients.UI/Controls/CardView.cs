@@ -7,7 +7,7 @@ namespace XamarinEvolve.Clients.UI
         public CardView()
         {
             Padding = 0;
-            if (Device.OS == TargetPlatform.iOS || Device.OS == TargetPlatform.iOS)
+            if (Device.OS == TargetPlatform.iOS)
             {
                 HasShadow = false;
                 OutlineColor = Color.Transparent;
