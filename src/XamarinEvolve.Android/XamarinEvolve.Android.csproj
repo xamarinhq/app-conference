@@ -344,10 +344,10 @@
       <HintPath>..\packages\Refractored.XamForms.PullToRefresh.1.0.10\lib\MonoAndroid10\Refractored.XamForms.PullToRefresh.dll</HintPath>
     </Reference>
     <Reference Include="FormsToolkit.Android">
-      <HintPath>..\packages\FormsToolkit.1.1.14\lib\MonoAndroid10\FormsToolkit.Android.dll</HintPath>
+      <HintPath>..\packages\FormsToolkit.1.1.18\lib\MonoAndroid10\FormsToolkit.Android.dll</HintPath>
     </Reference>
     <Reference Include="FormsToolkit">
-      <HintPath>..\packages\FormsToolkit.1.1.14\lib\MonoAndroid10\FormsToolkit.dll</HintPath>
+      <HintPath>..\packages\FormsToolkit.1.1.18\lib\MonoAndroid10\FormsToolkit.dll</HintPath>
     </Reference>
     <Reference Include="Plugin.Messaging.Abstractions">
       <HintPath>..\packages\Xam.Plugins.Messaging.3.2.1\lib\MonoAndroid10\Plugin.Messaging.Abstractions.dll</HintPath>

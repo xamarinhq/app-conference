@@ -303,10 +303,10 @@
       <HintPath>..\packages\Refractored.XamForms.PullToRefresh.1.0.10\lib\Xamarin.iOS10\Refractored.XamForms.PullToRefresh.dll</HintPath>
     </Reference>
     <Reference Include="FormsToolkit.iOS">
-      <HintPath>..\packages\FormsToolkit.1.1.14\lib\Xamarin.iOS10\FormsToolkit.iOS.dll</HintPath>
+      <HintPath>..\packages\FormsToolkit.1.1.18\lib\Xamarin.iOS10\FormsToolkit.iOS.dll</HintPath>
     </Reference>
     <Reference Include="FormsToolkit">
-      <HintPath>..\packages\FormsToolkit.1.1.14\lib\Xamarin.iOS10\FormsToolkit.dll</HintPath>
+      <HintPath>..\packages\FormsToolkit.1.1.18\lib\Xamarin.iOS10\FormsToolkit.dll</HintPath>
     </Reference>
     <Reference Include="Plugin.Messaging.Abstractions">
       <HintPath>..\packages\Xam.Plugins.Messaging.3.2.1\lib\Xamarin.iOS10\Plugin.Messaging.Abstractions.dll</HintPath>
