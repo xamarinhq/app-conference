@@ -25,7 +25,9 @@ using XamarinEvolve.Clients.UI;
 using XamarinEvolve.DataObjects;
 using Xamarin.Forms.Platform.Android.AppLinks;
 using Xamarin;
-using Gcm;
+//using Gcm;
+//using Gcm.Client;
+using XamarinEvolve.Droid.Notifications;
 
 namespace XamarinEvolve.Droid
 {
@@ -167,13 +169,15 @@ namespace XamarinEvolve.Droid
         private void RegisterWithGCM()
         {
             // Check to ensure everything's set up right
-            GcmClient.CheckDevice(this);
-            GcmClient.CheckManifest(this);
+            //GcmClient.CheckDevice(this);
+            //GcmClient.CheckManifest(this);
+
+            EvolveRegistrationService.Register(this);
 
             // Register for push notifications
-            System.Diagnostics.Debug.WriteLine("MainActivity", "Registering...");
-            GcmService.Initialize(this);
-            GcmService.Register(this);
+            //System.Diagnostics.Debug.WriteLine("MainActivity", "Registering...");
+            //GcmService.Initialize(this);
+            //GcmService.Register(this);
         }
 
         public bool IsPlayServicesAvailable ()

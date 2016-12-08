@@ -1,4 +1,4 @@
-﻿
+﻿/*
 using System;
 using System.Collections.Generic;
 using Android.App;
@@ -7,6 +7,7 @@ using Gcm;
 using WindowsAzure.Messaging;
 using XamarinEvolve.Clients.Portable;
 using Android.Support.V4.App;
+using Gcm.Client;
 
 namespace XamarinEvolve.Droid
 {
@@ -136,9 +137,9 @@ namespace XamarinEvolve.Droid
                 var pendingIntent = PendingIntent.GetActivity(this, 0, notificationIntent, PendingIntentFlags.UpdateCurrent);
 
                 Console.WriteLine ("Created Pending Intent");
-                /*var wearableExtender =
-                    new NotificationCompat.WearableExtender()
-                        .SetBackground(BitmapFactory.DecodeResource(Resources, Resource.Drawable.ic_background_evolve));*/
+                //var wearableExtender =
+                //    new NotificationCompat.WearableExtender()
+                //        .SetBackground(BitmapFactory.DecodeResource(Resources, Resource.Drawable.ic_background_evolve));
 
                 var style = new NotificationCompat.BigTextStyle();
                 style.BigText(message);
@@ -179,3 +180,4 @@ namespace XamarinEvolve.Droid
     }
 }
 
+*/

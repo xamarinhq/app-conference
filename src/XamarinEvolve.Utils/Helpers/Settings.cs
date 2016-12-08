@@ -37,6 +37,20 @@ namespace XamarinEvolve.Clients.Portable
         }
 
 
+        const string GcmTokenKey = "gcm_token";
+        readonly string GcmTokenDefault = string.Empty;
+        public string GcmToken
+        {
+            get { return AppSettings.GetValueOrDefault<string>(GcmTokenKey, GcmTokenDefault); }
+            set
+            {
+                if (AppSettings.AddOrUpdateValue(GcmTokenKey, value))
+                {
+                    OnPropertyChanged();
+                }
+            }
+        }
+
         const string WiFiSSIDKey = "ssid_key";
         readonly string WiFiSSIDDefault = "Xamarin_Evolve";
         public string WiFiSSID 

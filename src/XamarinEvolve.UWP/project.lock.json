@@ -25820,7 +25820,7 @@
       ]
     },
     "Xam.Plugins.Settings/2.5.1": {
-      "sha512": "qLFxTF5NXC4VvLt4+DtdYc31d33bXOQkophUlm4mGRZoefeF/bu4ScnrcK0OZYAXimt1ONqO9kId2e6YcsW5dA==",
+      "sha512": "74FJFEiDiItFm73B+k5bBGXu7ZJF1J8u+GNjS/xYgtgSqty+5Nc8ZWwxx0BqzlrDmGnKPSnNcTf2vm5Sw46bIw==",
       "type": "package",
       "files": [
         "Xam.Plugins.Settings.2.5.1.nupkg.sha512",
@@ -26088,7 +26088,7 @@
       ]
     },
     "Xamarin.Forms.Maps/2.3.2.127": {
-      "sha512": "pvRKTi9bn+jMTZQqjDpaTIrwtq/Q2RcBUNPzqodF0HdwuI1P9yCrfcIAMmLAk8KokbgBi67rUqcmTpfEtQbj0A==",
+      "sha512": "0dSV+ZCCdEinSw0V76AapyfU9Hd4rn8vLZpFIFraCrd1935O1UhsbeBG8dcnIFzzSxGB+KcgvAO81uUePahB6w==",
       "type": "package",
       "files": [
         "Xamarin.Forms.Maps.2.3.2.127.nupkg.sha512",
