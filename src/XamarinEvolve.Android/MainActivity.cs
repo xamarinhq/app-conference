@@ -34,7 +34,7 @@ namespace XamarinEvolve.Droid
     
 
     [Activity(Label = "Evolve16", 
-        Name="com.xamarin.xamarinevolve.MainActivity",
+        Name="com.sample.evolve.MainActivity",
         Exported = true,
         Icon = "@drawable/newicon", 
         LaunchMode = LaunchMode.SingleTask, 
