@@ -8,7 +8,7 @@ namespace XamarinEvolve.UITests
 {
     public class AppInitializer
     {
-        const string apkfile = "../../../XamarinEvolve.Android/bin/UITest/com.sample.evolve-Signed.apk";
+        const string apkfile = "../../../XamarinEvolve.Android/bin/UITest/com.xamarin.xamarinevolve-Signed.apk";
         //        const string appfile = "../../../XamarinEvolve.iOS/bin/iPhoneSimulator/Debug/XamarinEvolveiOS.app";
 
         private static IApp app;
