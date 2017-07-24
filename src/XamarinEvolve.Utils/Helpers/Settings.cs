@@ -41,7 +41,7 @@ namespace XamarinEvolve.Clients.Portable
         readonly string GcmTokenDefault = string.Empty;
         public string GcmToken
         {
-            get { return AppSettings.GetValueOrDefault<string>(GcmTokenKey, GcmTokenDefault); }
+            get { return AppSettings.GetValueOrDefault(GcmTokenKey, GcmTokenDefault); }
             set
             {
                 if (AppSettings.AddOrUpdateValue(GcmTokenKey, value))
@@ -55,7 +55,7 @@ namespace XamarinEvolve.Clients.Portable
         readonly string WiFiSSIDDefault = "Xamarin_Evolve";
         public string WiFiSSID 
         {
-            get { return AppSettings.GetValueOrDefault<string> (WiFiSSIDKey, WiFiSSIDDefault); }
+            get { return AppSettings.GetValueOrDefault (WiFiSSIDKey, WiFiSSIDDefault); }
             set 
             {
                 if (AppSettings.AddOrUpdateValue (WiFiSSIDKey, value)) 
@@ -69,7 +69,7 @@ namespace XamarinEvolve.Clients.Portable
         readonly string WiFiPassDefault = "";
         public string WiFiPass 
         {
-            get { return AppSettings.GetValueOrDefault<string> (WiFiPassKey, WiFiPassDefault); }
+            get { return AppSettings.GetValueOrDefault (WiFiPassKey, WiFiPassDefault); }
             set 
             {
                 if (AppSettings.AddOrUpdateValue (WiFiPassKey, value)) 
@@ -81,7 +81,7 @@ namespace XamarinEvolve.Clients.Portable
 
         public void SaveReminderId(string id, string calId)
         {
-            AppSettings.AddOrUpdateValue<string>(GetReminderId(id), calId);
+            AppSettings.AddOrUpdateValue(GetReminderId(id), calId);
         }
 
         string GetReminderId(string id)
@@ -113,10 +113,10 @@ namespace XamarinEvolve.Clients.Portable
 
         public DateTime LastFavoriteTime
         {
-            get { return AppSettings.GetValueOrDefault<DateTime>(LastFavoriteTimeKey, DateTime.UtcNow); }
+            get { return AppSettings.GetValueOrDefault(LastFavoriteTimeKey, DateTime.UtcNow); }
             set
             {
-                AppSettings.AddOrUpdateValue<DateTime>(LastFavoriteTimeKey, value);
+                AppSettings.AddOrUpdateValue(LastFavoriteTimeKey, value);
             }
         }
 
@@ -126,10 +126,10 @@ namespace XamarinEvolve.Clients.Portable
 
         public bool HasSetReminder
         {
-            get { return AppSettings.GetValueOrDefault<bool>(HasSetReminderKey, HasSetReminderDefault); }
+            get { return AppSettings.GetValueOrDefault(HasSetReminderKey, HasSetReminderDefault); }
             set
             {
-                AppSettings.AddOrUpdateValue<bool>(HasSetReminderKey, value);
+                AppSettings.AddOrUpdateValue(HasSetReminderKey, value);
             }
         }
 
@@ -137,8 +137,8 @@ namespace XamarinEvolve.Clients.Portable
         static readonly string EvolveCalendarIdDefault = string.Empty;
         public string EvolveCalendarId
         {
-            get { return AppSettings.GetValueOrDefault<string>(EvolveCalendarIdKey, EvolveCalendarIdDefault); }
-            set { AppSettings.AddOrUpdateValue<string>(EvolveCalendarIdKey, value); }
+            get { return AppSettings.GetValueOrDefault(EvolveCalendarIdKey, EvolveCalendarIdDefault); }
+            set { AppSettings.AddOrUpdateValue(EvolveCalendarIdKey, value); }
         }
           
 
@@ -147,10 +147,10 @@ namespace XamarinEvolve.Clients.Portable
 
         public bool PushNotificationsEnabled
         {
-            get { return AppSettings.GetValueOrDefault<bool>(PushNotificationsEnabledKey, PushNotificationsEnabledDefault); }
+            get { return AppSettings.GetValueOrDefault(PushNotificationsEnabledKey, PushNotificationsEnabledDefault); }
             set
             {
-                if (AppSettings.AddOrUpdateValue<bool>(PushNotificationsEnabledKey, value))
+                if (AppSettings.AddOrUpdateValue(PushNotificationsEnabledKey, value))
                     OnPropertyChanged();
             }
         }
@@ -164,10 +164,10 @@ namespace XamarinEvolve.Clients.Portable
         /// <value><c>true</c> if favorites only; otherwise, <c>false</c>.</value>
         public bool FirstRun
         {
-            get { return AppSettings.GetValueOrDefault<bool>(FirstRunKey, FirstRunDefault); }
+            get { return AppSettings.GetValueOrDefault(FirstRunKey, FirstRunDefault); }
             set
             {
-                if (AppSettings.AddOrUpdateValue<bool>(FirstRunKey, value))
+                if (AppSettings.AddOrUpdateValue(FirstRunKey, value))
                     OnPropertyChanged();
             }
         }
@@ -177,10 +177,10 @@ namespace XamarinEvolve.Clients.Portable
 
         public bool GooglePlayChecked
         {
-            get { return AppSettings.GetValueOrDefault<bool>(GooglePlayCheckedKey, GooglePlayCheckedDefault); }
+            get { return AppSettings.GetValueOrDefault(GooglePlayCheckedKey, GooglePlayCheckedDefault); }
             set
             {
-                AppSettings.AddOrUpdateValue<bool>(GooglePlayCheckedKey, value);
+                AppSettings.AddOrUpdateValue(GooglePlayCheckedKey, value);
             }
         }
 
@@ -189,10 +189,10 @@ namespace XamarinEvolve.Clients.Portable
 
         public bool AttemptedPush
         {
-            get { return AppSettings.GetValueOrDefault<bool>(AttemptedPushKey, AttemptedPushDefault); }
+            get { return AppSettings.GetValueOrDefault(AttemptedPushKey, AttemptedPushDefault); }
             set
             {
-                AppSettings.AddOrUpdateValue<bool>(AttemptedPushKey, value);
+                AppSettings.AddOrUpdateValue(AttemptedPushKey, value);
             }
         }
 
@@ -202,10 +202,10 @@ namespace XamarinEvolve.Clients.Portable
 
         public bool PushRegistered
         {
-            get { return AppSettings.GetValueOrDefault<bool>(PushRegisteredKey, PushRegisteredDefault); }
+            get { return AppSettings.GetValueOrDefault(PushRegisteredKey, PushRegisteredDefault); }
             set
             {
-                AppSettings.AddOrUpdateValue<bool>(PushRegisteredKey, value);
+                AppSettings.AddOrUpdateValue(PushRegisteredKey, value);
             }
         }
 
@@ -218,10 +218,10 @@ namespace XamarinEvolve.Clients.Portable
         /// <value><c>true</c> if favorites only; otherwise, <c>false</c>.</value>
         public bool FavoritesOnly
         {
-            get { return AppSettings.GetValueOrDefault<bool>(FavoriteModeKey, FavoriteModeDefault); }
+            get { return AppSettings.GetValueOrDefault(FavoriteModeKey, FavoriteModeDefault); }
             set
             {
-                if (AppSettings.AddOrUpdateValue<bool>(FavoriteModeKey, value))
+                if (AppSettings.AddOrUpdateValue(FavoriteModeKey, value))
                     OnPropertyChanged();
             }
         }
@@ -235,10 +235,10 @@ namespace XamarinEvolve.Clients.Portable
         /// <value><c>true</c> if show all categories; otherwise, <c>false</c>.</value>
         public bool ShowAllCategories
         {
-            get { return AppSettings.GetValueOrDefault<bool>(ShowAllCategoriesKey, ShowAllCategoriesDefault); }
+            get { return AppSettings.GetValueOrDefault(ShowAllCategoriesKey, ShowAllCategoriesDefault); }
             set
             {
-                if (AppSettings.AddOrUpdateValue<bool>(ShowAllCategoriesKey, value))
+                if (AppSettings.AddOrUpdateValue(ShowAllCategoriesKey, value))
                     OnPropertyChanged();
             }
         }
@@ -259,11 +259,11 @@ namespace XamarinEvolve.Clients.Portable
                 if (DateTime.UtcNow > EndOfEvolve)
                     return true;
                 
-                return AppSettings.GetValueOrDefault<bool>(ShowPastSessionsKey, ShowPastSessionsDefault); 
+                return AppSettings.GetValueOrDefault(ShowPastSessionsKey, ShowPastSessionsDefault); 
             }
             set
             {
-                if (AppSettings.AddOrUpdateValue<bool>(ShowPastSessionsKey, value))
+                if (AppSettings.AddOrUpdateValue(ShowPastSessionsKey, value))
                     OnPropertyChanged();
             }
         }
@@ -274,10 +274,10 @@ namespace XamarinEvolve.Clients.Portable
 
         public string FilteredCategories
         {
-            get { return AppSettings.GetValueOrDefault<string>(FilteredCategoriesKey, FilteredCategoriesDefault); }
+            get { return AppSettings.GetValueOrDefault(FilteredCategoriesKey, FilteredCategoriesDefault); }
             set
             {
-                if (AppSettings.AddOrUpdateValue<string>(FilteredCategoriesKey, value))
+                if (AppSettings.AddOrUpdateValue(FilteredCategoriesKey, value))
                     OnPropertyChanged();
             }
         }
@@ -287,7 +287,7 @@ namespace XamarinEvolve.Clients.Portable
         readonly string EmailDefault = string.Empty;
         public string Email 
         {
-            get { return AppSettings.GetValueOrDefault<string>(EmailKey, EmailDefault); }
+            get { return AppSettings.GetValueOrDefault(EmailKey, EmailDefault); }
             set
             {
                 if (AppSettings.AddOrUpdateValue(EmailKey, value))
@@ -303,10 +303,10 @@ namespace XamarinEvolve.Clients.Portable
 
         public static int DatabaseId
         {
-            get { return AppSettings.GetValueOrDefault<int>(DatabaseIdKey, DatabaseIdDefault); }
+            get { return AppSettings.GetValueOrDefault(DatabaseIdKey, DatabaseIdDefault); }
             set
             {
-                AppSettings.AddOrUpdateValue<int>(DatabaseIdKey, value);
+                AppSettings.AddOrUpdateValue(DatabaseIdKey, value);
             }
         }
 
@@ -319,7 +319,7 @@ namespace XamarinEvolve.Clients.Portable
         readonly string FirstNameDefault =  string.Empty;
         public string FirstName 
         {
-            get { return AppSettings.GetValueOrDefault<string>(FirstNameKey, FirstNameDefault); }
+            get { return AppSettings.GetValueOrDefault(FirstNameKey, FirstNameDefault); }
             set
             {
                 if (AppSettings.AddOrUpdateValue(FirstNameKey, value))
@@ -334,7 +334,7 @@ namespace XamarinEvolve.Clients.Portable
         readonly string LastNameDefault =  string.Empty;
         public string LastName 
         {
-            get { return AppSettings.GetValueOrDefault<string>(LastNameKey, LastNameDefault); }
+            get { return AppSettings.GetValueOrDefault(LastNameKey, LastNameDefault); }
             set
             {
                 if (AppSettings.AddOrUpdateValue(LastNameKey, value))
@@ -350,8 +350,8 @@ namespace XamarinEvolve.Clients.Portable
         const bool NeedsSyncDefault = true;
         public bool NeedsSync
         {
-            get { return AppSettings.GetValueOrDefault<bool>(NeedsSyncKey, NeedsSyncDefault) || LastSync < DateTime.Now.AddDays(-1); }
-            set { AppSettings.AddOrUpdateValue<bool>(NeedsSyncKey, value); }
+            get { return AppSettings.GetValueOrDefault(NeedsSyncKey, NeedsSyncDefault) || LastSync < DateTime.Now.AddDays(-1); }
+            set { AppSettings.AddOrUpdateValue(NeedsSyncKey, value); }
 
         }
 
@@ -361,11 +361,11 @@ namespace XamarinEvolve.Clients.Portable
         {
             get
             {
-                return AppSettings.GetValueOrDefault<int>(LoginAttemptsKey, LoginAttemptsDefault);
+                return AppSettings.GetValueOrDefault(LoginAttemptsKey, LoginAttemptsDefault);
             }
             set
             {
-                AppSettings.AddOrUpdateValue<int>(LoginAttemptsKey, value);
+                AppSettings.AddOrUpdateValue(LoginAttemptsKey, value);
             }
         }
 
@@ -373,8 +373,8 @@ namespace XamarinEvolve.Clients.Portable
         const bool HasSyncedDataDefault = false;
         public bool HasSyncedData
         {
-            get { return AppSettings.GetValueOrDefault<bool>(HasSyncedDataKey, HasSyncedDataDefault); }
-            set { AppSettings.AddOrUpdateValue<bool>(HasSyncedDataKey, value); }
+            get { return AppSettings.GetValueOrDefault(HasSyncedDataKey, HasSyncedDataDefault); }
+            set { AppSettings.AddOrUpdateValue(HasSyncedDataKey, value); }
 
         }
 
@@ -384,11 +384,11 @@ namespace XamarinEvolve.Clients.Portable
         {
             get
             {
-                return AppSettings.GetValueOrDefault<DateTime>(LastSyncKey, LastSyncDefault);
+                return AppSettings.GetValueOrDefault(LastSyncKey, LastSyncDefault);
             }
             set
             {
-                if (AppSettings.AddOrUpdateValue<DateTime>(LastSyncKey, value))
+                if (AppSettings.AddOrUpdateValue(LastSyncKey, value))
                     OnPropertyChanged();
             }
         } 

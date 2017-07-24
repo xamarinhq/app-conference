@@ -9,7 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Android.Gms.Gcm.Iid;
+using Android.Gms.Iid;
 
 namespace XamarinEvolve.Droid.Notifications
 {

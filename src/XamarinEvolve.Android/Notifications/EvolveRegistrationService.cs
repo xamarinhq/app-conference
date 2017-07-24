@@ -5,7 +5,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
-using Android.Gms.Gcm.Iid;
+using Android.Gms.Iid;
 using XamarinEvolve.Clients.Portable;
 using Android.Gms.Gcm;
 using WindowsAzure.Messaging;
