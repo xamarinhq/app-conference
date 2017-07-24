@@ -447,61 +447,61 @@
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-29.png">
       <InProject>false</InProject>
     </ImageAsset>
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-58.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-87.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-80.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-120-2.png">
-      <InProject>false</InProject>
-    </ImageAsset>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-57.png">
       <InProject>false</InProject>
     </ImageAsset>
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-114.png">
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-29%402x.png">
       <InProject>false</InProject>
     </ImageAsset>
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-120.png">
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-29%403x.png">
       <InProject>false</InProject>
     </ImageAsset>
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-180.png">
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-40%402x.png">
       <InProject>false</InProject>
     </ImageAsset>
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\PadIcon-29.png">
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-40%403x.png">
       <InProject>false</InProject>
     </ImageAsset>
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\PadIcon-58.png">
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-57%402x.png">
       <InProject>false</InProject>
     </ImageAsset>
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\PadIcon-40.png">
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-60%402x.png">
       <InProject>false</InProject>
     </ImageAsset>
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\PadIcon-80.png">
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-60%403x.png">
       <InProject>false</InProject>
     </ImageAsset>
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\PadIcon-50.png">
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-ipad29.png">
       <InProject>false</InProject>
     </ImageAsset>
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\PadIcon-100.png">
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-ipad29%402x.png">
       <InProject>false</InProject>
     </ImageAsset>
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\PadIcon-72.png">
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-ipad40.png">
       <InProject>false</InProject>
     </ImageAsset>
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\PadIcon-144.png">
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-ipad40%402x.png">
       <InProject>false</InProject>
     </ImageAsset>
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\PadIcon-76.png">
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-50.png">
       <InProject>false</InProject>
     </ImageAsset>
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\PadIcon-152.png">
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-50%402x.png">
       <InProject>false</InProject>
     </ImageAsset>
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\PadIcon-167.png">
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-ipad72.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-ipad72%402x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-76.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-76%402x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\ico-ipadpro83.5%402x.png">
       <InProject>false</InProject>
     </ImageAsset>
   </ItemGroup>
