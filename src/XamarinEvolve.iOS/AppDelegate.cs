@@ -56,10 +56,10 @@ namespace XamarinEvolve.iOS
             UIView.AppearanceWhenContainedIn(typeof(SLComposeViewController)).TintColor = tint;
 
             #if !ENABLE_TEST_CLOUD
-            if (!string.IsNullOrWhiteSpace(ApiKeys.HockeyAppiOS) && ApiKeys.HockeyAppiOS != nameof(ApiKeys.HockeyAppiOS)))
+            if (!string.IsNullOrWhiteSpace(ApiKeys.HockeyAppiOS) && ApiKeys.HockeyAppiOS != nameof(ApiKeys.HockeyAppiOS))
             {
                
-                var manager = BITHockeyManager.SharedHockeyManager;
+                var manager = HockeyApp.iOS.BITHockeyManager.SharedHockeyManager;
                 manager.Configure(ApiKeys.HockeyAppiOS);
 
                 //Disable update manager
