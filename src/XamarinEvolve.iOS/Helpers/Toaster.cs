@@ -1,9 +1,7 @@
 ﻿using Xamarin.Forms;
 using XamarinEvolve.Clients.Portable;
 using XamarinEvolve.iOS;
-using ToastIOS;
 using UIKit;
-using CoreGraphics;
 
 [assembly:Dependency(typeof(Toaster))]
 namespace XamarinEvolve.iOS
@@ -14,7 +12,7 @@ namespace XamarinEvolve.iOS
         {
             Device.BeginInvokeOnMainThread(() =>
                 {
-                    Toast.MakeText(message, Toast.LENGTH_LONG).SetCornerRadius(0).Show();
+                    new UIAlertView(string.Empty, message, null, "OK").Show();
                 });
         }
     }

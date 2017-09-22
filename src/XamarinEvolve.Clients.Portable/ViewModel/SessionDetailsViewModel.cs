@@ -112,7 +112,11 @@ namespace XamarinEvolve.Clients.Portable
         async Task ExecuteShareCommandAsync()
         {
             Logger.Track(EvolveLoggerKeys.Share, "Title", Session.Title);
-            await CrossShare.Current.Share($"Can't wait for {Session.Title} at #XamarinEvolve!", "Share");
+            await CrossShare.Current.Share(new Plugin.Share.Abstractions.ShareMessage
+            {
+                Text =$"Can't wait for {Session.Title} at #XamarinEvolve!",
+                Title = "Share"
+            });
         }
 
         ICommand  loadSessionCommand;

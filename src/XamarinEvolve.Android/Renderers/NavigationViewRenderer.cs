@@ -8,7 +8,7 @@ using XamarinEvolve.Clients.Portable;
 using Android.Widget;
 using FormsToolkit;
 using Android.Views;
-
+using Square.Picasso;
 
 [assembly: ExportRenderer (typeof(XamarinEvolve.Clients.UI.NavigationView), typeof(NavigationViewRenderer))]
 namespace XamarinEvolve.Droid
@@ -73,7 +73,11 @@ namespace XamarinEvolve.Droid
 
         void UpdateImage()
         {
-            Koush.UrlImageViewHelper.SetUrlDrawable (profileImage, Settings.Current.UserAvatar, Resource.Drawable.profile_generic);
+            Picasso.With(Forms.Context)
+               .Load(Settings.Current.UserAvatar)
+               .Error(Resource.Drawable.profile_generic)
+               .Into(profileImage);
+
         }
 
         public override void OnViewRemoved(Android.Views.View child)

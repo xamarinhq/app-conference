@@ -24,7 +24,7 @@ namespace XamarinEvolve.DataStore.Mock
 
 
         public static bool IsFavorite(string id) =>
-            AppSettings.GetValueOrDefault<bool>("fav_"+id, false);
+            AppSettings.GetValueOrDefault("fav_"+id, false);
 
         public static void SetFavorite(string id, bool favorite) =>
             AppSettings.AddOrUpdateValue("fav_"+id, favorite);
@@ -37,7 +37,7 @@ namespace XamarinEvolve.DataStore.Mock
         }
 
         public static bool LeftFeedback(string id) =>
-        AppSettings.GetValueOrDefault<bool>("feed_"+id, false);
+        AppSettings.GetValueOrDefault("feed_"+id, false);
 
         public static void LeaveFeedback(string id, bool leave) =>
         AppSettings.AddOrUpdateValue("feed_"+id, leave);

@@ -42,12 +42,16 @@
 	<string>Resources/Images.xcassets/AppIcons.appiconset</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Location is needed to display your current location on maps.</string>
-	<key>NSRemindersUsageDescription</key>
-	<string>Add reminders for events.</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Scan Barcodes</string>
 	<key>NSCalendarsUsageDescription</key>
-	<string>Add events to calendar.</string>
+	<string>Calendar permission needed to add events to calendar.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Needed for access to photos for profile.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>This app needs access to the camera to take photos.</string>
+  	<key>NSRemindersUsageDescription</key>
+	<string>Add reminders for events.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This app needs access to microphone.</string>
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>

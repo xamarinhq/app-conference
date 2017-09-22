@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
-using Android.Gms.AppIndexing;
 using Android.Gms.Common;
 using Android.Gms.Common.Apis;
 using Android.Gms.Gcm;
@@ -23,55 +22,21 @@ using Xamarin.Forms.Platform.Android;
 using XamarinEvolve.Clients.Portable;
 using XamarinEvolve.Clients.UI;
 using XamarinEvolve.DataObjects;
-using Xamarin.Forms.Platform.Android.AppLinks;
 using Xamarin;
-using Gcm;
+//using Gcm;
+//using Gcm.Client;
+using XamarinEvolve.Droid.Notifications;
 
 namespace XamarinEvolve.Droid
 {
     
 
     [Activity(Label = "Evolve16", 
-        Name="com.xamarin.xamarinevolve.MainActivity",
+        Name="com.sample.evolve.MainActivity",
         Exported = true,
         Icon = "@drawable/newicon", 
         LaunchMode = LaunchMode.SingleTask, 
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    [IntentFilter(new []{ Intent.ActionView },
-        Categories = new []
-        {
-            Intent.CategoryDefault,
-            Intent.CategoryBrowsable
-        },
-        DataScheme = "http",
-        DataPathPrefix = "/session/",
-        DataHost = "evolve.xamarin.com")]
-    [IntentFilter(new []{ Intent.ActionView },
-        Categories = new []
-        {
-            Intent.CategoryDefault,
-            Intent.CategoryBrowsable
-        },
-        DataScheme = "https",
-        DataPathPrefix = "/session/",
-        DataHost = "evolve.xamarin.com")]
-
-    [IntentFilter(new []{ Intent.ActionView },
-        Categories = new []
-        {
-            Intent.CategoryDefault,
-            Intent.CategoryBrowsable
-        },
-        DataScheme = "http",
-        DataHost = "evolve.xamarin.com")]
-    [IntentFilter(new []{ Intent.ActionView },
-        Categories = new []
-        {
-            Intent.CategoryDefault,
-            Intent.CategoryBrowsable
-        },
-        DataScheme = "https",
-        DataHost = "evolve.xamarin.com")]
     public class MainActivity : FormsAppCompatActivity
     {
         protected override void OnCreate (Bundle savedInstanceState)
@@ -83,7 +48,7 @@ namespace XamarinEvolve.Droid
 
             Forms.Init (this, savedInstanceState);
             FormsMaps.Init(this, savedInstanceState);
-            AndroidAppLinks.Init(this);
+           
             Toolkit.Init ();
             
             PullToRefreshLayoutRenderer.Init ();
@@ -167,13 +132,15 @@ namespace XamarinEvolve.Droid
         private void RegisterWithGCM()
         {
             // Check to ensure everything's set up right
-            GcmClient.CheckDevice(this);
-            GcmClient.CheckManifest(this);
+            //GcmClient.CheckDevice(this);
+            //GcmClient.CheckManifest(this);
+
+            EvolveRegistrationService.Register(this);
 
             // Register for push notifications
-            System.Diagnostics.Debug.WriteLine("MainActivity", "Registering...");
-            GcmService.Initialize(this);
-            GcmService.Register(this);
+            //System.Diagnostics.Debug.WriteLine("MainActivity", "Registering...");
+            //GcmService.Initialize(this);
+            //GcmService.Register(this);
         }
 
         public bool IsPlayServicesAvailable ()
@@ -204,7 +171,7 @@ namespace XamarinEvolve.Droid
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
         {
-            global::ZXing.Net.Mobile.Forms.Android.PermissionsHandler.OnRequestPermissionsResult (requestCode, permissions, grantResults);
+            global::ZXing.Net.Mobile.Android.PermissionsHandler.OnRequestPermissionsResult (requestCode, permissions, grantResults);
             PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 
