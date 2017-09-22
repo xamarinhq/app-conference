@@ -50,8 +50,6 @@
 	<string>This app needs access to the camera to take photos.</string>
   	<key>NSRemindersUsageDescription</key>
 	<string>Add reminders for events.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>This app needs access to photos.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>This app needs access to microphone.</string>
 	<key>UIApplicationShortcutItems</key>
