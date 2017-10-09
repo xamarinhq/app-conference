@@ -1,7 +1,7 @@
 {
-  "version": 2,
+  "version": 3,
   "targets": {
-    "UAP,Version=v10.0": {
+    "UAP,Version=v10.0.10240": {
       "CClarke.Plugin.Calendars/0.6.33-beta": {
         "type": "package",
         "compile": {
@@ -677,16 +677,13 @@
           "lib/netstandard1.0/MvvmHelpers.dll": {}
         }
       },
-      "Refractored.XamForms.PullToRefresh/1.1.0": {
+      "Refractored.XamForms.PullToRefresh/2.0.0.13": {
         "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "2.3.2.127"
-        },
         "compile": {
-          "lib/portable-net45+wp80+win8+wpa81/Refractored.XamForms.PullToRefresh.dll": {}
+          "lib/netstandard1.0/Refractored.XamForms.PullToRefresh.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+wp80+win8+wpa81/Refractored.XamForms.PullToRefresh.dll": {}
+          "lib/netstandard1.0/Refractored.XamForms.PullToRefresh.dll": {}
         }
       },
       "runtime.native.System.IO.Compression/4.1.0": {
@@ -2658,7 +2655,7 @@
           }
         }
       },
-      "Xam.Plugin.Connectivity/3.0.1": {
+      "Xam.Plugin.Connectivity/3.0.3": {
         "type": "package",
         "compile": {
           "lib/UAP10/Plugin.Connectivity.Abstractions.dll": {},
@@ -2728,7 +2725,7 @@
           "lib/UAP10/Plugin.Settings.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.4.247": {
+      "Xamarin.Forms/2.4.0.282": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
@@ -2743,7 +2740,8 @@
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         },
         "build": {
-          "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.targets": {}
+          "build/netstandard1.0/Xamarin.Forms.props": {},
+          "build/netstandard1.0/Xamarin.Forms.targets": {}
         }
       },
       "Xamarin.Forms.CarouselView/2.3.0-pre2": {
@@ -2758,10 +2756,10 @@
           "lib/uap10.0/Xamarin.Forms.CarouselView.dll": {}
         }
       },
-      "Xamarin.Forms.Maps/2.3.4.247": {
+      "Xamarin.Forms.Maps/2.4.0.282": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Forms": "2.3.4.247"
+          "Xamarin.Forms": "2.4.0.282"
         },
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Maps.UWP.dll": {},
@@ -2856,7 +2854,7 @@
         "type": "project"
       }
     },
-    "UAP,Version=v10.0/win10-arm": {
+    "UAP,Version=v10.0.10240/win10-arm": {
       "CClarke.Plugin.Calendars/0.6.33-beta": {
         "type": "package",
         "compile": {
@@ -3480,16 +3478,13 @@
           "lib/netstandard1.0/MvvmHelpers.dll": {}
         }
       },
-      "Refractored.XamForms.PullToRefresh/1.1.0": {
+      "Refractored.XamForms.PullToRefresh/2.0.0.13": {
         "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "2.3.2.127"
-        },
         "compile": {
-          "lib/portable-net45+wp80+win8+wpa81/Refractored.XamForms.PullToRefresh.dll": {}
+          "lib/netstandard1.0/Refractored.XamForms.PullToRefresh.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+wp80+win8+wpa81/Refractored.XamForms.PullToRefresh.dll": {}
+          "lib/netstandard1.0/Refractored.XamForms.PullToRefresh.dll": {}
         }
       },
       "runtime.any.System.Collections/4.0.11": {
@@ -5602,7 +5597,7 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Xam.Plugin.Connectivity/3.0.1": {
+      "Xam.Plugin.Connectivity/3.0.3": {
         "type": "package",
         "compile": {
           "lib/UAP10/Plugin.Connectivity.Abstractions.dll": {},
@@ -5672,7 +5667,7 @@
           "lib/UAP10/Plugin.Settings.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.4.247": {
+      "Xamarin.Forms/2.4.0.282": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
@@ -5687,7 +5682,8 @@
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         },
         "build": {
-          "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.targets": {}
+          "build/netstandard1.0/Xamarin.Forms.props": {},
+          "build/netstandard1.0/Xamarin.Forms.targets": {}
         }
       },
       "Xamarin.Forms.CarouselView/2.3.0-pre2": {
@@ -5702,10 +5698,10 @@
           "lib/uap10.0/Xamarin.Forms.CarouselView.dll": {}
         }
       },
-      "Xamarin.Forms.Maps/2.3.4.247": {
+      "Xamarin.Forms.Maps/2.4.0.282": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Forms": "2.3.4.247"
+          "Xamarin.Forms": "2.4.0.282"
         },
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Maps.UWP.dll": {},
@@ -5800,7 +5796,7 @@
         "type": "project"
       }
     },
-    "UAP,Version=v10.0/win10-arm-aot": {
+    "UAP,Version=v10.0.10240/win10-arm-aot": {
       "CClarke.Plugin.Calendars/0.6.33-beta": {
         "type": "package",
         "compile": {
@@ -6425,16 +6421,13 @@
           "lib/netstandard1.0/MvvmHelpers.dll": {}
         }
       },
-      "Refractored.XamForms.PullToRefresh/1.1.0": {
+      "Refractored.XamForms.PullToRefresh/2.0.0.13": {
         "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "2.3.2.127"
-        },
         "compile": {
-          "lib/portable-net45+wp80+win8+wpa81/Refractored.XamForms.PullToRefresh.dll": {}
+          "lib/netstandard1.0/Refractored.XamForms.PullToRefresh.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+wp80+win8+wpa81/Refractored.XamForms.PullToRefresh.dll": {}
+          "lib/netstandard1.0/Refractored.XamForms.PullToRefresh.dll": {}
         }
       },
       "runtime.aot.System.Collections/4.0.10": {
@@ -6798,9 +6791,6 @@
       },
       "runtime.win10-arm-aot.runtime.native.System.IO.Compression/4.0.1": {
         "type": "package",
-        "compile": {
-          "runtimes/win10-arm-aot/lib/netcore50/_._": {}
-        },
         "runtime": {
           "runtimes/win10-arm-aot/lib/netcore50/clrcompression.dll": {}
         }
@@ -8585,7 +8575,7 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Xam.Plugin.Connectivity/3.0.1": {
+      "Xam.Plugin.Connectivity/3.0.3": {
         "type": "package",
         "compile": {
           "lib/UAP10/Plugin.Connectivity.Abstractions.dll": {},
@@ -8655,7 +8645,7 @@
           "lib/UAP10/Plugin.Settings.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.4.247": {
+      "Xamarin.Forms/2.4.0.282": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
@@ -8670,7 +8660,8 @@
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         },
         "build": {
-          "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.targets": {}
+          "build/netstandard1.0/Xamarin.Forms.props": {},
+          "build/netstandard1.0/Xamarin.Forms.targets": {}
         }
       },
       "Xamarin.Forms.CarouselView/2.3.0-pre2": {
@@ -8685,10 +8676,10 @@
           "lib/uap10.0/Xamarin.Forms.CarouselView.dll": {}
         }
       },
-      "Xamarin.Forms.Maps/2.3.4.247": {
+      "Xamarin.Forms.Maps/2.4.0.282": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Forms": "2.3.4.247"
+          "Xamarin.Forms": "2.4.0.282"
         },
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Maps.UWP.dll": {},
@@ -8783,7 +8774,7 @@
         "type": "project"
       }
     },
-    "UAP,Version=v10.0/win10-x64": {
+    "UAP,Version=v10.0.10240/win10-x64": {
       "CClarke.Plugin.Calendars/0.6.33-beta": {
         "type": "package",
         "compile": {
@@ -9410,16 +9401,13 @@
           "lib/netstandard1.0/MvvmHelpers.dll": {}
         }
       },
-      "Refractored.XamForms.PullToRefresh/1.1.0": {
+      "Refractored.XamForms.PullToRefresh/2.0.0.13": {
         "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "2.3.2.127"
-        },
         "compile": {
-          "lib/portable-net45+wp80+win8+wpa81/Refractored.XamForms.PullToRefresh.dll": {}
+          "lib/netstandard1.0/Refractored.XamForms.PullToRefresh.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+wp80+win8+wpa81/Refractored.XamForms.PullToRefresh.dll": {}
+          "lib/netstandard1.0/Refractored.XamForms.PullToRefresh.dll": {}
         }
       },
       "runtime.any.System.Collections/4.0.11": {
@@ -11538,7 +11526,7 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Xam.Plugin.Connectivity/3.0.1": {
+      "Xam.Plugin.Connectivity/3.0.3": {
         "type": "package",
         "compile": {
           "lib/UAP10/Plugin.Connectivity.Abstractions.dll": {},
@@ -11608,7 +11596,7 @@
           "lib/UAP10/Plugin.Settings.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.4.247": {
+      "Xamarin.Forms/2.4.0.282": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
@@ -11623,7 +11611,8 @@
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         },
         "build": {
-          "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.targets": {}
+          "build/netstandard1.0/Xamarin.Forms.props": {},
+          "build/netstandard1.0/Xamarin.Forms.targets": {}
         }
       },
       "Xamarin.Forms.CarouselView/2.3.0-pre2": {
@@ -11638,10 +11627,10 @@
           "lib/uap10.0/Xamarin.Forms.CarouselView.dll": {}
         }
       },
-      "Xamarin.Forms.Maps/2.3.4.247": {
+      "Xamarin.Forms.Maps/2.4.0.282": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Forms": "2.3.4.247"
+          "Xamarin.Forms": "2.4.0.282"
         },
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Maps.UWP.dll": {},
@@ -11736,7 +11725,7 @@
         "type": "project"
       }
     },
-    "UAP,Version=v10.0/win10-x64-aot": {
+    "UAP,Version=v10.0.10240/win10-x64-aot": {
       "CClarke.Plugin.Calendars/0.6.33-beta": {
         "type": "package",
         "compile": {
@@ -12364,16 +12353,13 @@
           "lib/netstandard1.0/MvvmHelpers.dll": {}
         }
       },
-      "Refractored.XamForms.PullToRefresh/1.1.0": {
+      "Refractored.XamForms.PullToRefresh/2.0.0.13": {
         "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "2.3.2.127"
-        },
         "compile": {
-          "lib/portable-net45+wp80+win8+wpa81/Refractored.XamForms.PullToRefresh.dll": {}
+          "lib/netstandard1.0/Refractored.XamForms.PullToRefresh.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+wp80+win8+wpa81/Refractored.XamForms.PullToRefresh.dll": {}
+          "lib/netstandard1.0/Refractored.XamForms.PullToRefresh.dll": {}
         }
       },
       "runtime.aot.System.Collections/4.0.10": {
@@ -12737,9 +12723,6 @@
       },
       "runtime.win10-x64-aot.runtime.native.System.IO.Compression/4.0.1": {
         "type": "package",
-        "compile": {
-          "runtimes/win10-x64-aot/lib/netcore50/_._": {}
-        },
         "runtime": {
           "runtimes/win10-x64-aot/lib/netcore50/clrcompression.dll": {}
         }
@@ -14530,7 +14513,7 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Xam.Plugin.Connectivity/3.0.1": {
+      "Xam.Plugin.Connectivity/3.0.3": {
         "type": "package",
         "compile": {
           "lib/UAP10/Plugin.Connectivity.Abstractions.dll": {},
@@ -14600,7 +14583,7 @@
           "lib/UAP10/Plugin.Settings.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.4.247": {
+      "Xamarin.Forms/2.4.0.282": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
@@ -14615,7 +14598,8 @@
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         },
         "build": {
-          "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.targets": {}
+          "build/netstandard1.0/Xamarin.Forms.props": {},
+          "build/netstandard1.0/Xamarin.Forms.targets": {}
         }
       },
       "Xamarin.Forms.CarouselView/2.3.0-pre2": {
@@ -14630,10 +14614,10 @@
           "lib/uap10.0/Xamarin.Forms.CarouselView.dll": {}
         }
       },
-      "Xamarin.Forms.Maps/2.3.4.247": {
+      "Xamarin.Forms.Maps/2.4.0.282": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Forms": "2.3.4.247"
+          "Xamarin.Forms": "2.4.0.282"
         },
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Maps.UWP.dll": {},
@@ -14728,7 +14712,7 @@
         "type": "project"
       }
     },
-    "UAP,Version=v10.0/win10-x86": {
+    "UAP,Version=v10.0.10240/win10-x86": {
       "CClarke.Plugin.Calendars/0.6.33-beta": {
         "type": "package",
         "compile": {
@@ -15355,16 +15339,13 @@
           "lib/netstandard1.0/MvvmHelpers.dll": {}
         }
       },
-      "Refractored.XamForms.PullToRefresh/1.1.0": {
+      "Refractored.XamForms.PullToRefresh/2.0.0.13": {
         "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "2.3.2.127"
-        },
         "compile": {
-          "lib/portable-net45+wp80+win8+wpa81/Refractored.XamForms.PullToRefresh.dll": {}
+          "lib/netstandard1.0/Refractored.XamForms.PullToRefresh.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+wp80+win8+wpa81/Refractored.XamForms.PullToRefresh.dll": {}
+          "lib/netstandard1.0/Refractored.XamForms.PullToRefresh.dll": {}
         }
       },
       "runtime.any.System.Collections/4.0.11": {
@@ -17483,7 +17464,7 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Xam.Plugin.Connectivity/3.0.1": {
+      "Xam.Plugin.Connectivity/3.0.3": {
         "type": "package",
         "compile": {
           "lib/UAP10/Plugin.Connectivity.Abstractions.dll": {},
@@ -17553,7 +17534,7 @@
           "lib/UAP10/Plugin.Settings.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.4.247": {
+      "Xamarin.Forms/2.4.0.282": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
@@ -17568,7 +17549,8 @@
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         },
         "build": {
-          "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.targets": {}
+          "build/netstandard1.0/Xamarin.Forms.props": {},
+          "build/netstandard1.0/Xamarin.Forms.targets": {}
         }
       },
       "Xamarin.Forms.CarouselView/2.3.0-pre2": {
@@ -17583,10 +17565,10 @@
           "lib/uap10.0/Xamarin.Forms.CarouselView.dll": {}
         }
       },
-      "Xamarin.Forms.Maps/2.3.4.247": {
+      "Xamarin.Forms.Maps/2.4.0.282": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Forms": "2.3.4.247"
+          "Xamarin.Forms": "2.4.0.282"
         },
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Maps.UWP.dll": {},
@@ -17681,7 +17663,7 @@
         "type": "project"
       }
     },
-    "UAP,Version=v10.0/win10-x86-aot": {
+    "UAP,Version=v10.0.10240/win10-x86-aot": {
       "CClarke.Plugin.Calendars/0.6.33-beta": {
         "type": "package",
         "compile": {
@@ -18309,16 +18291,13 @@
           "lib/netstandard1.0/MvvmHelpers.dll": {}
         }
       },
-      "Refractored.XamForms.PullToRefresh/1.1.0": {
+      "Refractored.XamForms.PullToRefresh/2.0.0.13": {
         "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "2.3.2.127"
-        },
         "compile": {
-          "lib/portable-net45+wp80+win8+wpa81/Refractored.XamForms.PullToRefresh.dll": {}
+          "lib/netstandard1.0/Refractored.XamForms.PullToRefresh.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+wp80+win8+wpa81/Refractored.XamForms.PullToRefresh.dll": {}
+          "lib/netstandard1.0/Refractored.XamForms.PullToRefresh.dll": {}
         }
       },
       "runtime.aot.System.Collections/4.0.10": {
@@ -18682,9 +18661,6 @@
       },
       "runtime.win10-x86-aot.runtime.native.System.IO.Compression/4.0.1": {
         "type": "package",
-        "compile": {
-          "runtimes/win10-x86-aot/lib/netcore50/_._": {}
-        },
         "runtime": {
           "runtimes/win10-x86-aot/lib/netcore50/clrcompression.dll": {}
         }
@@ -20475,7 +20451,7 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Xam.Plugin.Connectivity/3.0.1": {
+      "Xam.Plugin.Connectivity/3.0.3": {
         "type": "package",
         "compile": {
           "lib/UAP10/Plugin.Connectivity.Abstractions.dll": {},
@@ -20545,7 +20521,7 @@
           "lib/UAP10/Plugin.Settings.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.4.247": {
+      "Xamarin.Forms/2.4.0.282": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
@@ -20560,7 +20536,8 @@
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         },
         "build": {
-          "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.targets": {}
+          "build/netstandard1.0/Xamarin.Forms.props": {},
+          "build/netstandard1.0/Xamarin.Forms.targets": {}
         }
       },
       "Xamarin.Forms.CarouselView/2.3.0-pre2": {
@@ -20575,10 +20552,10 @@
           "lib/uap10.0/Xamarin.Forms.CarouselView.dll": {}
         }
       },
-      "Xamarin.Forms.Maps/2.3.4.247": {
+      "Xamarin.Forms.Maps/2.4.0.282": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Forms": "2.3.4.247"
+          "Xamarin.Forms": "2.4.0.282"
         },
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Maps.UWP.dll": {},
@@ -23607,22 +23584,26 @@
         "refractored.mvvmhelpers.nuspec"
       ]
     },
-    "Refractored.XamForms.PullToRefresh/1.1.0": {
-      "sha512": "beIDzF70hSb5b/+vP5GPUGX3zjsY3kNhH9o0GL7uA+3hBw5Ds7MSaUSwsZmzsRQFxAtyL4/b6B80YOV76ullcw==",
+    "Refractored.XamForms.PullToRefresh/2.0.0.13": {
+      "sha512": "6kXTnwwiXV2s6/2wYnAr5v1c1RStQyMU2U7a70uNTfX9CCyT7DnARPWISuUPqMv3RzxL6o0i5zwgUZs3s9Vs/w==",
       "type": "package",
-      "path": "refractored.xamforms.pulltorefresh/1.1.0",
+      "path": "refractored.xamforms.pulltorefresh/2.0.0.13",
       "files": [
         "lib/MonoAndroid10/Refractored.XamForms.PullToRefresh.Droid.dll",
         "lib/MonoAndroid10/Refractored.XamForms.PullToRefresh.Droid.xml",
         "lib/MonoAndroid10/Refractored.XamForms.PullToRefresh.dll",
+        "lib/MonoAndroid10/Refractored.XamForms.PullToRefresh.pdb",
         "lib/MonoAndroid10/Refractored.XamForms.PullToRefresh.xml",
         "lib/Xamarin.iOS10/Refractored.XamForms.PullToRefresh.dll",
         "lib/Xamarin.iOS10/Refractored.XamForms.PullToRefresh.iOS.dll",
         "lib/Xamarin.iOS10/Refractored.XamForms.PullToRefresh.iOS.xml",
+        "lib/Xamarin.iOS10/Refractored.XamForms.PullToRefresh.pdb",
         "lib/Xamarin.iOS10/Refractored.XamForms.PullToRefresh.xml",
-        "lib/portable-net45+wp80+win8+wpa81/Refractored.XamForms.PullToRefresh.dll",
-        "lib/portable-net45+wp80+win8+wpa81/Refractored.XamForms.PullToRefresh.xml",
-        "refractored.xamforms.pulltorefresh.1.1.0.nupkg.sha512",
+        "lib/netstandard1.0/Refractored.XamForms.PullToRefresh.deps.json",
+        "lib/netstandard1.0/Refractored.XamForms.PullToRefresh.dll",
+        "lib/netstandard1.0/Refractored.XamForms.PullToRefresh.pdb",
+        "lib/netstandard1.0/Refractored.XamForms.PullToRefresh.xml",
+        "refractored.xamforms.pulltorefresh.2.0.0.13.nupkg.sha512",
         "refractored.xamforms.pulltorefresh.nuspec"
       ]
     },
@@ -29647,10 +29628,10 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
-    "Xam.Plugin.Connectivity/3.0.1": {
-      "sha512": "Fk3LS8pMRmFBlf7ZUWwSzJvE4wtZKAYtleGHrHEf5vmQahJdgmYnjWvMPYQUtpc7gYEqnBQpGmoDjtNT3JA4lg==",
+    "Xam.Plugin.Connectivity/3.0.3": {
+      "sha512": "BvzZjl/qGGmLBMyGmrb3IbNgXmiLkvTvrYJsGk0Bnkd7Op8nr57jOA7mtJsAoC1J0Abtr0G2j4zL9dVzb7zCqg==",
       "type": "package",
-      "path": "xam.plugin.connectivity/3.0.1",
+      "path": "xam.plugin.connectivity/3.0.3",
       "files": [
         "lib/MonoAndroid10/Plugin.Connectivity.Abstractions.dll",
         "lib/MonoAndroid10/Plugin.Connectivity.Abstractions.pdb",
@@ -29697,7 +29678,7 @@
         "lib/netstandard1.0/Plugin.Connectivity.dll",
         "lib/netstandard1.0/Plugin.Connectivity.pdb",
         "lib/netstandard1.0/Plugin.Connectivity.xml",
-        "xam.plugin.connectivity.3.0.1.nupkg.sha512",
+        "xam.plugin.connectivity.3.0.3.nupkg.sha512",
         "xam.plugin.connectivity.nuspec"
       ]
     },
@@ -29899,19 +29880,31 @@
         "xam.plugins.settings.nuspec"
       ]
     },
-    "Xamarin.Forms/2.3.4.247": {
-      "sha512": "+6VN8IBSah7EcNJ4SV3pIhNA8tNlBaPLfr3+hQpPIllueJrXI5QtjM0tAJusPc2V1cYyC4YKvA1fs5c/A8RrBw==",
+    "Xamarin.Forms/2.4.0.282": {
+      "sha512": "XhgWe/d5wwWD2vZe0t0QfE+kJPqzjc01GSuSWjzbX37MNn0JunXO22js3FRSRuDMbXLE3FlwBngazxpFP0x5qA==",
       "type": "package",
-      "path": "xamarin.forms/2.3.4.247",
+      "path": "xamarin.forms/2.4.0.282",
       "files": [
-        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Mono.Cecil.Mdb.dll",
-        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Mono.Cecil.Pdb.dll",
-        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Mono.Cecil.Rocks.dll",
-        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Mono.Cecil.dll",
-        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Build.Tasks.dll",
-        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Core.dll",
-        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Xaml.dll",
-        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.targets",
+        "build/netstandard1.0/Mono.Cecil.Mdb.dll",
+        "build/netstandard1.0/Mono.Cecil.Pdb.dll",
+        "build/netstandard1.0/Mono.Cecil.Rocks.dll",
+        "build/netstandard1.0/Mono.Cecil.dll",
+        "build/netstandard1.0/Xamarin.Forms.Build.Tasks.dll",
+        "build/netstandard1.0/Xamarin.Forms.Core.dll",
+        "build/netstandard1.0/Xamarin.Forms.DefaultItems.props",
+        "build/netstandard1.0/Xamarin.Forms.DefaultItems.targets",
+        "build/netstandard1.0/Xamarin.Forms.Xaml.dll",
+        "build/netstandard1.0/Xamarin.Forms.props",
+        "build/netstandard1.0/Xamarin.Forms.targets",
+        "build/portable-win+net45+wp80+win81+wpa81/Mono.Cecil.Mdb.dll",
+        "build/portable-win+net45+wp80+win81+wpa81/Mono.Cecil.Pdb.dll",
+        "build/portable-win+net45+wp80+win81+wpa81/Mono.Cecil.Rocks.dll",
+        "build/portable-win+net45+wp80+win81+wpa81/Mono.Cecil.dll",
+        "build/portable-win+net45+wp80+win81+wpa81/Xamarin.Forms.Build.Tasks.dll",
+        "build/portable-win+net45+wp80+win81+wpa81/Xamarin.Forms.Core.dll",
+        "build/portable-win+net45+wp80+win81+wpa81/Xamarin.Forms.DefaultItems.targets",
+        "build/portable-win+net45+wp80+win81+wpa81/Xamarin.Forms.Xaml.dll",
+        "build/portable-win+net45+wp80+win81+wpa81/Xamarin.Forms.targets",
         "lib/MonoAndroid10/Design/Xamarin.Forms.Core.Design.dll",
         "lib/MonoAndroid10/Design/Xamarin.Forms.Xaml.Design.dll",
         "lib/MonoAndroid10/FormsViewGroup.dll",
@@ -29936,6 +29929,10 @@
         "lib/WP80/Xamarin.Forms.Xaml.dll",
         "lib/WP80/Xamarin.Forms.Xaml.pdb",
         "lib/WP80/Xamarin.Forms.Xaml.xml",
+        "lib/Xamarin.Mac/Xamarin.Forms.Core.dll",
+        "lib/Xamarin.Mac/Xamarin.Forms.Platform.dll",
+        "lib/Xamarin.Mac/Xamarin.Forms.Platform.macOS.dll",
+        "lib/Xamarin.Mac/Xamarin.Forms.Xaml.dll",
         "lib/Xamarin.iOS10/Design/Xamarin.Forms.Core.Design.dll",
         "lib/Xamarin.iOS10/Design/Xamarin.Forms.Xaml.Design.dll",
         "lib/Xamarin.iOS10/Xamarin.Forms.Core.dll",
@@ -29944,7 +29941,6 @@
         "lib/Xamarin.iOS10/Xamarin.Forms.Core.xml",
         "lib/Xamarin.iOS10/Xamarin.Forms.Platform.dll",
         "lib/Xamarin.iOS10/Xamarin.Forms.Platform.iOS.dll",
-        "lib/Xamarin.iOS10/Xamarin.Forms.Platform.iOS.dll.mdb",
         "lib/Xamarin.iOS10/Xamarin.Forms.Platform.iOS.pdb",
         "lib/Xamarin.iOS10/Xamarin.Forms.Xaml.dll",
         "lib/Xamarin.iOS10/Xamarin.Forms.Xaml.dll.mdb",
@@ -29984,19 +29980,30 @@
         "lib/Xamarin.iOS10/zh-HK/Xamarin.Forms.Platform.iOS.resources.dll",
         "lib/Xamarin.iOS10/zh-Hans/Xamarin.Forms.Platform.iOS.resources.dll",
         "lib/Xamarin.iOS10/zh-Hant/Xamarin.Forms.Platform.iOS.resources.dll",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Design/Xamarin.Forms.Core.Design.dll",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Design/Xamarin.Forms.Xaml.Design.dll",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Core.dll",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Core.dll.mdb",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Core.pdb",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Core.xml",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Platform.dll",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Platform.dll.mdb",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Platform.pdb",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Xaml.dll",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Xaml.dll.mdb",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Xaml.pdb",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Xaml.xml",
+        "lib/netstandard1.0/Design/Xamarin.Forms.Core.Design.dll",
+        "lib/netstandard1.0/Design/Xamarin.Forms.Xaml.Design.dll",
+        "lib/netstandard1.0/Xamarin.Forms.Core.dll",
+        "lib/netstandard1.0/Xamarin.Forms.Core.dll.mdb",
+        "lib/netstandard1.0/Xamarin.Forms.Core.pdb",
+        "lib/netstandard1.0/Xamarin.Forms.Core.xml",
+        "lib/netstandard1.0/Xamarin.Forms.Platform.dll",
+        "lib/netstandard1.0/Xamarin.Forms.Platform.pdb",
+        "lib/netstandard1.0/Xamarin.Forms.Xaml.dll",
+        "lib/netstandard1.0/Xamarin.Forms.Xaml.dll.mdb",
+        "lib/netstandard1.0/Xamarin.Forms.Xaml.pdb",
+        "lib/netstandard1.0/Xamarin.Forms.Xaml.xml",
+        "lib/portable-win+net45+wp80+win81+wpa81/Design/Xamarin.Forms.Core.Design.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/Design/Xamarin.Forms.Xaml.Design.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/Xamarin.Forms.Core.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/Xamarin.Forms.Core.dll.mdb",
+        "lib/portable-win+net45+wp80+win81+wpa81/Xamarin.Forms.Core.pdb",
+        "lib/portable-win+net45+wp80+win81+wpa81/Xamarin.Forms.Core.xml",
+        "lib/portable-win+net45+wp80+win81+wpa81/Xamarin.Forms.Platform.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/Xamarin.Forms.Platform.pdb",
+        "lib/portable-win+net45+wp80+win81+wpa81/Xamarin.Forms.Xaml.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/Xamarin.Forms.Xaml.dll.mdb",
+        "lib/portable-win+net45+wp80+win81+wpa81/Xamarin.Forms.Xaml.pdb",
+        "lib/portable-win+net45+wp80+win81+wpa81/Xamarin.Forms.Xaml.xml",
         "lib/uap10.0/Design/Xamarin.Forms.Core.Design.dll",
         "lib/uap10.0/Design/Xamarin.Forms.Xaml.Design.dll",
         "lib/uap10.0/Xamarin.Forms.Core.dll",
@@ -30005,6 +30012,7 @@
         "lib/uap10.0/Xamarin.Forms.Platform.UAP.pri",
         "lib/uap10.0/Xamarin.Forms.Platform.UAP/AutoSuggestStyle.xbf",
         "lib/uap10.0/Xamarin.Forms.Platform.UAP/FormsCommandBarStyle.xbf",
+        "lib/uap10.0/Xamarin.Forms.Platform.UAP/FormsProgressBarStyle.xbf",
         "lib/uap10.0/Xamarin.Forms.Platform.UAP/FormsTextBoxStyle.xbf",
         "lib/uap10.0/Xamarin.Forms.Platform.UAP/MasterDetailControlStyle.xbf",
         "lib/uap10.0/Xamarin.Forms.Platform.UAP/PageControl.xbf",
@@ -30022,6 +30030,7 @@
         "lib/win81/Xamarin.Forms.Core.xml",
         "lib/win81/Xamarin.Forms.Platform.WinRT.Tablet.dll",
         "lib/win81/Xamarin.Forms.Platform.WinRT.Tablet.pri",
+        "lib/win81/Xamarin.Forms.Platform.WinRT.Tablet/FormsProgressBarStyle.xbf",
         "lib/win81/Xamarin.Forms.Platform.WinRT.Tablet/FormsTextBoxStyle.xbf",
         "lib/win81/Xamarin.Forms.Platform.WinRT.Tablet/Resources.xbf",
         "lib/win81/Xamarin.Forms.Platform.WinRT.Tablet/TabletResources.xbf",
@@ -30040,6 +30049,7 @@
         "lib/wpa81/Xamarin.Forms.Core.xml",
         "lib/wpa81/Xamarin.Forms.Platform.WinRT.Phone.dll",
         "lib/wpa81/Xamarin.Forms.Platform.WinRT.Phone.pri",
+        "lib/wpa81/Xamarin.Forms.Platform.WinRT.Phone/FormsProgressBarStyle.xbf",
         "lib/wpa81/Xamarin.Forms.Platform.WinRT.Phone/FormsTextBoxStyle.xbf",
         "lib/wpa81/Xamarin.Forms.Platform.WinRT.Phone/PhoneResources.xbf",
         "lib/wpa81/Xamarin.Forms.Platform.WinRT.Phone/Resources.xbf",
@@ -30053,7 +30063,7 @@
         "lib/wpa81/Xamarin.Forms.Platform.dll",
         "lib/wpa81/Xamarin.Forms.Xaml.dll",
         "lib/wpa81/Xamarin.Forms.Xaml.xml",
-        "xamarin.forms.2.3.4.247.nupkg.sha512",
+        "xamarin.forms.2.4.0.282.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
     },
@@ -30073,10 +30083,10 @@
         "xamarin.forms.carouselview.nuspec"
       ]
     },
-    "Xamarin.Forms.Maps/2.3.4.247": {
-      "sha512": "rO/mgH5Hp0gOcuI3XpoNuOulh4Cmr8Y6cD4jaZwOcalG9UMBuaV4zu9uqHC526+zEpZC9vcyWdNhZUKo9EN/8w==",
+    "Xamarin.Forms.Maps/2.4.0.282": {
+      "sha512": "XGk0rHBl1XKQoYOeNW0HW75vTZPZNqRqM2sYqkjkno/mZwGCXnDaqDB2sBDv9zc64Apk9BHfXFBNdeBT8M/hpA==",
       "type": "package",
-      "path": "xamarin.forms.maps/2.3.4.247",
+      "path": "xamarin.forms.maps/2.4.0.282",
       "files": [
         "build/win81/ARM/Xamarin.Forms.Maps.WinRT.Tablet.dll",
         "build/win81/ARM/Xamarin.Forms.Maps.WinRT.Tablet.pri",
@@ -30112,13 +30122,19 @@
         "lib/WP80/Xamarin.Forms.Maps.WP8.dll",
         "lib/WP80/Xamarin.Forms.Maps.dll",
         "lib/WP80/Xamarin.Forms.Maps.xml",
+        "lib/Xamarin.Mac/Xamarin.Forms.Maps.dll",
+        "lib/Xamarin.Mac/Xamarin.Forms.Maps.macOS.dll",
+        "lib/Xamarin.Mac/Xamarin.Forms.Maps.xml",
         "lib/Xamarin.iOS10/Design/Xamarin.Forms.Maps.Design.dll",
         "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll",
         "lib/Xamarin.iOS10/Xamarin.Forms.Maps.iOS.dll",
         "lib/Xamarin.iOS10/Xamarin.Forms.Maps.xml",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10/Design/Xamarin.Forms.Maps.Design.dll",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10/Xamarin.Forms.Maps.dll",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10/Xamarin.Forms.Maps.xml",
+        "lib/netstandard1.0/Xamarin.Forms.Maps.Design.dll",
+        "lib/netstandard1.0/Xamarin.Forms.Maps.dll",
+        "lib/netstandard1.0/Xamarin.Forms.Maps.xml",
+        "lib/portable-win+net45+wp80+win81+wpa81/Design/Xamarin.Forms.Maps.Design.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/Xamarin.Forms.Maps.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/Xamarin.Forms.Maps.xml",
         "lib/uap10.0/Design/Xamarin.Forms.Maps.Design.dll",
         "lib/uap10.0/Xamarin.Forms.Maps.UWP.dll",
         "lib/uap10.0/Xamarin.Forms.Maps.UWP.pri",
@@ -30130,7 +30146,7 @@
         "lib/wpa81/Xamarin.Forms.Maps.WinRT.Phone.dll",
         "lib/wpa81/Xamarin.Forms.Maps.WinRT.Phone.pri",
         "lib/wpa81/Xamarin.Forms.Maps.dll",
-        "xamarin.forms.maps.2.3.4.247.nupkg.sha512",
+        "xamarin.forms.maps.2.4.0.282.nupkg.sha512",
         "xamarin.forms.maps.nuspec"
       ]
     },
@@ -30263,20 +30279,20 @@
       "Plugin.Permissions >= 2.0.1",
       "Plugin.Share >= 7.0.1",
       "Refractored.MvvmHelpers >= 1.3.0",
-      "Refractored.XamForms.PullToRefresh >= 1.1.0",
-      "Xam.Plugin.Connectivity >= 3.0.1",
+      "Refractored.XamForms.PullToRefresh >= 2.0.0.13",
+      "Xam.Plugin.Connectivity >= 3.0.3",
       "Xam.Plugin.EmbeddedResource >= 1.0.1",
       "Xam.Plugin.ExternalMaps >= 4.0.1",
       "Xam.Plugins.Forms.ImageCircle >= 1.8.1",
       "Xam.Plugins.Messaging >= 4.0.0",
       "Xam.Plugins.Settings >= 3.0.1",
-      "Xamarin.Forms >= 2.3.4.247",
+      "Xamarin.Forms >= 2.4.0.282",
       "Xamarin.Forms.CarouselView >= 2.3.0-pre2",
-      "Xamarin.Forms.Maps >= 2.3.4.247",
+      "Xamarin.Forms.Maps >= 2.4.0.282",
       "Xamarin.Insights >= 1.12.3",
       "ZXing.Net.Mobile.Forms >= 2.2.9"
     ],
-    "UAP,Version=v10.0": []
+    "UAP,Version=v10.0.10240": []
   },
   "packageFolders": {
     "C:\\Users\\James Montemagno\\.nuget\\packages\\": {}
@@ -30287,9 +30303,21 @@
       "projectName": "XamarinEvolve.UWP",
       "projectPath": "C:\\GitHub\\app-evolve\\src\\XamarinEvolve.UWP\\XamarinEvolve.UWP.csproj",
       "projectJsonPath": "C:\\GitHub\\app-evolve\\src\\XamarinEvolve.UWP\\project.json",
+      "packagesPath": "C:\\Users\\James Montemagno\\.nuget\\packages\\",
+      "outputPath": "C:\\GitHub\\app-evolve\\src\\XamarinEvolve.UWP\\obj\\",
       "projectStyle": "ProjectJson",
+      "configFilePaths": [
+        "C:\\Users\\James Montemagno\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Users\\James Montemagno\\.dotnet\\NuGetFallbackFolder": {},
+        "https://api.nuget.org/v3/index.json": {},
+        "https://www.myget.org/F/xamarinforms-dev/api/v3/index.json": {}
+      },
       "frameworks": {
-        "uap10.0": {
+        "uap10.0.10240": {
           "projectReferences": {
             "C:\\GitHub\\app-evolve\\src\\XamarinEvolve.Clients.Portable\\XamarinEvolve.Clients.Portable.csproj": {
               "projectPath": "C:\\GitHub\\app-evolve\\src\\XamarinEvolve.Clients.Portable\\XamarinEvolve.Clients.Portable.csproj"
@@ -30317,7 +30345,7 @@
       "CClarke.Plugin.Calendars": "0.6.33-beta",
       "Censored": "1.0.2",
       "FormsToolkit": "1.1.18",
-      "HockeySDK.UWP": "[4.1.6, )",
+      "HockeySDK.UWP": "4.1.6",
       "Humanizer": "1.37.7",
       "Microsoft.Azure.Mobile.Client": "3.0.3",
       "Microsoft.Azure.Mobile.Client.SQLiteStore": "3.0.3",
@@ -30330,21 +30358,21 @@
       "Plugin.Permissions": "2.0.1",
       "Plugin.Share": "7.0.1",
       "Refractored.MvvmHelpers": "1.3.0",
-      "Refractored.XamForms.PullToRefresh": "1.1.0",
-      "Xam.Plugin.Connectivity": "3.0.1",
+      "Refractored.XamForms.PullToRefresh": "2.0.0.13",
+      "Xam.Plugin.Connectivity": "3.0.3",
       "Xam.Plugin.EmbeddedResource": "1.0.1",
       "Xam.Plugin.ExternalMaps": "4.0.1",
       "Xam.Plugins.Forms.ImageCircle": "1.8.1",
       "Xam.Plugins.Messaging": "4.0.0",
       "Xam.Plugins.Settings": "3.0.1",
-      "Xamarin.Forms": "2.3.4.247",
+      "Xamarin.Forms": "2.4.0.282",
       "Xamarin.Forms.CarouselView": "2.3.0-pre2",
-      "Xamarin.Forms.Maps": "2.3.4.247",
+      "Xamarin.Forms.Maps": "2.4.0.282",
       "Xamarin.Insights": "1.12.3",
       "ZXing.Net.Mobile.Forms": "2.2.9"
     },
     "frameworks": {
-      "uap10.0": {}
+      "uap10.0.10240": {}
     },
     "runtimes": {
       "win10-arm": {
