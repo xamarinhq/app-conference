@@ -56,10 +56,8 @@ namespace XamarinEvolve.Droid
         public void OnActivityStarted(Activity activity)
         {
             CrossCurrentActivity.Current.Activity = activity;
-            HockeyApp.Android.Tracking.StartUsage(activity);
         }
-
-        public void OnActivityStopped(Activity activity) => HockeyApp.Android.Tracking.StopUsage(activity);
+        
 
     }
 }

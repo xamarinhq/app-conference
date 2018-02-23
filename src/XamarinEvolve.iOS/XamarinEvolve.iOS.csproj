@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Xamarin.Forms.2.5.0.280555\build\netstandard1.0\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.2.5.0.280555\build\netstandard1.0\Xamarin.Forms.props')" />
   <Import Project="..\packages\Xamarin.Build.Download.0.4.7\build\Xamarin.Build.Download.props" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.7\build\Xamarin.Build.Download.props')" />
-  <Import Project="..\packages\Xamarin.Forms.2.4.0.282\build\netstandard1.0\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.2.4.0.282\build\netstandard1.0\Xamarin.Forms.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
@@ -124,23 +124,29 @@
     <Optimize>false</Optimize>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Calabash, Version=21.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.TestCloud.Agent.0.21.1\lib\Xamarin.iOS\Calabash.dll</HintPath>
+    <Reference Include="Calabash">
+      <HintPath>..\packages\Xamarin.TestCloud.Agent.0.21.4\lib\Xamarin.iOS\Calabash.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Google.AppIndexing, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Google.iOS.AppIndexing.2.0.3.2\lib\Xamarin.iOS10\Google.AppIndexing.dll</HintPath>
+    <Reference Include="FormsToolkit">
+      <HintPath>..\packages\FormsToolkit.2.0.1\lib\Xamarin.iOS10\FormsToolkit.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="HockeySDK, Version=1.0.6387.33442, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HockeySDK.Xamarin.4.1.5\lib\Xamarin.iOS10\HockeySDK.dll</HintPath>
+    <Reference Include="FormsToolkit.iOS">
+      <HintPath>..\packages\FormsToolkit.2.0.1\lib\Xamarin.iOS10\FormsToolkit.iOS.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="HockeySDK.iOSBindings, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HockeySDK.Xamarin.4.1.5\lib\Xamarin.iOS10\HockeySDK.iOSBindings.dll</HintPath>
+    <Reference Include="Google.AppIndexing">
+      <HintPath>..\packages\Xamarin.Google.iOS.AppIndexing.2.0.3.4\lib\Xamarin.iOS10\Google.AppIndexing.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="ImageCircle.Forms.Plugin.Abstractions, Version=1.8.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xam.Plugins.Forms.ImageCircle.1.8.1\lib\Xamarin.iOS10\ImageCircle.Forms.Plugin.Abstractions.dll</HintPath>
+    <Reference Include="ImageCircle.Forms.Plugin.Abstractions">
+      <HintPath>..\packages\Xam.Plugins.Forms.ImageCircle.2.0.2\lib\Xamarin.iOS10\ImageCircle.Forms.Plugin.Abstractions.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="ImageCircle.Forms.Plugin.iOS, Version=1.8.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xam.Plugins.Forms.ImageCircle.1.8.1\lib\Xamarin.iOS10\ImageCircle.Forms.Plugin.iOS.dll</HintPath>
+    <Reference Include="ImageCircle.Forms.Plugin.iOS">
+      <HintPath>..\packages\Xam.Plugins.Forms.ImageCircle.2.0.2\lib\Xamarin.iOS10\ImageCircle.Forms.Plugin.iOS.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.WindowsAzure.Mobile, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Azure.Mobile.Client.3.0.3\lib\Xamarin.iOS10\Microsoft.WindowsAzure.Mobile.dll</HintPath>
@@ -157,8 +163,8 @@
     <Reference Include="MvvmHelpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Refractored.MvvmHelpers.1.3.0\lib\netstandard1.0\MvvmHelpers.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="NodaTime, Version=1.3.0.0, Culture=neutral, PublicKeyToken=4226afe0d9b296d1, processorArchitecture=MSIL">
@@ -171,11 +177,13 @@
     <Reference Include="Plugin.Calendars.Abstractions, Version=0.6.33.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CClarke.Plugin.Calendars.0.6.33-beta\lib\Xamarin.iOS10\Plugin.Calendars.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Plugin.Connectivity, Version=3.0.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xam.Plugin.Connectivity.3.0.3\lib\Xamarin.iOS10\Plugin.Connectivity.dll</HintPath>
+    <Reference Include="Plugin.Connectivity">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.1.1\lib\Xamarin.iOS10\Plugin.Connectivity.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Plugin.Connectivity.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xam.Plugin.Connectivity.3.0.3\lib\Xamarin.iOS10\Plugin.Connectivity.Abstractions.dll</HintPath>
+    <Reference Include="Plugin.Connectivity.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.1.1\lib\Xamarin.iOS10\Plugin.Connectivity.Abstractions.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Plugin.ExternalMaps, Version=4.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Xam.Plugin.ExternalMaps.4.0.1\lib\Xamarin.iOS10\Plugin.ExternalMaps.dll</HintPath>
@@ -183,47 +191,61 @@
     <Reference Include="Plugin.ExternalMaps.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Xam.Plugin.ExternalMaps.4.0.1\lib\Xamarin.iOS10\Plugin.ExternalMaps.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Plugin.Messaging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Plugin.Messaging">
       <HintPath>..\packages\Xam.Plugins.Messaging.4.0.0\lib\Xamarin.iOS10\Plugin.Messaging.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Plugin.Messaging.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Plugin.Messaging.Abstractions">
       <HintPath>..\packages\Xam.Plugins.Messaging.4.0.0\lib\Xamarin.iOS10\Plugin.Messaging.Abstractions.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Plugin.Permissions, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Plugin.Permissions.2.0.1\lib\Xamarin.iOS10\Plugin.Permissions.dll</HintPath>
+    <Reference Include="Plugin.Permissions">
+      <HintPath>..\packages\Plugin.Permissions.2.2.1\lib\Xamarin.iOS10\Plugin.Permissions.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Plugin.Permissions.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Plugin.Permissions.2.0.1\lib\Xamarin.iOS10\Plugin.Permissions.Abstractions.dll</HintPath>
+    <Reference Include="Plugin.Permissions.Abstractions">
+      <HintPath>..\packages\Plugin.Permissions.2.2.1\lib\Xamarin.iOS10\Plugin.Permissions.Abstractions.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Plugin.Settings, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xam.Plugins.Settings.3.0.1\lib\Xamarin.iOS10\Plugin.Settings.dll</HintPath>
+    <Reference Include="Plugin.Settings">
+      <HintPath>..\packages\Xam.Plugins.Settings.3.1.1\lib\Xamarin.iOS10\Plugin.Settings.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Plugin.Settings.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xam.Plugins.Settings.3.0.1\lib\Xamarin.iOS10\Plugin.Settings.Abstractions.dll</HintPath>
+    <Reference Include="Plugin.Settings.Abstractions">
+      <HintPath>..\packages\Xam.Plugins.Settings.3.1.1\lib\Xamarin.iOS10\Plugin.Settings.Abstractions.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Plugin.Share, Version=7.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Plugin.Share.7.0.1\lib\Xamarin.iOS10\Plugin.Share.dll</HintPath>
+    <Reference Include="Plugin.Share">
+      <HintPath>..\packages\Plugin.Share.7.1.1\lib\Xamarin.iOS10\Plugin.Share.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Plugin.Share.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Plugin.Share.7.0.1\lib\Xamarin.iOS10\Plugin.Share.Abstractions.dll</HintPath>
+    <Reference Include="Plugin.Share.Abstractions">
+      <HintPath>..\packages\Plugin.Share.7.1.1\lib\Xamarin.iOS10\Plugin.Share.Abstractions.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Refractored.XamForms.PullToRefresh, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Refractored.XamForms.PullToRefresh.2.0.0.13\lib\Xamarin.iOS10\Refractored.XamForms.PullToRefresh.dll</HintPath>
+    <Reference Include="Refractored.XamForms.PullToRefresh">
+      <HintPath>..\packages\Refractored.XamForms.PullToRefresh.2.2.1\lib\Xamarin.iOS10\Refractored.XamForms.PullToRefresh.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Refractored.XamForms.PullToRefresh.iOS, Version=2.0.0.13, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Refractored.XamForms.PullToRefresh.2.0.0.13\lib\Xamarin.iOS10\Refractored.XamForms.PullToRefresh.iOS.dll</HintPath>
+    <Reference Include="Refractored.XamForms.PullToRefresh.iOS">
+      <HintPath>..\packages\Refractored.XamForms.PullToRefresh.2.2.1\lib\Xamarin.iOS10\Refractored.XamForms.PullToRefresh.iOS.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="SQLitePCLRaw.batteries_green, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a84b7dcfb1391f7f, processorArchitecture=MSIL">
-      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.8\lib\Xamarin.iOS10\SQLitePCLRaw.batteries_green.dll</HintPath>
+    <Reference Include="SQLitePCLRaw.batteries_green">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.9\lib\Xamarin.iOS10\SQLitePCLRaw.batteries_green.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="SQLitePCLRaw.batteries_v2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8226ea5df37bcae9, processorArchitecture=MSIL">
-      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.8\lib\Xamarin.iOS10\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    <Reference Include="SQLitePCLRaw.batteries_v2">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.9\lib\Xamarin.iOS10\SQLitePCLRaw.batteries_v2.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="SQLitePCLRaw.core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
-      <HintPath>..\packages\SQLitePCLRaw.core.1.1.8\lib\Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
+    <Reference Include="SQLitePCLRaw.core">
+      <HintPath>..\packages\SQLitePCLRaw.core.1.1.9\lib\Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="SQLitePCLRaw.provider.sqlite3, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62684c7b4f184e3f, processorArchitecture=MSIL">
-      <HintPath>..\packages\SQLitePCLRaw.provider.sqlite3.ios_unified.1.1.8\lib\Xamarin.iOS10\SQLitePCLRaw.provider.sqlite3.dll</HintPath>
+    <Reference Include="SQLitePCLRaw.provider.sqlite3">
+      <HintPath>..\packages\SQLitePCLRaw.provider.sqlite3.ios_unified.1.1.9\lib\Xamarin.iOS10\SQLitePCLRaw.provider.sqlite3.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
@@ -237,22 +259,24 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.2.4.0.282\lib\Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.2.5.0.280555\lib\Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Xamarin.Forms.Maps, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.Maps.2.4.0.282\lib\Xamarin.iOS10\Xamarin.Forms.Maps.dll</HintPath>
+    <Reference Include="Xamarin.Forms.Maps">
+      <HintPath>..\packages\Xamarin.Forms.Maps.2.5.0.280555\lib\Xamarin.iOS10\Xamarin.Forms.Maps.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Xamarin.Forms.Maps.iOS, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.Maps.2.4.0.282\lib\Xamarin.iOS10\Xamarin.Forms.Maps.iOS.dll</HintPath>
+    <Reference Include="Xamarin.Forms.Maps.iOS">
+      <HintPath>..\packages\Xamarin.Forms.Maps.2.5.0.280555\lib\Xamarin.iOS10\Xamarin.Forms.Maps.iOS.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.2.4.0.282\lib\Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.2.5.0.280555\lib\Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Platform.iOS, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.2.4.0.282\lib\Xamarin.iOS10\Xamarin.Forms.Platform.iOS.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.2.5.0.280555\lib\Xamarin.iOS10\Xamarin.Forms.Platform.iOS.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.2.4.0.282\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.2.5.0.280555\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.iOS" />
     <Reference Include="System.Net.Http" />
@@ -270,38 +294,28 @@
     <Reference Include="SQLitePCL.Ext">
       <HintPath>..\packages\SQLitePCL.3.8.7.2\lib\Xamarin.iOS10\SQLitePCL.Ext.dll</HintPath>
     </Reference>
-    <Reference Include="PCLStorage">
-      <HintPath>..\packages\PCLStorage.1.0.2\lib\portable-Xamarin.iOS+Xamarin.Mac\PCLStorage.dll</HintPath>
-    </Reference>
-    <Reference Include="PCLStorage.Abstractions">
-      <HintPath>..\packages\PCLStorage.1.0.2\lib\portable-Xamarin.iOS+Xamarin.Mac\PCLStorage.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Plugin.EmbeddedResource">
-      <HintPath>..\packages\Xam.Plugin.EmbeddedResource.1.0.1.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Plugin.EmbeddedResource.dll</HintPath>
-    </Reference>
     <Reference Include="Humanizer">
       <HintPath>..\packages\Humanizer.1.37.7\lib\portable-win+net40+sl50+wp8+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Humanizer.dll</HintPath>
     </Reference>
-    <Reference Include="FormsToolkit.iOS">
-      <HintPath>..\packages\FormsToolkit.1.1.18\lib\Xamarin.iOS10\FormsToolkit.iOS.dll</HintPath>
+    <Reference Include="ZXing.Net.Mobile.Core">
+      <HintPath>..\packages\ZXing.Net.Mobile.2.3.2\lib\Xamarin.iOS10\ZXing.Net.Mobile.Core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="FormsToolkit">
-      <HintPath>..\packages\FormsToolkit.1.1.18\lib\Xamarin.iOS10\FormsToolkit.dll</HintPath>
+    <Reference Include="ZXing.Net.Mobile.Forms">
+      <HintPath>..\packages\ZXing.Net.Mobile.Forms.2.3.2\lib\Xamarin.iOS10\ZXing.Net.Mobile.Forms.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="ZXing.Net.Mobile.Core, Version=2.2.9.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ZXing.Net.Mobile.2.2.9\lib\Xamarin.iOS10\ZXing.Net.Mobile.Core.dll</HintPath>
+    <Reference Include="ZXing.Net.Mobile.Forms.iOS">
+      <HintPath>..\packages\ZXing.Net.Mobile.Forms.2.3.2\lib\Xamarin.iOS10\ZXing.Net.Mobile.Forms.iOS.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="ZXing.Net.Mobile.Forms, Version=2.2.9.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ZXing.Net.Mobile.Forms.2.2.9\lib\Xamarin.iOS10\ZXing.Net.Mobile.Forms.dll</HintPath>
+    <Reference Include="zxing.portable">
+      <HintPath>..\packages\ZXing.Net.Mobile.2.3.2\lib\Xamarin.iOS10\zxing.portable.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="ZXing.Net.Mobile.Forms.iOS, Version=2.2.9.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ZXing.Net.Mobile.Forms.2.2.9\lib\Xamarin.iOS10\ZXing.Net.Mobile.Forms.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="zxing.portable, Version=2.2.9.0, Culture=neutral, PublicKeyToken=830ae994e36ac27d, processorArchitecture=MSIL">
-      <HintPath>..\packages\ZXing.Net.Mobile.2.2.9\lib\Xamarin.iOS10\zxing.portable.dll</HintPath>
-    </Reference>
-    <Reference Include="ZXingNetMobile, Version=2.2.9.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ZXing.Net.Mobile.2.2.9\lib\Xamarin.iOS10\ZXingNetMobile.dll</HintPath>
+    <Reference Include="ZXingNetMobile">
+      <HintPath>..\packages\ZXing.Net.Mobile.2.3.2\lib\Xamarin.iOS10\ZXingNetMobile.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -411,67 +425,67 @@
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <ItemGroup>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-29.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-57.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-29%402x.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-29%403x.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-40%402x.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-40%403x.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-57%402x.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-60%402x.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-60%403x.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-ipad29.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-ipad29%402x.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-ipad40.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-ipad40%402x.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-50.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-50%402x.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-ipad72.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-ipad72%402x.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-76.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon-76%402x.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\ico-ipadpro83.5%402x.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
   </ItemGroup>
   <ItemGroup>
@@ -501,13 +515,13 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Xamarin.Google.iOS.AppIndexing.2.0.3.2\build\Xamarin.Google.iOS.AppIndexing.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Google.iOS.AppIndexing.2.0.3.2\build\Xamarin.Google.iOS.AppIndexing.targets'))" />
-    <Error Condition="!Exists('..\packages\Xamarin.Forms.2.4.0.282\build\netstandard1.0\Xamarin.Forms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.2.4.0.282\build\netstandard1.0\Xamarin.Forms.props'))" />
-    <Error Condition="!Exists('..\packages\Xamarin.Forms.2.4.0.282\build\netstandard1.0\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.2.4.0.282\build\netstandard1.0\Xamarin.Forms.targets'))" />
     <Error Condition="!Exists('..\packages\Xamarin.Build.Download.0.4.7\build\Xamarin.Build.Download.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Build.Download.0.4.7\build\Xamarin.Build.Download.props'))" />
     <Error Condition="!Exists('..\packages\Xamarin.Build.Download.0.4.7\build\Xamarin.Build.Download.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Build.Download.0.4.7\build\Xamarin.Build.Download.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Forms.2.5.0.280555\build\netstandard1.0\Xamarin.Forms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.2.5.0.280555\build\netstandard1.0\Xamarin.Forms.props'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Forms.2.5.0.280555\build\netstandard1.0\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.2.5.0.280555\build\netstandard1.0\Xamarin.Forms.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Google.iOS.AppIndexing.2.0.3.4\build\Xamarin.Google.iOS.AppIndexing.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Google.iOS.AppIndexing.2.0.3.4\build\Xamarin.Google.iOS.AppIndexing.targets'))" />
   </Target>
-  <Import Project="..\packages\Xamarin.Google.iOS.AppIndexing.2.0.3.2\build\Xamarin.Google.iOS.AppIndexing.targets" Condition="Exists('..\packages\Xamarin.Google.iOS.AppIndexing.2.0.3.2\build\Xamarin.Google.iOS.AppIndexing.targets')" />
-  <Import Project="..\packages\Xamarin.Forms.2.4.0.282\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.4.0.282\build\netstandard1.0\Xamarin.Forms.targets')" />
   <Import Project="..\packages\Xamarin.Build.Download.0.4.7\build\Xamarin.Build.Download.targets" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.7\build\Xamarin.Build.Download.targets')" />
+  <Import Project="..\packages\Xamarin.Forms.2.5.0.280555\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.0.280555\build\netstandard1.0\Xamarin.Forms.targets')" />
+  <Import Project="..\packages\Xamarin.Google.iOS.AppIndexing.2.0.3.4\build\Xamarin.Google.iOS.AppIndexing.targets" Condition="Exists('..\packages\Xamarin.Google.iOS.AppIndexing.2.0.3.4\build\Xamarin.Google.iOS.AppIndexing.targets')" />
 </Project>

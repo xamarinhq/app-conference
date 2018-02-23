@@ -5,9 +5,7 @@ namespace XamarinEvolve.Clients.Portable
    
     public static class ApiKeys
     {
-        public const string HockeyAppiOS = "HockeyAppiOS";
-        public const string HockeyAppAndroid = "HockeyAppAndroid";
-        public const string HockeyAppUWP = "HockeyAppUWP";
+        
 
         public const string AzureServiceBusName = "AzureServiceBusName";
         public const string AzureServiceBusUrl = "AzureServiceBusUrl";

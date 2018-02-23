@@ -21,7 +21,6 @@ using XamarinEvolve.Clients.Portable;
 using XamarinEvolve.DataStore.Abstractions;
 using Microsoft.WindowsAzure.MobileServices;
 using System.Reflection;
-using Microsoft.HockeyApp;
 
 namespace XamarinEvolve.UWP
 {
@@ -142,12 +141,6 @@ namespace XamarinEvolve.UWP
                 catch
                 {
                 }
-
-                if (ApiKeys.HockeyAppUWP != nameof(ApiKeys.HockeyAppUWP))
-                {
-                    Microsoft.HockeyApp.HockeyClient.Current.Configure(ApiKeys.HockeyAppUWP);
-                }
-
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
                     //TODO: Load state from previously suspended application
