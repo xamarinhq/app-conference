@@ -36,7 +36,7 @@ namespace XamarinEvolve.Clients.UI
         public SessionCellView()
         {
             InitializeComponent();
-            if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+            if (Device.RuntimePlatform == Device.WinPhone || Device.RuntimePlatform == Device.UWP)
                 LabelBadgetName.FontSize = 10;
         }
 

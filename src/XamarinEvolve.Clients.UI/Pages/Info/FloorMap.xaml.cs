@@ -27,8 +27,12 @@ namespace XamarinEvolve.Clients.UI
             {
                 if (e.PropertyName != nameof (MainImage.IsLoading))
                     return;
-                ProgressBar.IsRunning = MainImage.IsLoading;
-                ProgressBar.IsVisible = MainImage.IsLoading;
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    ProgressBar.IsRunning = MainImage.IsLoading;
+                    ProgressBar.IsVisible = MainImage.IsLoading;
+                });
+
             };
         }
 

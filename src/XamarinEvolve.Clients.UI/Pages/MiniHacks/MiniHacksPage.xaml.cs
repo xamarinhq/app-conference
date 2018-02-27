@@ -14,10 +14,10 @@ namespace XamarinEvolve.Clients.UI
         {
             InitializeComponent();
             BindingContext = vm = new MiniHacksViewModel();
-            if (Device.OS == TargetPlatform.Android)
+            if (Device.RuntimePlatform == Device.Android)
                 ListViewMiniHacks.Effects.Add (Effect.Resolve ("Xamarin.ListViewSelectionOnTopEffect"));
 
-            if (Device.OS == TargetPlatform.Windows || Device.OS == TargetPlatform.WinPhone)
+            if (Device.RuntimePlatform == Device.UWP || Device.RuntimePlatform == Device.WinPhone)
             {
                 ToolbarItems.Add(new ToolbarItem
                 {

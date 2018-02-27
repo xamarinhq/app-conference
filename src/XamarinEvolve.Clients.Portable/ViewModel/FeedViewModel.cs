@@ -6,8 +6,6 @@ using System.Linq;
 using Xamarin.Forms;
 using FormsToolkit;
 using System.Reflection;
-using PCLStorage;
-using Plugin.EmbeddedResource;
 using Newtonsoft.Json;
 using XamarinEvolve.DataObjects;
 using System.Net.Http;
@@ -201,8 +199,7 @@ namespace XamarinEvolve.Clients.Portable
                 using(var client = new HttpClient())
                 {
                     #if ENABLE_TEST_CLOUD
-                                        var json = ResourceLoader.GetEmbeddedResourceString(Assembly.Load(new AssemblyName("XamarinEvolve.Clients.Portable")), "sampletweets.txt");
-                                        Tweets.ReplaceRange(JsonConvert.DeserializeObject<List<Tweet>>(json));
+
                     #else
 
 

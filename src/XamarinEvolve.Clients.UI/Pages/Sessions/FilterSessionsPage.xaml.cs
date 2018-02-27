@@ -14,7 +14,7 @@ namespace XamarinEvolve.Clients.UI
         {
             InitializeComponent();
 
-            if (Device.OS != TargetPlatform.iOS)
+            if (Device.RuntimePlatform != Device.iOS)
                 ToolbarDone.Icon = "toolbar_close.png";
 
             ToolbarDone.Command = new Command (async () =>
@@ -23,7 +23,7 @@ namespace XamarinEvolve.Clients.UI
                 Settings.Current.ShowPastSessions = showPast.IsFiltered;
                 vm.Save ();
                 await Navigation.PopModalAsync ();
-                if (Device.OS == TargetPlatform.Android)
+                if (Device.RuntimePlatform == Device.Android)
                     MessagingService.Current.SendMessage ("filter_changed");
 
             });
@@ -60,7 +60,7 @@ namespace XamarinEvolve.Clients.UI
                                     });
                             }
 
-                            var color = Device.OS == TargetPlatform.Windows || Device.OS == TargetPlatform.WinPhone ? "#7635EB" : string.Empty;
+                            var color = Device.RuntimePlatform == Device.UWP || Device.RuntimePlatform == Device.WinPhone ? "#7635EB" : string.Empty;
                              
                             showPast = new Category
                             {

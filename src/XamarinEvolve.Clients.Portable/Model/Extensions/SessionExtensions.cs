@@ -25,7 +25,7 @@ namespace XamarinEvolve.Clients.Portable
                 IsLinkActive = true
             };
 
-            if (Device.OS == TargetPlatform.iOS)
+            if (Device.RuntimePlatform == Device.iOS)
                 entry.Thumbnail = ImageSource.FromFile("Icon.png");
 
             entry.KeyValues.Add("contentType", "Session");

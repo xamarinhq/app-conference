@@ -33,7 +33,7 @@ namespace XamarinEvolve.Clients.UI
                 };
                 ToolbarItems.Add(cancel);
 
-                if (Device.OS != TargetPlatform.iOS)
+                if (Device.RuntimePlatform != Device.iOS)
                     cancel.Icon = "toolbar_close.png";
             }
             

@@ -17,7 +17,7 @@ namespace XamarinEvolve.Clients.UI
                 Text = "Done",
                 Command = new Command(async () => await Navigation.PopModalAsync())
             };
-            if (Device.OS == TargetPlatform.Android)
+            if (Device.RuntimePlatform == Device.Android)
                 item.Icon = "toolbar_close.png";
             ToolbarItems.Add(item);
 

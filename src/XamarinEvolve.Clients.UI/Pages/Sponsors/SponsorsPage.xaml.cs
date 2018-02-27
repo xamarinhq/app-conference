@@ -16,10 +16,10 @@ namespace XamarinEvolve.Clients.UI
             InitializeComponent();
             BindingContext = new SponsorsViewModel(Navigation);
 
-            if (Device.OS == TargetPlatform.Android)
+            if (Device.RuntimePlatform == Device.Android)
                 ListViewSponsors.Effects.Add (Effect.Resolve ("Xamarin.ListViewSelectionOnTopEffect"));
 
-            if (Device.OS == TargetPlatform.Windows || Device.OS == TargetPlatform.WinPhone)
+            if (Device.RuntimePlatform == Device.UWP || Device.RuntimePlatform == Device.WinPhone)
             {
                 ToolbarItems.Add(new ToolbarItem
                 {
