@@ -20,7 +20,7 @@ namespace XamarinEvolve.Clients.UI
             loggedIn = Settings.Current.Email;
             BindingContext = new FeedViewModel();
 
-            if (Device.OS == TargetPlatform.Windows || Device.OS == TargetPlatform.WinPhone)
+            if (Device.RuntimePlatform == Device.UWP || Device.RuntimePlatform == Device.WinPhone)
             {
                 ToolbarItems.Add(new ToolbarItem
                 {
@@ -33,13 +33,13 @@ namespace XamarinEvolve.Clients.UI
             favoritesTime = Settings.Current.LastFavoriteTime;
             ViewModel.Tweets.CollectionChanged += (sender, e) => 
                 {
-                    var adjust = Device.OS != TargetPlatform.Android ? 1 : -ViewModel.Tweets.Count + 2;
+                    var adjust = Device.RuntimePlatform != Device.Android ? 1 : -ViewModel.Tweets.Count + 2;
                     ListViewSocial.HeightRequest = (ViewModel.Tweets.Count * ListViewSocial.RowHeight)  - adjust;
                 };
 
             ViewModel.Sessions.CollectionChanged += (sender, e) => 
                 {
-                    var adjust = Device.OS != TargetPlatform.Android ? 1 : -ViewModel.Sessions.Count + 1;
+                    var adjust = Device.RuntimePlatform != Device.Android ? 1 : -ViewModel.Sessions.Count + 1;
                     ListViewSessions.HeightRequest = (ViewModel.Sessions.Count * ListViewSessions.RowHeight) - adjust;
                 };
 

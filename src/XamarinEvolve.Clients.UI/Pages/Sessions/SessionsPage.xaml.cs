@@ -26,7 +26,7 @@ namespace XamarinEvolve.Clients.UI
 
             BindingContext = vm = new SessionsViewModel(Navigation);
 
-            if (Device.OS == TargetPlatform.Windows || Device.OS == TargetPlatform.WinPhone)
+            if (Device.RuntimePlatform == Device.UWP || Device.RuntimePlatform == Device.WinPhone)
             {
                 ToolbarItems.Add(new ToolbarItem
                 {
@@ -42,7 +42,7 @@ namespace XamarinEvolve.Clients.UI
                     Text = "Filter"
             };
 
-            if (Device.OS != TargetPlatform.iOS)
+            if (Device.RuntimePlatform != Device.iOS)
                 filterItem.Icon = "toolbar_filter.png";
 
             filterItem.Command = new Command(async () => 
@@ -83,7 +83,7 @@ namespace XamarinEvolve.Clients.UI
 
             ListViewSessions.ItemTapped += ListViewTapped;
 
-            if (Device.OS == TargetPlatform.Android)
+            if (Device.RuntimePlatform == Device.Android)
                 MessagingService.Current.Subscribe("filter_changed", (d) => UpdatePage());
             
             UpdatePage();
@@ -121,7 +121,7 @@ namespace XamarinEvolve.Clients.UI
         {
             base.OnDisappearing();
             ListViewSessions.ItemTapped -= ListViewTapped;
-            if (Device.OS == TargetPlatform.Android)
+            if (Device.RuntimePlatform == Device.Android)
                 MessagingService.Current.Unsubscribe("filter_changed");
         }
 

@@ -18,7 +18,7 @@ namespace XamarinEvolve.Clients.UI
             InitializeComponent();
             BindingContext = vm = new VenueViewModel();
 
-            if (Device.OS == TargetPlatform.Android)
+            if (Device.RuntimePlatform == Device.Android)
             {
                 ToolbarItems.Add(new ToolbarItem
                     {
@@ -39,7 +39,7 @@ namespace XamarinEvolve.Clients.UI
                     });
                 }
             }
-            else if (Device.OS == TargetPlatform.iOS)
+            else if (Device.RuntimePlatform == Device.iOS)
             {
                 ToolbarItems.Add(new ToolbarItem
                     {

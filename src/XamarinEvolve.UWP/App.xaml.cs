@@ -101,7 +101,6 @@ namespace XamarinEvolve.UWP
                 assembliesToInclude.Add(typeof(System.Net.Http.HttpClient).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(Newtonsoft.Json.JsonConvert).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(NodaTime.DateTimeZone).GetTypeInfo().Assembly);
-                assembliesToInclude.Add(typeof(PCLStorage.FileSystem).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(Plugin.Permissions.PermissionsImplementation).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(Plugin.Permissions.Abstractions.Permission).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(Plugin.Share.ShareImplementation).GetTypeInfo().Assembly);
@@ -110,7 +109,6 @@ namespace XamarinEvolve.UWP
                 assembliesToInclude.Add(typeof(Refractored.XamForms.PullToRefresh.PullToRefreshLayout).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(Plugin.Connectivity.ConnectivityImplementation).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(Plugin.Connectivity.Abstractions.BaseConnectivity).GetTypeInfo().Assembly);
-                assembliesToInclude.Add(typeof(Plugin.EmbeddedResource.ResourceLoader).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(Plugin.ExternalMaps.ExternalMapsImplementation).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(Plugin.ExternalMaps.Abstractions.NavigationType).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(ImageCircle.Forms.Plugin.UWP.ImageCircleRenderer).GetTypeInfo().Assembly);

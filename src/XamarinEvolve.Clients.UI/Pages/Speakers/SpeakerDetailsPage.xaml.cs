@@ -66,7 +66,7 @@ namespace XamarinEvolve.Clients.UI
             base.OnBindingContextChanged();
             vm = null;
 
-            var adjust = Device.OS != TargetPlatform.Android ? 1 : -ViewModel.FollowItems.Count + 2;
+            var adjust = Device.RuntimePlatform != Device.Android ? 1 : -ViewModel.FollowItems.Count + 2;
             ListViewFollow.HeightRequest = (ViewModel.FollowItems.Count * ListViewFollow.RowHeight) - adjust;
             ListViewSessions.HeightRequest = 0;
         }
@@ -88,7 +88,7 @@ namespace XamarinEvolve.Clients.UI
                 return;
             
             await ViewModel.ExecuteLoadSessionsCommandAsync();
-            var adjust = Device.OS != TargetPlatform.Android ? 1 : -ViewModel.Sessions.Count + 1;
+            var adjust = Device.RuntimePlatform != Device.Android ? 1 : -ViewModel.Sessions.Count + 1;
             ListViewSessions.HeightRequest = (ViewModel.Sessions.Count * ListViewSessions.RowHeight) - adjust;
 
 

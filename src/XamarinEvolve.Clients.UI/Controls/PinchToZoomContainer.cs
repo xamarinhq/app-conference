@@ -7,7 +7,7 @@ namespace XamarinEvolve.Clients.UI
     {
         public PinchToZoomContainer ()
         {
-            if (Device.OS == TargetPlatform.Windows || Device.OS == TargetPlatform.WinPhone)
+            if (Device.RuntimePlatform == Device.UWP || Device.RuntimePlatform == Device.WinPhone)
                 return;
 
             var pinchGesture = new PinchGestureRecognizer ();

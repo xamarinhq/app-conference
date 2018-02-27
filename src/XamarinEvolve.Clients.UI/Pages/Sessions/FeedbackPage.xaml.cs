@@ -15,7 +15,7 @@ namespace XamarinEvolve.Clients.UI
             InitializeComponent();
 
             BindingContext = vm = new FeedbackViewModel(Navigation, session);
-            if (Device.OS != TargetPlatform.iOS)
+            if (Device.RuntimePlatform != Device.iOS)
                 ToolbarDone.Icon = "toolbar_close.png";
 
 

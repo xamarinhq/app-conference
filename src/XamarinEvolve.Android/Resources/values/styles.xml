@@ -16,7 +16,12 @@
     <!-- You can also set colorControlNormal, colorControlActivated
          colorControlHighlight and colorSwitchThumbNormal. -->
     <item name="android:windowBackground">@color/window_background</item>
+
+    <item name="windowActionModeOverlay">true</item>
+    
     <!-- Option to hide the drop shadow here
+    
+    
     
       <item name="actionBarStyle">@style/MyTheme.ActionBar</item>
       <item name="android:windowContentOverlay">@null</item>

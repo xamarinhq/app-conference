@@ -8,13 +8,13 @@ using Xamarin.Forms;
 
 namespace XamarinEvolve.Clients.UI
 {
-    public partial class FloorMapsPage : ContentPage
+    public partial class FloorMapsPage : CarouselPage
     {
         public FloorMapsPage()
         {
             InitializeComponent();
 
-            CarouselMaps.ItemsSource = new List<EvolveMap>
+            var items = new List<EvolveMap>
             {
                 new EvolveMap
                 {
@@ -29,15 +29,19 @@ namespace XamarinEvolve.Clients.UI
                     Title = "Floor Maps (2/2)"
                 }
             };
-            
 
-            if (Device.OS == TargetPlatform.Android || Device.OS == TargetPlatform.iOS)
+            Map1.BindingContext = items[0];
+            Map2.BindingContext = items[1];
+
+
+
+            if (Device.RuntimePlatform == Device.Android || Device.RuntimePlatform == Device.iOS)
             {
                 
                 Title = "Floor Maps (1/2)";
-                CarouselMaps.ItemSelected += (sender, args) =>
+                this.PagesChanged += (sender, args) =>
                 {
-                    var current = args.SelectedItem as EvolveMap;
+                    var current = this.CurrentPage.BindingContext as EvolveMap;
                     if (current == null)
                         return;
                     Title = current.Title;

@@ -57,7 +57,8 @@ namespace XamarinEvolve.Droid
         {
             CrossCurrentActivity.Current.Activity = activity;
         }
-        
-
+        public void OnActivityStopped(Activity activity)
+        {
+        }
     }
 }

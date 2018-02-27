@@ -37,7 +37,7 @@ namespace XamarinEvolve.Clients.UI
         {
             base.OnAppearing ();
 
-            if (Device.OS == TargetPlatform.Android)
+            if (Device.RuntimePlatform == Device.Android)
                 MessagingService.Current.Subscribe ("eval_finished", (d) => UpdatePage ());
 
 
@@ -58,7 +58,7 @@ namespace XamarinEvolve.Clients.UI
         {
             base.OnDisappearing ();
 
-            if (Device.OS == TargetPlatform.Android)
+            if (Device.RuntimePlatform == Device.Android)
                 MessagingService.Current.Unsubscribe ("eval_finished");
         }
     }

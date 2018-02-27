@@ -16,7 +16,7 @@ namespace XamarinEvolve.Clients.UI
             InitializeComponent();
             BindingContext = vm = new AboutViewModel();
             push = DependencyService.Get<IPushNotifications>();
-            var adjust = Device.OS != TargetPlatform.Android ? 1 : -vm.AboutItems.Count + 1;
+            var adjust = Device.RuntimePlatform != Device.Android ? 1 : -vm.AboutItems.Count + 1;
             ListViewAbout.HeightRequest = (vm.AboutItems.Count * ListViewAbout.RowHeight) - adjust;
             ListViewAbout.ItemTapped += (sender, e) => ListViewAbout.SelectedItem = null;
             ListViewInfo.HeightRequest = (vm.InfoItems.Count * ListViewInfo.RowHeight) - adjust;
@@ -71,7 +71,7 @@ namespace XamarinEvolve.Clients.UI
 
                     if(page == null)
                         return;
-                    if(Device.OS == TargetPlatform.iOS && page is VenuePage)
+                    if(Device.RuntimePlatform == Device.iOS && page is VenuePage)
                         await NavigationService.PushAsync(((Page)this.Parent.Parent).Navigation, page);
                     else
                         await NavigationService.PushAsync(Navigation, page);

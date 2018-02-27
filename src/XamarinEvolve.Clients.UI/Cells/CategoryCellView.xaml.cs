@@ -8,7 +8,7 @@ namespace XamarinEvolve.Clients.UI
     {
         public CategoryCell ()
         {
-            if (Device.OS == TargetPlatform.Windows || Device.OS == TargetPlatform.WinPhone)
+            if (Device.RuntimePlatform == Device.UWP || Device.RuntimePlatform == Device.WinPhone)
                 Height = 50;
             else
                 Height = 44;

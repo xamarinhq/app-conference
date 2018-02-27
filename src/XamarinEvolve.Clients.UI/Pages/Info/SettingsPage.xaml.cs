@@ -16,10 +16,10 @@ namespace XamarinEvolve.Clients.UI
 
 
             BindingContext = vm = new SettingsViewModel ();
-            var adjust = Device.OS != TargetPlatform.Android ? 1 : -vm.AboutItems.Count + 1;
+            var adjust = Device.RuntimePlatform != Device.Android ? 1 : -vm.AboutItems.Count + 1;
             ListViewAbout.HeightRequest = (vm.AboutItems.Count * ListViewAbout.RowHeight) - adjust;
             ListViewAbout.ItemTapped += (sender, e) => ListViewAbout.SelectedItem = null;
-            adjust = Device.OS != TargetPlatform.Android ? 1 : -vm.TechnologyItems.Count + 1;
+            adjust = Device.RuntimePlatform != Device.Android ? 1 : -vm.TechnologyItems.Count + 1;
             ListViewTechnology.HeightRequest = (vm.TechnologyItems.Count * ListViewTechnology.RowHeight) - adjust;
             ListViewTechnology.ItemTapped += (sender, e) => ListViewTechnology.SelectedItem = null;
         }
