@@ -1,9 +1,9 @@
 ﻿{
   "dependencies": {
-    "CClarke.Plugin.Calendars": "0.6.33-beta",
+    "CClarke.Plugin.Calendars": "0.6.45-beta",
     "Censored": "1.0.2",
     "FormsToolkit": "2.0.1",
-    "Humanizer": "1.37.7",
+    "Humanizer": "2.2.0",
     "Microsoft.Azure.Mobile.Client": "3.0.3",
     "Microsoft.Azure.Mobile.Client.SQLiteStore": "3.0.3",
     "Microsoft.Bcl.Build": "1.0.21",
@@ -27,7 +27,7 @@
     "ZXing.Net.Mobile.Forms": "2.3.2"
   },
   "frameworks": {
-    "uap10.0.10240": {}
+    "uap10.0.16299": {}
   },
   "runtimes": {
     "win10-arm": {},

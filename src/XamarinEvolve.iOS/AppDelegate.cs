@@ -79,7 +79,6 @@ namespace XamarinEvolve.iOS
 
             //Random Inits for Linking out.
             Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
-            SQLitePCL.CurrentPlatform.Init();
             Plugin.Share.ShareImplementation.ExcludedUIActivityTypes = new List<NSString>
             {
                 UIActivityType.PostToFacebook,

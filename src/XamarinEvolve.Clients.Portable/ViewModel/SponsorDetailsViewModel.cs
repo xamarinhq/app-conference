@@ -24,7 +24,7 @@ namespace XamarinEvolve.Clients.Portable
                 });
             FollowItems.Add(new MenuItem
                 {
-                    Name = Device.OS == TargetPlatform.iOS ? "Twitter" : sponsor.TwitterUrl,
+                    Name = Device.RuntimePlatform == Device.iOS ? "Twitter" : sponsor.TwitterUrl,
                     Subtitle = $"@{sponsor.TwitterUrl}",
                     Parameter = "http://twitter.com/" + sponsor.TwitterUrl,
                     Icon = "icon_twitter.png"

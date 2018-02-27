@@ -140,6 +140,10 @@
       <HintPath>..\packages\Xamarin.Google.iOS.AppIndexing.2.0.3.4\lib\Xamarin.iOS10\Google.AppIndexing.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Humanizer">
+      <HintPath>..\packages\Humanizer.Core.2.2.0\lib\netstandard1.0\Humanizer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="ImageCircle.Forms.Plugin.Abstractions">
       <HintPath>..\packages\Xam.Plugins.Forms.ImageCircle.2.0.2\lib\Xamarin.iOS10\ImageCircle.Forms.Plugin.Abstractions.dll</HintPath>
       <Private>True</Private>
@@ -167,15 +171,17 @@
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="NodaTime, Version=1.3.0.0, Culture=neutral, PublicKeyToken=4226afe0d9b296d1, processorArchitecture=MSIL">
+    <Reference Include="NodaTime">
       <HintPath>..\packages\NodaTime.1.3.2\lib\portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+XamariniOS1\NodaTime.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Plugin.Calendars, Version=0.6.33.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CClarke.Plugin.Calendars.0.6.33-beta\lib\Xamarin.iOS10\Plugin.Calendars.dll</HintPath>
+    <Reference Include="Plugin.Calendars">
+      <HintPath>..\packages\CClarke.Plugin.Calendars.0.6.45-beta\lib\Xamarin.iOS10\Plugin.Calendars.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Plugin.Calendars.Abstractions, Version=0.6.33.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CClarke.Plugin.Calendars.0.6.33-beta\lib\Xamarin.iOS10\Plugin.Calendars.Abstractions.dll</HintPath>
+    <Reference Include="Plugin.Calendars.Abstractions">
+      <HintPath>..\packages\CClarke.Plugin.Calendars.0.6.45-beta\lib\Xamarin.iOS10\Plugin.Calendars.Abstractions.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Plugin.Connectivity">
       <HintPath>..\packages\Xam.Plugin.Connectivity.3.1.1\lib\Xamarin.iOS10\Plugin.Connectivity.dll</HintPath>
@@ -287,15 +293,6 @@
     </Reference>
     <Reference Include="System.Net.Http.Extensions">
       <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\Xamarin.iOS10\System.Net.Http.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="SQLitePCL">
-      <HintPath>..\packages\SQLitePCL.3.8.7.2\lib\Xamarin.iOS10\SQLitePCL.dll</HintPath>
-    </Reference>
-    <Reference Include="SQLitePCL.Ext">
-      <HintPath>..\packages\SQLitePCL.3.8.7.2\lib\Xamarin.iOS10\SQLitePCL.Ext.dll</HintPath>
-    </Reference>
-    <Reference Include="Humanizer">
-      <HintPath>..\packages\Humanizer.1.37.7\lib\portable-win+net40+sl50+wp8+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Humanizer.dll</HintPath>
     </Reference>
     <Reference Include="ZXing.Net.Mobile.Core">
       <HintPath>..\packages\ZXing.Net.Mobile.2.3.2\lib\Xamarin.iOS10\ZXing.Net.Mobile.Core.dll</HintPath>
@@ -510,7 +507,6 @@
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen~ipad.xib" />
   </ItemGroup>
-  <Import Project="..\XamarinEvolve.Shared\XamarinEvolve.Shared.projitems" Label="Shared" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>

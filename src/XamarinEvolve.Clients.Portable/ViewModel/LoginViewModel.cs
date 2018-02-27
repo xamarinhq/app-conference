@@ -202,7 +202,7 @@ namespace XamarinEvolve.Clients.Portable
 
         async Task Finish()
         {
-            if(Device.OS == TargetPlatform.iOS && Settings.FirstRun)
+            if(Device.RuntimePlatform == Device.iOS && Settings.FirstRun)
             {
 
                 #if ENABLE_TEST_CLOUD
