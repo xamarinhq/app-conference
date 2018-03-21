@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="google_app_id">741385686560</string>
+  <string name="shortcut_events">Events</string>
+  <string name="shortcut_minihacks">Mini-Hacks</string>
+  <string name="shortcut_sessions">Sessions</string>
+</resources>

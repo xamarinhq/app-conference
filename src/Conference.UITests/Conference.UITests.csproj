@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FCEFC9E6-75AC-437D-9E01-3FA3D3271B17}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Conference.UITests</RootNamespace>
+    <AssemblyName>Conference.UITests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'UITest|iPhone' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\UITest</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>MOBILE;ENABLE_TEST_CLOUD</DefineConstants>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'UITest|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\UITest</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>MOBILE;ENABLE_TEST_CLOUD</DefineConstants>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.UITest, Version=2.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.UITest.2.2.3\lib\net45\Xamarin.UITest.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppInitializer.cs" />
+    <Compile Include="BasePage.cs" />
+    <Compile Include="AbstractSetup.cs" />
+    <Compile Include="Pages\Events\EventDetailsPage.cs" />
+    <Compile Include="Pages\Events\EventsPage.cs" />
+    <Compile Include="Pages\Info\CodeOfConductPage.cs" />
+    <Compile Include="Pages\Info\DarwinLoungePage.cs" />
+    <Compile Include="Pages\Info\LoginPage.cs" />
+    <Compile Include="Pages\Info\SettingsPage.cs" />
+    <Compile Include="Pages\Info\VenuePage.cs" />
+    <Compile Include="Pages\Info\WiFiInformationPage.cs" />
+    <Compile Include="Pages\MiniHacks\MiniHacksPage.cs" />
+    <Compile Include="Pages\Sessions\FilterSessionsPage.cs" />
+    <Compile Include="Pages\Sessions\SessionsDetailsPage.cs" />
+    <Compile Include="Pages\Sessions\SessionsPage.cs" />
+    <Compile Include="Pages\Speakers\SpeakerDetailsPage.cs" />
+    <Compile Include="Pages\AboutPage.cs" />
+    <Compile Include="Tests\EventsTests.cs" />
+    <Compile Include="Tests\SessionsTests.cs" />
+    <Compile Include="Pages\Sponsors\SponsorsPage.cs" />
+    <Compile Include="Pages\Sponsors\SponsorDetailsPage.cs" />
+    <Compile Include="Tests\FeedTests.cs" />
+    <Compile Include="Tests\LoginTests.cs" />
+    <Compile Include="Pages\Home\FeedPage.cs" />
+    <Compile Include="Pages\Home\NotificationsPage.cs" />
+    <Compile Include="Pages\Info\InfoPage.cs" />
+    <Compile Include="Tests\SpeakerTests.cs" />
+    <Compile Include="Tests\InfoTests.cs" />
+    <Compile Include="Tests\MiniHacksTests.cs" />
+    <Compile Include="Pages\MiniHacks\MiniHackDetailsPage.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Conference.Android\Conference.Android.csproj">
+      <Project>{C4B4592F-6AC4-4FE6-B63E-5D2DE47FD340}</Project>
+      <Name>Conference.Android</Name>
+      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Conference.iOS\Conference.iOS.csproj">
+      <Project>{22F77CDE-8816-45D7-A7A1-CA9282145F0A}</Project>
+      <Name>Conference.iOS</Name>
+      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

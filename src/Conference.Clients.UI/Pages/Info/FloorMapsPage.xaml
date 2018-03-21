@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Conference.Clients.UI.FloorMapsPage"
+		         xmlns:local="clr-namespace:Conference.Clients.UI;assembly=Conference.Clients.UI"
+             Title="Floor Maps"
+	           BackgroundColor="White">
+    <ContentPage x:Name="Map1">
+        <local:FloorMap/>
+    </ContentPage>
+    <ContentPage x:Name="Map2">
+        <local:FloorMap/>
+    </ContentPage>
+</CarouselPage>

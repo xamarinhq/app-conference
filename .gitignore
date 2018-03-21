@@ -223,6 +223,6 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 
-XamarinEvolve.userprefs
-XamarinEvolve/XamarinEvolve.Backend/App_Data/aspnet-XamarinEvolve.Backend-20151029080950.mdf
+Conference.userprefs
+Conference/Conference.Backend/App_Data/aspnet-Conference.Backend-20151029080950.mdf
 *.ldf

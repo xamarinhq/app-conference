@@ -1,13 +1,13 @@
-# Xamarin Evolve 2016 Mobile App
+# Conference Mobile App
 
 ![](art/apps.png)
 
 ## Download from App Store
-* [iOS: App Store](https://itunes.apple.com/us/app/xamarin-evolve/id618319027) 
-* [Android: Google Play](https://play.google.com/store/apps/details?id=com.xamarin.xamarinevolve)
-* [Windows 10: Marketplace](https://www.microsoft.com/en-us/store/apps/xamarin-evolve/9nblggh0ff9k) (Mobile & Desktop)
+* [iOS: App Store](https://itunes.apple.com/us/app/xamarin-conference/id618319027) 
+* [Android: Google Play](https://play.google.com/store/apps/details?id=com.xamarin.Conference)
+* [Windows 10: Marketplace](https://www.microsoft.com/en-us/store/apps/xamarin-conference/9nblggh0ff9k) (Mobile & Desktop)
 
-The Xamarin Evolve 2016 app is full of awesome and includes everything that you would expect from a spectacular conference application, but features tons of deep integration with:
+The Conference app is full of awesome and includes everything that you would expect from a spectacular conference application, but features tons of deep integration with:
 
 * Azure + Online/Offline Sync
 * Barcode Scanning
@@ -42,25 +42,20 @@ This app is around 15,000 lines of code. The iOS version contains 93% shared cod
 </table>
 
 ## Test Cloud Integration
-With each push of code the Xamarin Evolve app was built with [Visual Studio Team Services](https://www.visualstudio.com/en-us/products/visual-studio-team-services-vs.aspx) and [Bitrise](http://bitrise.io) and deployed to be test on a plethora of apps in Xamarin Test Cloud. You can view results for both [iOS](https://testcloud.xamarin.com/test/evolve16_2857b3a8-e28a-4363-a174-60b076a047f9/) and [Android](https://testcloud.xamarin.com/test/evolve16_b6eac105-15e3-412d-b9a7-539f71c41c99/).
+With each push of code the Conference app was built with [Visual Studio Team Services](https://www.visualstudio.com/en-us/products/visual-studio-team-services-vs.aspx) and deployed to be tested on a plethora of apps in [App Center Test](http://appcenter.ms).
 
 ![](art/testcloud1.png)
 
 ![](art/testcloud2.png)
 
-## HockeyApp crash reporting
-Not only was the Evolve 2016 app continuously deployed for testing with [HockeyApp](http://hockeyapp.net), but also provided events and crash reporting.
-
-![](art/hockeyapp.png)
-
 
 # Getting Started
 
 ## Mobile App
-Open up src/XamarinEvolve.sln, which contains the iOS, Android, and Windows project. Simply restore your NuGet packages and build the application. It will run out of the box and will work off of a sample backend that we have published. 
+Open up src/Conference.sln, which contains the iOS, Android, and Windows project. Simply restore your NuGet packages and build the application. It will run out of the box and will work off of a sample backend that we have published. 
 
 ## Data Source
-Out of the box the Evolve Mobile app uses sample data provided by the XamarinEvolve.DataStore.Mock. This is great for development, but you can also test against the test/development read-only Azure App Server Mobile Apps backend. Simply head to *XamarinEvolve.Client.Portable/ViewModel/ViewModelBase.cs*.
+Out of the box the Conference Mobile app uses sample data provided by the Conference.DataStore.Mock. This is great for development, but you can also test against the test/development read-only Azure App Server Mobile Apps backend. Simply head to *Conference.Client.Portable/ViewModel/ViewModelBase.cs*.
 
 Simply change:
 
@@ -77,7 +72,7 @@ public static void Init (bool mock = false)
 # Additional setup
 
 ## Push Notifications
-All of the code for Azure Notification Hubs has been integrated into the Xamarin Evolve application, you will just need to setup your Azure Notifcation Hub Keys and Google Keys. Please read through the [startup guide](https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-overview/) and then fill in your keys in: **XamarinEvolve.Utils/Helpers/Constants.cs**
+All of the code for Azure Notification Hubs has been integrated into the Conference application, you will just need to setup your Azure Notifcation Hub Keys and Google Keys. Please read through the [startup guide](https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-overview/) and then fill in your keys in: **Conference.Utils/Helpers/Constants.cs**
 
 
 ## Google Maps API key (Android)
@@ -95,17 +90,14 @@ Insert it in the Android project: `~/Properties/AndroidManifest.xml`:
 
 ## Bing Maps API Key (UWP)
 
-In App.xaml.cs in the XamarinEvolve.UWP update Xamarin.FormsMaps.Init(string.Empty); with your API key from https://www.bingmapsportal.com/
-
-## HockeyApp Crash Reporting
-Simply head over to http://hockeyapp.net and register a new iOS/Android/UWP application and fill in the HockeyApp API Keys in **XamarinEvolve.Utils/Helpers/Constants.cs** to enable crash reporting.
+In App.xaml.cs in the Conference.UWP update Xamarin.FormsMaps.Init(string.Empty); with your API key from https://www.bingmapsportal.com/
 
 ## Build your own Backend
 
 This repo contains a full backend that you can deploy to your own Azure App Service Mobile App Backend.
 
 # About
-The Xamarin Evolve mobile apps were handcrafted by Xamarins spread out all over the world.
+The Conference mobile apps were handcrafted by Xamarins spread out all over the world.
 
 **Development:**
 * [James Montemagno](http://github.com/jamesmontemagno)
