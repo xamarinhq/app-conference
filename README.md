@@ -1,4 +1,4 @@
-# Conference 2016 Mobile App
+# Conference Mobile App
 
 ![](art/apps.png)
 
@@ -7,7 +7,7 @@
 * [Android: Google Play](https://play.google.com/store/apps/details?id=com.xamarin.Conference)
 * [Windows 10: Marketplace](https://www.microsoft.com/en-us/store/apps/xamarin-conference/9nblggh0ff9k) (Mobile & Desktop)
 
-The Conference 2016 app is full of awesome and includes everything that you would expect from a spectacular conference application, but features tons of deep integration with:
+The Conference app is full of awesome and includes everything that you would expect from a spectacular conference application, but features tons of deep integration with:
 
 * Azure + Online/Offline Sync
 * Barcode Scanning
@@ -42,12 +42,11 @@ This app is around 15,000 lines of code. The iOS version contains 93% shared cod
 </table>
 
 ## Test Cloud Integration
-With each push of code the Conference app was built with [Visual Studio Team Services](https://www.visualstudio.com/en-us/products/visual-studio-team-services-vs.aspx) and [Bitrise](http://bitrise.io) and deployed to be test on a plethora of apps in Xamarin Test Cloud. You can view results for both [iOS](https://testcloud.xamarin.com/test/conference16_2857b3a8-e28a-4363-a174-60b076a047f9/) and [Android](https://testcloud.xamarin.com/test/conference16_b6eac105-15e3-412d-b9a7-539f71c41c99/).
+With each push of code the Conference app was built with [Visual Studio Team Services](https://www.visualstudio.com/en-us/products/visual-studio-team-services-vs.aspx) and deployed to be tested on a plethora of apps in [App Center Test](http://appcenter.ms).
 
 ![](art/testcloud1.png)
 
 ![](art/testcloud2.png)
-
 
 
 # Getting Started
