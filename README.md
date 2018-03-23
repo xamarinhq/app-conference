@@ -90,7 +90,7 @@ Insert it in the Android project: `~/Properties/AndroidManifest.xml`:
 
 ## Bing Maps API Key (UWP)
 
-In App.xaml.cs in the Conference.UWP update Xamarin.FormsMaps.Init(string.Empty); with your API key from https://www.bingmapsportal.com/
+In App.xaml.cs in the Conference.UWP update `Xamarin.FormsMaps.Init(string.Empty);` with your API key from https://www.bingmapsportal.com/
 
 ## Build your own Backend
 
