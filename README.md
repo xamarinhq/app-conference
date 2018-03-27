@@ -2,11 +2,6 @@
 
 ![](art/apps.png)
 
-## Download from App Store
-* [iOS: App Store](https://itunes.apple.com/us/app/xamarin-conference/id618319027) 
-* [Android: Google Play](https://play.google.com/store/apps/details?id=com.xamarin.Conference)
-* [Windows 10: Marketplace](https://www.microsoft.com/en-us/store/apps/xamarin-conference/9nblggh0ff9k) (Mobile & Desktop)
-
 The Conference app is full of awesome and includes everything that you would expect from a spectacular conference application, but features tons of deep integration with:
 
 * Azure + Online/Offline Sync
