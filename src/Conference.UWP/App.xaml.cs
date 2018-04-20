@@ -112,7 +112,6 @@ namespace Conference.UWP
                 assembliesToInclude.Add(typeof(Plugin.ExternalMaps.Abstractions.NavigationType).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(ImageCircle.Forms.Plugin.UWP.ImageCircleRenderer).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(ImageCircle.Forms.Plugin.Abstractions.CircleImage).GetTypeInfo().Assembly);
-                assembliesToInclude.Add(typeof(Plugin.Messaging.CrossMessaging).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(Xamarin.Insights).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(Conference.Clients.Portable.Settings).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(Conference.Clients.UI.AboutPage).GetTypeInfo().Assembly);
