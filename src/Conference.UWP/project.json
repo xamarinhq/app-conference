@@ -16,8 +16,8 @@
     "Xam.Plugin.ExternalMaps": "4.0.1",
     "Xam.Plugins.Forms.ImageCircle": "2.0.2",
     "Xamarin.Essentials": "0.0.1.79-preview",
-    "Xamarin.Forms": "2.5.0.280555",
-    "Xamarin.Forms.Maps": "2.5.0.280555",
+    "Xamarin.Forms": "3.0.0.354232-pre3",
+    "Xamarin.Forms.Maps": "3.0.0.354232-pre3",
     "Xamarin.Insights": "1.12.3",
     "ZXing.Net.Mobile.Forms": "2.3.2"
   },

@@ -25,7 +25,6 @@ namespace Conference.Clients.UI
                     MainPage = new ConferenceNavigationPage(new RootPageiOS());
                     break;
                 case Device.UWP:
-                case Device.WinPhone:
                     MainPage = new RootPageWindows();
                     break;
                 default:

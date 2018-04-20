@@ -24,7 +24,7 @@ namespace Conference.Clients.UI
         double height;
         public void Parallax()
         {
-            if (ParallaxView == null || Device.RuntimePlatform == Device.UWP || Device.RuntimePlatform == Device.WinPhone)
+            if (ParallaxView == null || Device.RuntimePlatform == Device.UWP)
                 return;
             
             if(height <= 0)

@@ -8,7 +8,7 @@ namespace Conference.Clients.UI
     {
         public CategoryCell ()
         {
-            if (Device.RuntimePlatform == Device.UWP || Device.RuntimePlatform == Device.WinPhone)
+            if (Device.RuntimePlatform == Device.UWP)
                 Height = 50;
             else
                 Height = 44;

@@ -19,7 +19,7 @@ namespace Conference.Clients.UI
             if (Device.RuntimePlatform == Device.Android)
                 ListViewSponsors.Effects.Add (Effect.Resolve ("Xamarin.ListViewSelectionOnTopEffect"));
 
-            if (Device.RuntimePlatform == Device.UWP || Device.RuntimePlatform == Device.WinPhone)
+            if (Device.RuntimePlatform == Device.UWP)
             {
                 ToolbarItems.Add(new ToolbarItem
                 {
