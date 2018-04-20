@@ -1,12 +1,9 @@
 // Helpers/Settings.cs
-using Plugin.Settings;
-using Plugin.Settings.Abstractions;
-using Conference.Clients.Portable;
 using System;
-using Xamarin.Forms;
-using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Runtime.CompilerServices;
+using Xamarin.Essentials;
 
 namespace Conference.Clients.Portable
 {
@@ -17,14 +14,6 @@ namespace Conference.Clients.Portable
     /// </summary>
     public class Settings : INotifyPropertyChanged
     {
-        static ISettings AppSettings
-        {
-            get
-            {
-                return CrossSettings.Current;
-            }
-        }
-
         static Settings settings;
 
         /// <summary>
@@ -41,47 +30,29 @@ namespace Conference.Clients.Portable
         readonly string GcmTokenDefault = string.Empty;
         public string GcmToken
         {
-            get { return AppSettings.GetValueOrDefault(GcmTokenKey, GcmTokenDefault); }
-            set
-            {
-                if (AppSettings.AddOrUpdateValue(GcmTokenKey, value))
-                {
-                    OnPropertyChanged();
-                }
-            }
+            get { return Preferences.Get(GcmTokenKey, GcmTokenDefault); }
+            set { Preferences.Set(GcmTokenKey, value); OnPropertyChanged(); }
         }
 
         const string WiFiSSIDKey = "ssid_key";
         readonly string WiFiSSIDDefault = "Xamarin_Conference";
         public string WiFiSSID 
         {
-            get { return AppSettings.GetValueOrDefault (WiFiSSIDKey, WiFiSSIDDefault); }
-            set 
-            {
-                if (AppSettings.AddOrUpdateValue (WiFiSSIDKey, value)) 
-                {
-                    OnPropertyChanged ();
-                }
-            }
+            get { return Preferences.Get(WiFiSSIDKey, WiFiSSIDDefault); }
+            set { Preferences.Set(WiFiSSIDKey, value); OnPropertyChanged(); }
         }
 
         const string WiFiPassKey = "wifi_pass_key";
         readonly string WiFiPassDefault = "";
         public string WiFiPass 
         {
-            get { return AppSettings.GetValueOrDefault (WiFiPassKey, WiFiPassDefault); }
-            set 
-            {
-                if (AppSettings.AddOrUpdateValue (WiFiPassKey, value)) 
-                {
-                    OnPropertyChanged ();
-                }
-            }
+            get { return Preferences.Get(WiFiPassKey, WiFiPassDefault); }
+            set { Preferences.Set(WiFiPassKey, value); OnPropertyChanged(); }
         }
 
         public void SaveReminderId(string id, string calId)
         {
-            AppSettings.AddOrUpdateValue(GetReminderId(id), calId);
+            Preferences.Set(GetReminderId(id), calId);
         }
 
         string GetReminderId(string id)
@@ -91,33 +62,30 @@ namespace Conference.Clients.Portable
 
         public string GetEventId(string id)
         {
-            return AppSettings.GetValueOrDefault(GetReminderId(id), string.Empty);
+            return Preferences.Get(GetReminderId(id), string.Empty);
         }
 
         public void RemoveReminderId(string id)
         {
-            AppSettings.Remove(GetReminderId(id));
+            Preferences.Set(GetReminderId(id), string.Empty);
         }
 
         public bool IsHackFinished(string id)
         {
-            return AppSettings.GetValueOrDefault("minihack_" + id, false);
+            return Preferences.Get("minihack_" + id, false);
         }
 
         public void FinishHack(string id)
         {
-            AppSettings.AddOrUpdateValue("minihack_" + id, true);
+            Preferences.Set("minihack_" + id, true);
         }
 
         const string LastFavoriteTimeKey = "last_favorite_time";
 
         public DateTime LastFavoriteTime
         {
-            get { return AppSettings.GetValueOrDefault(LastFavoriteTimeKey, DateTime.UtcNow); }
-            set
-            {
-                AppSettings.AddOrUpdateValue(LastFavoriteTimeKey, value);
-            }
+            get { return new DateTime(Preferences.Get(LastFavoriteTimeKey, DateTime.UtcNow.Ticks)); }
+            set { Preferences.Set(LastFavoriteTimeKey, value.Ticks); }
         }
 
 
@@ -126,10 +94,10 @@ namespace Conference.Clients.Portable
 
         public bool HasSetReminder
         {
-            get { return AppSettings.GetValueOrDefault(HasSetReminderKey, HasSetReminderDefault); }
+            get { return Preferences.Get(HasSetReminderKey, HasSetReminderDefault); }
             set
             {
-                AppSettings.AddOrUpdateValue(HasSetReminderKey, value);
+                Preferences.Set(HasSetReminderKey, value);
             }
         }
 
@@ -137,8 +105,8 @@ namespace Conference.Clients.Portable
         static readonly string ConferenceCalendarIdDefault = string.Empty;
         public string ConferenceCalendarId
         {
-            get { return AppSettings.GetValueOrDefault(ConferenceCalendarIdKey, ConferenceCalendarIdDefault); }
-            set { AppSettings.AddOrUpdateValue(ConferenceCalendarIdKey, value); }
+            get { return Preferences.Get(ConferenceCalendarIdKey, ConferenceCalendarIdDefault); }
+            set { Preferences.Set(ConferenceCalendarIdKey, value); }
         }
           
 
@@ -147,12 +115,8 @@ namespace Conference.Clients.Portable
 
         public bool PushNotificationsEnabled
         {
-            get { return AppSettings.GetValueOrDefault(PushNotificationsEnabledKey, PushNotificationsEnabledDefault); }
-            set
-            {
-                if (AppSettings.AddOrUpdateValue(PushNotificationsEnabledKey, value))
-                    OnPropertyChanged();
-            }
+            get { return Preferences.Get(PushNotificationsEnabledKey, PushNotificationsEnabledDefault); }
+            set { Preferences.Set(PushNotificationsEnabledKey, value); OnPropertyChanged(); }
         }
 
         const string FirstRunKey = "first_run";
@@ -164,12 +128,8 @@ namespace Conference.Clients.Portable
         /// <value><c>true</c> if favorites only; otherwise, <c>false</c>.</value>
         public bool FirstRun
         {
-            get { return AppSettings.GetValueOrDefault(FirstRunKey, FirstRunDefault); }
-            set
-            {
-                if (AppSettings.AddOrUpdateValue(FirstRunKey, value))
-                    OnPropertyChanged();
-            }
+            get { return Preferences.Get(FirstRunKey, FirstRunDefault); }
+            set { Preferences.Set(FirstRunKey, value); OnPropertyChanged(); }
         }
 
         const string GooglePlayCheckedKey = "play_checked";
@@ -177,10 +137,10 @@ namespace Conference.Clients.Portable
 
         public bool GooglePlayChecked
         {
-            get { return AppSettings.GetValueOrDefault(GooglePlayCheckedKey, GooglePlayCheckedDefault); }
+            get { return Preferences.Get(GooglePlayCheckedKey, GooglePlayCheckedDefault); }
             set
             {
-                AppSettings.AddOrUpdateValue(GooglePlayCheckedKey, value);
+                Preferences.Set(GooglePlayCheckedKey, value);
             }
         }
 
@@ -189,11 +149,8 @@ namespace Conference.Clients.Portable
 
         public bool AttemptedPush
         {
-            get { return AppSettings.GetValueOrDefault(AttemptedPushKey, AttemptedPushDefault); }
-            set
-            {
-                AppSettings.AddOrUpdateValue(AttemptedPushKey, value);
-            }
+            get { return Preferences.Get(AttemptedPushKey, AttemptedPushDefault); }
+            set { Preferences.Set(AttemptedPushKey, value); }
         }
 
        
@@ -202,11 +159,8 @@ namespace Conference.Clients.Portable
 
         public bool PushRegistered
         {
-            get { return AppSettings.GetValueOrDefault(PushRegisteredKey, PushRegisteredDefault); }
-            set
-            {
-                AppSettings.AddOrUpdateValue(PushRegisteredKey, value);
-            }
+            get { return Preferences.Get(PushRegisteredKey, PushRegisteredDefault); }
+            set { Preferences.Set(PushRegisteredKey, value); }
         }
 
         const string FavoriteModeKey = "favorites_only";
@@ -218,12 +172,8 @@ namespace Conference.Clients.Portable
         /// <value><c>true</c> if favorites only; otherwise, <c>false</c>.</value>
         public bool FavoritesOnly
         {
-            get { return AppSettings.GetValueOrDefault(FavoriteModeKey, FavoriteModeDefault); }
-            set
-            {
-                if (AppSettings.AddOrUpdateValue(FavoriteModeKey, value))
-                    OnPropertyChanged();
-            }
+            get { return Preferences.Get(FavoriteModeKey, FavoriteModeDefault); }
+            set { Preferences.Set(FavoriteModeKey, value); OnPropertyChanged(); }
         }
 
         const string ShowAllCategoriesKey = "all_categories";
@@ -235,12 +185,8 @@ namespace Conference.Clients.Portable
         /// <value><c>true</c> if show all categories; otherwise, <c>false</c>.</value>
         public bool ShowAllCategories
         {
-            get { return AppSettings.GetValueOrDefault(ShowAllCategoriesKey, ShowAllCategoriesDefault); }
-            set
-            {
-                if (AppSettings.AddOrUpdateValue(ShowAllCategoriesKey, value))
-                    OnPropertyChanged();
-            }
+            get { return Preferences.Get(ShowAllCategoriesKey, ShowAllCategoriesDefault); }
+            set { Preferences.Set(ShowAllCategoriesKey, value); OnPropertyChanged(); }
         }
 
         const string ShowPastSessionsKey = "show_past_sessions";
@@ -259,13 +205,9 @@ namespace Conference.Clients.Portable
                 if (DateTime.UtcNow > EndOfConference)
                     return true;
                 
-                return AppSettings.GetValueOrDefault(ShowPastSessionsKey, ShowPastSessionsDefault); 
+                return Preferences.Get(ShowPastSessionsKey, ShowPastSessionsDefault); 
             }
-            set
-            {
-                if (AppSettings.AddOrUpdateValue(ShowPastSessionsKey, value))
-                    OnPropertyChanged();
-            }
+            set { Preferences.Set(ShowPastSessionsKey, value); OnPropertyChanged(); }
         }
 
         const string FilteredCategoriesKey = "filtered_categories";
@@ -274,12 +216,8 @@ namespace Conference.Clients.Portable
 
         public string FilteredCategories
         {
-            get { return AppSettings.GetValueOrDefault(FilteredCategoriesKey, FilteredCategoriesDefault); }
-            set
-            {
-                if (AppSettings.AddOrUpdateValue(FilteredCategoriesKey, value))
-                    OnPropertyChanged();
-            }
+            get { return Preferences.Get(FilteredCategoriesKey, FilteredCategoriesDefault); }
+            set { Preferences.Set(FilteredCategoriesKey, value); OnPropertyChanged(); }
         }
 
 
@@ -287,14 +225,12 @@ namespace Conference.Clients.Portable
         readonly string EmailDefault = string.Empty;
         public string Email 
         {
-            get { return AppSettings.GetValueOrDefault(EmailKey, EmailDefault); }
+            get { return Preferences.Get(EmailKey, EmailDefault); }
             set
             {
-                if (AppSettings.AddOrUpdateValue(EmailKey, value))
-                {
-                    OnPropertyChanged();
-                    OnPropertyChanged(nameof(UserAvatar));
-                }
+                Preferences.Set(EmailKey, value);
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(UserAvatar));
             }
         }
 
@@ -303,11 +239,8 @@ namespace Conference.Clients.Portable
 
         public static int DatabaseId
         {
-            get { return AppSettings.GetValueOrDefault(DatabaseIdKey, DatabaseIdDefault); }
-            set
-            {
-                AppSettings.AddOrUpdateValue(DatabaseIdKey, value);
-            }
+            get { return Preferences.Get(DatabaseIdKey, DatabaseIdDefault); }
+            set { Preferences.Set(DatabaseIdKey, value); }
         }
 
         public static int UpdateDatabaseId()
@@ -319,14 +252,12 @@ namespace Conference.Clients.Portable
         readonly string FirstNameDefault =  string.Empty;
         public string FirstName 
         {
-            get { return AppSettings.GetValueOrDefault(FirstNameKey, FirstNameDefault); }
+            get { return Preferences.Get(FirstNameKey, FirstNameDefault); }
             set
             {
-                if (AppSettings.AddOrUpdateValue(FirstNameKey, value))
-                {
-                    OnPropertyChanged();
-                    OnPropertyChanged(nameof(UserDisplayName));
-                }
+                Preferences.Set(FirstNameKey, value);
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(UserDisplayName));
             }
         }
 
@@ -334,14 +265,12 @@ namespace Conference.Clients.Portable
         readonly string LastNameDefault =  string.Empty;
         public string LastName 
         {
-            get { return AppSettings.GetValueOrDefault(LastNameKey, LastNameDefault); }
+            get { return Preferences.Get(LastNameKey, LastNameDefault); }
             set
             {
-                if (AppSettings.AddOrUpdateValue(LastNameKey, value))
-                {
-                    OnPropertyChanged();
-                    OnPropertyChanged(nameof(UserDisplayName));
-                }
+                Preferences.Set(LastNameKey, value);
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(UserDisplayName));
             }
         }
 
@@ -350,8 +279,8 @@ namespace Conference.Clients.Portable
         const bool NeedsSyncDefault = true;
         public bool NeedsSync
         {
-            get { return AppSettings.GetValueOrDefault(NeedsSyncKey, NeedsSyncDefault) || LastSync < DateTime.Now.AddDays(-1); }
-            set { AppSettings.AddOrUpdateValue(NeedsSyncKey, value); }
+            get { return Preferences.Get(NeedsSyncKey, NeedsSyncDefault) || LastSync < DateTime.Now.AddDays(-1); }
+            set { Preferences.Set(NeedsSyncKey, value); }
 
         }
 
@@ -359,22 +288,16 @@ namespace Conference.Clients.Portable
         const int LoginAttemptsDefault = 0;
         public int LoginAttempts
         {
-            get
-            {
-                return AppSettings.GetValueOrDefault(LoginAttemptsKey, LoginAttemptsDefault);
-            }
-            set
-            {
-                AppSettings.AddOrUpdateValue(LoginAttemptsKey, value);
-            }
+            get { return Preferences.Get(LoginAttemptsKey, LoginAttemptsDefault); }
+            set { Preferences.Set(LoginAttemptsKey, value); }
         }
 
         const string HasSyncedDataKey = "has_synced";
         const bool HasSyncedDataDefault = false;
         public bool HasSyncedData
         {
-            get { return AppSettings.GetValueOrDefault(HasSyncedDataKey, HasSyncedDataDefault); }
-            set { AppSettings.AddOrUpdateValue(HasSyncedDataKey, value); }
+            get { return Preferences.Get(HasSyncedDataKey, HasSyncedDataDefault); }
+            set { Preferences.Set(HasSyncedDataKey, value); }
 
         }
 
@@ -382,15 +305,8 @@ namespace Conference.Clients.Portable
         static readonly DateTime LastSyncDefault = DateTime.Now.AddDays(-30);
         public DateTime LastSync
         {
-            get
-            {
-                return AppSettings.GetValueOrDefault(LastSyncKey, LastSyncDefault);
-            }
-            set
-            {
-                if (AppSettings.AddOrUpdateValue(LastSyncKey, value))
-                    OnPropertyChanged();
-            }
+            get { return new DateTime(Preferences.Get(LastSyncKey, LastSyncDefault.Ticks)); }
+            set { Preferences.Set(LastSyncKey, value.Ticks); OnPropertyChanged(); }
         } 
 
         bool isConnected;

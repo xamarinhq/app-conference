@@ -1,9 +1,8 @@
 // Helpers/Settings.cs
-using Plugin.Settings;
-using Plugin.Settings.Abstractions;
-using System.Threading.Tasks;
-using Xamarin.Forms;
 using Conference.DataStore.Abstractions;
+using System.Threading.Tasks;
+using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace Conference.DataStore.Mock
 {
@@ -14,39 +13,30 @@ namespace Conference.DataStore.Mock
     /// </summary>
     public static class Settings
     {
-        static ISettings AppSettings
-        {
-            get
-            {
-                return CrossSettings.Current;
-            }
-        }
-
-
         public static bool IsFavorite(string id) =>
-            AppSettings.GetValueOrDefault("fav_"+id, false);
+            Preferences.Get("fav_"+id, false);
 
         public static void SetFavorite(string id, bool favorite) =>
-            AppSettings.AddOrUpdateValue("fav_"+id, favorite);
+            Preferences.Set("fav_"+id, favorite);
 
         public static async Task ClearFavorites()
         {
             var sessions = await DependencyService.Get<ISessionStore>().GetItemsAsync();
             foreach (var session in sessions)
-                AppSettings.Remove("fav_" + session.Id);
+                Preferences.Set("fav_" + session.Id, string.Empty);
         }
 
         public static bool LeftFeedback(string id) =>
-        AppSettings.GetValueOrDefault("feed_"+id, false);
+            Preferences.Get("feed_"+id, false);
 
         public static void LeaveFeedback(string id, bool leave) =>
-        AppSettings.AddOrUpdateValue("feed_"+id, leave);
+            Preferences.Set("feed_"+id, leave);
 
         public static async Task ClearFeedback()
         {
             var sessions = await DependencyService.Get<ISessionStore>().GetItemsAsync();
             foreach (var session in sessions)
-                AppSettings.Remove("feed_" + session.Id);
+                Preferences.Set("feed_" + session.Id, string.Empty);
         }
 
     }
