@@ -36,7 +36,7 @@ namespace Conference.Clients.UI
         public SessionCellView()
         {
             InitializeComponent();
-            if (Device.RuntimePlatform == Device.WinPhone || Device.RuntimePlatform == Device.UWP)
+            if (Device.RuntimePlatform == Device.UWP)
                 LabelBadgetName.FontSize = 10;
         }
 

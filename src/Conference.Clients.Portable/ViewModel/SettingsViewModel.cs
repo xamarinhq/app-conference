@@ -1,12 +1,11 @@
-﻿using System;
-using System.Windows.Input;
-using System.Threading.Tasks;
-using FormsToolkit;
-using Plugin.Connectivity;
-using Plugin.Share;
-using Xamarin.Forms;
-using MvvmHelpers;
+﻿using FormsToolkit;
 using Humanizer;
+using MvvmHelpers;
+using System;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace Conference.Clients.Portable
 {
@@ -89,7 +88,7 @@ namespace Conference.Clients.Portable
         void ExecuteLoginCommand()
         {
 
-            if(!CrossConnectivity.Current.IsConnected)
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 MessagingUtils.SendOfflineMessage();
                 return;
@@ -175,7 +174,7 @@ namespace Conference.Clients.Portable
             if(IsBusy)
                 return;
 
-            if(!CrossConnectivity.Current.IsConnected)
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 MessagingUtils.SendOfflineMessage();
                 return;

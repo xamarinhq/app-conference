@@ -26,7 +26,7 @@ namespace Conference.Clients.UI
 
             BindingContext = vm = new SessionsViewModel(Navigation);
 
-            if (Device.RuntimePlatform == Device.UWP || Device.RuntimePlatform == Device.WinPhone)
+            if (Device.RuntimePlatform == Device.UWP)
             {
                 ToolbarItems.Add(new ToolbarItem
                 {

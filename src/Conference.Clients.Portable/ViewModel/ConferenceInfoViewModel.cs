@@ -1,12 +1,12 @@
-﻿using System;
-using System.Windows.Input;
-using System.Threading.Tasks;
-using Xamarin.Forms;
-using FormsToolkit;
-using Plugin.Share;
-using System.Net.Http;
-using Plugin.Connectivity;
+﻿using FormsToolkit;
 using Newtonsoft.Json;
+using Plugin.Share;
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace Conference.Clients.Portable
 {
@@ -37,7 +37,7 @@ namespace Conference.Clients.Portable
                 IsBusy = true;
                 try 
                 {
-                    if (CrossConnectivity.Current.IsConnected) 
+                    if (Connectivity.NetworkAccess == NetworkAccess.Internet) 
                     {
                         using (var client = new HttpClient ()) 
                         {

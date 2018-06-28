@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using FormsToolkit;
-using Plugin.Connectivity;
-using Plugin.Connectivity.Abstractions;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Conference.Clients.Portable;
 
@@ -26,7 +25,6 @@ namespace Conference.Clients.UI
                     MainPage = new ConferenceNavigationPage(new RootPageiOS());
                     break;
                 case Device.UWP:
-                case Device.WinPhone:
                     MainPage = new RootPageWindows();
                     break;
                 default:
@@ -56,8 +54,8 @@ namespace Conference.Clients.UI
                 return;
             registered = true;
             // Handle when your app resumes
-            Settings.Current.IsConnected = CrossConnectivity.Current.IsConnected;
-            CrossConnectivity.Current.ConnectivityChanged += ConnectivityChanged;
+            Settings.Current.IsConnected = Connectivity.NetworkAccess == NetworkAccess.Internet;
+            Connectivity.ConnectivityChanged += ConnectivityChanged;
 
             // Handle when your app starts
             MessagingService.Current.Subscribe<MessagingServiceAlert>(MessageKeys.Message, async (m, info) =>
@@ -186,7 +184,7 @@ namespace Conference.Clients.UI
         {
             if (!registered)
                 return;
-            
+
             registered = false;
             MessagingService.Current.Unsubscribe(MessageKeys.NavigateLogin);
             MessagingService.Current.Unsubscribe<MessagingServiceQuestion>(MessageKeys.Question);
@@ -194,15 +192,15 @@ namespace Conference.Clients.UI
             MessagingService.Current.Unsubscribe<MessagingServiceChoice>(MessageKeys.Choice);
 
             // Handle when your app sleeps
-            CrossConnectivity.Current.ConnectivityChanged -= ConnectivityChanged;
+            Connectivity.ConnectivityChanged -= ConnectivityChanged;
         }
 
-        protected async void ConnectivityChanged (object sender, ConnectivityChangedEventArgs e)
+        protected async void ConnectivityChanged (ConnectivityChangedEventArgs e)
         {
             //save current state and then set it
             var connected = Settings.Current.IsConnected;
-            Settings.Current.IsConnected = e.IsConnected;
-            if (connected && !e.IsConnected)
+            Settings.Current.IsConnected = e.NetworkAccess == NetworkAccess.Internet;
+            if (connected && e.NetworkAccess != NetworkAccess.Internet)
             {
                 //we went offline, should alert the user and also update ui (done via settings)
                 var task = Application.Current?.MainPage?.DisplayAlert("Offline", "Uh Oh, It looks like you have gone offline. Please check your internet connection to get the latest data and enable syncing data.", "OK");

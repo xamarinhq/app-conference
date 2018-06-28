@@ -7,7 +7,7 @@ namespace Conference.Clients.UI
     {
         public PinchToZoomContainer ()
         {
-            if (Device.RuntimePlatform == Device.UWP || Device.RuntimePlatform == Device.WinPhone)
+            if (Device.RuntimePlatform == Device.UWP)
                 return;
 
             var pinchGesture = new PinchGestureRecognizer ();

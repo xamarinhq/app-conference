@@ -8,7 +8,7 @@ namespace Conference.Clients.UI
         public NonScrollableListView()
             :base(ListViewCachingStrategy.RecycleElement)
         {
-            if (Device.RuntimePlatform == Device.UWP || Device.RuntimePlatform == Device.WinPhone)
+            if (Device.RuntimePlatform == Device.UWP)
                 BackgroundColor = Color.White;
         }
     }

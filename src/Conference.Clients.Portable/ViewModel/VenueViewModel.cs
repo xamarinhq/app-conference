@@ -1,17 +1,16 @@
-﻿using System;
-
-using Xamarin.Forms;
-using System.Windows.Input;
-using System.Threading.Tasks;
+﻿using FormsToolkit;
 using Plugin.ExternalMaps;
-using Plugin.Messaging;
-using FormsToolkit;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace Conference.Clients.Portable
 {
     public class VenueViewModel : ViewModelBase
     {
-        public bool CanMakePhoneCall => CrossMessaging.Current.PhoneDialer.CanMakePhoneCall;
+        //TODO: Does Xamarin.Essentials support this?
+        public bool CanMakePhoneCall => true;
         public string EventTitle => "Conference";
         public string LocationTitle => "Hyatt Regency Orlando";
         public string Address1 => "9801 International Drive";
@@ -44,9 +43,14 @@ namespace Conference.Clients.Portable
         void ExecuteCallCommand()
         {
             Logger.Track(ConferenceLoggerKeys.CallHotel);
-            var phoneCallTask = CrossMessaging.Current.PhoneDialer;
-            if (phoneCallTask.CanMakePhoneCall) 
-                phoneCallTask.MakePhoneCall("14072841234");
+            try
+            {
+                PhoneDialer.Open("14072841234");
+            }
+            catch (FeatureNotSupportedException)
+            {
+                Application.Current?.MainPage?.DisplayAlert("Sorry!", "Your device doesn't appear to support phone calls!", "OK");
+            }
         }
     }
 }

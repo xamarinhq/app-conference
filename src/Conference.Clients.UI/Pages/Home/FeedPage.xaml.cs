@@ -20,7 +20,7 @@ namespace Conference.Clients.UI
             loggedIn = Settings.Current.Email;
             BindingContext = new FeedViewModel();
 
-            if (Device.RuntimePlatform == Device.UWP || Device.RuntimePlatform == Device.WinPhone)
+            if (Device.RuntimePlatform == Device.UWP)
             {
                 ToolbarItems.Add(new ToolbarItem
                 {

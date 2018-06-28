@@ -1,7 +1,6 @@
 
 // Helpers/Settings.cs This file was automatically added when you installed the Settings Plugin. If you are not using a PCL then comment this file back in to use it.
-using Plugin.Settings;
-using Plugin.Settings.Abstractions;
+using Xamarin.Essentials;
 
 namespace Conference.Droid.Helpers
 {
@@ -12,24 +11,13 @@ namespace Conference.Droid.Helpers
   /// </summary>
   public static class Settings
   {
-        static ISettings AppSettings
-        {
-          get
-          {
-            return CrossSettings.Current;
-          }
-        }
-
         const string NotificationIdKey = "notification_id";
         static readonly int NotificationIdDefault = 0;
 
         public static int NotificationId
         {
-            get { return AppSettings.GetValueOrDefault(NotificationIdKey, NotificationIdDefault); }
-            set
-            {
-                AppSettings.AddOrUpdateValue(NotificationIdKey, value);
-            }
+            get { return Preferences.Get(NotificationIdKey, NotificationIdDefault); }
+            set { Preferences.Set(NotificationIdKey, value); }
         }
 
         public static int GetUniqueNotificationId()
