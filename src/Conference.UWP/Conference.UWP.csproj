@@ -178,7 +178,6 @@
     <Content Include="toolbar_call.png" />
     <Content Include="toolbar_refresh.png" />
     <Content Include="toolbar_share.png" />
-    <None Include="packages.config" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>

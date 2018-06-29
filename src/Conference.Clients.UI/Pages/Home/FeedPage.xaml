@@ -5,9 +5,9 @@
     xmlns:local="clr-namespace:Conference.Clients.UI;assembly=Conference.Clients.UI"
     xmlns:toolkit="clr-namespace:FormsToolkit;assembly=FormsToolkit"
     xmlns:pull="clr-namespace:Refractored.XamForms.PullToRefresh;assembly=Refractored.XamForms.PullToRefresh"
-    xmlns:imagecircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+    xmlns:imagecircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
     x:Class="Conference.Clients.UI.FeedPage"
-    x:Name="FeedPage"
+    x:Name="ContentPageFeed"
     Title="Conference Feed"
     Icon="tab_feed.png"
     BackgroundColor="{DynamicResource WindowBackgroundTable}">
@@ -114,15 +114,16 @@
                         x:Name="ListViewSessions"
                         ItemsSource="{Binding Sessions}">
                         <local:NonScrollableListView.SeparatorColor>
-                            <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" WinPhone="{StaticResource ListSeparator}"/>
+                            <OnPlatform x:TypeArguments="Color">
+                                <On Platform="iOS" Value="{StaticResource ListSeparator}"/>
+                                <On Platform="UWP" Value="{StaticResource ListSeparator}"/>
+                            </OnPlatform>
                         </local:NonScrollableListView.SeparatorColor>
-                        <local:NonScrollableListView.RowHeight>
-                            <OnPlatform x:TypeArguments="x:Int32" Android="120" iOS="120" WinPhone="120"/>
-                        </local:NonScrollableListView.RowHeight>
+                        <local:NonScrollableListView.RowHeight>120</local:NonScrollableListView.RowHeight>
                         <local:NonScrollableListView.ItemTemplate>
                              <DataTemplate>
                               <ViewCell>
-                                <local:SessionCellView FavoriteCommand="{Binding Path=BindingContext.FavoriteCommand, Source={x:Reference FeedPage}}"/>
+                                        <local:SessionCellView FavoriteCommand="{Binding Path=BindingContext.FavoriteCommand, Source={x:Reference ContentPageFeed}}"/>
                               </ViewCell>
                             </DataTemplate>
                         </local:NonScrollableListView.ItemTemplate>
@@ -171,11 +172,18 @@
                         SelectedItem="{Binding SelectedTweet, Mode=TwoWay}"
                         ItemsSource="{Binding Tweets}">
                         <local:NonScrollableListView.SeparatorColor>
-                            <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" WinPhone="{StaticResource ListSeparator}"/>
-                        </local:NonScrollableListView.SeparatorColor>
+                                <OnPlatform x:TypeArguments="Color">
+                                    <On Platform="iOS" Value="{StaticResource ListSeparator}"/>
+                                    <On Platform="UWP" Value="{StaticResource ListSeparator}"/>
+                                </OnPlatform>
+                            </local:NonScrollableListView.SeparatorColor>
                         <local:NonScrollableListView.RowHeight>
-                            <OnPlatform x:TypeArguments="x:Int32" Android="145" iOS="140" WinPhone="155"/>
-                        </local:NonScrollableListView.RowHeight>
+                                <OnPlatform x:TypeArguments="x:Int32">
+                                    <On Platform="Android" Value="145"/>
+                                    <On Platform="iOS" Value="140"/>
+                                    <On Platform="UWP" Value="155"/>
+                                </OnPlatform>
+                            </local:NonScrollableListView.RowHeight>
                         <local:NonScrollableListView.ItemTemplate>
                              <DataTemplate>
                               <ViewCell >

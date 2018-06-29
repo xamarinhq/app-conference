@@ -44,7 +44,11 @@
                             BorderColor="Transparent"
                             StyleId="iOSReminderButton">
                             <Button.IsVisible>
-                                <OnPlatform x:TypeArguments="x:Boolean" iOS="true" Android="false" WinPhone="false"/>
+                                <OnPlatform x:TypeArguments="x:Boolean">
+                                    <On Platform="Android" Value="false"/>
+                                    <On Platform="iOS" Value="true"/>
+                                    <On Platform="UWP" Value="false"/>
+                                </OnPlatform>
                             </Button.IsVisible>
                         </Button>
 
@@ -57,7 +61,11 @@
                             BackgroundColor="{StaticResource Primary}"
                             StyleId="AndroidReminderButton">
                             <Button.IsVisible>
-                                <OnPlatform x:TypeArguments="x:Boolean" iOS="false" Android="true" WinPhone="true"/>
+                                <OnPlatform x:TypeArguments="x:Boolean">
+                                    <On Platform="Android" Value="true"/>
+                                    <On Platform="iOS" Value="false"/>
+                                    <On Platform="UWP" Value="true"/>
+                                </OnPlatform>
                             </Button.IsVisible>
                         </Button>
                     </StackLayout>

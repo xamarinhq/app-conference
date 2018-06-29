@@ -4,7 +4,6 @@
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 		x:Class="Conference.Clients.UI.EvaluationsPage"
 		xmlns:local="clr-namespace:Conference.Clients.UI;assembly=Conference.Clients.UI"
-    x:Name="EvaluationsPage"
     Title="Evaluations"
     BackgroundColor="{DynamicResource WindowBackground}">
      <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
@@ -18,7 +17,10 @@
             AbsoluteLayout.LayoutFlags="All" 
             AbsoluteLayout.LayoutBounds="0,0,1,1">
             <ListView.SeparatorColor>
-                <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" WinPhone="{StaticResource ListSeparator}"/>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="iOS" Value="{StaticResource ListSeparator}"/>
+                    <On Platform="UWP" Value="{StaticResource ListSeparator}"/>
+                </OnPlatform>
             </ListView.SeparatorColor>
         <ListView.GroupHeaderTemplate>
             <DataTemplate>

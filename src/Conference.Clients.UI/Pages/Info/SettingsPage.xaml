@@ -9,7 +9,11 @@
     
     BackgroundColor="{DynamicResource WindowBackgroundTable}">
     <ContentPage.Title>
-        <OnPlatform x:TypeArguments="x:String" Android="Settings" WinPhone="Settings" iOS="About this app"/>
+        <OnPlatform x:TypeArguments="x:String">
+            <On Platform="Android" Value="Settings"/>
+            <On Platform="iOS" Value="About this app"/>
+            <On Platform="UWP" Value="Settings"/>
+        </OnPlatform>
     </ContentPage.Title>
     <ContentPage.Resources>
      <ResourceDictionary>
@@ -27,7 +31,11 @@
 
                  <local:CardView>
                     <local:CardView.IsVisible>
-                        <OnPlatform x:TypeArguments="x:Boolean" Android="true" iOS="false" WinPhone="true"/>
+                        <OnPlatform x:TypeArguments="x:Boolean" >
+                            <On Platform="Android" Value="true"/>
+                            <On Platform="iOS" Value="false"/>
+                            <On Platform="UWP" Value="true"/>
+                        </OnPlatform>
                     </local:CardView.IsVisible>
                      <StackLayout Spacing="0">
                         <local:LabelSection Text="Data Sync"/>
@@ -84,7 +92,11 @@
                      <StackLayout Spacing="0">
                         <local:LabelSection>
                             <local:LabelSection.Text>
-                                <OnPlatform x:TypeArguments="x:String" Android="About the App" iOS=" " WinPhone="About the App"/>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="Android" Value="About the App"/>
+                                    <On Platform="iOS" Value=" "/>
+                                    <On Platform="UWP" Value="About the App"/>
+                                </OnPlatform>
                             </local:LabelSection.Text>
                         </local:LabelSection>
                         <local:HeaderDivider/>
@@ -108,7 +120,11 @@
                         <local:FooterDivider/>
                         <StackLayout>
                             <StackLayout.Padding>
-                                <OnPlatform x:TypeArguments="Thickness" iOS="16,8,16,0" Android="16,8" WinPhone="16,8"/>
+                                <OnPlatform x:TypeArguments="Thickness">
+                                    <On Platform="Android" Value="16,8"/>
+                                    <On Platform="iOS" Value="16,8,16,0"/>
+                                    <On Platform="UWP" Value="16,8"/>
+                                </OnPlatform>
                             </StackLayout.Padding>
                             <Label Text="Copyright 2016 - Xamarin Inc." 
                                    Style="{DynamicResource ConferenceListItemDetailTextStyle}"/>
@@ -140,7 +156,11 @@
                          <local:FooterDivider/>
                         <StackLayout>
                             <StackLayout.Padding>
-                                <OnPlatform x:TypeArguments="Thickness" iOS="16,8,16,0" Android="16,8" WinPhone="16,8"/>
+                                <OnPlatform x:TypeArguments="Thickness">
+                                    <On Platform="Android" Value="16,8"/>
+                                    <On Platform="iOS" Value="16,8,16,0"/>
+                                    <On Platform="UWP" Value="16,8"/>
+                                </OnPlatform>
                             </StackLayout.Padding>
 							<StackLayout.GestureRecognizers>
                                         <TapGestureRecognizer

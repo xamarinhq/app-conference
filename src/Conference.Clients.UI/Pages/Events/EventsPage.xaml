@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     xmlns:local="clr-namespace:Conference.Clients.UI;assembly=Conference.Clients.UI"
     x:Class="Conference.Clients.UI.EventsPage"
-    xmlns:imagecircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+    xmlns:imagecircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
     Title="{Binding Title}"
     Icon="tab_events.png"
    
@@ -34,7 +34,10 @@
             AbsoluteLayout.LayoutBounds="0,0,1,1"
             BackgroundColor="White">
             <ListView.SeparatorColor>
-                <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}"  WinPhone="{StaticResource ListSeparator}"/>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="iOS" Value="{StaticResource ListSeparator}"/>
+                    <On Platform="UWP" Value="{StaticResource ListSeparator}"/>
+                </OnPlatform>
             </ListView.SeparatorColor>
         <ListView.GroupHeaderTemplate>
             <DataTemplate>

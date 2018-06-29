@@ -5,7 +5,6 @@
     x:Class="Conference.Clients.UI.SponsorsPage"
     xmlns:local="clr-namespace:Conference.Clients.UI;assembly=Conference.Clients.UI"
     Title="Sponsors"
-    x:Name="SponsorsPage"
     Icon="tab_sponsors.png"
     BackgroundColor="{DynamicResource WindowBackground}">
    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">

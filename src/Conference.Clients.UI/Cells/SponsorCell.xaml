@@ -6,7 +6,11 @@
     x:Class="Conference.Clients.UI.SponsorCell">
     <StackLayout Spacing="0" HeightRequest="120">
 		<StackLayout.Padding>
-            <OnPlatform x:TypeArguments="Thickness" iOS="0" Android="0,4" WinPhone="0"/>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="Android" Value="0,4"/>
+                <On Platform="iOS" Value="0"/>
+                <On Platform="UWP" Value="0"/>
+            </OnPlatform>
         </StackLayout.Padding>
     	<local:CardView HeightRequest="120">
             <Grid Padding="16" ColumnSpacing="16" BackgroundColor="White">

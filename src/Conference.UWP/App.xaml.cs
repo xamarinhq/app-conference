@@ -125,7 +125,7 @@ namespace Conference.UWP
                 //Also do this for all your other 3rd party libraries
 
                 Xamarin.Forms.Forms.Init(e, assembliesToInclude);
-                Xamarin.FormsMaps.Init(string.Empty);
+                Xamarin.FormsMaps.Init("tfq15wN8jPpuv0nhqRhK~uN2qfuzyxraNJX-ltg3cGg~AvKrlF6iSHY1K7zeLbWApJNV9hUPuQMZpzj54-cnRN5gMMaaO4029st7jfxvncFj");
                 ViewModelBase.Init();
 
                 try

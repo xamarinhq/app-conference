@@ -2,11 +2,11 @@
 using Conference.DataStore.Abstractions;
 
 using MvvmHelpers;
-using Plugin.Share;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Plugin.Share.Abstractions;
 using System;
+
+using Xamarin.Essentials;
 
 namespace Conference.Clients.Portable
 {
@@ -125,17 +125,7 @@ namespace Conference.Clients.Portable
 
             try 
             {
-                await CrossShare.Current.OpenBrowser (arg, new BrowserOptions {
-                    ChromeShowTitle = true,
-                    ChromeToolbarColor = new ShareColor {
-                        A = 255,
-                        R = 118,
-                        G = 53,
-                        B = 235
-                    },
-                    UseSafariReaderMode = true,
-                    UseSafariWebViewController = true
-                });
+                await Browser.OpenAsync(arg);
             } 
             catch 
             {

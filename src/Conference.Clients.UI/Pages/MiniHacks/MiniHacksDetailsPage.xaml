@@ -45,8 +45,12 @@
                                    ColumnSpacing="{StaticResource StandardSpacing}" 
                                BackgroundColor="White">
                                <Grid.IsVisible>
-                                <OnPlatform x:TypeArguments="x:Boolean" iOS="false" Android="true" WinPhone="true"/>
-                               </Grid.IsVisible>
+                                <OnPlatform x:TypeArguments="x:Boolean">
+                                    <On Platform="Android" Value="true"/>
+                                    <On Platform="iOS" Value="false"/>
+                                    <On Platform="UWP" Value="true"/>
+                                </OnPlatform>
+                            </Grid.IsVisible>
                             <Button Text="Mini-Hack Directions"
                                     StyleId="MiniHackDirections"
 									x:Name="MiniHackDirections1"
@@ -58,7 +62,11 @@
                          </Grid>
                          <StackLayout Padding="16,0" Spacing="8" Orientation="Horizontal" BackgroundColor="White">
                             <StackLayout.IsVisible>
-                                <OnPlatform x:TypeArguments="x:Boolean" iOS="true" Android="false" WinPhone="false"/>
+                                <OnPlatform x:TypeArguments="x:Boolean">
+                                    <On Platform="Android" Value="false"/>
+                                    <On Platform="iOS" Value="true"/>
+                                    <On Platform="UWP" Value="false"/>
+                                </OnPlatform>
                             </StackLayout.IsVisible>
                             <Button Text="Mini-Hack Directions"
                                     x:Name="MiniHackDirections2"
@@ -82,11 +90,19 @@
                                 <OnPlatform x:TypeArguments="FontAttributes" iOS="Bold"/>
                             </Button.FontAttributes>
                             <Button.BackgroundColor>
-                                <OnPlatform x:TypeArguments="Color" Android="{StaticResource PrimaryDark}" WinPhone="{StaticResource PrimaryDark}" iOS="Transparent"/>
-                            </Button.BackgroundColor>
+                                    <OnPlatform x:TypeArguments="Color">
+                                        <On Platform="Android" Value="{StaticResource PrimaryDark}"/>
+                                        <On Platform="iOS" Value="Transparent"/>
+                                        <On Platform="UWP" Value="{StaticResource PrimaryDark}"/>
+                                    </OnPlatform>
+                                </Button.BackgroundColor>
                             <Button.TextColor>
-                                <OnPlatform x:TypeArguments="Color" Android="White" WinPhone="White" iOS="{StaticResource PrimaryDark}"/>
-                            </Button.TextColor>
+                                    <OnPlatform x:TypeArguments="Color">
+                                        <On Platform="Android" Value="White"/>
+                                        <On Platform="iOS" Value="{StaticResource PrimaryDark}"/>
+                                        <On Platform="UWP" Value="White"/>
+                                    </OnPlatform>
+                                </Button.TextColor>
                             <Button.BorderWidth>
                                 <OnPlatform x:TypeArguments="x:Double" iOS="1"/>
                             </Button.BorderWidth> 

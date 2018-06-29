@@ -1,6 +1,5 @@
 ﻿using FormsToolkit;
 using Newtonsoft.Json;
-using Plugin.Share;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -20,7 +19,6 @@ namespace Conference.Clients.Portable
     {
 
         IWiFiConfig wiFiConfig;
-        const string WifiUrl =  "https://s3.amazonaws.com/xamarin-releases/conference-2016/wifi.json";
         public ConferenceInfoViewModel()
         {
             wiFiConfig = DependencyService.Get<IWiFiConfig>();
@@ -37,17 +35,9 @@ namespace Conference.Clients.Portable
                 IsBusy = true;
                 try 
                 {
-                    if (Connectivity.NetworkAccess == NetworkAccess.Internet) 
-                    {
-                        using (var client = new HttpClient ()) 
-                        {
-                            client.Timeout = TimeSpan.FromSeconds (5);
-                            var json = await client.GetStringAsync (WifiUrl);
-                            var root = JsonConvert.DeserializeObject<WiFiRoot> (json);
-                            Settings.WiFiSSID = root.SSID;
-                            Settings.WiFiPass = root.Password;
-                        }
-                    }
+
+                    Settings.WiFiSSID ="Xamarin_Evolve";
+                    Settings.WiFiPass = string.Empty;
                 } 
                 catch 
                 {
@@ -124,7 +114,7 @@ namespace Conference.Clients.Portable
         async Task ExecuteCopyPasswordAsync(string pass)
         {
             Logger.Track(ConferenceLoggerKeys.CopyPassword);
-            await CrossShare.Current.SetClipboardText(pass, "Password");
+            Clipboard.SetText(pass);
             Toast.SendToast("Password Copied");
         }
     }

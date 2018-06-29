@@ -5,6 +5,8 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using Conference.Clients.Portable;
 
+[assembly:Xamarin.Forms.Xaml.XamlCompilation(Xamarin.Forms.Xaml.XamlCompilationOptions.Compile)]
+
 namespace Conference.Clients.UI
 {
     public partial class App : Application

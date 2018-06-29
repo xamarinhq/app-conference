@@ -4,8 +4,8 @@ using Xamarin.Forms;
 using System.Threading.Tasks;
 using Conference.DataObjects;
 using System.Windows.Input;
-using Plugin.Share;
 using FormsToolkit;
+using Xamarin.Essentials;
 
 namespace Conference.Clients.Portable
 {
@@ -112,9 +112,10 @@ namespace Conference.Clients.Portable
         async Task ExecuteShareCommandAsync()
         {
             Logger.Track(ConferenceLoggerKeys.Share, "Title", Session.Title);
-            await CrossShare.Current.Share(new Plugin.Share.Abstractions.ShareMessage
+
+            await DataTransfer.RequestAsync(new ShareTextRequest
             {
-                Text =$"Can't wait for {Session.Title} at #Conference!",
+                Text = $"Can't wait for {Session.Title} at #Conference!",
                 Title = "Share"
             });
         }

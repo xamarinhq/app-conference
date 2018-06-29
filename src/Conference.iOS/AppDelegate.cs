@@ -17,7 +17,6 @@ using Social;
 using CoreSpotlight;
 using Conference.DataStore.Abstractions;
 using System.Threading.Tasks;
-using Google.AppIndexing;
 
 namespace Conference.iOS
 {
@@ -59,8 +58,6 @@ namespace Conference.iOS
             FormsMaps.Init();
             Toolkit.Init();
 
-            AppIndexing.SharedInstance.RegisterApp (618319027);
-
             ZXing.Net.Mobile.Forms.iOS.Platform.Init();
             // Code for starting up the Xamarin Test Cloud Agent
             #if ENABLE_TEST_CLOUD
@@ -79,15 +76,7 @@ namespace Conference.iOS
 
             //Random Inits for Linking out.
             Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
-            Plugin.Share.ShareImplementation.ExcludedUIActivityTypes = new List<NSString>
-            {
-                UIActivityType.PostToFacebook,
-                UIActivityType.AssignToContact,
-                UIActivityType.OpenInIBooks,
-                UIActivityType.PostToVimeo,
-                UIActivityType.PostToFlickr,
-                UIActivityType.SaveToCameraRoll
-            };
+
             ImageCircle.Forms.Plugin.iOS.ImageCircleRenderer.Init();
             ZXing.Net.Mobile.Forms.iOS.Platform.Init();
             NonScrollableListViewRenderer.Initialize();
