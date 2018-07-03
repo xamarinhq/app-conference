@@ -36,8 +36,12 @@ This app is around 15,000 lines of code. The iOS version contains 93% shared cod
   </tr>
 </table>
 
-## Test Cloud Integration
-With each push of code the Conference app was built with [Visual Studio Team Services](https://www.visualstudio.com/en-us/products/visual-studio-team-services-vs.aspx) and deployed to be tested on a plethora of apps in [App Center Test](http://appcenter.ms).
+## VSTS & App Center Integration
+With each push of code the Conference app was built with [Visual Studio Team Services](https://www.visualstudio.com/en-us/products/visual-studio-team-services-vs.aspx) and [App Center Build](http://appcenter.ms) and deployed to be tested on a plethora of apps in [App Center Test](http://appcenter.ms).
+
+### Build Status
+* iOS: [![Build status](https://build.appcenter.ms/v0.1/apps/f7f5b28c-6c2e-4411-8e55-44d78de2b39b/branches/master/badge)](https://appcenter.ms)
+* Android: [![Build status](https://build.appcenter.ms/v0.1/apps/4c8b4a04-060a-464c-a4cd-30be161e591c/branches/master/badge)](https://appcenter.ms)
 
 ![](art/testcloud1.png)
 
