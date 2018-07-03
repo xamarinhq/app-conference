@@ -178,7 +178,7 @@
                                 <OnPlatform x:TypeArguments="x:Boolean">
                                     <On Platform="Android" Value="false"/>
                                     <On Platform="iOS" Value="true"/>
-                                    <On Platform="UWP" Value="true"/>
+                                    <On Platform="UWP" Value="false"/>
                                 </OnPlatform>
                             </StackLayout.IsVisible>
                                 <Button 
