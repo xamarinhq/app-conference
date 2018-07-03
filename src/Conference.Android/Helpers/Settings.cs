@@ -16,14 +16,11 @@ namespace Conference.Droid.Helpers
 
         public static int NotificationId
         {
-            get { return Preferences.Get(NotificationIdKey, NotificationIdDefault); }
-            set { Preferences.Set(NotificationIdKey, value); }
+            get => Preferences.Get(NotificationIdKey, NotificationIdDefault);
+            set => Preferences.Set(NotificationIdKey, value);
         }
 
-        public static int GetUniqueNotificationId()
-        {
-            return NotificationId++;
-        }
+        public static int GetUniqueNotificationId() => NotificationId++;
 
-  }
+    }
 }
