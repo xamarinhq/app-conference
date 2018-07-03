@@ -13,7 +13,7 @@
     <!--<PackageReferenceReference Include="" Version=""/>-->
     <PackageReference Include="CClarke.Plugin.Calendars" Version="0.6.64-beta" />
     <PackageReference Include="FormsToolkit" Version="2.0.1" />
-    <PackageReference Include="Humanizer" Version="2.3.3" />
+    <PackageReference Include="Humanizer" Version="2.4.2" />
     <PackageReference Include="Microsoft.AppCenter" Version="1.7.0" />
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="1.7.0" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="1.7.0" />
