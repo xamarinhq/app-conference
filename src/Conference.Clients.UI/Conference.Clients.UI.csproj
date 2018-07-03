@@ -13,6 +13,10 @@
     <!--<PackageReferenceReference Include="" Version=""/>-->
     <PackageReference Include="FormsToolkit" Version="2.0.1" />
     <PackageReference Include="Humanizer" Version="2.3.3" />
+    <PackageReference Include="Microsoft.AppCenter" Version="1.7.0" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="1.7.0" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="1.7.0" />
+    <PackageReference Include="Microsoft.AppCenter.Distribute" Version="1.7.0" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="NodaTime" Version="2.3.0" />
     <PackageReference Include="Plugin.Permissions" Version="3.0.0.12" />

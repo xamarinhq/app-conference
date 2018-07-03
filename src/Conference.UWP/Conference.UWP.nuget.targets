@@ -17,5 +17,7 @@
     <Import Project="$(NuGetPackageRoot)microsoft.net.native.compiler\2.1.8\build\Microsoft.Net.Native.Compiler.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.net.native.compiler\2.1.8\build\Microsoft.Net.Native.Compiler.targets')" />
     <Import Project="$(NuGetPackageRoot)xamarin.forms\3.1.0.583944\build\netstandard2.0\Xamarin.Forms.targets" Condition="Exists('$(NuGetPackageRoot)xamarin.forms\3.1.0.583944\build\netstandard2.0\Xamarin.Forms.targets')" />
     <Import Project="$(NuGetPackageRoot)xamarin.insights\1.12.3\build\windows8\Xamarin.Insights.targets" Condition="Exists('$(NuGetPackageRoot)xamarin.insights\1.12.3\build\windows8\Xamarin.Insights.targets')" />
+    <Import Project="$(NuGetPackageRoot)sqlitepclraw.lib.e_sqlite3.v140\1.1.11\build\SQLitePCLRaw.lib.e_sqlite3.v140.targets" Condition="Exists('$(NuGetPackageRoot)sqlitepclraw.lib.e_sqlite3.v140\1.1.11\build\SQLitePCLRaw.lib.e_sqlite3.v140.targets')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.appcenter.crashes\1.7.0\build\uap10.0\Microsoft.AppCenter.Crashes.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.appcenter.crashes\1.7.0\build\uap10.0\Microsoft.AppCenter.Crashes.targets')" />
   </ImportGroup>
 </Project>

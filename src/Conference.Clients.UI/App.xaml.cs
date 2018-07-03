@@ -4,6 +4,9 @@ using FormsToolkit;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Conference.Clients.Portable;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Distribute;
+using Microsoft.AppCenter.Crashes;
 
 [assembly:Xamarin.Forms.Xaml.XamlCompilation(Xamarin.Forms.Xaml.XamlCompilationOptions.Compile)]
 
@@ -17,6 +20,13 @@ namespace Conference.Clients.UI
             current = this;
             InitializeComponent();
             ViewModelBase.Init();
+
+#if !DEBUG
+            Microsoft.AppCenter.AppCenter.Start("uwp=c9066a4a-7a4d-4b2c-9146-66736339398b;" 
+                + "android=0da69ace-2d11-498f-8e7f-e706b7c31a05"
+                + "ios=508b163d-4fd0-4185-8302-e733e6504d3f", typeof(Analytics), typeof(Distribute), typeof(Crashes));
+#endif
+
             // The root page of your application
             switch (Device.RuntimePlatform)
             {
