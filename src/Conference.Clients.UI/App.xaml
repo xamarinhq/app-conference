@@ -14,29 +14,86 @@
             <Color x:Key="DetailTextColor">#979797</Color>
 
 
+            <OnPlatform x:TypeArguments="Thickness" x:Key="SmallPadding">
+                <On Platform="Android" Value="4"/>
+                <On Platform="iOS" Value="4"/>
+                <On Platform="UWP" Value="4"/>
+            </OnPlatform>
 
-            <Thickness x:Key="SmallPadding">4</Thickness>
-            <Thickness x:Key="MediumPadding">8</Thickness>
-            <Thickness x:Key="StandardPadding">16</Thickness>
+            <OnPlatform x:TypeArguments="Thickness" x:Key="MediumPadding">
+                <On Platform="Android" Value="8"/>
+                <On Platform="iOS" Value="8"/>
+                <On Platform="UWP" Value="8"/>
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="Thickness" x:Key="StandardPadding">
+                <On Platform="Android" Value="16"/>
+                <On Platform="iOS" Value="16"/>
+                <On Platform="UWP" Value="16"/>
+            </OnPlatform>
 
             <x:Double x:Key="SmallSpacing">4</x:Double>
             <x:Double x:Key="MediumSpacing">8</x:Double>
             <x:Double x:Key="StandardSpacing">16</x:Double>
 
 
-            <OnPlatform x:TypeArguments="Color" Android="#F5F5F5" iOS="#EFEFF4" WinPhone="#EFEFF4" x:Key="WindowBackgroundTable"/>
-            <OnPlatform x:TypeArguments="Color" Android="#F5F5F5" iOS="White" WinPhone="White" x:Key="WindowBackground"/>
-            <OnPlatform x:TypeArguments="Color" Android="#ECECEC" iOS="#C8C7CC" WinPhone="#C8C7CC" x:Key="Divider"/>
+            <OnPlatform x:TypeArguments="Color" x:Key="WindowBackgroundTable">
+                <On Platform="Android" Value="#F5F5F5"/>
+                <On Platform="iOS" Value="#EFEFF4"/>
+                <On Platform="UWP" Value="#EFEFF4"/>
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="Color" x:Key="WindowBackground">
+                <On Platform="Android" Value="#F5F5F5"/>
+                <On Platform="iOS" Value="White"/>
+                <On Platform="UWP" Value="White"/>
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="Color" x:Key="Divider">
+                <On Platform="Android" Value="#ECECEC"/>
+                <On Platform="iOS" Value="#C8C7CC"/>
+                <On Platform="UWP" Value="#C8C7CC"/>
+            </OnPlatform>
+            
             <Color x:Key="ButtonBorder">#C8C7CC</Color>
             <Color x:Key="ListSeparator">#C8C7CC</Color>
-            <OnPlatform x:TypeArguments="Thickness" Android="8,16" iOS="0,0,0,16" WinPhone="0,0,0,16" x:Key="CardPadding"/>
-            <OnPlatform x:TypeArguments="x:Double" Android="16" iOS="0" WinPhone="0" x:Key="CardSpacing"/>
-            
-            <OnPlatform x:TypeArguments="x:Double" Android="16" iOS="16" WinPhone="13" x:Key="ConferenceListItemTextStyleSize" />
-            <OnPlatform x:TypeArguments="x:Double" Android="13" iOS="13" WinPhone="13" x:Key="ConferenceListItemDetailTextStyleSize" />
-            <OnPlatform x:TypeArguments="x:Double" Android="18" iOS="13" WinPhone="13" x:Key="LabelSectionFontSize" />
-            <OnPlatform x:TypeArguments="x:Double" Android="14" iOS="14" WinPhone="14" x:Key="TweetTextSize" />
-            <OnPlatform x:TypeArguments="Font" Android="SemiBold" iOS="SemiBold" WinPhone="SemiBold" x:Key="TweetUserTextSize" />
+
+            <OnPlatform x:TypeArguments="Thickness" x:Key="CardPadding">
+                <On Platform="Android" Value="8,16"/>
+                <On Platform="iOS" Value="0,0,0,16"/>
+                <On Platform="UWP" Value="0,0,0,16"/>
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:Double" x:Key="CardSpacing">
+                <On Platform="Android" Value="16"/>
+                <On Platform="iOS" Value="0"/>
+                <On Platform="UWP" Value="0"/>
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:Double" x:Key="ConferenceListItemTextStyleSize">
+                <On Platform="Android" Value="16"/>
+                <On Platform="iOS" Value="16"/>
+                <On Platform="UWP" Value="13"/>
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:Double" x:Key="ConferenceListItemDetailTextStyleSize" >
+                <On Platform="Android" Value="13"/>
+                <On Platform="iOS" Value="13"/>
+                <On Platform="UWP" Value="13"/>
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:Double" x:Key="LabelSectionFontSize">
+                <On Platform="Android" Value="18"/>
+                <On Platform="iOS" Value="13"/>
+                <On Platform="UWP" Value="13"/>
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:Double" x:Key="TweetTextSize"> 
+                <On Platform="Android" Value="14"/>
+                <On Platform="iOS" Value="14"/>
+                <On Platform="UWP" Value="14"/>
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="Font" x:Key="TweetUserTextSize">
+                <On Platform="Android" Value="SemiBold"/>
+                <On Platform="iOS" Value="SemiBold"/>
+                <On Platform="UWP" Value="SemiBold"/>
+            </OnPlatform>
             <OnPlatform x:TypeArguments="x:String" Android="sans-serif-light" x:Key="SectionLabelFontFamily" />
 
 

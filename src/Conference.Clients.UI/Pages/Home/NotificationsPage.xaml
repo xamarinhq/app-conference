@@ -22,7 +22,10 @@
             AbsoluteLayout.LayoutBounds="0,0,1,1"
 			BackgroundColor="White">
             <ListView.SeparatorColor>
-                <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" WinPhone="{StaticResource ListSeparator}"/>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="iOS" Value="{StaticResource ListSeparator}"/>
+                    <On Platform="UWP" Value="{StaticResource ListSeparator}"/>
+                </OnPlatform>
             </ListView.SeparatorColor>
         <ListView.GroupHeaderTemplate>
             <DataTemplate>

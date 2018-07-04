@@ -5,10 +5,17 @@
     x:Class="Conference.Clients.UI.ConferenceGroupHeaderView">
     <StackLayout VerticalOptions="Center">
         <StackLayout.BackgroundColor>
-            <OnPlatform x:TypeArguments="Color" Android="#F5F5F5" WinPhone="#F5F5F5"/>
+            <OnPlatform x:TypeArguments="Color">
+                <On Platform="Android" Value="#F5F5F5"/>
+                <On Platform="UWP" Value="#F5F5F5"/>
+            </OnPlatform>
         </StackLayout.BackgroundColor>
         <StackLayout.Padding>
-            <OnPlatform x:TypeArguments="Thickness" iOS="16,0" Android="16,8" WinPhone="16,8"/>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="Android" Value="16,8"/>
+                <On Platform="iOS" Value="16,0"/>
+                <On Platform="UWP" Value="16,8"/>
+            </OnPlatform>
         </StackLayout.Padding>
         <Label Text="{Binding Key}" 
             VerticalOptions="Center" 
@@ -17,13 +24,19 @@
                 <OnPlatform x:TypeArguments="FontAttributes" iOS="Bold"/>
             </Label.FontAttributes>
              <Label.FontSize>
-                <OnPlatform x:TypeArguments="x:Double" iOS="16" Android="18" WinPhone="16"/>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="Android" Value="18"/>
+                    <On Platform="iOS" Value="16"/>
+                    <On Platform="UWP" Value="16"/>
+                </OnPlatform>
             </Label.FontSize>
             <Label.FontFamily>
                 <OnPlatform x:TypeArguments="x:String" Android="sans-serif-light"/>
             </Label.FontFamily>
             <Label.TextColor>
-                <OnPlatform x:TypeArguments="Color"  WinPhone="Black"/>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="UWP" Value="Black"/>
+                </OnPlatform>
             </Label.TextColor>
         </Label>
     </StackLayout>

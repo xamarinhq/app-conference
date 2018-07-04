@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="Conference.Clients.UI.SessionDetailsPage"
     xmlns:local="clr-namespace:Conference.Clients.UI;assembly=Conference.Clients.UI"
-    xmlns:imagecircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+    xmlns:imagecircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
     xmlns:toolkit="clr-namespace:FormsToolkit;assembly=FormsToolkit"
     Title="Session Details"
     NavigationPage.BackButtonTitle="Back"
@@ -142,7 +142,11 @@
                                     <ColumnDefinition Width="24"/>
                                 </Grid.ColumnDefinitions>
                                <Grid.IsVisible>
-                                <OnPlatform x:TypeArguments="x:Boolean" iOS="false" Android="true" WinPhone="true"/>
+                                <OnPlatform x:TypeArguments="x:Boolean">
+                                    <On Platform="Android" Value="true"/>
+                                    <On Platform="iOS" Value="false"/>
+                                    <On Platform="UWP" Value="true"/>
+                                </OnPlatform>
                                </Grid.IsVisible>
                                 <Button StyleId="ReminderButton"
                                         IsVisible="{Binding ShowReminder}"
@@ -171,8 +175,12 @@
    
                              <StackLayout Padding="16,0" Spacing="8" Orientation="Horizontal" BackgroundColor="White">
                                 <StackLayout.IsVisible>
-                                    <OnPlatform x:TypeArguments="x:Boolean" iOS="true" Android="false" WinPhone="false"/>
-                                </StackLayout.IsVisible>
+                                <OnPlatform x:TypeArguments="x:Boolean">
+                                    <On Platform="Android" Value="false"/>
+                                    <On Platform="iOS" Value="true"/>
+                                    <On Platform="UWP" Value="false"/>
+                                </OnPlatform>
+                            </StackLayout.IsVisible>
                                 <Button 
                                     StyleId="ReminderButton"
                                     IsVisible="{Binding ShowReminder}"
@@ -186,8 +194,12 @@
                                 
                               <StackLayout Padding="16,0" Spacing="8" Orientation="Horizontal" BackgroundColor="White">
                                 <StackLayout.IsVisible>
-                                    <OnPlatform x:TypeArguments="x:Boolean" iOS="true" Android="false" WinPhone="false"/>
-                                </StackLayout.IsVisible>
+                                <OnPlatform x:TypeArguments="x:Boolean">
+                                    <On Platform="Android" Value="false"/>
+                                    <On Platform="iOS" Value="true"/>
+                                    <On Platform="UWP" Value="false"/>
+                                </OnPlatform>
+                            </StackLayout.IsVisible>
                                 <Button 
                                     StyleId="FavoriteButton"
                                     x:Name="FavoriteButtoniOS"

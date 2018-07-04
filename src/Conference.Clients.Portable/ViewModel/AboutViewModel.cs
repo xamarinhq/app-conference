@@ -5,7 +5,6 @@ using System.Windows.Input;
 using FormsToolkit;
 using MvvmHelpers;
 using Xamarin.Forms;
-using Plugin.Share;
 
 namespace Conference.Clients.Portable
 {

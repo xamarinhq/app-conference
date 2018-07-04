@@ -4,8 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Conference.Clients.UI;assembly=Conference.Clients.UI"
     x:Class="Conference.Clients.UI.SessionsPage"
-    x:Name="SessionsPage"
     Title="Sessions"
+    x:Name="ContentPageSessions"
     Icon="tab_sessions.png"
     BackgroundColor="{DynamicResource WindowBackground}">
     <ContentPage.Resources>
@@ -21,8 +21,12 @@
         </Grid.RowDefinitions>
         <StackLayout>
             <StackLayout.Padding>
-                <OnPlatform x:TypeArguments="Thickness" Android="0,8,8,8" iOS="0" WinPhone="0"/>
-            </StackLayout.Padding>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="Android" Value="0,8,8,8"/>
+                        <On Platform="iOS" Value="0"/>
+                        <On Platform="UWP" Value="0"/>
+                    </OnPlatform>
+                </StackLayout.Padding>
             <StackLayout.BackgroundColor>
                 <OnPlatform x:TypeArguments="Color" Android="{StaticResource Primary}"/>
             </StackLayout.BackgroundColor>
@@ -60,7 +64,10 @@
             AbsoluteLayout.LayoutFlags="All" 
             AbsoluteLayout.LayoutBounds="0,0,1,1">
             <ListView.SeparatorColor>
-                <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" WinPhone="{StaticResource ListSeparator}"/>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="iOS" Value="{StaticResource ListSeparator}"/>
+                    <On Platform="UWP" Value="{StaticResource ListSeparator}"/>
+                </OnPlatform>
             </ListView.SeparatorColor>
         <ListView.GroupHeaderTemplate>
             <DataTemplate>
@@ -76,7 +83,7 @@
         <DataTemplate>
           <ViewCell>
              <!--Inflate main Session Cell here-->
-             <local:SessionCellView FavoriteCommand="{Binding Path=BindingContext.FavoriteCommand, Source={x:Reference SessionsPage}}"/>
+                                <local:SessionCellView FavoriteCommand="{Binding Path=BindingContext.FavoriteCommand, Source={x:Reference ContentPageSessions}}"/>
           </ViewCell>
         </DataTemplate>
       </ListView.ItemTemplate>

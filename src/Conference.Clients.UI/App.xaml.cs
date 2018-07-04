@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using FormsToolkit;
-using Plugin.Connectivity;
-using Plugin.Connectivity.Abstractions;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Conference.Clients.Portable;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Distribute;
+using Microsoft.AppCenter.Crashes;
+
+[assembly:Xamarin.Forms.Xaml.XamlCompilation(Xamarin.Forms.Xaml.XamlCompilationOptions.Compile)]
 
 namespace Conference.Clients.UI
 {
@@ -16,6 +20,13 @@ namespace Conference.Clients.UI
             current = this;
             InitializeComponent();
             ViewModelBase.Init();
+
+#if !DEBUG
+            Microsoft.AppCenter.AppCenter.Start("uwp=c9066a4a-7a4d-4b2c-9146-66736339398b;" 
+                + "android=0da69ace-2d11-498f-8e7f-e706b7c31a05"
+                + "ios=508b163d-4fd0-4185-8302-e733e6504d3f", typeof(Analytics), typeof(Distribute), typeof(Crashes));
+#endif
+
             // The root page of your application
             switch (Device.RuntimePlatform)
             {
@@ -26,7 +37,6 @@ namespace Conference.Clients.UI
                     MainPage = new ConferenceNavigationPage(new RootPageiOS());
                     break;
                 case Device.UWP:
-                case Device.WinPhone:
                     MainPage = new RootPageWindows();
                     break;
                 default:
@@ -56,8 +66,8 @@ namespace Conference.Clients.UI
                 return;
             registered = true;
             // Handle when your app resumes
-            Settings.Current.IsConnected = CrossConnectivity.Current.IsConnected;
-            CrossConnectivity.Current.ConnectivityChanged += ConnectivityChanged;
+            Settings.Current.IsConnected = Connectivity.NetworkAccess == NetworkAccess.Internet;
+            Connectivity.ConnectivityChanged += ConnectivityChanged;
 
             // Handle when your app starts
             MessagingService.Current.Subscribe<MessagingServiceAlert>(MessageKeys.Message, async (m, info) =>
@@ -186,7 +196,7 @@ namespace Conference.Clients.UI
         {
             if (!registered)
                 return;
-            
+
             registered = false;
             MessagingService.Current.Unsubscribe(MessageKeys.NavigateLogin);
             MessagingService.Current.Unsubscribe<MessagingServiceQuestion>(MessageKeys.Question);
@@ -194,15 +204,15 @@ namespace Conference.Clients.UI
             MessagingService.Current.Unsubscribe<MessagingServiceChoice>(MessageKeys.Choice);
 
             // Handle when your app sleeps
-            CrossConnectivity.Current.ConnectivityChanged -= ConnectivityChanged;
+            Connectivity.ConnectivityChanged -= ConnectivityChanged;
         }
 
-        protected async void ConnectivityChanged (object sender, ConnectivityChangedEventArgs e)
+        protected async void ConnectivityChanged (ConnectivityChangedEventArgs e)
         {
             //save current state and then set it
             var connected = Settings.Current.IsConnected;
-            Settings.Current.IsConnected = e.IsConnected;
-            if (connected && !e.IsConnected)
+            Settings.Current.IsConnected = e.NetworkAccess == NetworkAccess.Internet;
+            if (connected && e.NetworkAccess != NetworkAccess.Internet)
             {
                 //we went offline, should alert the user and also update ui (done via settings)
                 var task = Application.Current?.MainPage?.DisplayAlert("Offline", "Uh Oh, It looks like you have gone offline. Please check your internet connection to get the latest data and enable syncing data.", "OK");

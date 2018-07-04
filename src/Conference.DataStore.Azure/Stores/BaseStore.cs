@@ -7,7 +7,7 @@ using Microsoft.WindowsAzure.MobileServices.Sync;
 using Microsoft.WindowsAzure.MobileServices;
 using Xamarin.Forms;
 using System.Diagnostics;
-using Plugin.Connectivity;
+using Xamarin.Essentials;
 
 namespace Conference.DataStore.Azure
 {
@@ -94,7 +94,7 @@ namespace Conference.DataStore.Azure
 
         public async Task<bool> PullLatestAsync()
         {
-            if (!CrossConnectivity.Current.IsConnected)
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 Debug.WriteLine("Unable to pull items, we are offline");
                 return false;
@@ -114,7 +114,7 @@ namespace Conference.DataStore.Azure
 
         public async Task<bool> SyncAsync()
         {
-            if (!CrossConnectivity.Current.IsConnected)
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 Debug.WriteLine("Unable to sync items, we are offline");
                 return false;

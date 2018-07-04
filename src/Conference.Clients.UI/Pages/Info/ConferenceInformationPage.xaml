@@ -45,7 +45,11 @@
                                 Spacing="{StaticResource MediumSpacing}" 
                                BackgroundColor="White">
                             <StackLayout.IsVisible>
-                                <OnPlatform x:TypeArguments="x:Boolean" iOS="false" Android="true" WinPhone="false"/>
+                                <OnPlatform x:TypeArguments="x:Boolean">
+                                    <On Platform="Android" Value="true"/>
+                                    <On Platform="iOS" Value="false"/>
+                                    <On Platform="UWP" Value="false"/>
+                                </OnPlatform>
                             </StackLayout.IsVisible>
                             <Button Text="Setup Connection"
                                     Command="{Binding ConfigureWiFiCommand}"

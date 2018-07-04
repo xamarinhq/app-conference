@@ -19,13 +19,13 @@ namespace Conference.Clients.UI
                 new ConferenceMap
                 {
                     Local = "floor_1.png",
-                    Url = "https://s3.amazonaws.com/xamarin-releases/conference-2016/floor_1.png",
+                    Url = "https://raw.githubusercontent.com/xamarinhq/app-conference/master/art/floor_1.png",
                     Title = "Floor Maps (1/2)"
                 },
                 new ConferenceMap
                 {
                     Local = "floor_2.png",
-                    Url = "https://s3.amazonaws.com/xamarin-releases/conference-2016/floor_2.png",
+                    Url = "https://raw.githubusercontent.com/xamarinhq/app-conference/master/art/floor_2.png",
                     Title = "Floor Maps (2/2)"
                 }
             };

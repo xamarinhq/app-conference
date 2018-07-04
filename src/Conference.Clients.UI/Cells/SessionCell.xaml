@@ -2,7 +2,7 @@
 <ContentView 
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    xmlns:imagecircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+    xmlns:imagecircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
     xmlns:local="clr-namespace:Conference.Clients.UI;assembly=Conference.Clients.UI"
     xmlns:toolkit="clr-namespace:FormsToolkit;assembly=FormsToolkit"
     x:Class="Conference.Clients.UI.SessionCellView"
@@ -74,8 +74,12 @@
                     HorizontalOptions="FillAndExpand"
                     HeightRequest="24">
                     <imagecircle:CircleImage.IsVisible>
-                        <OnPlatform x:TypeArguments="x:Boolean" iOS="true" Android="false" WinPhone="false"/>
-                    </imagecircle:CircleImage.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean">
+                        <On Platform="Android" Value="false"/>
+                        <On Platform="iOS" Value="true"/>
+                        <On Platform="UWP" Value="false"/>
+                    </OnPlatform>
+                </imagecircle:CircleImage.IsVisible>
                 
                </imagecircle:CircleImage>
                <BoxView 
@@ -84,8 +88,12 @@
                         HorizontalOptions="FillAndExpand"
                         HeightRequest="24">
                     <BoxView.IsVisible>
-                        <OnPlatform x:TypeArguments="x:Boolean" iOS="false" Android="true" WinPhone="true"/>
-                    </BoxView.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean">
+                        <On Platform="Android" Value="true"/>
+                        <On Platform="iOS" Value="false"/>
+                        <On Platform="UWP" Value="true"/>
+                    </OnPlatform>
+                </BoxView.IsVisible>
                 </BoxView>
                 <StackLayout Padding="16,0" VerticalOptions="Center">
                     <Label   VerticalOptions="Center"

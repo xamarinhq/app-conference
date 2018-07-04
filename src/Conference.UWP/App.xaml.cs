@@ -107,15 +107,11 @@ namespace Conference.UWP
                 assembliesToInclude.Add(typeof(Plugin.Share.Abstractions.ShareColor).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(MvvmHelpers.ObservableObject).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(Refractored.XamForms.PullToRefresh.PullToRefreshLayout).GetTypeInfo().Assembly);
-                assembliesToInclude.Add(typeof(Plugin.Connectivity.ConnectivityImplementation).GetTypeInfo().Assembly);
-                assembliesToInclude.Add(typeof(Plugin.Connectivity.Abstractions.BaseConnectivity).GetTypeInfo().Assembly);
+                assembliesToInclude.Add(typeof(Xamarin.Essentials.Connectivity).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(Plugin.ExternalMaps.ExternalMapsImplementation).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(Plugin.ExternalMaps.Abstractions.NavigationType).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(ImageCircle.Forms.Plugin.UWP.ImageCircleRenderer).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(ImageCircle.Forms.Plugin.Abstractions.CircleImage).GetTypeInfo().Assembly);
-                assembliesToInclude.Add(typeof(Plugin.Messaging.CrossMessaging).GetTypeInfo().Assembly);
-                assembliesToInclude.Add(typeof(Plugin.Settings.SettingsImplementation).GetTypeInfo().Assembly);
-                assembliesToInclude.Add(typeof(Plugin.Settings.Abstractions.ISettings).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(Xamarin.Insights).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(Conference.Clients.Portable.Settings).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(Conference.Clients.UI.AboutPage).GetTypeInfo().Assembly);
@@ -129,7 +125,7 @@ namespace Conference.UWP
                 //Also do this for all your other 3rd party libraries
 
                 Xamarin.Forms.Forms.Init(e, assembliesToInclude);
-                Xamarin.FormsMaps.Init(string.Empty);
+                Xamarin.FormsMaps.Init("tfq15wN8jPpuv0nhqRhK~uN2qfuzyxraNJX-ltg3cGg~AvKrlF6iSHY1K7zeLbWApJNV9hUPuQMZpzj54-cnRN5gMMaaO4029st7jfxvncFj");
                 ViewModelBase.Init();
 
                 try
