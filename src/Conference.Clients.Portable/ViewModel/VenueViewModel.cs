@@ -9,7 +9,6 @@ namespace Conference.Clients.Portable
 {
     public class VenueViewModel : ViewModelBase
     {
-        //TODO: Does Xamarin.Essentials support this?
         public bool CanMakePhoneCall => true;
         public string EventTitle => "Conference";
         public string LocationTitle => "Hyatt Regency Orlando";
