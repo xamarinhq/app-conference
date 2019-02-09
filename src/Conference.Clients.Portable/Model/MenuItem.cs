@@ -9,14 +9,14 @@ namespace Conference.Clients.Portable
         string name;
         public string Name
         {
-            get { return name; }
-            set { SetProperty(ref name, value); }
+            get => name;
+            set => SetProperty(ref name, value);
         }
         string subtitle;
         public string Subtitle
         {
-            get { return subtitle; }
-            set { SetProperty(ref subtitle, value); }
+            get => subtitle;
+            set => SetProperty(ref subtitle, value);
         }
 
         public string Icon {get;set;}

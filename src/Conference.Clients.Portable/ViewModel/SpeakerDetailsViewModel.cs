@@ -19,8 +19,8 @@ namespace Conference.Clients.Portable
         bool hasAdditionalSessions;
         public bool HasAdditionalSessions
         {
-            get { return hasAdditionalSessions; }
-            set { SetProperty(ref hasAdditionalSessions, value); }
+            get => hasAdditionalSessions;
+            set => SetProperty(ref hasAdditionalSessions, value);
         }
 
         private string sessionId;
@@ -112,7 +112,7 @@ namespace Conference.Clients.Portable
         MenuItem selectedFollowItem;
         public MenuItem SelectedFollowItem
         {
-            get { return selectedFollowItem; }
+            get => selectedFollowItem;
             set
             {
                 selectedFollowItem = value;
@@ -129,7 +129,7 @@ namespace Conference.Clients.Portable
         Session selectedSession;
         public Session SelectedSession
         {
-            get { return selectedSession; }
+            get => selectedSession;
             set
             {
                 selectedSession = value;

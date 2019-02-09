@@ -6,14 +6,8 @@
     <ContentView.Content>
         <BoxView 
             HorizontalOptions="FillAndExpand" 
-            BackgroundColor="{DynamicResource Divider}">
-            <BoxView.HeightRequest>
-                <OnPlatform x:TypeArguments="x:Double">
-                    <On Platform="Android" Value="1"/>
-                    <On Platform="iOS" Value=".5"/>
-                    <On Platform="UWP" Value="1"/>
-                </OnPlatform>
-            </BoxView.HeightRequest>
+            BackgroundColor="{DynamicResource Divider}"
+            HeightRequest="{OnPlatform Default=1, iOS=.5}">
         </BoxView>
     </ContentView.Content>
 </ContentView>

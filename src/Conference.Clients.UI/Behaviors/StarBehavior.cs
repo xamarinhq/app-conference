@@ -36,9 +36,9 @@ namespace Conference.Clients.UI
 
         static void OnGroupNameChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            StarBehavior behavior = (StarBehavior)bindable;
-            string oldGroupName = (string)oldValue;
-            string newGroupName = (string)newValue;
+            var behavior = (StarBehavior)bindable;
+            var oldGroupName = (string)oldValue;
+            var newGroupName = (string)newValue;
 
             // Remove existing behavior from Group
             if (String.IsNullOrEmpty(oldGroupName))
@@ -47,7 +47,7 @@ namespace Conference.Clients.UI
             }
             else
             {
-                List<StarBehavior> behaviors = starGroups[oldGroupName];
+                var behaviors = starGroups[oldGroupName];
                 behaviors.Remove(behavior);
 
                 if (behaviors.Count == 0)
@@ -96,11 +96,11 @@ namespace Conference.Clients.UI
 
         static void OnIsStarredChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            StarBehavior behavior = (StarBehavior)bindable;
+            var behavior = (StarBehavior)bindable;
 
             if ((bool)newValue)
             {
-                string groupName = behavior.GroupName;
+                var groupName = behavior.GroupName;
                 List<StarBehavior> behaviors = null;
 
                 if (string.IsNullOrEmpty(groupName))
@@ -112,7 +112,7 @@ namespace Conference.Clients.UI
                     behaviors = starGroups[groupName];
                 }
 
-                bool itemReached = false;
+                var itemReached = false;
                 int count = 1, position = 0;
                 // all positions to left IsStarred = true and all position to the right is false
                 foreach (var item in behaviors)

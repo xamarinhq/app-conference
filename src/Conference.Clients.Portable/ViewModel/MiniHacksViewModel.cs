@@ -20,8 +20,8 @@ namespace Conference.Clients.Portable
         bool noHacksFound;
         public bool NoHacksFound
         {
-            get { return noHacksFound; }
-            set { SetProperty(ref noHacksFound, value); }
+            get => noHacksFound;
+            set => SetProperty(ref noHacksFound, value);
         }
 
         #region Commands

@@ -34,7 +34,7 @@ namespace Conference.Clients.Portable
         MenuItem selectedFollowItem;
         public MenuItem SelectedFollowItem
         {
-            get { return selectedFollowItem; }
+            get => selectedFollowItem;
             set
             {
                 selectedFollowItem = value;

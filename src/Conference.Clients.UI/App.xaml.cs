@@ -207,7 +207,7 @@ namespace Conference.Clients.UI
             Connectivity.ConnectivityChanged -= ConnectivityChanged;
         }
 
-        protected async void ConnectivityChanged (ConnectivityChangedEventArgs e)
+        protected async void ConnectivityChanged (object sender, ConnectivityChangedEventArgs e)
         {
             //save current state and then set it
             var connected = Settings.Current.IsConnected;

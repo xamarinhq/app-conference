@@ -8,11 +8,11 @@ using Conference.Clients.Portable;
 using Android.Widget;
 using FormsToolkit;
 using Android.Views;
-using Square.Picasso;
 
 [assembly: ExportRenderer (typeof(Conference.Clients.UI.NavigationView), typeof(NavigationViewRenderer))]
 namespace Conference.Droid
 {
+#pragma warning disable CS0618 // Type or member is obsolete
     public class NavigationViewRenderer : ViewRenderer<Conference.Clients.UI.NavigationView, NavigationView>
     {
         NavigationView navView;
@@ -73,9 +73,9 @@ namespace Conference.Droid
 
         void UpdateImage()
         {
-            Picasso.With(Forms.Context)
+            Android.Glide.Glide.With(Forms.Context)
                .Load(Settings.Current.UserAvatar)
-               .Error(Resource.Drawable.profile_generic)
+               //.Error(Resource.Drawable.profile_generic)
                .Into(profileImage);
 
         }
@@ -100,7 +100,7 @@ namespace Conference.Droid
 
             previousItem = e.MenuItem;
 
-            int id = 0;
+            var id = 0;
             switch (e.MenuItem.ItemId)
             {
                 case Resource.Id.nav_feed:
@@ -141,7 +141,8 @@ namespace Conference.Droid
                 });
         }
 
-      
+
     }
+#pragma warning restore CS0618 // Type or member is obsolete
 }
 

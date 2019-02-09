@@ -37,7 +37,7 @@ namespace Conference.Clients.Portable.Auth.Azure
 
         public async Task<AccountResponse> LoginAsync(string username, string password)
         {
-            MobileServiceUser user = await storeManager.LoginAsync(username, password);
+            var user = await storeManager.LoginAsync(username, password);
 
             return AccountFromMobileServiceUser(user);
         }
@@ -54,7 +54,7 @@ namespace Conference.Clients.Portable.Auth.Azure
                 throw new ArgumentNullException(nameof(user));
             }
 
-            IDictionary<string, string> claims = JwtUtility.GetClaims(user.MobileServiceAuthenticationToken);
+            var claims = JwtUtility.GetClaims(user.MobileServiceAuthenticationToken);
 
             var account = new AccountResponse();
             account.Success = true;

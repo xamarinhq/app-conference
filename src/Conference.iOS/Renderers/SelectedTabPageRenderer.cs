@@ -25,7 +25,7 @@ namespace Conference.iOS
             var tabs = Element as TabbedPage;
             if (tabs != null)
             {   
-                for (int i = 0; i < TabBar.Items.Length; i++)
+                for (var i = 0; i < TabBar.Items.Length; i++)
                 {
                     UpdateItem(TabBar.Items[i],  tabs.Children[i].Icon);
                 }

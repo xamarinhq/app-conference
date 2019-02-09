@@ -3,10 +3,11 @@
 using Xamarin.Forms;
 using Conference.DataObjects;
 using System.Windows.Input;
-using Plugin.ExternalMaps;
 using MvvmHelpers;
 using FormsToolkit;
 using System.Threading.Tasks;
+
+using Xamarin.Essentials;
 
 namespace Conference.Clients.Portable
 {
@@ -27,8 +28,8 @@ namespace Conference.Clients.Portable
         bool isReminderSet;
         public bool IsReminderSet
         {
-            get { return isReminderSet; }
-            set { SetProperty(ref isReminderSet, value); }
+            get => isReminderSet;
+            set => SetProperty(ref isReminderSet, value);
         }
 
         ICommand  loadEventDetailsCommand;
@@ -100,7 +101,7 @@ namespace Conference.Clients.Portable
         Sponsor selectedSponsor;
         public Sponsor SelectedSponsor
         {
-            get { return selectedSponsor; }
+            get => selectedSponsor;
             set
             {
                 selectedSponsor = value;

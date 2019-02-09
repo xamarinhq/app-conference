@@ -34,7 +34,7 @@ namespace Conference.UITests
 
         public Query StarNumber(int number)
         {
-            int newnumber = OniOS ? (number - 1) * 2 : number * 2;
+            var newnumber = OniOS ? (number - 1) * 2 : number * 2;
             return x => x.Class(StarImage).Index(newnumber);
         }
 

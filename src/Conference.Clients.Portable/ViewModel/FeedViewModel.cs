@@ -59,15 +59,15 @@ namespace Conference.Clients.Portable
         Notification notification;
         public Notification Notification
         {
-            get { return notification; }
-            set { SetProperty(ref notification, value); }
+            get => notification;
+            set => SetProperty(ref notification, value);
         }
 
         bool loadingNotifications;
         public bool LoadingNotifications
         {
-            get { return loadingNotifications; }
-            set { SetProperty(ref loadingNotifications, value); }
+            get => loadingNotifications;
+            set => SetProperty(ref loadingNotifications, value);
         }
 
         ICommand  loadNotificationsCommand;
@@ -106,8 +106,8 @@ namespace Conference.Clients.Portable
         bool loadingSessions;
         public bool LoadingSessions
         {
-            get { return loadingSessions; }
-            set { SetProperty(ref loadingSessions, value); }
+            get => loadingSessions;
+            set => SetProperty(ref loadingSessions, value);
         }
 
 
@@ -152,14 +152,14 @@ namespace Conference.Clients.Portable
         bool noSessions;
         public bool NoSessions
         {
-            get { return noSessions; }
-            set { SetProperty(ref noSessions, value); }
+            get => noSessions;
+            set => SetProperty(ref noSessions, value);
         }
 
         Session selectedSession;
         public Session SelectedSession
         {
-            get { return selectedSession; }
+            get => selectedSession;
             set
             {
                 selectedSession = value;
@@ -176,8 +176,8 @@ namespace Conference.Clients.Portable
         bool loadingSocial;
         public bool LoadingSocial
         {
-            get { return loadingSocial; }
-            set { SetProperty(ref loadingSocial, value); }
+            get => loadingSocial;
+            set => SetProperty(ref loadingSocial, value);
         }
 
 
@@ -198,9 +198,21 @@ namespace Conference.Clients.Portable
                
                 using(var client = new HttpClient())
                 {
-                    #if ENABLE_TEST_CLOUD
-
-                    #else
+#if DEBUG
+                    Tweets.ReplaceRange(new List<Tweet>
+                    {
+                        new Tweet
+                        {
+                            CreatedDate = DateTime.Now,
+                            Name = "James Montemagno",
+                            ScreenName = "@JamesMontemagno",
+                            Image = "https://pbs.twimg.com/profile_images/852007857729847296/0_c-XWrD_200x200.jpg",
+                            Text = "Xamarin is amazing for cross-platform mobile development in C#!",
+                            TweetedImage = "https://pbs.twimg.com/media/Dx3nhI9U8AAbedK?format=jpg&name=small",
+                            Url = "https://twitter.com/JamesMontemagno/status/1091428914847612928"
+                        }
+                    });
+#else
 
 
                     var manager = DependencyService.Get<IStoreManager>() as Conference.DataStore.Azure.StoreManager;
@@ -209,7 +221,7 @@ namespace Conference.Clients.Portable
 
                     await manager.InitializeAsync ();
 
-                    var mobileClient = Conference.DataStore.Azure.StoreManager.MobileService;
+                    var mobileClient = DataStore.Azure.StoreManager.MobileService;
                     if (mobileClient == null)
                         return;
                     
@@ -223,7 +235,7 @@ namespace Conference.Clients.Portable
 
 
                     Tweets.ReplaceRange(JsonConvert.DeserializeObject<List<Tweet>>(json));
-                    #endif
+#endif
                 }
 
             }
@@ -243,14 +255,14 @@ namespace Conference.Clients.Portable
         bool socialError;
         public bool SocialError
         {
-            get { return socialError; }
-            set { SetProperty(ref socialError, value); }
+            get => socialError;
+            set => SetProperty(ref socialError, value);
         }
 
         Tweet selectedTweet;
         public Tweet SelectedTweet
         {
-            get { return selectedTweet; }
+            get => selectedTweet;
             set
             {
                 selectedTweet = value;

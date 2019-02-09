@@ -47,7 +47,6 @@ namespace Conference.Clients.Portable
                     new MenuItem { Name = "Azure Mobile Apps", Command=LaunchBrowserCommand, Parameter="https://github.com/Azure/azure-mobile-apps-net-client/" },
                     new MenuItem { Name = "Censored", Command=LaunchBrowserCommand, Parameter="https://github.com/jamesmontemagno/Censored"},
                     new MenuItem { Name = "Calendar Plugin", Command=LaunchBrowserCommand, Parameter="https://github.com/TheAlmightyBob/Calendars"},
-                    new MenuItem { Name = "External Maps Plugin", Command=LaunchBrowserCommand, Parameter="https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/ExternalMaps"},
                     new MenuItem { Name = "Humanizer", Command=LaunchBrowserCommand, Parameter="https://github.com/Humanizr/Humanizer"},
                     new MenuItem { Name = "Image Circles", Command=LaunchBrowserCommand, Parameter="https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/ImageCircle"},
                     new MenuItem { Name = "Json.NET", Command=LaunchBrowserCommand, Parameter="https://github.com/JamesNK/Newtonsoft.Json"},
@@ -128,7 +127,7 @@ namespace Conference.Clients.Portable
 
             try
             {
-                ISSOClient ssoClient = DependencyService.Get<ISSOClient>();
+                var ssoClient = DependencyService.Get<ISSOClient>();
                 if (ssoClient != null)
                 {
                     await ssoClient.LogoutAsync();
@@ -155,8 +154,8 @@ namespace Conference.Clients.Portable
         string syncText = "Sync Now";
         public string SyncText
         {
-            get { return syncText; }
-            set { SetProperty(ref syncText, value); }
+            get => syncText;
+            set => SetProperty(ref syncText, value);
         }
 
         ICommand  syncCommand;

@@ -40,7 +40,7 @@ namespace Conference.Clients.UI
             else if (Device.RuntimePlatform == Device.iOS)
             {
                 //Calculate a scale that equalizes the height vs scroll
-                double newHeight = height + (ScrollY * -1);
+                var newHeight = height + (ScrollY * -1);
                 ParallaxView.Scale = newHeight / height;
                 ParallaxView.TranslationY = -(ScrollY / 2);
             }

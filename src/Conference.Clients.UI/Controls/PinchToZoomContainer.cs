@@ -31,21 +31,21 @@ namespace Conference.Clients.UI
 
                 // The ScaleOrigin is in relative coordinates to the wrapped user interface element,
                 // so get the X pixel coordinate.
-                double renderedX = Content.X + xOffset;
-                double deltaX = renderedX / Width;
-                double deltaWidth = Width / (Content.Width * startScale);
-                double originX = (e.ScaleOrigin.X - deltaX) * deltaWidth;
+                var renderedX = Content.X + xOffset;
+                var deltaX = renderedX / Width;
+                var deltaWidth = Width / (Content.Width * startScale);
+                var originX = (e.ScaleOrigin.X - deltaX) * deltaWidth;
 
                 // The ScaleOrigin is in relative coordinates to the wrapped user interface element,
                 // so get the Y pixel coordinate.
-                double renderedY = Content.Y + yOffset;
-                double deltaY = renderedY / Height;
-                double deltaHeight = Height / (Content.Height * startScale);
-                double originY = (e.ScaleOrigin.Y - deltaY) * deltaHeight;
+                var renderedY = Content.Y + yOffset;
+                var deltaY = renderedY / Height;
+                var deltaHeight = Height / (Content.Height * startScale);
+                var originY = (e.ScaleOrigin.Y - deltaY) * deltaHeight;
 
                 // Calculate the transformed element pixel coordinates.
-                double targetX = xOffset - (originX * Content.Width) * (currentScale - startScale);
-                double targetY = yOffset - (originY * Content.Height) * (currentScale - startScale);
+                var targetX = xOffset - (originX * Content.Width) * (currentScale - startScale);
+                var targetY = yOffset - (originY * Content.Height) * (currentScale - startScale);
 
                 // Apply translation based on the change in origin.
                 Content.TranslationX = targetX.Clamp (-Content.Width * (currentScale - 1), 0);

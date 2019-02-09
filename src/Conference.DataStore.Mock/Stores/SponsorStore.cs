@@ -249,7 +249,7 @@ namespace Conference.DataStore.Mock
             initialized = true;
 
             Sponsors = new List<Sponsor>();
-            for (int i = 0; i < Companies.Length; i++)
+            for (var i = 0; i < Companies.Length; i++)
             {
                 Sponsors.Add(new Sponsor
                     {

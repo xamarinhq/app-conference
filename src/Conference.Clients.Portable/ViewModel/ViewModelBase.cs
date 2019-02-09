@@ -12,6 +12,7 @@ namespace Conference.Clients.Portable
 {
     public class ViewModelBase : BaseViewModel
     {
+
         protected INavigation Navigation { get; }
 
         public ViewModelBase(INavigation navigation = null)

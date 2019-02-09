@@ -18,21 +18,21 @@ namespace Conference.Clients.Portable
         string message;
         public string Message
         {
-            get { return message; }
-            set { SetProperty(ref message, value); }
+            get => message;
+            set => SetProperty(ref message, value);
         }
 
         string email;
         public string Email
         {
-            get { return email; }
-            set { SetProperty(ref email, value); }
+            get => email;
+            set => SetProperty(ref email, value);
         }
         string password;
         public string Password
         {
-            get { return password; }
-            set { SetProperty(ref password, value); }
+            get => password;
+            set => SetProperty(ref password, value);
         }
 
         ICommand  loginCommand;

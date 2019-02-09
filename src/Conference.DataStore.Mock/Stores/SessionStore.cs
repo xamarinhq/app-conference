@@ -64,6 +64,10 @@ namespace Conference.DataStore.Mock
             if (!initialized)
                 await InitializeStore();
 
+#if DEBUG
+            return sessions.Take(2);
+#else
+
             var date = DateTime.UtcNow.AddMinutes(-30);
 
             var results = (from session in sessions
@@ -74,11 +78,12 @@ namespace Conference.DataStore.Mock
 
             var enumerable = results as Session[] ?? results.ToArray();
             return !enumerable.Any() ? null : enumerable;
+#endif
         }
 
-        #endregion
+#endregion
 
-        #region IBaseStore implementation
+#region IBaseStore implementation
         bool initialized = false;
         public async override Task InitializeStore()
         {
@@ -90,18 +95,18 @@ namespace Conference.DataStore.Mock
             await speakerStore.InitializeStore();
             var speakers = (await speakerStore.GetItemsAsync().ConfigureAwait(false)).ToArray();
             sessions = new List<Session>();
-            int speaker = 0;
-            int speakerCount = 0;
-            int room = 0;
-            int category = 0;
+            var speaker = 0;
+            var speakerCount = 0;
+            var room = 0;
+            var category = 0;
             var day = new DateTime(2016, 4, 27, 13, 0, 0, DateTimeKind.Utc);
-            int dayCount = 0;
-            for (int i = 0; i < titles.Length; i++)
+            var dayCount = 0;
+            for (var i = 0; i < titles.Length; i++)
             {
                 var sessionSpeakers = new List<Speaker>();
                 speakerCount++;
                 
-                for (int j = 0; j < speakerCount; j++)
+                for (var j = 0; j < speakerCount; j++)
                 {
                     sessionSpeakers.Add(speakers[speaker]);
                     speaker++;
@@ -243,7 +248,7 @@ namespace Conference.DataStore.Mock
             "OWASP mobile security"
         };
 
-        #endregion
+#endregion
     }
 }
 

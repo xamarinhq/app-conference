@@ -16,8 +16,8 @@
     <PackageReference Include="Microsoft.Azure.Mobile.Client.SQLiteStore" Version="4.0.2" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
     <PackageReference Include="Refractored.MvvmHelpers" Version="1.3.0" />
-    <PackageReference Include="SQLitePCLRaw.bundle_green" Version="1.1.11" />
-    <PackageReference Include="SQLitePCLRaw.core" Version="1.1.11" />
+    <PackageReference Include="SQLitePCLRaw.bundle_green" Version="1.1.13" />
+    <PackageReference Include="SQLitePCLRaw.core" Version="1.1.13" />
   </ItemGroup>
 
   <Import Project="..\Conference.DataObjects\Conference.Backend.Shared.projitems" Label="Shared" />

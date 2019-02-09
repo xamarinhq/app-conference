@@ -18,7 +18,6 @@ namespace Conference.Clients.UI
         {
             InitializeComponent();
             loggedIn = Settings.Current.Email;
-            BindingContext = new FeedViewModel();
 
             if (Device.RuntimePlatform == Device.UWP)
             {
@@ -37,7 +36,7 @@ namespace Conference.Clients.UI
                     ListViewSocial.HeightRequest = (ViewModel.Tweets.Count * ListViewSocial.RowHeight)  - adjust;
                 };
 
-            ViewModel.Sessions.CollectionChanged += (sender, e) => 
+            /*ViewModel.Sessions.CollectionChanged += (sender, e) => 
                 {
                     var adjust = Device.RuntimePlatform != Device.Android ? 1 : -ViewModel.Sessions.Count + 1;
                     ListViewSessions.HeightRequest = (ViewModel.Sessions.Count * ListViewSessions.RowHeight) - adjust;
@@ -54,7 +53,7 @@ namespace Conference.Clients.UI
                     App.Logger.TrackPage(AppPage.Session.ToString(), session.Title);
                     await NavigationService.PushAsync(Navigation, sessionDetails);
                     ListViewSessions.SelectedItem = null;
-                }; 
+                }; */
 
             NotificationStack.GestureRecognizers.Add(new TapGestureRecognizer
                 {
@@ -89,7 +88,7 @@ namespace Conference.Clients.UI
         bool firstLoad = true;
         private void UpdatePage()
         {
-            bool forceRefresh = (DateTime.UtcNow > (ViewModel?.NextForceRefresh ?? DateTime.UtcNow)) ||
+            var forceRefresh = (DateTime.UtcNow > (ViewModel?.NextForceRefresh ?? DateTime.UtcNow)) ||
                     loggedIn != Settings.Current.Email;
 
             loggedIn = Settings.Current.Email;
@@ -129,6 +128,19 @@ namespace Conference.Clients.UI
             UpdatePage();
         }
 
+        async void OnSessionTapped(object sender, EventArgs e)
+        {
+            if (!(sender is View view))
+                return;
+
+            if (!(view.BindingContext is Session session))
+                return;
+
+            var sessionDetails = new SessionDetailsPage(session);
+
+            App.Logger.TrackPage(AppPage.Session.ToString(), session.Title);
+            await NavigationService.PushAsync(Navigation, sessionDetails);
+        }
     }
 }
 

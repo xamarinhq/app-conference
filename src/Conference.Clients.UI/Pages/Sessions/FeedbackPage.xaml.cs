@@ -32,7 +32,7 @@ namespace Conference.Clients.UI
         {
             base.OnDisappearing();
             var items = StarGrid.Behaviors.Count;
-            for(int i = 0; i < items; i++)
+            for(var i = 0; i < items; i++)
                 StarGrid.Behaviors.RemoveAt(i);
         }
     }

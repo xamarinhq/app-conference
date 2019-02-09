@@ -15,9 +15,8 @@
     <Import Project="$(NuGetPackageRoot)runtime.win10-arm.microsoft.net.native.compiler\2.1.8\build\runtime.win10-arm.Microsoft.Net.Native.Compiler.targets" Condition="Exists('$(NuGetPackageRoot)runtime.win10-arm.microsoft.net.native.compiler\2.1.8\build\runtime.win10-arm.Microsoft.Net.Native.Compiler.targets')" />
     <Import Project="$(NuGetPackageRoot)netstandard.library\2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('$(NuGetPackageRoot)netstandard.library\2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
     <Import Project="$(NuGetPackageRoot)microsoft.net.native.compiler\2.1.8\build\Microsoft.Net.Native.Compiler.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.net.native.compiler\2.1.8\build\Microsoft.Net.Native.Compiler.targets')" />
-    <Import Project="$(NuGetPackageRoot)xamarin.forms\3.4.0.1008975\build\Xamarin.Forms.targets" Condition="Exists('$(NuGetPackageRoot)xamarin.forms\3.4.0.1008975\build\Xamarin.Forms.targets')" />
-    <Import Project="$(NuGetPackageRoot)xamarin.insights\1.12.3\build\windows8\Xamarin.Insights.targets" Condition="Exists('$(NuGetPackageRoot)xamarin.insights\1.12.3\build\windows8\Xamarin.Insights.targets')" />
-    <Import Project="$(NuGetPackageRoot)sqlitepclraw.lib.e_sqlite3.v140\1.1.11\build\SQLitePCLRaw.lib.e_sqlite3.v140.targets" Condition="Exists('$(NuGetPackageRoot)sqlitepclraw.lib.e_sqlite3.v140\1.1.11\build\SQLitePCLRaw.lib.e_sqlite3.v140.targets')" />
-    <Import Project="$(NuGetPackageRoot)microsoft.appcenter.crashes\1.11.0\build\uap10.0\Microsoft.AppCenter.Crashes.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.appcenter.crashes\1.11.0\build\uap10.0\Microsoft.AppCenter.Crashes.targets')" />
+    <Import Project="$(NuGetPackageRoot)xamarin.forms\3.5.0.129452\build\Xamarin.Forms.targets" Condition="Exists('$(NuGetPackageRoot)xamarin.forms\3.5.0.129452\build\Xamarin.Forms.targets')" />
+    <Import Project="$(NuGetPackageRoot)sqlitepclraw.lib.e_sqlite3.v140\1.1.13\build\SQLitePCLRaw.lib.e_sqlite3.v140.targets" Condition="Exists('$(NuGetPackageRoot)sqlitepclraw.lib.e_sqlite3.v140\1.1.13\build\SQLitePCLRaw.lib.e_sqlite3.v140.targets')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.appcenter.crashes\1.13.0\build\uap10.0\Microsoft.AppCenter.Crashes.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.appcenter.crashes\1.13.0\build\uap10.0\Microsoft.AppCenter.Crashes.targets')" />
   </ImportGroup>
 </Project>
