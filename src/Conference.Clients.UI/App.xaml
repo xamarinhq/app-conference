@@ -56,7 +56,7 @@
             </OnPlatform>
             
             <Color x:Key="ButtonBorder">#C8C7CC</Color>
-            <Color x:Key="ListSeparator">#C8C7CC</Color>
+            <Color x:Key="ListSeparator">#90C8C7CC</Color>
 
             <OnPlatform x:TypeArguments="Thickness" x:Key="CardPadding">
                 <On Platform="Android" Value="8,16"/>

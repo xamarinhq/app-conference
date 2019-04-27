@@ -2,14 +2,8 @@
 <ContentView 
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    x:Class="Conference.Clients.UI.LabelSection">
-    <ContentView.Padding>
-        <OnPlatform x:TypeArguments="Thickness">
-            <On Platform="Android" Value="16,16,16,4"/>
-            <On Platform="iOS" Value="16,24,16,4"/>
-            <On Platform="UWP" Value="16,16,16,4"/>
-        </OnPlatform>
-    </ContentView.Padding>
+    x:Class="Conference.Clients.UI.LabelSection"
+    Padding="{OnPlatform Default='16,16,16,4', iOS='16,24,16,4'}">
     <ContentView.Content>
          <Label 
             Style="{DynamicResource SectionLabelTextStyle}"

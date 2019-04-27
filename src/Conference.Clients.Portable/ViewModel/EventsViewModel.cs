@@ -26,7 +26,7 @@ namespace Conference.Clients.Portable
         FeaturedEvent selectedEvent;
         public FeaturedEvent SelectedEvent
         {
-            get { return selectedEvent; }
+            get => selectedEvent;
             set
             {
                 selectedEvent = value;
@@ -40,7 +40,7 @@ namespace Conference.Clients.Portable
             }
         }
 
-     
+
         #endregion
 
         #region Sorting

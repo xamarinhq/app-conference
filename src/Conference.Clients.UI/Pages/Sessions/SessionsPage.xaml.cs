@@ -94,7 +94,7 @@ namespace Conference.Clients.UI
         {
             Title = Settings.Current.FavoritesOnly ? "Favorite Sessions" : "Sessions";
 
-            bool forceRefresh = (DateTime.UtcNow > (ViewModel?.NextForceRefresh ?? DateTime.UtcNow)) ||
+            var forceRefresh = (DateTime.UtcNow > (ViewModel?.NextForceRefresh ?? DateTime.UtcNow)) ||
                 loggedIn != Settings.Current.Email;
 
             loggedIn = Settings.Current.Email;

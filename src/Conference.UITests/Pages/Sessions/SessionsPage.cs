@@ -43,7 +43,7 @@ namespace Conference.UITests
 
             app.WaitForNoElement(LoadingMessage);
 
-            bool result = app.Query(SessionCellContainer).Any();
+            var result = app.Query(SessionCellContainer).Any();
             Assert.IsTrue(result == valid, String.Format("Expected search to be {0}, but was {1}", valid, result));
             app.Screenshot("Session search: " + search);
 

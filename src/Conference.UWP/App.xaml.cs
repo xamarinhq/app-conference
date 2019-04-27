@@ -76,7 +76,7 @@ namespace Conference.UWP
                 statusBar.BackgroundOpacity = 1;
             }
 
-            Frame rootFrame = Window.Current.Content as Frame;
+            var rootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
@@ -88,7 +88,7 @@ namespace Conference.UWP
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
                 // you'll need to add `using System.Reflection;`
-                List<Assembly> assembliesToInclude = new List<Assembly>();
+                var assembliesToInclude = new List<Assembly>();
 
                 //Now, add in all the assemblies your app uses
                 assembliesToInclude.Add(typeof(Plugin.Calendars.CalendarsImplementation).GetTypeInfo().Assembly);
@@ -103,17 +103,12 @@ namespace Conference.UWP
                 assembliesToInclude.Add(typeof(NodaTime.DateTimeZone).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(Plugin.Permissions.PermissionsImplementation).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(Plugin.Permissions.Abstractions.Permission).GetTypeInfo().Assembly);
-                assembliesToInclude.Add(typeof(Plugin.Share.ShareImplementation).GetTypeInfo().Assembly);
-                assembliesToInclude.Add(typeof(Plugin.Share.Abstractions.ShareColor).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(MvvmHelpers.ObservableObject).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(Refractored.XamForms.PullToRefresh.PullToRefreshLayout).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(Xamarin.Essentials.Connectivity).GetTypeInfo().Assembly);
-                assembliesToInclude.Add(typeof(Plugin.ExternalMaps.ExternalMapsImplementation).GetTypeInfo().Assembly);
-                assembliesToInclude.Add(typeof(Plugin.ExternalMaps.Abstractions.NavigationType).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(ImageCircle.Forms.Plugin.UWP.ImageCircleRenderer).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(ImageCircle.Forms.Plugin.Abstractions.CircleImage).GetTypeInfo().Assembly);
-                assembliesToInclude.Add(typeof(Xamarin.Insights).GetTypeInfo().Assembly);
-                assembliesToInclude.Add(typeof(Conference.Clients.Portable.Settings).GetTypeInfo().Assembly);
+                 assembliesToInclude.Add(typeof(Conference.Clients.Portable.Settings).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(Conference.Clients.UI.AboutPage).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(Conference.DataStore.Abstractions.ICategoryStore).GetTypeInfo().Assembly);
                 assembliesToInclude.Add(typeof(Conference.DataStore.Azure.CategoryStore).GetTypeInfo().Assembly);

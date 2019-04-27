@@ -137,17 +137,17 @@ namespace Conference.DataStore.Mock
         {
             random = new Random(0);
 
-            string[] teams = titlesByTeam.Keys.ToArray();
-            for (int i = 0; i < 50; i++)
+            var teams = titlesByTeam.Keys.ToArray();
+            for (var i = 0; i < 50; i++)
             {
-                Gender gender = FlipCoin(Gender.Man, Gender.Woman);
-                string team = teams.Random();
+                var gender = FlipCoin(Gender.Man, Gender.Woman);
+                var team = teams.Random();
 
 
                 var title = ChooseWithDecreasingLikelyhood(titlesByTeam[team]);
 
-                string firstName = (gender == Gender.Man ? mensNames : womensNames).Random();
-                string lastName = Names[i].Substring(0,1).ToUpper() + Names[i].Substring(1).ToLower();
+                var firstName = (gender == Gender.Man ? mensNames : womensNames).Random();
+                var lastName = Names[i].Substring(0,1).ToUpper() + Names[i].Substring(1).ToLower();
 
                 var photos = GetRandomUserPhotoUrls(gender);
 

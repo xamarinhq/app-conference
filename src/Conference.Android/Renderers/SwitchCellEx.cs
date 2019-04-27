@@ -35,13 +35,13 @@ namespace Conference.Droid
             layoutParams.Height = ViewGroup.LayoutParams.WrapContent;
             layoutParams.Width = ViewGroup.LayoutParams.WrapContent;
 
-            int px12 = (int)TypedValue.ApplyDimension(
+            var px12 = (int)TypedValue.ApplyDimension(
                 ComplexUnitType.Dip,
                 12f, 
                 context.Resources.DisplayMetrics
             );
 
-            int px8 = (int)TypedValue.ApplyDimension(
+            var px8 = (int)TypedValue.ApplyDimension(
                 ComplexUnitType.Dip,
                 8f, 
                 context.Resources.DisplayMetrics

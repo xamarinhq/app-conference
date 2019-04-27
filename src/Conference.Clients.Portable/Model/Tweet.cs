@@ -20,9 +20,9 @@ namespace Conference.Clients.Portable
             get { return !string.IsNullOrWhiteSpace(tweetedImage); }
         }
         [JsonProperty("tweetedImage")]
-        public string TweetedImage 
+        public string TweetedImage
         {
-            get { return tweetedImage; }
+            get => tweetedImage;
             set
             {
                 tweetedImage = value;

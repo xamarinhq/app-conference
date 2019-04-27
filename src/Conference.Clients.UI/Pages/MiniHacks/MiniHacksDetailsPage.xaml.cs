@@ -66,7 +66,7 @@ namespace Conference.Clients.UI
         {
             
             var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Camera);
-            bool request = false;
+            var request = false;
             if(status == PermissionStatus.Denied)
             {
                 if(Device.RuntimePlatform == Device.iOS)

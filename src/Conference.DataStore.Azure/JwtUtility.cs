@@ -14,25 +14,25 @@ namespace Conference.DataStore.Azure
 
         public static IDictionary<string, string> GetClaims(string rawToken)
         {
-            string[] tokenParts = rawToken.Split('.');
+            var tokenParts = rawToken.Split('.');
 
             if (tokenParts.Length != 3)
             {
                 throw new InvalidTokenException("Invalid user token");
             }
 
-            string mobileAppToken = GetDecodedPayload(tokenParts[1]);
+            var mobileAppToken = GetDecodedPayload(tokenParts[1]);
 
             return JsonConvert.DeserializeObject<Dictionary<string, string>>(mobileAppToken);
         }
 
         public static DateTime? GetTokenExpiration(string token)
         {
-            IDictionary<string, string> claims = GetClaims(token);
+            var claims = GetClaims(token);
 
             if (claims.ContainsKey(JwtClaimNames.Expiration))
             {
-                int secondsFromEpoch = int.Parse(claims[JwtClaimNames.Expiration]);
+                var secondsFromEpoch = int.Parse(claims[JwtClaimNames.Expiration]);
 
                 return (UnixEpoch + TimeSpan.FromSeconds(secondsFromEpoch)).ToUniversalTime();
             }
@@ -52,10 +52,10 @@ namespace Conference.DataStore.Azure
             tokenPayload = tokenPayload.Replace("_", "/");
 
             // Add padding:
-            int padding = 4 - (tokenPayload.Length % 4);
+            var padding = 4 - (tokenPayload.Length % 4);
             tokenPayload = tokenPayload.PadRight(tokenPayload.Length + (padding % 4), '=');
 
-            byte[] tokenPayloadBytes = Convert.FromBase64String(tokenPayload);
+            var tokenPayloadBytes = Convert.FromBase64String(tokenPayload);
 
             return Encoding.UTF8.GetString(tokenPayloadBytes, 0, tokenPayloadBytes.Length);
         }

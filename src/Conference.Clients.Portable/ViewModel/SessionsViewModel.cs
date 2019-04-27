@@ -26,7 +26,7 @@ namespace Conference.Clients.Portable
         Session selectedSession;
         public Session SelectedSession
         {
-            get { return selectedSession; }
+            get => selectedSession;
             set
             {
                 selectedSession = value;
@@ -43,12 +43,12 @@ namespace Conference.Clients.Portable
         string filter = string.Empty;
         public string Filter
         {
-            get { return filter; }
-            set 
+            get => filter;
+            set
             {
                 if (SetProperty(ref filter, value))
                     ExecuteFilterSessionsAsync();
-                    
+
             }
         }
         #endregion
@@ -67,17 +67,17 @@ namespace Conference.Clients.Portable
         bool noSessionsFound;
         public bool NoSessionsFound
         {
-            get { return noSessionsFound; }
-            set { SetProperty(ref noSessionsFound, value); }
+            get => noSessionsFound;
+            set => SetProperty(ref noSessionsFound, value);
         }
 
         string noSessionsFoundMessage;
         public string NoSessionsFoundMessage
         {
-            get { return noSessionsFoundMessage; }
-            set { SetProperty(ref noSessionsFoundMessage, value); }
+            get => noSessionsFoundMessage;
+            set => SetProperty(ref noSessionsFoundMessage, value);
         }
- 
+
         #endregion
 
 

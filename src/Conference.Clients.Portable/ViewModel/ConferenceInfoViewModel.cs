@@ -69,8 +69,8 @@ namespace Conference.Clients.Portable
         bool wiFiConfigured;
         public bool WiFiConfigured
         {
-            get { return wiFiConfigured; }
-            set { SetProperty(ref wiFiConfigured, value); }
+            get => wiFiConfigured;
+            set => SetProperty(ref wiFiConfigured, value);
         }
 
 
@@ -114,7 +114,7 @@ namespace Conference.Clients.Portable
         async Task ExecuteCopyPasswordAsync(string pass)
         {
             Logger.Track(ConferenceLoggerKeys.CopyPassword);
-            Clipboard.SetText(pass);
+            await Clipboard.SetTextAsync(pass);
             Toast.SendToast("Password Copied");
         }
     }

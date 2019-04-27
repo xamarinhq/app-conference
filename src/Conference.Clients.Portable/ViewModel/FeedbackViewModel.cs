@@ -14,8 +14,8 @@ namespace Conference.Clients.Portable
         Session session;
         public Session Session
         {
-            get { return session; }
-            set { SetProperty(ref session, value); }
+            get => session;
+            set => SetProperty(ref session, value);
         }
 
 

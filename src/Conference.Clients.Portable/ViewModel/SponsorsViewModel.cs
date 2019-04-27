@@ -27,21 +27,21 @@ namespace Conference.Clients.Portable
         Sponsor selectedSponsor;
         public Sponsor SelectedSponsor
         {
-            get { return selectedSponsor; }
+            get => selectedSponsor;
             set
             {
                 selectedSponsor = value;
                 OnPropertyChanged();
                 if (selectedSponsor == null)
                     return;
-                 
+
                 MessagingService.Current.SendMessage(MessageKeys.NavigateToSponsor, selectedSponsor);
 
                 SelectedSponsor = null;
             }
         }
 
-     
+
         #endregion
 
         #region Sorting

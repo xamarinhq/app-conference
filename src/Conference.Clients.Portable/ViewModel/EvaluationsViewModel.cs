@@ -27,14 +27,14 @@ namespace Conference.Clients.Portable
 
         bool noSessionsFound;
         public bool NoSessionsFound {
-            get { return noSessionsFound; }
-            set { SetProperty (ref noSessionsFound, value); }
+            get => noSessionsFound;
+            set => SetProperty(ref noSessionsFound, value);
         }
 
         string noSessionsFoundMessage;
         public string NoSessionsFoundMessage {
-            get { return noSessionsFoundMessage; }
-            set { SetProperty (ref noSessionsFoundMessage, value); }
+            get => noSessionsFoundMessage;
+            set => SetProperty(ref noSessionsFoundMessage, value);
         }
 
 

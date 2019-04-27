@@ -1,5 +1,4 @@
 ﻿using FormsToolkit;
-using Plugin.ExternalMaps;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
@@ -24,15 +23,11 @@ namespace Conference.Clients.Portable
         async Task ExecuteNavigateCommandAsync()
         {
             Logger.Track(ConferenceLoggerKeys.NavigateToConference);
-            if(!await CrossExternalMaps.Current.NavigateTo(LocationTitle, Latitude, Longitude))
+            await Map.OpenAsync(Latitude, Longitude, new MapLaunchOptions
             {
-                MessagingService.Current.SendMessage(MessageKeys.Message, new MessagingServiceAlert
-                    {
-                        Title = "Unable to Navigate",
-                        Message = "Please ensure that you have a map application installed.",
-                        Cancel = "OK"
-                    });
-            }
+                Name = LocationTitle,
+                NavigationMode = NavigationMode.Default
+            });
         }
 
         ICommand  callCommand;

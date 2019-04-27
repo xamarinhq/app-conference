@@ -107,7 +107,7 @@ namespace Conference.UITests
                     app.Tap(Hamburger);
 
                 app.Screenshot("Navigation Menu Open");
-                int count = 0;
+                var count = 0;
                 while (!app.Query(tabName).Any() && count < 3)
                 {
                     app.ScrollDown(x => x.Class("NavigationMenuView"));

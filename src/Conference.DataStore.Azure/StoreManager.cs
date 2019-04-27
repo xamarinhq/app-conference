@@ -152,7 +152,7 @@ namespace Conference.DataStore.Azure
             credentials["email"] = username;
             credentials["password"] = password;
 
-            MobileServiceUser user = await MobileService.LoginAsync("Xamarin", credentials);
+            var user = await MobileService.LoginAsync("Xamarin", credentials);
 
             await CacheToken(user);
 
@@ -200,7 +200,7 @@ namespace Conference.DataStore.Azure
 
         async Task LoadCachedTokenAsync()
         {
-            StoreSettings settings = await ReadSettingsAsync();
+            var settings = await ReadSettingsAsync();
 
             if (settings != null)
             {

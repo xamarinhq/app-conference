@@ -14,11 +14,11 @@ namespace Conference.Clients.Portable
         Session session;
         public Session Session
         {
-            get { return session; }
-            set { SetProperty(ref session, value); }
+            get => session;
+            set => SetProperty(ref session, value);
         }
 
-       
+
         public SessionDetailsViewModel(INavigation navigation, Session session) : base(navigation)
         {
             Session = session;
@@ -34,16 +34,16 @@ namespace Conference.Clients.Portable
         bool isReminderSet;
         public bool IsReminderSet
         {
-            get { return isReminderSet; }
-            set { SetProperty(ref isReminderSet, value); }
-        } 
+            get => isReminderSet;
+            set => SetProperty(ref isReminderSet, value);
+        }
 
 
 
         Speaker selectedSpeaker;
         public Speaker SelectedSpeaker
         {
-            get { return selectedSpeaker; }
+            get => selectedSpeaker;
             set
             {
                 selectedSpeaker = value;
@@ -113,7 +113,7 @@ namespace Conference.Clients.Portable
         {
             Logger.Track(ConferenceLoggerKeys.Share, "Title", Session.Title);
 
-            await DataTransfer.RequestAsync(new ShareTextRequest
+            await Share.RequestAsync(new ShareTextRequest
             {
                 Text = $"Can't wait for {Session.Title} at #Conference!",
                 Title = "Share"

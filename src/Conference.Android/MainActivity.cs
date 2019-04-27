@@ -55,7 +55,7 @@ namespace Conference.Droid
             typeof (Color).GetProperty ("Accent", BindingFlags.Public | BindingFlags.Static).SetValue (null, Color.FromHex ("#757575"));
 
             ImageCircle.Forms.Plugin.Droid.ImageCircleRenderer.Init ();
-
+            Android.Glide.Forms.Init();
             ZXing.Net.Mobile.Forms.Android.Platform.Init ();
 #if ENABLE_TEST_CLOUD
             //Mapping StyleID to element content descriptions
@@ -130,7 +130,7 @@ namespace Conference.Droid
 
         public bool IsPlayServicesAvailable ()
         {
-            int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable (this);
+            var resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable (this);
             if (resultCode != ConnectionResult.Success)
             {
                 if (GoogleApiAvailability.Instance.IsUserResolvableError(resultCode))

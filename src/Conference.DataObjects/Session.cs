@@ -79,7 +79,7 @@ namespace Conference.DataObjects
 
                 var allSpeakers = Speakers.ToArray ();
                 speakerNames = string.Empty;
-                for (int i = 0; i < allSpeakers.Length; i++)
+                for (var i = 0; i < allSpeakers.Length; i++)
                 {
                     speakerNames += allSpeakers [i].FullName;
                     if (i != Speakers.Count - 1)
