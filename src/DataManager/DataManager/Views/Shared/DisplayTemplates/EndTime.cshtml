@@ -1,0 +1,12 @@
+﻿@model DateTime?
+    <div>
+        @if((Model==null)||(Model.Equals(DateTime.MinValue)))
+        {
+        @:TBD
+        }
+        else
+        {
+            var techdaysTimezone = TimeZoneInfo.FindSystemTimeZoneById("W. Europe Standard Time");
+            @TimeZoneInfo.ConvertTimeFromUtc(Model.Value, techdaysTimezone).ToString("dd-MMM HH:mm")
+        }
+    </div>

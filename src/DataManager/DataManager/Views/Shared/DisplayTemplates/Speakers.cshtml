@@ -1,0 +1,8 @@
+﻿@model IEnumerable<DataManager.Models.Speaker>
+@foreach (var speaker in Model)
+{
+    <div>
+    <span>@speaker.Name</span> 
+    <img width="100" hight="100" src="@speaker.PhotoUrl" />
+    </div>
+}

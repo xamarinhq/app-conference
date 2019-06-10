@@ -1,0 +1,155 @@
+﻿@model DataManager.ViewModels.SessionViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Session</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TrackedSession.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TrackedSession.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TrackedSession.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TrackedSession.ShortTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TrackedSession.ShortTitle, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TrackedSession.ShortTitle, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TrackedSession.Abstract, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TrackedSession.Abstract, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TrackedSession.Abstract, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TrackedSession.Level, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                <select id="SubmittedLevel" name="SubmittedLevel"  class="chosen-select" data-placeholder="Select Level">
+                    @foreach (var level in Model.AvailableLevels)
+                    {
+                        <option value="@level"
+                                @if (Model.TrackedSession.Level == level) { @: selected
+                                                                                                                                 }>
+                            @level
+                        </option>
+                    }
+                </select>
+
+
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.TrackedSession.StartTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.TrackedSession.StartTime, "StartTime")
+                @Html.ValidationMessageFor(model => model.TrackedSession.StartTime, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TrackedSession.EndTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.TrackedSession.EndTime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TrackedSession.EndTime, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.TrackedSession.Speakers, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                <select id="SubmittedSpeakers" name="SubmittedSpeakers" multiple="multiple" class="chosen-select" data-placeholder="Select Speaker">
+                    @foreach (var speaker in Model.AvailableSpeakers)
+                    {
+                        <option value="@speaker.Id"
+                                @if (Model.TrackedSession.Speakers.Contains(speaker)) { @: selected
+                                                                                                 }>
+                            @speaker.Name
+                        </option>
+                    }
+                </select>
+
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TrackedSession.Categories, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                <select id="SubmittedCategories" name="SubmittedCategories" multiple="multiple" class="chosen-select" data-placeholder="Select Category">
+                    @foreach (var category in Model.AvailableCategories)
+                    {
+                        <option value="@category.Id"
+                                @if (Model.TrackedSession.Categories.Contains(category)) { @: selected
+                                                                 }>
+                            @category.Name
+                                                            </option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TrackedSession.Room, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+
+                @Html.EditorFor(model => model, "Room");
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TrackedSession.PresentationUrl, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TrackedSession.PresentationUrl, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TrackedSession.PresentationUrl, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TrackedSession.VideoUrl, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TrackedSession.VideoUrl, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TrackedSession.VideoUrl, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+       <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<DataManager.ViewModels.MiniHackCompletionViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>MiniHack completions</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            UserId
+        </th>
+        <td>
+            Hack
+        </td>
+        <td>
+            Completed
+        </td>
+        <td>
+            Score
+        </td>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td align="center">
+            @Html.DisplayFor(modelItem => item.CompletedAt)
+        </td>
+        <td align="center">
+            @Html.DisplayFor(modelItem => item.Score)
+        </td>
+    </tr>
+}
+
+</table>

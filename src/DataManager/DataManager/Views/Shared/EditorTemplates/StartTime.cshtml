@@ -1,0 +1,36 @@
+﻿@model DateTime?
+
+<select id="TrackedSession.StartTime" name="TrackedSession.StartTime" class="chosen-select" data-placeholder="Select start time">
+    <option value="TBD"
+            @if (Model == null || Model.Equals(DateTime.MinValue)) { @: selected
+                        
+            }>
+        TBD
+    </option>
+    @{  var time =  System.DateTime.SpecifyKind(new DateTime(2016, 10, 4, 5, 55, 0), DateTimeKind.Utc);
+
+        var techdaysTimezone = TimeZoneInfo.FindSystemTimeZoneById("W. Europe Standard Time");
+        for (int x = 0; x < 44*3; x++)
+        {
+            time = time.AddMinutes(5);
+            <option value="@time.ToString("dd-MM-yyyy HH:mm")"
+                    @if (Model != null && Model.Equals(time)) { @: selected
+                           }>
+                @TimeZoneInfo.ConvertTimeFromUtc(time, techdaysTimezone).ToString("dd-MM-yyyy HH:mm")
+            </option>
+        }
+    }
+
+    @{  time = DateTime.SpecifyKind(new DateTime(2016, 10, 5, 5, 55, 0),DateTimeKind.Utc);
+
+        for (int x = 0; x < 38*3; x++)
+        {
+            time = time.AddMinutes(5);
+            <option value="@time.ToString("dd-MM-yyyy HH:mm")"
+                    @if (Model != null && Model.Equals(time)) { @: selected
+                                               }>
+                @TimeZoneInfo.ConvertTimeFromUtc(time, techdaysTimezone).ToString("dd-MM-yyyy HH:mm")
+            </option>
+        }
+    }
+</select>

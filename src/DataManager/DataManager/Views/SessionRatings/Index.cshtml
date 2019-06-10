@@ -1,0 +1,51 @@
+﻿@model IEnumerable<DataManager.ViewModels.SessionWithRatingsViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Session ratings</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <td>
+            Average Rating
+        </td>
+        <td align="center">*</td>
+        <td align="center">**</td>
+        <td align="center">***</td>
+        <td align="center">****</td>
+        <td align="center">*****</td>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AverageRating)
+        </td>
+        <td align="center">
+            @Html.DisplayFor(modelItem => item.OneStar)
+        </td>
+        <td align="center">
+            @Html.DisplayFor(modelItem => item.TwoStar)
+        </td>
+        <td align="center">
+            @Html.DisplayFor(modelItem => item.ThreeStar)
+        </td>
+        <td align="center">
+            @Html.DisplayFor(modelItem => item.FourStar)
+        </td>
+        <td align="center">
+            @Html.DisplayFor(modelItem => item.FiveStar)
+        </td>
+    </tr>
+}
+
+</table>

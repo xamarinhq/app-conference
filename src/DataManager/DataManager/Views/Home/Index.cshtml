@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Techdays 2016 Data Manager</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Data management</h2>
+        <li>@Html.ActionLink("Sessions", "Index", "Sessions")</li>
+        <li>@Html.ActionLink("Sponsors", "Index", "Sponsors")</li>
+        <li>@Html.ActionLink("Speakers", "Index", "Speakers")</li>
+        <li>@Html.ActionLink("Rooms", "Index", "Rooms")</li>
+        <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
+        <li>@Html.ActionLink("SponsorLevels", "Index", "SponsorLevels")</li>
+        <li>@Html.ActionLink("Mini Hacks", "Index", "MiniHacks")</li>
+    </div>
+    <div class="col-md-4">
+        <h2>Tools</h2>
+        <li><a href="/push.html">Send Notifications and Announcements</a></li>
+        <li>@Html.ActionLink("Top Sessions (favorites)", "Index", "TopSessions")</li>
+        <li>@Html.ActionLink("Session Ratings", "Index", "SessionRatings")</li>
+        <li>@Html.ActionLink("MiniHack Completions", "Index", "MiniHackCompletions")</li>
+
+    </div>
+</div>

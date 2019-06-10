@@ -1,0 +1,28 @@
+﻿@using System.Configuration;
+@{
+    ViewBag.Title = "Login";
+}
+
+<div id="root" style="width: 320px; margin: 40px auto; padding: 10px; border-style: dashed; border-width: 1px;">
+    embedded area
+</div>
+@Html.AntiForgeryToken()
+<script src="https://cdn.auth0.com/js/lock/10.0.0-rc.2/lock.min.js"></script>
+<script>
+
+    var lock = new Auth0Lock('@ConfigurationManager.AppSettings["auth0:ClientId"]', '@ConfigurationManager.AppSettings["auth0:Domain"]',
+        {
+            container: 'root',
+            auth: {
+                redirectUrl: window.location.origin + '/signin-auth0',
+                responseType: 'code',
+                params: {
+                    scope: 'openid profile'
+                }
+            }
+        });
+
+    var xsrf = document.getElementsByName("__RequestVerificationToken")[0].value;
+
+    lock.show();
+</script>

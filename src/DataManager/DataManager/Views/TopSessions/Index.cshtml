@@ -1,0 +1,40 @@
+﻿@model IEnumerable<DataManager.ViewModels.SessionWithFavoritesViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sessions ranked by favorites</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Rank
+        </th>
+        <th>
+            Favorites
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th></th>
+    </tr>
+
+@{ int i = 1; }
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => i)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Favorites)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+    </tr>
+    i++;
+}
+
+</table>

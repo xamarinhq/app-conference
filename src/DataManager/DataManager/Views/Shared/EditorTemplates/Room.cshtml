@@ -1,0 +1,20 @@
+﻿@model DataManager.ViewModels.SessionViewModel
+
+<select id="SubmittedRoom" name="SubmittedRoom" class="chosen-select" data-placeholder="Select Room">
+    <option value="TBD"
+            @if (Model.TrackedSession.Room == null) { @: selected
+                                                                                                         }>
+        TBD
+    </option>
+
+
+    
+     @foreach (var room in Model.AvailableRooms)
+    {
+        <option value="@room.Id"
+                @if (Model.TrackedSession.Room?.Id == room.Id) { @: selected
+                                                                                                                                 }>
+            @room.Name
+        </option>
+    }
+</select>
