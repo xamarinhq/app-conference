@@ -1,4 +1,5 @@
-﻿using FormsToolkit;
+﻿using Conference.Utils.Helpers;
+using FormsToolkit;
 using Humanizer;
 using MvvmHelpers;
 using System;
@@ -14,6 +15,12 @@ namespace Conference.Clients.Portable
 
         public ObservableRangeCollection<MenuItem> AboutItems { get; } = new ObservableRangeCollection<MenuItem>();
         public ObservableRangeCollection<MenuItem> TechnologyItems { get; } = new ObservableRangeCollection<MenuItem>();
+
+        public bool LoginEnabled => FeatureFlags.LoginEnabled;
+        public string LoginText => FeatureFlags.LoginEnabled ? (Settings.IsLoggedIn ? "Sign Out" : "Sign In") : string.Empty;
+        public string MyAccountTitle => FeatureFlags.LoginEnabled ? "My Account" : "Status";
+        //public string Copyright => AboutThisApp.Copyright;
+        public bool AppToWebLinkingEnabled => FeatureFlags.AppToWebLinkingEnabled;
 
         public SettingsViewModel()
         {
@@ -62,7 +69,6 @@ namespace Conference.Clients.Portable
                     });
         }
             
-        public string LoginText => Settings.IsLoggedIn ? "Sign Out" : "Sign In";
 
         public string LastSyncDisplay
         {
@@ -99,7 +105,7 @@ namespace Conference.Clients.Portable
                 MessagingService.Current.SendMessage<MessagingServiceQuestion>(MessageKeys.Question, new MessagingServiceQuestion
                     {
                         Title = "Logout?",
-                        Question = "Are you sure you want to logout? You can only save favorites and leave feedback when logged in.",
+                        Question = "Are you sure you want to logout?" + (FeatureFlags.LoginEnabled ? "You can only save favorites and leave feedback when logged in." : ""),
                         Positive = "Yes, Logout",
                         Negative = "Cancel",
                         OnCompleted = async (result) =>

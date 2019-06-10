@@ -11,6 +11,7 @@ using Conference.DataObjects;
 using System.Net.Http;
 using System.Collections.Generic;
 using Conference.DataStore.Abstractions;
+using Conference.Utils.Helpers;
 
 namespace Conference.Clients.Portable
 {
@@ -180,8 +181,9 @@ namespace Conference.Clients.Portable
             set => SetProperty(ref loadingSocial, value);
         }
 
+        //public bool ShowBuyTicketButton => FeatureFlags.ShowBuyTicketButton && Utils.EventInfo.StartOfConference.AddDays(-1) >= DateTime.Now;
 
-        ICommand  loadSocialCommand;
+        ICommand loadSocialCommand;
         public ICommand LoadSocialCommand =>
             loadSocialCommand ?? (loadSocialCommand = new Command(async () => await ExecuteLoadSocialCommandAsync())); 
 

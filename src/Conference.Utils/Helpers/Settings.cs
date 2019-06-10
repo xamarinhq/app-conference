@@ -3,7 +3,10 @@ using System;
 using System.ComponentModel;
 using System.Globalization;
 using System.Runtime.CompilerServices;
+using Plugin.Settings;
+using Plugin.Settings.Abstractions;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace Conference.Clients.Portable
 {
@@ -21,6 +24,13 @@ namespace Conference.Clients.Portable
         /// </summary>
         /// <value>The current.</value>
         public static Settings Current => settings ?? (settings = new Settings());
+
+        private IPlatformSpecificSettings _platformSettings;
+
+        public Settings()
+        {
+            _platformSettings = DependencyService.Get<IPlatformSpecificSettings>();
+        }
 
 
         const string GcmTokenKey = "gcm_token";
@@ -204,6 +214,31 @@ namespace Conference.Clients.Portable
                 Preferences.Set(EmailKey, value);
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(UserAvatar));
+            }
+        }
+
+        const string UserIdentifierKey = "useridentifier_key";
+        readonly string UserIdentifierDefault = string.Empty;
+        public string UserIdentifier
+        {
+            get
+            {
+                var id = Preferences.Get(UserIdentifierKey, UserIdentifierDefault);
+
+                if (_platformSettings != null && _platformSettings.UserIdentifier != id)
+                {
+                    _platformSettings.UserIdentifier = id;
+                }
+                return id;
+            }
+            set
+            {
+                Preferences.Set(UserIdentifierKey, value);
+                if (_platformSettings != null)
+                {
+                    _platformSettings.UserIdentifier = value;
+                }
+                OnPropertyChanged();
             }
         }
 

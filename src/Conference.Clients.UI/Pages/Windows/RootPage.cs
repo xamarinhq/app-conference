@@ -4,6 +4,7 @@ using Conference.Clients.Portable;
 using FormsToolkit;
 using System.Collections.ObjectModel;
 using MenuItem = Conference.Clients.Portable.MenuItem;
+using Conference.Utils.Helpers;
 
 namespace Conference.Clients.UI
 {
@@ -17,19 +18,39 @@ namespace Conference.Clients.UI
             //MasterBehavior = MasterBehavior.Popover;
             pages = new Dictionary<AppPage, Page>();
 
-            var items = new ObservableCollection<MenuItem>
+            var items = new ObservableCollection<MenuItem>();
+
+
+            items.Add(new MenuItem { Name = $"{EventInfo.EventName}", Icon = "menu_feed.png", Page = AppPage.Feed });
+            items.Add(new MenuItem { Name = "Sessions", Icon = "menu_sessions.png", Page = AppPage.Sessions });
+          
+            if (FeatureFlags.EventsEnabled)
             {
-                new MenuItem { Name = "Conference Feed", Icon = "menu_feed.png", Page = AppPage.Feed },
-                new MenuItem { Name = "Sessions", Icon = "menu_sessions.png", Page = AppPage.Sessions },
-                new MenuItem { Name = "Events", Icon = "menu_events.png", Page = AppPage.Events },
-                new MenuItem { Name = "Mini-Hacks", Icon = "menu_hacks.png", Page = AppPage.MiniHacks },
-                new MenuItem { Name = "Sponsors", Icon = "menu_sponsors.png", Page = AppPage.Sponsors },
-                new MenuItem { Name = "Evaluations", Icon = "menu_evals.png", Page = AppPage.Evals },
-                new MenuItem { Name = "Venue", Icon = "menu_venue.png", Page = AppPage.Venue },
-                new MenuItem { Name = "Floor Maps", Icon = "menu_plan.png", Page = AppPage.FloorMap },
-                new MenuItem { Name = "Conference Info", Icon = "menu_info.png", Page = AppPage.ConferenceInfo },
-                new MenuItem { Name = "Settings", Icon = "menu_settings.png", Page = AppPage.Settings }
-            };
+                items.Add(new MenuItem { Name = "Events", Icon = "menu_events.png", Page = AppPage.Events });
+            }
+            if (FeatureFlags.MiniHacksEnabled)
+            {
+                items.Add(new MenuItem { Name = "Mini-Hacks", Icon = "menu_hacks.png", Page = AppPage.MiniHacks });
+            }
+            if (FeatureFlags.SponsorsOnTabPage)
+            {
+                items.Add(new MenuItem { Name = "Sponsors", Icon = "menu_sponsors.png", Page = AppPage.Sponsors });
+            }
+            if (FeatureFlags.EvalEnabled)
+            {
+                items.Add(new MenuItem { Name = "Evaluations", Icon = "menu_evals.png", Page = AppPage.Evals });
+            }
+
+            items.Add(new MenuItem { Name = "Venue", Icon = "menu_venue.png", Page = AppPage.Venue });
+            if (FeatureFlags.FloormapEnabled)
+            {
+                items.Add(new MenuItem { Name = "Floor Maps", Icon = "menu_plan.png", Page = AppPage.FloorMap });
+            }
+            if (FeatureFlags.ConferenceInformationEnabled)
+            {
+                items.Add(new MenuItem { Name = "Conference Info", Icon = "menu_info.png", Page = AppPage.ConferenceInfo });
+            }
+            items.Add(new MenuItem { Name = "Settings", Icon = "menu_settings.png", Page = AppPage.Settings });
 
             menu = new MenuPageUWP();
             menu.MenuList.ItemsSource = items;

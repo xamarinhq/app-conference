@@ -7,6 +7,9 @@ using Conference.Clients.Portable;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Distribute;
 using Microsoft.AppCenter.Crashes;
+using Conference.Utils.Helpers;
+using Conference.DataStore.Abstractions;
+using System.Threading.Tasks;
 
 [assembly:Xamarin.Forms.Xaml.XamlCompilation(Xamarin.Forms.Xaml.XamlCompilationOptions.Compile)]
 
@@ -102,23 +105,58 @@ namespace Conference.Clients.UI
 
             MessagingService.Current.Subscribe(MessageKeys.NavigateLogin, async m =>
                 {
-                    if(Device.RuntimePlatform == Device.Android)
+                    if (FeatureFlags.LoginEnabled)
                     {
-                        ((RootPageAndroid)MainPage).IsPresented = false;
+                        if (Device.RuntimePlatform == Device.Android)
+                        {
+                            ((RootPageAndroid)MainPage).IsPresented = false;
+                        }
+
+                        Page page = null;
+                        if (Settings.Current.FirstRun && Device.RuntimePlatform == Device.Android)
+                            page = new LoginPage();
+                        else
+                            page = new ConferenceNavigationPage(new LoginPage());
+
+
+                        var nav = Application.Current?.MainPage?.Navigation;
+                        if (nav == null)
+                            return;
+
+                        await NavigationService.PushModalAsync(nav, page); 
                     }
-
-                    Page page = null;
-                    if(Settings.Current.FirstRun && Device.RuntimePlatform == Device.Android)
-                        page = new LoginPage();
                     else
-                        page = new ConferenceNavigationPage(new LoginPage());
+                    {
+                        var ssoClient = DependencyService.Get<ISSOClient>();
 
-                   
-                    var nav = Application.Current?.MainPage?.Navigation;
-                    if(nav == null)
-                        return;
-                   
-                    await NavigationService.PushModalAsync(nav, page);
+                        if (ssoClient != null)
+                        {
+                            var account = await ssoClient.LoginAnonymouslyAsync(null);
+                            if (account != null)
+                            {
+                                Settings.Current.UserIdentifier = account.User.Email;
+
+                                MessagingService.Current.SendMessage(MessageKeys.LoggedIn);
+                                Logger.Track(ConferenceLoggerKeys.LoginSuccess);
+
+                                Settings.Current.FirstRun = false;
+                            }
+
+                            try
+                            {
+                                var storeManager = DependencyService.Get<IStoreManager>();
+                                await storeManager.SyncAllAsync(Settings.Current.IsLoggedIn);
+                                Settings.Current.LastSync = DateTime.UtcNow;
+                                Settings.Current.HasSyncedData = true;
+                            }
+                            catch (Exception ex)
+                            {
+                                //if sync doesn't work don't worry it is alright we can recover later
+                                Logger.Report(ex);
+                            }
+                            await Finish();
+                        }
+                    }
 
                 });
 
@@ -168,7 +206,37 @@ namespace Conference.Clients.UI
             }
         }
 
- 
+        async Task Finish()
+        {
+            if (Device.RuntimePlatform == Device.iOS && Settings.Current.FirstRun)
+            {
+
+#if ENABLE_TEST_CLOUD
+                MessagingService.Current.SendMessage<MessagingServiceQuestion>(MessageKeys.Question, new MessagingServiceQuestion
+                    {
+                        Title = "Push Notifications",
+                        Positive = "Let's do it!",
+                        Negative = "Maybe Later",
+						Question = $"We can send you updates through {EventInfo.EventName} via push notifications. Would you like to enable them now?",
+                        OnCompleted = async (success) =>
+                            {
+                                if(success)
+                                {
+                                    var push = DependencyService.Get<IPushNotifications>();
+                                    if(push != null)
+                                        await push.RegisterForNotifications();
+                                }
+                            }
+                    });
+#else
+                var push = DependencyService.Get<IPushNotifications>();
+                if (push != null)
+                    await push.RegisterForNotifications();
+#endif
+            }
+        }
+
+
 
         protected override void OnAppLinkRequestReceived(Uri uri)
         {

@@ -3,6 +3,7 @@ using Conference.Clients.UI;
 using FormsToolkit;
 using Conference.Clients.Portable;
 using Conference.DataStore.Abstractions;
+using Conference.Utils.Helpers;
 
 namespace Conference.Clients.UI
 {
@@ -25,8 +26,20 @@ namespace Conference.Clients.UI
             NavigationPage.SetHasNavigationBar(this, false);
             Children.Add(new ConferenceNavigationPage(new FeedPage()));
             Children.Add(new ConferenceNavigationPage(new SessionsPage()));
-            Children.Add(new ConferenceNavigationPage(new EventsPage()));
-            Children.Add(new ConferenceNavigationPage(new MiniHacksPage()));
+
+            if (FeatureFlags.EventsEnabled)
+            {
+                Children.Add(new ConferenceNavigationPage(new EventsPage()));
+            }
+            if (FeatureFlags.SponsorsOnTabPage)
+            {
+                Children.Add(new ConferenceNavigationPage(new SponsorsPage()));
+            }
+            if (FeatureFlags.MiniHacksEnabled)
+            {
+                Children.Add(new ConferenceNavigationPage(new MiniHacksPage()));
+            }
+
             Children.Add(new ConferenceNavigationPage(new AboutPage()));
 
             MessagingService.Current.Subscribe<DeepLinkPage>("DeepLinkPage", async (m, p) =>

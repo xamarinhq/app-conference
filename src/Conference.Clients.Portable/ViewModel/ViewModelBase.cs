@@ -7,6 +7,7 @@ using System.Windows.Input;
 using System;
 
 using Xamarin.Essentials;
+using Conference.Utils.Helpers;
 
 namespace Conference.Clients.Portable
 {
@@ -20,7 +21,7 @@ namespace Conference.Clients.Portable
             Navigation = navigation;
         }
 
-        public static void Init (bool mock = true)
+        public static void Init ()
         {
 
 #if ENABLE_TEST_CLOUD && !DEBUG
@@ -36,7 +37,7 @@ namespace Conference.Clients.Portable
                 DependencyService.Register<ISSOClient, Conference.Clients.Portable.Auth.XamarinSSOClient>();
                 DependencyService.Register<IStoreManager, Conference.DataStore.Mock.StoreManager>();
 #else
-            if (mock) 
+            if (FeatureFlags.UseMocks) 
             {
                 DependencyService.Register<ISessionStore, Conference.DataStore.Mock.SessionStore> ();
                 DependencyService.Register<IFavoriteStore, Conference.DataStore.Mock.FavoriteStore> ();

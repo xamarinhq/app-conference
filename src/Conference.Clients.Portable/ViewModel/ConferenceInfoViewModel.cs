@@ -1,4 +1,5 @@
-﻿using FormsToolkit;
+﻿using Conference.Utils.Helpers;
+using FormsToolkit;
 using Newtonsoft.Json;
 using System;
 using System.Net.Http;
@@ -26,7 +27,7 @@ namespace Conference.Clients.Portable
 
         public async Task<bool> UpdateConfigs()
         {
-            if (IsBusy)
+            if (IsBusy || !FeatureFlags.WifiEnabled)
                 return false;
 
 
@@ -65,6 +66,7 @@ namespace Conference.Clients.Portable
             return true;
         }
 
+        public bool WiFiEnabled => FeatureFlags.WifiEnabled;
 
         bool wiFiConfigured;
         public bool WiFiConfigured

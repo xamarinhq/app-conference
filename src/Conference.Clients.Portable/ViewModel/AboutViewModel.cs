@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Conference.Utils.Helpers;
 using FormsToolkit;
 using MvvmHelpers;
 using Xamarin.Forms;
@@ -25,16 +26,30 @@ namespace Conference.Clients.Portable
             AboutItems.Add(new MenuItem { Name = "About this app", Icon = "icon_venue.png" });
             push = DependencyService.Get<IPushNotifications>();
 
-            InfoItems.AddRange(new []
-                {
-                    new MenuItem { Name = "Sponsors", Icon = "icon_venue.png", Parameter="sponsors"},
-                    new MenuItem { Name = "Evaluations", Icon = "icon_venue.png", Parameter="evaluations"},
-                    new MenuItem { Name = "Venue", Icon = "icon_venue.png", Parameter = "venue"},
-                    new MenuItem { Name = "Conference Floor Maps", Icon = "icon_venue.png", Parameter = "floor-maps"},
-                    new MenuItem { Name = "Code of Conduct", Icon = "icon_code_of_conduct.png", Parameter="code-of-conduct" },
-                    new MenuItem { Name = "Wi-Fi Information", Icon = "icon_wifi.png", Parameter="wi-fi" },
+            if (!FeatureFlags.SponsorsOnTabPage)
+            {
+                InfoItems.Add(new MenuItem { Name = "Sponsors", Icon = "icon_venue.png", Parameter = "sponsors" });
+            }
+            if (FeatureFlags.EvalEnabled)
+            {
+                InfoItems.Add(new MenuItem { Name = "Evaluations", Icon = "icon_venue.png", Parameter = "evaluations" });
+            }
 
-                });
+            InfoItems.Add(new MenuItem { Name = "Venue", Icon = "icon_venue.png", Parameter = "venue" });
+
+            if (FeatureFlags.FloormapEnabled)
+            {
+                InfoItems.Add(new MenuItem { Name = "Conference Floor Maps", Icon = "icon_venue.png", Parameter = "floor-maps" });
+            }
+
+            if (FeatureFlags.CodeOfConductEnabled)
+            {
+                InfoItems.Add(new MenuItem { Name = "Code of Conduct", Icon = "icon_code_of_conduct.png", Parameter = "code-of-conduct" });
+            }
+            if (FeatureFlags.WifiEnabled)
+            {
+                InfoItems.Add(new MenuItem { Name = "Wi-Fi Information", Icon = "icon_wifi.png", Parameter = "wi-fi" });
+            }
 
             accountItem = new MenuItem
                 {
@@ -83,9 +98,18 @@ namespace Conference.Clients.Portable
 
             UpdateItems();
 
-            AccountItems.Add(accountItem);
+            if (FeatureFlags.LoginEnabled)
+            {
+                AccountItems.Add(accountItem);
+            }
             AccountItems.Add(syncItem);
             AccountItems.Add(pushItem);
+
+            if (!FeatureFlags.LoginEnabled && FeatureFlags.AppToWebLinkingEnabled)
+            {
+                AccountItems.Add(new MenuItem { Name = "Link app data to website", Icon = "icon_linkapptoweb.png", Parameter = "mobiletowebsync" });
+                AccountItems.Add(new MenuItem { Name = "Link website data to app", Icon = "icon_linkapptoweb.png", Parameter = "webtomobilesync" });
+            }
 
             //This will be triggered wen 
             Settings.PropertyChanged += (sender, e) => 
@@ -101,8 +125,15 @@ namespace Conference.Clients.Portable
         public void UpdateItems()
         {
             syncItem.Subtitle = LastSyncDisplay;
-            accountItem.Subtitle = Settings.Current.IsLoggedIn ? Settings.Current.UserDisplayName : "Not signed in";
-           
+            if (FeatureFlags.LoginEnabled)
+            {
+                accountItem.Subtitle = Settings.Current.IsLoggedIn ? Settings.Current.UserDisplayName : "Not signed in";
+            }
+            else
+            {
+                accountItem.Subtitle = "";
+            }
+
             pushItem.Name = push.IsRegistered ? "Push notifications enabled" : "Enable push notifications";
         }
 
