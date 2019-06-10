@@ -15,7 +15,7 @@ namespace Conference.Clients.Portable
         public const string AzureListenConneciton = "Endpoint=sb://conferencetest.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=nC00PmSAZu5jv1v8qRGBvS6PwpiW9R5V7CrMhf0lWiA=";
 
 
-        public const string GoogleSenderId ="xamarinawareness"; // TODO: take from your Google Developer Console
+        public const string GoogleSenderId =""; // TODO: take from your Google Developer Console
         public const string BingMapsUWPKey = "";
     }
 
@@ -29,7 +29,7 @@ namespace Conference.Clients.Portable
         public const string VenuePhoneNumber = "";
         public const double Latitude = 52.340681d;
         public const double Longitude = 4.889541d;
-        public const string TimeZoneName = "Europe/Amsterdam"; //https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+        public const string TimeZoneName = "America/Santo_Domingo"; //https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
         public const string HashTag = "#LaComarcaDO";
         public const string WiFiSSIDDefault = "LaComarcaDO";
         public const string WiFiPassDefault = "";
@@ -47,7 +47,7 @@ namespace Conference.Clients.Portable
     {
         public const string AppLinkProtocol = "lacomarca";
         public const string PackageName = "do.lacomarca.app";
-        public const string AppName = "TechDays16";
+        public const string AppName = "LaComarca Events";
         public const string CompanyName = "LaComarca";
         public const string Developer = "Community";
         public const string DeveloperWebsite = "https://lacomarca.do";
@@ -65,7 +65,7 @@ namespace Conference.Clients.Portable
         public const string Copyright = "Copyright 2016 - TechDays";
         public const string CodeOfConductPageTitle = "Permission to be filmed";
 
-        public const string Credits = "The TechDays 2016 mobile apps were handcrafted by Xpirit, based on the great work done by Xamarin.\n\n" +
+        public const string Credits = "LaComarca mobile apps were handcrafted by LaComarcaDO, based on the great work done by Xamarin.\n\n" +
             "Xpirit Team:\n" +
             "Roy Cornelissen\n" +
             "Marcel de Vries\n" +
