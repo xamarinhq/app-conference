@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2036
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28822.285
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Targets", "Targets", "{B3B306B8-9A3D-4CD6-81FD-9C9EAB3C5788}"
 EndProject
@@ -365,8 +365,6 @@ Global
 		{4DF18ED7-0E19-4866-8D9B-B1CB5C86A366}.UITest|x86.ActiveCfg = Release|Any CPU
 		{4DF18ED7-0E19-4866-8D9B-B1CB5C86A366}.UITest|x86.Build.0 = Release|Any CPU
 		{A8B9FFDA-76CD-48FD-ACCD-C27C48F1BC85}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{A8B9FFDA-76CD-48FD-ACCD-C27C48F1BC85}.Debug|Any CPU.Build.0 = Debug|x86
-		{A8B9FFDA-76CD-48FD-ACCD-C27C48F1BC85}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{A8B9FFDA-76CD-48FD-ACCD-C27C48F1BC85}.Debug|ARM.ActiveCfg = Debug|ARM
 		{A8B9FFDA-76CD-48FD-ACCD-C27C48F1BC85}.Debug|ARM.Build.0 = Debug|ARM
 		{A8B9FFDA-76CD-48FD-ACCD-C27C48F1BC85}.Debug|ARM.Deploy.0 = Debug|ARM
