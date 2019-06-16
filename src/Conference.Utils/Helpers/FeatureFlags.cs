@@ -17,6 +17,7 @@ namespace Conference.Utils.Helpers
         public static bool WifiEnabled => false;
         public static bool EvalEnabled => false;
         public static bool CodeOfConductEnabled => true;
+        public static bool VenueEnabled => false;
         public static bool FloormapEnabled => false;
         public static bool AppLinksEnabled => true;
         public static bool ConferenceInformationEnabled => true;

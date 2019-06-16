@@ -25,36 +25,36 @@ namespace Conference.Clients.Portable
         /// <value>The current.</value>
         public static Settings Current => settings ?? (settings = new Settings());
 
-        private IPlatformSpecificSettings _platformSettings;
+        IPlatformSpecificSettings platformSettings;
 
         public Settings()
         {
-            _platformSettings = DependencyService.Get<IPlatformSpecificSettings>();
+            platformSettings = DependencyService.Get<IPlatformSpecificSettings>();
         }
 
 
-        const string GcmTokenKey = "gcm_token";
-        readonly string GcmTokenDefault = string.Empty;
+        const string gcmTokenKey = "gcm_token";
+        readonly string gcmTokenDefault = string.Empty;
         public string GcmToken
         {
-            get => Preferences.Get(GcmTokenKey, GcmTokenDefault);
-            set { Preferences.Set(GcmTokenKey, value); OnPropertyChanged(); }
+            get => Preferences.Get(gcmTokenKey, gcmTokenDefault);
+            set { Preferences.Set(gcmTokenKey, value); OnPropertyChanged(); }
         }
 
-        const string WiFiSSIDKey = "ssid_key";
-        readonly string WiFiSSIDDefault = "Xamarin_Conference";
+        const string wiFiSSIDKey = "ssid_key";
+        readonly string wiFiSSIDDefault = "Xamarin_Conference";
         public string WiFiSSID
         {
-            get => Preferences.Get(WiFiSSIDKey, WiFiSSIDDefault);
-            set { Preferences.Set(WiFiSSIDKey, value); OnPropertyChanged(); }
+            get => Preferences.Get(wiFiSSIDKey, wiFiSSIDDefault);
+            set { Preferences.Set(wiFiSSIDKey, value); OnPropertyChanged(); }
         }
 
-        const string WiFiPassKey = "wifi_pass_key";
-        readonly string WiFiPassDefault = "";
+        const string wiFiPassKey = "wifi_pass_key";
+        readonly string wiFiPassDefault = "";
         public string WiFiPass
         {
-            get => Preferences.Get(WiFiPassKey, WiFiPassDefault);
-            set { Preferences.Set(WiFiPassKey, value); OnPropertyChanged(); }
+            get => Preferences.Get(wiFiPassKey, wiFiPassDefault);
+            set { Preferences.Set(wiFiPassKey, value); OnPropertyChanged(); }
         }
 
         public void SaveReminderId(string id, string calId) => Preferences.Set(GetReminderId(id), calId);
@@ -69,44 +69,44 @@ namespace Conference.Clients.Portable
 
         public void FinishHack(string id) => Preferences.Set("minihack_" + id, true);
 
-        const string LastFavoriteTimeKey = "last_favorite_time";
+        const string lastFavoriteTimeKey = "last_favorite_time";
 
         public DateTime LastFavoriteTime
         {
-            get => new DateTime(Preferences.Get(LastFavoriteTimeKey, DateTime.UtcNow.Ticks));
-            set => Preferences.Set(LastFavoriteTimeKey, value.Ticks);
+            get => new DateTime(Preferences.Get(lastFavoriteTimeKey, DateTime.UtcNow.Ticks));
+            set => Preferences.Set(lastFavoriteTimeKey, value.Ticks);
         }
 
 
-        const string HasSetReminderKey = "set_a_reminder";
-        static readonly bool HasSetReminderDefault = false;
+        const string hasSetReminderKey = "set_a_reminder";
+        static readonly bool hasSetReminderDefault = false;
 
         public bool HasSetReminder
         {
-            get => Preferences.Get(HasSetReminderKey, HasSetReminderDefault);
-            set => Preferences.Set(HasSetReminderKey, value);
+            get => Preferences.Get(hasSetReminderKey, hasSetReminderDefault);
+            set => Preferences.Set(hasSetReminderKey, value);
         }
 
-        const string ConferenceCalendarIdKey = "conference_calendar";
-        static readonly string ConferenceCalendarIdDefault = string.Empty;
+        const string conferenceCalendarIdKey = "conference_calendar";
+        static readonly string conferenceCalendarIdDefault = string.Empty;
         public string ConferenceCalendarId
         {
-            get => Preferences.Get(ConferenceCalendarIdKey, ConferenceCalendarIdDefault);
-            set => Preferences.Set(ConferenceCalendarIdKey, value);
+            get => Preferences.Get(conferenceCalendarIdKey, conferenceCalendarIdDefault);
+            set => Preferences.Set(conferenceCalendarIdKey, value);
         }
 
 
-        const string PushNotificationsEnabledKey = "push_enabled";
-        static readonly bool PushNotificationsEnabledDefault = false;
+        const string pushNotificationsEnabledKey = "push_enabled";
+        static readonly bool pushNotificationsEnabledDefault = false;
 
         public bool PushNotificationsEnabled
         {
-            get => Preferences.Get(PushNotificationsEnabledKey, PushNotificationsEnabledDefault);
-            set { Preferences.Set(PushNotificationsEnabledKey, value); OnPropertyChanged(); }
+            get => Preferences.Get(pushNotificationsEnabledKey, pushNotificationsEnabledDefault);
+            set { Preferences.Set(pushNotificationsEnabledKey, value); OnPropertyChanged(); }
         }
 
-        const string FirstRunKey = "first_run";
-        static readonly bool FirstRunDefault = true;
+        const string firstRunKey = "first_run";
+        static readonly bool firstRunDefault = true;
 
         /// <summary>
         /// Gets or sets a value indicating whether the user wants to see favorites only.
@@ -114,40 +114,40 @@ namespace Conference.Clients.Portable
         /// <value><c>true</c> if favorites only; otherwise, <c>false</c>.</value>
         public bool FirstRun
         {
-            get => Preferences.Get(FirstRunKey, FirstRunDefault);
-            set { Preferences.Set(FirstRunKey, value); OnPropertyChanged(); }
+            get => Preferences.Get(firstRunKey, firstRunDefault);
+            set { Preferences.Set(firstRunKey, value); OnPropertyChanged(); }
         }
 
-        const string GooglePlayCheckedKey = "play_checked";
-        static readonly bool GooglePlayCheckedDefault = false;
+        const string googlePlayCheckedKey = "play_checked";
+        static readonly bool googlePlayCheckedDefault = false;
 
         public bool GooglePlayChecked
         {
-            get => Preferences.Get(GooglePlayCheckedKey, GooglePlayCheckedDefault);
-            set => Preferences.Set(GooglePlayCheckedKey, value);
+            get => Preferences.Get(googlePlayCheckedKey, googlePlayCheckedDefault);
+            set => Preferences.Set(googlePlayCheckedKey, value);
         }
 
-        const string AttemptedPushKey = "attempted_push";
-        static readonly bool AttemptedPushDefault = false;
+        const string attemptedPushKey = "attempted_push";
+        static readonly bool attemptedPushDefault = false;
 
         public bool AttemptedPush
         {
-            get => Preferences.Get(AttemptedPushKey, AttemptedPushDefault);
-            set => Preferences.Set(AttemptedPushKey, value);
+            get => Preferences.Get(attemptedPushKey, attemptedPushDefault);
+            set => Preferences.Set(attemptedPushKey, value);
         }
 
 
-        const string PushRegisteredKey = "push_registered";
-        static readonly bool PushRegisteredDefault = false;
+        const string pushRegisteredKey = "push_registered";
+        static readonly bool pushRegisteredDefault = false;
 
         public bool PushRegistered
         {
-            get => Preferences.Get(PushRegisteredKey, PushRegisteredDefault);
-            set => Preferences.Set(PushRegisteredKey, value);
+            get => Preferences.Get(pushRegisteredKey, pushRegisteredDefault);
+            set => Preferences.Set(pushRegisteredKey, value);
         }
 
-        const string FavoriteModeKey = "favorites_only";
-        static readonly bool FavoriteModeDefault = false;
+        const string favoriteModeKey = "favorites_only";
+        static readonly bool favoriteModeDefault = false;
 
         /// <summary>
         /// Gets or sets a value indicating whether the user wants to see favorites only.
@@ -155,12 +155,12 @@ namespace Conference.Clients.Portable
         /// <value><c>true</c> if favorites only; otherwise, <c>false</c>.</value>
         public bool FavoritesOnly
         {
-            get => Preferences.Get(FavoriteModeKey, FavoriteModeDefault);
-            set { Preferences.Set(FavoriteModeKey, value); OnPropertyChanged(); }
+            get => Preferences.Get(favoriteModeKey, favoriteModeDefault);
+            set { Preferences.Set(favoriteModeKey, value); OnPropertyChanged(); }
         }
 
-        const string ShowAllCategoriesKey = "all_categories";
-        static readonly bool ShowAllCategoriesDefault = true;
+        const string showAllCategoriesKey = "all_categories";
+        static readonly bool showAllCategoriesDefault = true;
 
         /// <summary>
         /// Gets or sets a value indicating whether the user wants to show all categories.
@@ -168,12 +168,12 @@ namespace Conference.Clients.Portable
         /// <value><c>true</c> if show all categories; otherwise, <c>false</c>.</value>
         public bool ShowAllCategories
         {
-            get => Preferences.Get(ShowAllCategoriesKey, ShowAllCategoriesDefault);
-            set { Preferences.Set(ShowAllCategoriesKey, value); OnPropertyChanged(); }
+            get => Preferences.Get(showAllCategoriesKey, showAllCategoriesDefault);
+            set { Preferences.Set(showAllCategoriesKey, value); OnPropertyChanged(); }
         }
 
-        const string ShowPastSessionsKey = "show_past_sessions";
-        static readonly bool ShowPastSessionsDefault = false;
+        const string showPastSessionsKey = "show_past_sessions";
+        static readonly bool showPastSessionsDefault = false;
         public static readonly DateTime EndOfConference = new DateTime(2016, 4, 29, 0, 0, 0, DateTimeKind.Utc);
 
         /// <summary>
@@ -188,130 +188,130 @@ namespace Conference.Clients.Portable
                 if (DateTime.UtcNow > EndOfConference)
                     return true;
                 
-                return Preferences.Get(ShowPastSessionsKey, ShowPastSessionsDefault); 
+                return Preferences.Get(showPastSessionsKey, showPastSessionsDefault); 
             }
-            set { Preferences.Set(ShowPastSessionsKey, value); OnPropertyChanged(); }
+            set { Preferences.Set(showPastSessionsKey, value); OnPropertyChanged(); }
         }
 
-        const string FilteredCategoriesKey = "filtered_categories";
-        static readonly string FilteredCategoriesDefault = string.Empty;
+        const string filteredCategoriesKey = "filtered_categories";
+        static readonly string filteredCategoriesDefault = string.Empty;
 
 
         public string FilteredCategories
         {
-            get => Preferences.Get(FilteredCategoriesKey, FilteredCategoriesDefault);
-            set { Preferences.Set(FilteredCategoriesKey, value); OnPropertyChanged(); }
+            get => Preferences.Get(filteredCategoriesKey, filteredCategoriesDefault);
+            set { Preferences.Set(filteredCategoriesKey, value); OnPropertyChanged(); }
         }
 
 
-        const string EmailKey = "email_key";
-        readonly string EmailDefault = string.Empty;
+        const string emailKey = "email_key";
+        readonly string emailDefault = string.Empty;
         public string Email
         {
-            get => Preferences.Get(EmailKey, EmailDefault);
+            get => Preferences.Get(emailKey, emailDefault);
             set
             {
-                Preferences.Set(EmailKey, value);
+                Preferences.Set(emailKey, value);
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(UserAvatar));
             }
         }
 
-        const string UserIdentifierKey = "useridentifier_key";
-        readonly string UserIdentifierDefault = string.Empty;
+        const string userIdentifierKey = "useridentifier_key";
+        readonly string userIdentifierDefault = string.Empty;
         public string UserIdentifier
         {
             get
             {
-                var id = Preferences.Get(UserIdentifierKey, UserIdentifierDefault);
+                var id = Preferences.Get(userIdentifierKey, userIdentifierDefault);
 
-                if (_platformSettings != null && _platformSettings.UserIdentifier != id)
+                if (platformSettings != null && platformSettings.UserIdentifier != id)
                 {
-                    _platformSettings.UserIdentifier = id;
+                    platformSettings.UserIdentifier = id;
                 }
                 return id;
             }
             set
             {
-                Preferences.Set(UserIdentifierKey, value);
-                if (_platformSettings != null)
+                Preferences.Set(userIdentifierKey, value);
+                if (platformSettings != null)
                 {
-                    _platformSettings.UserIdentifier = value;
+                    platformSettings.UserIdentifier = value;
                 }
                 OnPropertyChanged();
             }
         }
 
-        const string DatabaseIdKey = "azure_database";
-        static readonly int DatabaseIdDefault = 0;
+        const string databaseIdKey = "azure_database";
+        static readonly int databaseIdDefault = 0;
 
         public static int DatabaseId
         {
-            get => Preferences.Get(DatabaseIdKey, DatabaseIdDefault);
-            set => Preferences.Set(DatabaseIdKey, value);
+            get => Preferences.Get(databaseIdKey, databaseIdDefault);
+            set => Preferences.Set(databaseIdKey, value);
         }
 
         public static int UpdateDatabaseId() => DatabaseId++;
 
-        const string FirstNameKey = "firstname_key";
-        readonly string FirstNameDefault =  string.Empty;
+        const string firstNameKey = "firstname_key";
+        readonly string firstNameDefault =  string.Empty;
         public string FirstName
         {
-            get => Preferences.Get(FirstNameKey, FirstNameDefault);
+            get => Preferences.Get(firstNameKey, firstNameDefault);
             set
             {
-                Preferences.Set(FirstNameKey, value);
+                Preferences.Set(firstNameKey, value);
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(UserDisplayName));
             }
         }
 
-        const string LastNameKey = "lastname_key";
-        readonly string LastNameDefault =  string.Empty;
+        const string lastNameKey = "lastname_key";
+        readonly string lastNameDefault =  string.Empty;
         public string LastName
         {
-            get => Preferences.Get(LastNameKey, LastNameDefault);
+            get => Preferences.Get(lastNameKey, lastNameDefault);
             set
             {
-                Preferences.Set(LastNameKey, value);
+                Preferences.Set(lastNameKey, value);
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(UserDisplayName));
             }
         }
 
 
-        const string NeedsSyncKey = "needs_sync";
-        const bool NeedsSyncDefault = true;
+        const string needsSyncKey = "needs_sync";
+        const bool needsSyncDefault = true;
         public bool NeedsSync
         {
-            get => Preferences.Get(NeedsSyncKey, NeedsSyncDefault) || LastSync < DateTime.Now.AddDays(-1);
-            set => Preferences.Set(NeedsSyncKey, value);
+            get => Preferences.Get(needsSyncKey, needsSyncDefault) || LastSync < DateTime.Now.AddDays(-1);
+            set => Preferences.Set(needsSyncKey, value);
 
         }
 
-        const string LoginAttemptsKey = "login_attempts";
-        const int LoginAttemptsDefault = 0;
+        const string loginAttemptsKey = "login_attempts";
+        const int loginAttemptsDefault = 0;
         public int LoginAttempts
         {
-            get => Preferences.Get(LoginAttemptsKey, LoginAttemptsDefault);
-            set => Preferences.Set(LoginAttemptsKey, value);
+            get => Preferences.Get(loginAttemptsKey, loginAttemptsDefault);
+            set => Preferences.Set(loginAttemptsKey, value);
         }
 
-        const string HasSyncedDataKey = "has_synced";
-        const bool HasSyncedDataDefault = false;
+        const string hasSyncedDataKey = "has_synced";
+        const bool hasSyncedDataDefault = false;
         public bool HasSyncedData
         {
-            get => Preferences.Get(HasSyncedDataKey, HasSyncedDataDefault);
-            set => Preferences.Set(HasSyncedDataKey, value);
+            get => Preferences.Get(hasSyncedDataKey, hasSyncedDataDefault);
+            set => Preferences.Set(hasSyncedDataKey, value);
 
         }
 
-        const string LastSyncKey = "last_sync";
-        static readonly DateTime LastSyncDefault = DateTime.Now.AddDays(-30);
+        const string lastSyncKey = "last_sync";
+        static readonly DateTime lastSyncDefault = DateTime.Now.AddDays(-30);
         public DateTime LastSync
         {
-            get => Preferences.Get(LastSyncKey, LastSyncDefault);
-            set { Preferences.Set(LastSyncKey, value); OnPropertyChanged(); }
+            get => Preferences.Get(lastSyncKey, lastSyncDefault);
+            set { Preferences.Set(lastSyncKey, value); OnPropertyChanged(); }
         }
 
         bool isConnected;
