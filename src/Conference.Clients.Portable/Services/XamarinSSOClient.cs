@@ -63,6 +63,17 @@ namespace Conference.Clients.Portable.Auth
             return Task.FromResult(0);
         }
 
+        public Task<AccountResponse> LoginAnonymouslyAsync(string impersonateUserId)
+        {
+            // TODO: Anonymous Login
+#if DEBUG
+            return null;
+#else
+            throw new NotImplementedException("Xamarin SSO Client does not support anonymous login. Set FeatureFlags.LoginEnabled to true");
+#endif
+
+        }
+
 
         #endregion
     }

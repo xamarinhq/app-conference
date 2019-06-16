@@ -14,7 +14,8 @@ namespace Conference.Clients.Portable.Auth.Azure
     public sealed class XamarinSSOClient : ISSOClient
     {
         private readonly StoreManager storeManager;
-     
+        private readonly ILogger logger;
+
         public XamarinSSOClient(StoreManager storeManager)
         {
             if (storeManager == null)
@@ -66,6 +67,20 @@ namespace Conference.Clients.Portable.Auth.Azure
             };
 
             return account;
+        }
+
+        public async Task<AccountResponse> LoginAnonymouslyAsync(string impersonateUserId)
+        {
+            try
+            {
+                var user = await storeManager.LoginAnonymouslyAsync(impersonateUserId);
+                return AccountFromMobileServiceUser(user);
+            }
+            catch (Exception e)
+            {
+                logger.Report(e, "Method", "LoginAnonymouslyAsync", Severity.Error);
+                return null;
+            }
         }
     }
 }
