@@ -8,8 +8,8 @@
     android:shortcutDisabledMessage="@string/shortcut_sessions">
     <intent
       android:action="android.intent.action.VIEW"
-      android:targetPackage="com.sample.conference"
-      android:targetClass="com.sample.conference.MainActivity"
+      android:targetPackage="com.lacomarca.app"
+      android:targetClass="com.lacomarca.app.MainActivity"
       android:data="http://conference.xamarin.com/sessions"/>
     <categories android:name="android.shortcut.conversation" />
   </shortcut>
@@ -22,8 +22,8 @@
     android:shortcutDisabledMessage="@string/shortcut_events">
     <intent
       android:action="android.intent.action.VIEW"
-      android:targetPackage="com.sample.conference"
-      android:targetClass="com.sample.conference.MainActivity" 
+      android:targetPackage="com.lacomarca.app"
+      android:targetClass="com.lacomarca.app.MainActivity" 
       android:data="http://conference.xamarin.com/events"/>
   </shortcut>
   <shortcut
@@ -35,8 +35,8 @@
     android:shortcutDisabledMessage="@string/shortcut_minihacks">
     <intent
       android:action="android.intent.action.VIEW"
-      android:targetPackage="com.sample.conference"
-      android:targetClass="com.sample.conference.MainActivity" 
+      android:targetPackage="com.lacomarca.app"
+      android:targetClass="com.lacomarca.app.MainActivity" 
       android:data="http://conference.xamarin.com/minihacks"/>
   </shortcut>-->
 </shortcuts>
