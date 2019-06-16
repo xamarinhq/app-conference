@@ -141,6 +141,31 @@ namespace Conference.DataStore.Azure
 
         #endregion
 
+        public async Task<MobileServiceUser> LoginAnonymouslyAsync(string impersonateUserId = null)
+        {
+            if (!IsInitialized)
+            {
+                await InitializeAsync();
+            }
+
+            if (string.IsNullOrEmpty(impersonateUserId))
+            {
+                var settings = await ReadSettingsAsync();
+                impersonateUserId = settings?.UserId; // see if we have a saved user id from a previous token
+            }
+
+            var credentials = new JObject();
+            if (!string.IsNullOrEmpty(impersonateUserId))
+            {
+                credentials["anonymousUserId"] = impersonateUserId;
+            }
+            var user = await MobileService.LoginAsync("AnonymousUser", credentials);
+
+            await CacheToken(user);
+
+            return user;
+        }
+
         public async Task<MobileServiceUser> LoginAsync(string username, string password)
         {
             if (!IsInitialized)
