@@ -131,6 +131,7 @@ namespace Conference.Clients.UI
 
                         if (ssoClient != null)
                         {
+                          
                             var account = await ssoClient.LoginAnonymouslyAsync(null);
                             if (account != null)
                             {
@@ -141,6 +142,7 @@ namespace Conference.Clients.UI
 
                                 Settings.Current.FirstRun = false;
                             }
+                           
 
                             try
                             {
