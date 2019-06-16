@@ -14,7 +14,7 @@ using Android.Support.V7.App;
 
 namespace Conference.Droid
 {
-    [Activity(Label = "LaComarca", Icon = "@drawable/newicon", Theme="@style/SplashTheme", MainLauncher=true)]            
+    [Activity(Label = "LaComarca", Icon = "@mipmap/ic_launcher", Theme="@style/SplashTheme", MainLauncher=true)]            
     //[MetaData ("android.app.shortcuts", Resource ="@xml/shortcuts")]
     public class SplashActivity : AppCompatActivity
     {

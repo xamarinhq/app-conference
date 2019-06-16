@@ -34,7 +34,7 @@ namespace Conference.Droid
     [Activity(Label = "LaComarca", 
         Name="com.lacomarca.app.MainActivity",
         Exported = true,
-        Icon = "@drawable/newicon",
+        Icon = "@mipmap/ic_launcher",
         LaunchMode = LaunchMode.SingleTask, 
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : FormsAppCompatActivity

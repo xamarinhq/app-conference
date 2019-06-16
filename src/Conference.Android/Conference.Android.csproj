@@ -168,11 +168,6 @@
     <AndroidResource Include="Resources\drawable-xhdpi\menu_evals.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\menu_evals.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\menu_evals.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\newicon.png" />
-    <AndroidResource Include="Resources\drawable-mdpi\newicon.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\newicon.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\newicon.png" />
-    <AndroidResource Include="Resources\drawable-xxxhdpi\newicon.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\toolbar.axml" />
@@ -245,11 +240,6 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\menu_settings.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\toolbar_filter.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\toolbar_share.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ic_launcher.png" />
-    <AndroidResource Include="Resources\drawable-mdpi\ic_launcher.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_launcher.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_launcher.png" />
-    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\drawable-mdpi\icon_user.png" />
     <AndroidResource Include="Resources\drawable-hdpi\menu_plan.png" />
     <AndroidResource Include="Resources\drawable-mdpi\menu_plan.png" />
@@ -298,7 +288,6 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\icon_twitter.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\icon_website.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\profile_generic_big.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\logo_launchscreen.png" />
     <AndroidResource Include="Resources\drawable\background_splash.axml" />
     <AndroidResource Include="Resources\drawable-xhdpi\icon_sessions_big_purple.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon_sessions_big_purple.png" />
@@ -369,7 +358,7 @@
     <AndroidResource Include="Resources\xml\shortcuts.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-nodpi\logo_launchscreen.png" />
+    <AndroidResource Include="Resources\drawable\logo_launchscreen.png" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CClarke.Plugin.Calendars">
@@ -473,5 +462,23 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\lacomarca_banner_app.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\drawable-nodpi\" />
   </ItemGroup>
 </Project>

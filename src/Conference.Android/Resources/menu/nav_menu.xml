@@ -6,15 +6,15 @@
         <item
             android:id="@+id/nav_feed"
             android:icon="@drawable/menu_feed"
-            android:title="Conference Feed"/>
+            android:title="Noticias"/>
         <item
             android:id="@+id/nav_sessions"
             android:icon="@drawable/menu_sessions"
-            android:title="Sessions"/>
+            android:title="Sesiones"/>
         <item
             android:id="@+id/nav_events"
             android:icon="@drawable/menu_events"
-            android:title="Events" />
+            android:title="Eventos" />
 
         <item
             android:title="Mini-hacks"
@@ -22,18 +22,18 @@
             android:id="@+id/nav_mini_hacks" />
     </group>
 
-     <item android:title="Information" >
+     <item android:title="Información" >
         <menu>
 
             <item
                 android:id="@+id/nav_sponsors"
                 android:icon="@drawable/menu_sponsors"
-                android:title="Sponsors"
+                android:title="Patrocinadores"
                 android:checkable="true" />
             <item
                 android:id="@+id/nav_evals"
                 android:icon="@drawable/menu_evals"
-                android:title="Evaluations"
+                android:title="Evaluaciones"
                 android:checkable="true" />
             <item
                 android:id="@+id/nav_venue"
@@ -48,10 +48,10 @@
             <item
                 android:id="@+id/nav_conference_info"
                 android:icon="@drawable/menu_info"
-                android:title="Conference Info"
+                android:title="Sobre la Comunidad"
                 android:checkable="true" />
             <item
-                android:title="Settings"
+                android:title="Ajustes"
                 android:icon="@drawable/menu_settings"
                 android:id="@+id/nav_settings"
                 android:checkable="true" />
