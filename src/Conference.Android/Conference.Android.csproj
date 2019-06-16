@@ -471,4 +471,7 @@
       <Version>2.4.1</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\lacomarca_banner_app.png" />
+  </ItemGroup>
 </Project>
