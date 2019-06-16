@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Conference.Clients.UI;assembly=Conference.Clients.UI"
     x:Class="Conference.Clients.UI.SessionsPage"
-    Title="Sessions"
+    Title="Sesiones"
     x:Name="ContentPageSessions"
     Icon="tab_sessions.png"
     BackgroundColor="{DynamicResource WindowBackground}">
@@ -31,7 +31,7 @@
                 <OnPlatform x:TypeArguments="Color" Android="{StaticResource Primary}"/>
             </StackLayout.BackgroundColor>
              <SearchBar Text="{Binding Filter, Mode=TwoWay}" 
-                        Placeholder="Search"
+                        Placeholder="Buscar"
                         SearchCommand="{Binding FilterSessionsCommand}"
                         FontSize="Small" >
                         <SearchBar.PlaceholderColor>

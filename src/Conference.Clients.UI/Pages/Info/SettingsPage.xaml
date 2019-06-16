@@ -10,9 +10,9 @@
 
     <ContentPage.Title>
         <OnPlatform x:TypeArguments="x:String">
-            <On Platform="Android" Value="Settings" />
-            <On Platform="iOS" Value="About this app" />
-            <On Platform="UWP" Value="Settings" />
+            <On Platform="Android" Value="Ajustes" />
+            <On Platform="iOS" Value="Sobre la App" />
+            <On Platform="UWP" Value="Ajustes" />
         </OnPlatform>
     </ContentPage.Title>
 
@@ -103,9 +103,9 @@
                         <local:LabelSection>
                             <local:LabelSection.Text>
                                 <OnPlatform x:TypeArguments="x:String">
-                                    <On Platform="Android" Value="About the App" />
+                                    <On Platform="Android" Value="Sobre la App" />
                                     <On Platform="iOS" Value=" " />
-                                    <On Platform="UWP" Value="About the App" />
+                                    <On Platform="UWP" Value="Sobre la App" />
                                 </OnPlatform>
                             </local:LabelSection.Text>
                         </local:LabelSection>
@@ -147,7 +147,7 @@
 
                 <local:CardView>
                     <StackLayout Spacing="0">
-                        <local:LabelSection Text="Technology Used" />
+                        <local:LabelSection Text="Tecnologias usadas" />
                         <local:HeaderDivider />
                         <local:NonScrollableListView
                             x:Name="ListViewTechnology"

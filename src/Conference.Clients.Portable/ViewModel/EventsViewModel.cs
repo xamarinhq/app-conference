@@ -13,7 +13,7 @@ namespace Conference.Clients.Portable
     {
         public EventsViewModel(INavigation navigation) : base(navigation)
         {
-            Title = "Events";
+            Title = "Eventos";
         }
 
 
@@ -85,7 +85,7 @@ namespace Conference.Clients.Portable
 
                 Events.ReplaceRange(await StoreManager.EventStore.GetItemsAsync(force));
 
-                Title = "Events (" + Events.Count(e => e.StartTime.HasValue && e.StartTime.Value > DateTime.UtcNow) + ")";
+                Title = "Eventos (" + Events.Count(e => e.StartTime.HasValue && e.StartTime.Value > DateTime.UtcNow) + ")";
 
                 SortEvents();
 

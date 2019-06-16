@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
      xmlns:local="clr-namespace:Conference.Clients.UI;assembly=Conference.Clients.UI"
     x:Class="Conference.Clients.UI.FilterSessionsPage"
-    Title="Filter Sessions"
+    Title="Filtros de sesiones"
     
     BackgroundColor="{DynamicResource WindowBackgroundTable}">
     <ContentPage.ToolbarItems>

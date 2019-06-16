@@ -70,7 +70,7 @@
                        Text="{Binding Email}" 
                        Keyboard="Email"
                        HorizontalOptions="FillAndExpand"
-                       Placeholder="email address"
+                       Placeholder="dirección de correo"
                        x:Name="EntryEmail"
                        StyleId="EmailTextField"
                        IsEnabled="{Binding IsNotBusy}"
@@ -85,7 +85,7 @@
                        HorizontalOptions="FillAndExpand"
                        IsPassword="true"
                        HorizontalTextAlignment="Center"
-                       Placeholder="password"
+                       Placeholder="contraseña"
                        StyleId="PasswordTextField"
                        IsEnabled="{Binding IsNotBusy}"
                        BorderColor="#ECECEC">

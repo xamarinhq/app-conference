@@ -10,7 +10,7 @@
     xmlns:pull="clr-namespace:Refractored.XamForms.PullToRefresh;assembly=Refractored.XamForms.PullToRefresh"
     xmlns:toolkit="clr-namespace:FormsToolkit;assembly=FormsToolkit"
     x:Name="ContentPageFeed"
-    Title="Conference Feed"
+    Title="Noticias"
     BackgroundColor="{DynamicResource WindowBackgroundTable}"
     Icon="tab_feed.png">
 

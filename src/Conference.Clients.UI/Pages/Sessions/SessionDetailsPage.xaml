@@ -6,7 +6,7 @@
     xmlns:imagecircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
     xmlns:local="clr-namespace:Conference.Clients.UI;assembly=Conference.Clients.UI"
     xmlns:toolkit="clr-namespace:FormsToolkit;assembly=FormsToolkit"
-    Title="Session Details"
+    Title="Detalles de Sesión"
     BackgroundColor="{DynamicResource WindowBackgroundTable}"
     NavigationPage.BackButtonTitle="Back">
     <ContentPage.Resources>
@@ -28,7 +28,7 @@
             Text="Share" />
     </ContentPage.ToolbarItems>
     <local:AlwaysScrollView x:Name="MainScroll" Grid.RowSpan="2">
-        <StackLayout Spacing="0"> 
+        <StackLayout Spacing="0">
             <!--  Padding set dynamic in code behind  -->
             <!--  This first stack is what overlays on top of the hero image  -->
             <StackLayout

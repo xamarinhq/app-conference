@@ -1,25 +1,23 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage 
-    xmlns="http://xamarin.com/schemas/2014/forms" 
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    xmlns:local="clr-namespace:Conference.Clients.UI;assembly=Conference.Clients.UI"
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
     x:Class="Conference.Clients.UI.CodeOfConductPage"
-    Title="Code of Conduct"
-    
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Conference.Clients.UI;assembly=Conference.Clients.UI"
+    Title="Código de Conducta"
     BackgroundColor="{DynamicResource WindowBackgroundTable}">
-     <local:AlwaysScrollView>
-        <StackLayout Spacing="{DynamicResource CardSpacing}"
-                    Padding="{DynamicResource CardPadding}">
-             <local:CardView>
-                 <StackLayout Spacing="0">
-                    <StackLayout HorizontalOptions="FillAndExpand" 
-                                 VerticalOptions="FillAndExpand" 
-                                  BackgroundColor="White"
-                                  Padding="{StaticResource StandardPadding}">
-                       
-                        <Label x:Name="CodeOfConductText"
-                               Style="{DynamicResource ConferenceListItemDetailextStyle}"/>
-                   </StackLayout>
+    <local:AlwaysScrollView>
+        <StackLayout Padding="{DynamicResource CardPadding}" Spacing="{DynamicResource CardSpacing}">
+            <local:CardView>
+                <StackLayout Spacing="0">
+                    <StackLayout
+                        Padding="{StaticResource StandardPadding}"
+                        BackgroundColor="White"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand">
+
+                        <Label x:Name="CodeOfConductText" Style="{DynamicResource ConferenceListItemDetailextStyle}" />
+                    </StackLayout>
                 </StackLayout>
             </local:CardView>
         </StackLayout>

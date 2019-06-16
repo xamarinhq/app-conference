@@ -1,66 +1,77 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage 
-		xmlns="http://xamarin.com/schemas/2014/forms" 
-		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-		x:Class="Conference.Clients.UI.EvaluationsPage"
-		xmlns:local="clr-namespace:Conference.Clients.UI;assembly=Conference.Clients.UI"
-    Title="Evaluations"
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="Conference.Clients.UI.EvaluationsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Conference.Clients.UI;assembly=Conference.Clients.UI"
+    Title="Evaluaciones"
     BackgroundColor="{DynamicResource WindowBackground}">
-     <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-     <ListView 
+    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <ListView
             x:Name="ListViewSessions"
-			ItemsSource="{Binding Sessions}"
-            HasUnevenRows ="true"
-            CachingStrategy="RecycleElement"
-            IsVisible="{Binding IsNotBusy}"
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="All"
             BackgroundColor="White"
-            AbsoluteLayout.LayoutFlags="All" 
-            AbsoluteLayout.LayoutBounds="0,0,1,1">
+            CachingStrategy="RecycleElement"
+            HasUnevenRows="true"
+            IsVisible="{Binding IsNotBusy}"
+            ItemsSource="{Binding Sessions}">
             <ListView.SeparatorColor>
                 <OnPlatform x:TypeArguments="Color">
-                    <On Platform="iOS" Value="{StaticResource ListSeparator}"/>
-                    <On Platform="UWP" Value="{StaticResource ListSeparator}"/>
+                    <On Platform="iOS" Value="{StaticResource ListSeparator}" />
+                    <On Platform="UWP" Value="{StaticResource ListSeparator}" />
                 </OnPlatform>
             </ListView.SeparatorColor>
-        <ListView.GroupHeaderTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <ViewCell.Height>
-                        <OnPlatform x:TypeArguments="x:Double" iOS="28"/>
-                    </ViewCell.Height>
-                    <local:ConferenceGroupHeaderView/>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.GroupHeaderTemplate>
-       <ListView.ItemTemplate>
-        <DataTemplate>
-          <ViewCell>
-             <local:SessionCellView />
-          </ViewCell>
-        </DataTemplate>
-      </ListView.ItemTemplate>
-    </ListView>
-     <StackLayout IsVisible="{Binding IsBusy}"
-                                   AbsoluteLayout.LayoutFlags="PositionProportional"
-                                   AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
-                                    <StackLayout.Orientation>
-                                    <OnPlatform x:TypeArguments="StackOrientation" iOS="Horizontal"/>
-                                   </StackLayout.Orientation>
-            <ActivityIndicator IsRunning="{Binding IsBusy}" >
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.Height>
+                            <OnPlatform x:TypeArguments="x:Double" iOS="28" />
+                        </ViewCell.Height>
+                        <local:ConferenceGroupHeaderView />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <local:SessionCellView />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout
+            AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            IsVisible="{Binding IsBusy}">
+            <StackLayout.Orientation>
+                <OnPlatform x:TypeArguments="StackOrientation" iOS="Horizontal" />
+            </StackLayout.Orientation>
+            <ActivityIndicator IsRunning="{Binding IsBusy}">
                 <ActivityIndicator.Color>
-                    <OnPlatform x:TypeArguments="Color" Android="{StaticResource Accent}"/>
+                    <OnPlatform x:TypeArguments="Color" Android="{StaticResource Accent}" />
                 </ActivityIndicator.Color>
             </ActivityIndicator>
-            <Label Text="Loading Evaluations..." HorizontalOptions="Center" Style="{DynamicResource ConferenceListItemTextStyle}"/>
-       </StackLayout>
-        <StackLayout IsVisible="{Binding NoSessionsFound}"
-                                   HorizontalOptions="FillAndExpand"
-                                   VerticalOptions="CenterAndExpand"
-                                   AbsoluteLayout.LayoutFlags="All"
-                                   AbsoluteLayout.LayoutBounds="0,0,1,1"
-                    BackgroundColor="{DynamicResource WindowBackground}"
-                    Padding="16,0">
-            <Label Text="{Binding NoSessionsFoundMessage}" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" FontSize="22" TextColor="#D3D2D2"/>
-       </StackLayout>
+            <Label
+                HorizontalOptions="Center"
+                Style="{DynamicResource ConferenceListItemTextStyle}"
+                Text="Loading Evaluations..." />
+        </StackLayout>
+        <StackLayout
+            Padding="16,0"
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="All"
+            BackgroundColor="{DynamicResource WindowBackground}"
+            HorizontalOptions="FillAndExpand"
+            IsVisible="{Binding NoSessionsFound}"
+            VerticalOptions="CenterAndExpand">
+            <Label
+                FontSize="22"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                Text="{Binding NoSessionsFoundMessage}"
+                TextColor="#D3D2D2"
+                VerticalOptions="CenterAndExpand" />
+        </StackLayout>
     </AbsoluteLayout>
 </ContentPage>
