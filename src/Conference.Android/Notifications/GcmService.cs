@@ -14,7 +14,7 @@ namespace Conference.Droid
 
 
 
-    [Service(Name="com.sample.conference.GcmService")] //Must use the service tag
+    [Service(Name="com.lacomarca.app.GcmService")] //Must use the service tag
     public class GcmService : GcmServiceBase
     {
         static NotificationHub hub;

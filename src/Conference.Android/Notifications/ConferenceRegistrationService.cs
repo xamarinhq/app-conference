@@ -46,20 +46,19 @@ namespace Conference.Droid.Notifications
             if (ApiKeys.AzureServiceBusUrl == nameof(ApiKeys.AzureServiceBusUrl))
                 return;
 
-            //Get the new token and send to the server
-            var instanceID = InstanceID.GetInstance(Application.Context);
-            var token = instanceID.GetToken(ApiKeys.GoogleSenderId, GoogleCloudMessaging.InstanceIdScope);
-
-
-            var oldToken = Settings.Current.GcmToken;
-
-            if (token != oldToken)
-                Settings.Current.GcmToken = token;
-
-            Android.Util.Log.Debug("Evovle16", $"Gcm Token: {token}");
-
             try
             {
+                //Get the new token and send to the server
+                var instanceID = InstanceID.GetInstance(Application.Context);
+                var token = instanceID.GetToken(ApiKeys.GoogleSenderId, GoogleCloudMessaging.InstanceIdScope);
+
+
+                var oldToken = Settings.Current.GcmToken;
+
+                if (token != oldToken)
+                    Settings.Current.GcmToken = token;
+
+                Android.Util.Log.Debug("Evovle16", $"Gcm Token: {token}");           
                
                 if (hub != null)
                     hub.Register(token);

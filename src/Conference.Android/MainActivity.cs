@@ -31,10 +31,10 @@ namespace Conference.Droid
 {
     
 
-    [Activity(Label = "Conference16", 
-        Name="com.sample.conference.MainActivity",
+    [Activity(Label = "LaComarca", 
+        Name="com.lacomarca.app.MainActivity",
         Exported = true,
-        Icon = "@drawable/newicon", 
+        Icon = "@drawable/newicon",
         LaunchMode = LaunchMode.SingleTask, 
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : FormsAppCompatActivity

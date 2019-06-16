@@ -17,7 +17,7 @@ using Conference.DataStore.Abstractions;
 
 namespace Conference.Droid
 {
-    [Service (Name="com.sample.conference.DataRefreshService", Exported = true, Permission = "com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE")]
+    [Service (Name="com.lacomarca.app.DataRefreshService", Exported = true, Permission = "com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE")]
     [IntentFilter (new [] { "com.google.android.gms.gcm.ACTION_TASK_READY" })]
     public class DataRefreshService : GcmTaskService
     {
@@ -98,7 +98,7 @@ namespace Conference.Droid
                     .SetFlex (600) // could be 10 mins before or after, that is cool
                     .SetService (Java.Lang.Class.FromType (typeof (DataRefreshService)))
                     .SetRequiredNetwork (Android.Gms.Gcm.Task.NetworkStateConnected)
-                    .SetTag ("com.sample.conference.backgrounddatarefresh")
+                    .SetTag ("com.lacomarca.app.backgrounddatarefresh")
                     .SetPersisted (true)
                     .SetRequiresCharging (false)
                     .SetUpdateCurrent (true)
