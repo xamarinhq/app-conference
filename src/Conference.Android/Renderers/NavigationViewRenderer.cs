@@ -8,6 +8,7 @@ using Conference.Clients.Portable;
 using Android.Widget;
 using FormsToolkit;
 using Android.Views;
+using Conference.Utils.Helpers;
 
 [assembly: ExportRenderer (typeof(Conference.Clients.UI.NavigationView), typeof(NavigationViewRenderer))]
 namespace Conference.Droid
@@ -38,6 +39,24 @@ namespace Conference.Droid
             var header = navView.GetHeaderView(0);
             profileImage = header.FindViewById<ImageView>(Resource.Id.profile_image);
             profileName = header.FindViewById<TextView>(Resource.Id.profile_name);
+
+            if (!FeatureFlags.LoginEnabled)
+            {
+                profileName.Visibility = ViewStates.Invisible;
+
+                navView.Menu.FindItem(Resource.Id.nav_mini_hacks).SetVisible(false);
+                navView.Menu.FindItem(Resource.Id.nav_evals).SetVisible(false);
+            }
+
+            if (!FeatureFlags.EvalEnabled)            
+                navView.Menu.FindItem(Resource.Id.nav_evals).SetVisible(false);
+            
+            if (!FeatureFlags.FloormapEnabled)            
+                navView.Menu.FindItem(Resource.Id.nav_floor_map).SetVisible(false);
+
+            if (!FeatureFlags.VenueEnabled)
+                navView.Menu.FindItem(Resource.Id.nav_venue).SetVisible(false);
+
 
             profileImage.Click += (sender, e2) => NavigateToLogin();
             profileName.Click += (sender, e2) => NavigateToLogin();
