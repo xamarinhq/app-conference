@@ -25,6 +25,15 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Command="{Binding ShareCommand}"
+            Icon="toolbar_share.png"
+            Text="Share" />
+    </ContentPage.ToolbarItems>
+
+
     <pull:PullToRefreshLayout
         IsPullToRefreshEnabled="True"
         IsRefreshing="{Binding IsBusy}"
@@ -45,7 +54,7 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="34" />
                             </Grid.ColumnDefinitions>
-                            <local:LabelSection Text="Announcements" />
+                            <local:LabelSection Text="Anuncions" />
                         </Grid>
                         <local:HeaderDivider />
                         <StackLayout
@@ -58,7 +67,7 @@
                             <Label
                                 HorizontalOptions="Center"
                                 Style="{DynamicResource ConferenceListItemTextStyle}"
-                                Text="Loading Announcements..." />
+                                Text="Cargando anuncios..." />
                         </StackLayout>
                         <StackLayout
                             x:Name="NotificationStack"
@@ -88,7 +97,7 @@
                     <!--  Upcoming Sessions  -->
                     <StackLayout Spacing="0">
 
-                        <local:LabelSection Margin="0,0,34,0" Text="Upcoming Favorites" />
+                        <local:LabelSection Margin="0,0,34,0" Text="Próximos" />
                         <StackLayout
                             Padding="{StaticResource StandardPadding}"
                             BackgroundColor="White"
@@ -103,7 +112,7 @@
                             <Label
                                 HorizontalOptions="Center"
                                 Style="{DynamicResource ConferenceListItemTextStyle}"
-                                Text="Loading Favorites..." />
+                                Text="Cargando favoritos..." />
                         </StackLayout>
 
                         <StackLayout
@@ -169,7 +178,7 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="34" />
                             </Grid.ColumnDefinitions>
-                            <local:LabelSection Text="Social - #Conference" />
+                            <local:LabelSection Text="Social - #LaComarca" />
                         </Grid>
                         <local:HeaderDivider />
                         <StackLayout
@@ -186,7 +195,7 @@
                             <Label
                                 HorizontalOptions="Center"
                                 Style="{DynamicResource ConferenceListItemTextStyle}"
-                                Text="Loading Social Feed..." />
+                                Text="Cargando noticias..." />
                         </StackLayout>
                         <StackLayout
                             Padding="{StaticResource StandardPadding}"
@@ -198,7 +207,7 @@
                             <Label
                                 HorizontalOptions="Center"
                                 Style="{DynamicResource ConferenceListItemTextStyle}"
-                                Text="Unable to load social feed" />
+                                Text="No se pudo cargar las noticias" />
                         </StackLayout>
                         <local:NonScrollableListView
                             x:Name="ListViewSocial"

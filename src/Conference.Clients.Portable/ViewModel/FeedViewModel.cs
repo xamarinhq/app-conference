@@ -12,6 +12,7 @@ using System.Net.Http;
 using System.Collections.Generic;
 using Conference.DataStore.Abstractions;
 using Conference.Utils.Helpers;
+using Xamarin.Essentials;
 
 namespace Conference.Clients.Portable
 {
@@ -55,6 +56,24 @@ namespace Conference.Clients.Portable
             {
                 IsBusy = false;
             }
+        }
+
+
+
+        ICommand shareCommand;
+        public ICommand ShareCommand =>
+            shareCommand ?? (shareCommand = new Command(async () => await ExecuteShareCommandAsync()));
+
+        async Task ExecuteShareCommandAsync()
+        {
+            Logger.Track(ConferenceLoggerKeys.Share, "Title", "Noticias");
+
+            await Share.RequestAsync(new ShareTextRequest
+            {
+                Text = $"Únete a nuestra maravillosa comunidad #LaComarca. Te esperamos ! " +
+                $"{Environment.NewLine + Environment.NewLine} Link: https://t.me/lacomarcaDO",
+                Title = "Share"
+            });
         }
 
         Notification notification;

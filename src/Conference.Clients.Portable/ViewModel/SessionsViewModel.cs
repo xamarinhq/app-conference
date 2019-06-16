@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using MvvmHelpers;
 using FormsToolkit;
 using Conference.DataObjects;
+using Xamarin.Essentials;
 
 namespace Conference.Clients.Portable
 {
