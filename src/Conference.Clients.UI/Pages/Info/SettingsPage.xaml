@@ -1,175 +1,185 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage 
-    xmlns="http://xamarin.com/schemas/2014/forms" 
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
     x:Class="Conference.Clients.UI.SettingsPage"
-    xmlns:toolkit="clr-namespace:FormsToolkit;assembly=FormsToolkit"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Conference.Clients.UI;assembly=Conference.Clients.UI"
+    xmlns:toolkit="clr-namespace:FormsToolkit;assembly=FormsToolkit"
     Title="Settings"
-    
     BackgroundColor="{DynamicResource WindowBackgroundTable}">
+
     <ContentPage.Title>
         <OnPlatform x:TypeArguments="x:String">
-            <On Platform="Android" Value="Settings"/>
-            <On Platform="iOS" Value="About this app"/>
-            <On Platform="UWP" Value="Settings"/>
+            <On Platform="Android" Value="Settings" />
+            <On Platform="iOS" Value="About this app" />
+            <On Platform="UWP" Value="Settings" />
         </OnPlatform>
     </ContentPage.Title>
+
     <ContentPage.Resources>
-     <ResourceDictionary>
-        <toolkit:InvertedBooleanConverter x:Key="InvertedBooleanConverter" />
-     </ResourceDictionary>
+        <ResourceDictionary>
+            <toolkit:InvertedBooleanConverter x:Key="InvertedBooleanConverter" />
+        </ResourceDictionary>
     </ContentPage.Resources>
 
     <local:AlwaysScrollView Grid.RowSpan="2">
         <StackLayout Spacing="0">
 
-            <StackLayout 
+            <StackLayout
+                Padding="{DynamicResource CardPadding}"
                 BackgroundColor="{DynamicResource WindowBackgroundTable}"
-                Spacing="{DynamicResource CardSpacing}"
-                Padding="{DynamicResource CardPadding}">
+                Spacing="{DynamicResource CardSpacing}">
 
-                 <local:CardView>
+                <local:CardView IsVisible="{Binding LoginEnabled}">
                     <local:CardView.IsVisible>
-                        <OnPlatform x:TypeArguments="x:Boolean" >
-                            <On Platform="Android" Value="true"/>
-                            <On Platform="iOS" Value="false"/>
-                            <On Platform="UWP" Value="true"/>
+                        <OnPlatform x:TypeArguments="x:Boolean">
+                            <On Platform="Android" Value="true" />
+                            <On Platform="iOS" Value="false" />
+                            <On Platform="UWP" Value="true" />
                         </OnPlatform>
                     </local:CardView.IsVisible>
-                     <StackLayout Spacing="0">
-                        <local:LabelSection Text="Data Sync"/>
-                        <local:HeaderDivider/>   
-                        <StackLayout BackgroundColor="White" 
-                                     Padding="{StaticResource StandardPadding}">
-                            <Label Text="Sign in with your Xamarin account to save and sync favorites and session feedback across devices." 
-                                   HorizontalOptions="Center" 
-                                   Style="{DynamicResource ConferenceListItemDetailTextStyle}"/>
-                            
-                        </StackLayout>  
-                        <local:SectionDivider/>
-                        <Grid Padding="{StaticResource StandardPadding}" 
-                               ColumnSpacing="{StaticResource StandardSpacing}" 
-                               BackgroundColor="White">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Button Text="{Binding LoginText}" Command="{Binding LoginCommand}"
-                                    BackgroundColor="{StaticResource PrimaryDark}"
-                                    IsEnabled="{Binding IsNotBusy}"
-                                    TextColor="White"/>
-                            <Button Grid.Column="1"
-                                    Text="Sync Now" Command="{Binding SyncCommand}"
-                                    BackgroundColor="{StaticResource PrimaryDark}"
-                                    IsEnabled="{Binding IsNotBusy}"
-                                    TextColor="White"/>
-                         </Grid>
+                    <StackLayout Spacing="0">
+                        <local:LabelSection Text="Data Sync" />
+                        <local:HeaderDivider />
+                        <StackLayout Padding="{StaticResource StandardPadding}" BackgroundColor="White">
+                            <Label
+                                HorizontalOptions="Center"
+                                Style="{DynamicResource ConferenceListItemDetailTextStyle}"
+                                Text="Sign in with your Xamarin account to save and sync favorites and session feedback across devices." />
 
-                        <local:SectionDivider/>
+                        </StackLayout>
+                        <local:SectionDivider />
+                        <Grid
+                            Padding="{StaticResource StandardPadding}"
+                            BackgroundColor="White"
+                            ColumnSpacing="{StaticResource StandardSpacing}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button
+                                BackgroundColor="{StaticResource PrimaryDark}"
+                                Command="{Binding LoginCommand}"
+                                IsEnabled="{Binding IsNotBusy}"
+                                Text="{Binding LoginText}"
+                                TextColor="White" />
+                            <Button
+                                Grid.Column="1"
+                                BackgroundColor="{StaticResource PrimaryDark}"
+                                Command="{Binding SyncCommand}"
+                                IsEnabled="{Binding IsNotBusy}"
+                                Text="Sync Now"
+                                TextColor="White" />
+                        </Grid>
+
+                        <local:SectionDivider />
                         <Grid Padding="{StaticResource StandardPadding}" BackgroundColor="White">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <StackLayout VerticalOptions="Center">
-                            <Label Text="{Binding SyncText}" Style="{DynamicResource ConferenceListItemTextStyle}"/>
-                            <Label Text="{Binding LastSyncDisplay}"
-                                    Style="{DynamicResource ConferenceListItemDetailTextStyle}"/>
+                                <Label Style="{DynamicResource ConferenceListItemTextStyle}" Text="{Binding SyncText}" />
+                                <Label Style="{DynamicResource ConferenceListItemDetailTextStyle}" Text="{Binding LastSyncDisplay}" />
                             </StackLayout>
-                            <ActivityIndicator Grid.Column="1" IsRunning="{Binding IsBusy}" HorizontalOptions="Center" VerticalOptions="Center" >
+                            <ActivityIndicator
+                                Grid.Column="1"
+                                HorizontalOptions="Center"
+                                IsRunning="{Binding IsBusy}"
+                                VerticalOptions="Center">
                                 <ActivityIndicator.Color>
-                                    <OnPlatform x:TypeArguments="Color" Android="{StaticResource Accent}"/>
+                                    <OnPlatform x:TypeArguments="Color" Android="{StaticResource Accent}" />
                                 </ActivityIndicator.Color>
                             </ActivityIndicator>
 
                         </Grid>
-                        <local:FooterDivider/>
+                        <local:FooterDivider />
                     </StackLayout>
                 </local:CardView>
 
                 <local:CardView>
-                     <StackLayout Spacing="0">
+                    <StackLayout Spacing="0">
+
                         <local:LabelSection>
                             <local:LabelSection.Text>
                                 <OnPlatform x:TypeArguments="x:String">
-                                    <On Platform="Android" Value="About the App"/>
-                                    <On Platform="iOS" Value=" "/>
-                                    <On Platform="UWP" Value="About the App"/>
+                                    <On Platform="Android" Value="About the App" />
+                                    <On Platform="iOS" Value=" " />
+                                    <On Platform="UWP" Value="About the App" />
                                 </OnPlatform>
                             </local:LabelSection.Text>
                         </local:LabelSection>
-                        <local:HeaderDivider/>
-                        <local:NonScrollableListView 
+
+                        <local:HeaderDivider />
+
+                        <local:NonScrollableListView
                             x:Name="ListViewAbout"
                             ItemsSource="{Binding AboutItems}"
-                            RowHeight="44"> 
+                            RowHeight="44">
+
                             <local:NonScrollableListView.SeparatorColor>
-                                <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}"/>
+                                <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" />
                             </local:NonScrollableListView.SeparatorColor>
                             <local:NonScrollableListView.ItemTemplate>
                                 <DataTemplate>
-                                    <TextCell Text="{Binding Name}" 
-                                               Detail="{Binding Subtitle}" 
-                                               Command="{Binding Command}" 
-                                               CommandParameter="{Binding Parameter}" 
-                                               StyleId="disclosure"/>
+                                    <TextCell
+                                        Command="{Binding Command}"
+                                        CommandParameter="{Binding Parameter}"
+                                        Detail="{Binding Subtitle}"
+                                        StyleId="disclosure"
+                                        Text="{Binding Name}" />
                                 </DataTemplate>
                             </local:NonScrollableListView.ItemTemplate>
                         </local:NonScrollableListView>
-                        <local:FooterDivider/>
+                        <local:FooterDivider />
                         <StackLayout>
                             <StackLayout.Padding>
                                 <OnPlatform x:TypeArguments="Thickness">
-                                    <On Platform="Android" Value="16,8"/>
-                                    <On Platform="iOS" Value="16,8,16,0"/>
-                                    <On Platform="UWP" Value="16,8"/>
+                                    <On Platform="Android" Value="16,8" />
+                                    <On Platform="iOS" Value="16,8,16,0" />
+                                    <On Platform="UWP" Value="16,8" />
                                 </OnPlatform>
                             </StackLayout.Padding>
-                            <Label Text="Copyright 2016 - Xamarin Inc." 
-                                   Style="{DynamicResource ConferenceListItemDetailTextStyle}"/>
+                            <Label Style="{DynamicResource ConferenceListItemDetailTextStyle}" Text="Copyright 2019 - Malla Agency." />
                         </StackLayout>
                     </StackLayout>
                 </local:CardView>
 
                 <local:CardView>
-                     <StackLayout Spacing="0">
-                        <local:LabelSection Text="Technology Used"/>
-                        <local:HeaderDivider/>
-                        <local:NonScrollableListView 
+                    <StackLayout Spacing="0">
+                        <local:LabelSection Text="Technology Used" />
+                        <local:HeaderDivider />
+                        <local:NonScrollableListView
                             x:Name="ListViewTechnology"
                             ItemsSource="{Binding TechnologyItems}"
-                            RowHeight="44"> 
+                            RowHeight="44">
                             <local:NonScrollableListView.SeparatorColor>
-                                <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}"/>
+                                <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" />
                             </local:NonScrollableListView.SeparatorColor>
                             <local:NonScrollableListView.ItemTemplate>
                                 <DataTemplate>
-                                    <TextCell Text="{Binding Name}" 
-                                               Detail="{Binding Subtitle}" 
-                                               Command="{Binding Command}" 
-                                               CommandParameter="{Binding Parameter}" 
-                                               StyleId="disclosure"/>
+                                    <TextCell
+                                        Command="{Binding Command}"
+                                        CommandParameter="{Binding Parameter}"
+                                        Detail="{Binding Subtitle}"
+                                        StyleId="disclosure"
+                                        Text="{Binding Name}" />
                                 </DataTemplate>
                             </local:NonScrollableListView.ItemTemplate>
                         </local:NonScrollableListView>
-                         <local:FooterDivider/>
+                        <local:FooterDivider />
                         <StackLayout>
                             <StackLayout.Padding>
                                 <OnPlatform x:TypeArguments="Thickness">
-                                    <On Platform="Android" Value="16,8"/>
-                                    <On Platform="iOS" Value="16,8,16,0"/>
-                                    <On Platform="UWP" Value="16,8"/>
+                                    <On Platform="Android" Value="16,8" />
+                                    <On Platform="iOS" Value="16,8,16,0" />
+                                    <On Platform="UWP" Value="16,8" />
                                 </OnPlatform>
                             </StackLayout.Padding>
-							<StackLayout.GestureRecognizers>
-                                        <TapGestureRecognizer
-                                                Tapped="OnTapGestureRecognizerTapped" />
-                                  </StackLayout.GestureRecognizers>
-                            <Label Text="8 more than 92" 
-                                   Style="{DynamicResource ConferenceListItemDetailTextStyle}">
-                                    
-							</Label>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped" />
+                            </StackLayout.GestureRecognizers>
+                            <Label Style="{DynamicResource ConferenceListItemDetailTextStyle}" Text="8 more than 92" />
                         </StackLayout>
                     </StackLayout>
                 </local:CardView>

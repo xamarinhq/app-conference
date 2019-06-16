@@ -13,24 +13,30 @@
     Title="Conference Feed"
     BackgroundColor="{DynamicResource WindowBackgroundTable}"
     Icon="tab_feed.png">
+
     <ContentPage.BindingContext>
         <portable:FeedViewModel />
     </ContentPage.BindingContext>
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <toolkit:InvertedBooleanConverter x:Key="InvertedBooleanConverter" />
             <local:HumanizeDateConverter x:Key="HumanizeDateConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
+
     <pull:PullToRefreshLayout
         IsPullToRefreshEnabled="True"
         IsRefreshing="{Binding IsBusy}"
         RefreshCommand="{Binding RefreshCommand}">
+
         <pull:PullToRefreshLayout.RefreshColor>
             <OnPlatform x:TypeArguments="Color" Android="{StaticResource Primary}" />
         </pull:PullToRefreshLayout.RefreshColor>
+
         <local:AlwaysScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <StackLayout Padding="{DynamicResource CardPadding}" Spacing="{DynamicResource CardSpacing}">
+
                 <local:CardView>
                     <!--  Notifications  -->
                     <StackLayout Spacing="0">
@@ -59,7 +65,7 @@
                             Padding="{StaticResource StandardPadding}"
                             BackgroundColor="White"
                             HorizontalOptions="FillAndExpand"
-                            IsVisible="{Binding LoadingNotifications, Converter={StaticResource InvertedBooleanConverter}}}"
+                            IsVisible="{Binding LoadingNotifications, Converter={StaticResource InvertedBooleanConverter}}"
                             StyleId="AnnouncementItem"
                             VerticalOptions="Center">
                             <Label
@@ -81,6 +87,7 @@
                 <local:CardView>
                     <!--  Upcoming Sessions  -->
                     <StackLayout Spacing="0">
+
                         <local:LabelSection Margin="0,0,34,0" Text="Upcoming Favorites" />
                         <StackLayout
                             Padding="{StaticResource StandardPadding}"
@@ -98,6 +105,7 @@
                                 Style="{DynamicResource ConferenceListItemTextStyle}"
                                 Text="Loading Favorites..." />
                         </StackLayout>
+
                         <StackLayout
                             Padding="{StaticResource StandardPadding}"
                             BackgroundColor="White"
@@ -110,6 +118,7 @@
                                 Style="{DynamicResource ConferenceListItemTextStyle}"
                                 Text="No Upcoming Favorites" />
                         </StackLayout>
+
                         <StackLayout BindableLayout.ItemsSource="{Binding Sessions}">
                             <BindableLayout.ItemTemplate>
                                 <DataTemplate>
@@ -118,9 +127,11 @@
                                         <StackLayout.Effects>
                                             <effects:RippleEffect />
                                         </StackLayout.Effects>
+
                                         <StackLayout.GestureRecognizers>
                                             <TapGestureRecognizer Tapped="OnSessionTapped" />
                                         </StackLayout.GestureRecognizers>
+
                                         <local:HeaderDivider />
                                         <local:SessionCellView FavoriteCommand="{Binding Path=BindingContext.FavoriteCommand, Source={x:Reference ContentPageFeed}}" />
                                     </StackLayout>

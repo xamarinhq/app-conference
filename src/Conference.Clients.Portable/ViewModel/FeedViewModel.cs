@@ -104,6 +104,8 @@ namespace Conference.Clients.Portable
             }
         }
 
+
+        #region Sessions
         bool loadingSessions;
         public bool LoadingSessions
         {
@@ -111,16 +113,15 @@ namespace Conference.Clients.Portable
             set => SetProperty(ref loadingSessions, value);
         }
 
-
-        ICommand  loadSessionsCommand;
+        ICommand loadSessionsCommand;
         public ICommand LoadSessionsCommand =>
-            loadSessionsCommand ?? (loadSessionsCommand = new Command(async () => await ExecuteLoadSessionsCommandAsync())); 
+            loadSessionsCommand ?? (loadSessionsCommand = new Command(async () => await ExecuteLoadSessionsCommandAsync()));
 
         async Task ExecuteLoadSessionsCommandAsync()
         {
             if (LoadingSessions)
                 return;
-            
+
             LoadingSessions = true;
 
             try
@@ -128,16 +129,16 @@ namespace Conference.Clients.Portable
                 NoSessions = false;
                 Sessions.Clear();
                 OnPropertyChanged("Sessions");
-                #if DEBUG
+#if DEBUG
                 await Task.Delay(1000);
-                #endif
+#endif
                 var sessions = await StoreManager.SessionStore.GetNextSessions();
-                if(sessions != null)
+                if (sessions != null)
                     Sessions.AddRange(sessions);
 
                 NoSessions = Sessions.Count == 0;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ex.Data["method"] = "ExecuteLoadSessionsCommandAsync";
                 Logger.Report(ex);
@@ -147,7 +148,7 @@ namespace Conference.Clients.Portable
             {
                 LoadingSessions = false;
             }
-            
+
         }
 
         bool noSessions;
@@ -173,7 +174,10 @@ namespace Conference.Clients.Portable
                 SelectedSession = null;
             }
         }
+        #endregion
 
+
+        #region Social
         bool loadingSocial;
         public bool LoadingSocial
         {
@@ -185,7 +189,7 @@ namespace Conference.Clients.Portable
 
         ICommand loadSocialCommand;
         public ICommand LoadSocialCommand =>
-            loadSocialCommand ?? (loadSocialCommand = new Command(async () => await ExecuteLoadSocialCommandAsync())); 
+            loadSocialCommand ?? (loadSocialCommand = new Command(async () => await ExecuteLoadSocialCommandAsync()));
 
         async Task ExecuteLoadSocialCommandAsync()
         {
@@ -197,8 +201,8 @@ namespace Conference.Clients.Portable
             {
                 SocialError = false;
                 Tweets.Clear();
-               
-                using(var client = new HttpClient())
+
+                using (var client = new HttpClient())
                 {
 #if DEBUG
                     Tweets.ReplaceRange(new List<Tweet>
@@ -276,32 +280,35 @@ namespace Conference.Clients.Portable
 
                 SelectedTweet = null;
             }
-        }
+        } 
+        #endregion
 
-        ICommand  favoriteCommand;
+        #region Favorite
+        ICommand favoriteCommand;
         public ICommand FavoriteCommand =>
-        favoriteCommand ?? (favoriteCommand = new Command<Session>((s) => ExecuteFavoriteCommand(s))); 
+        favoriteCommand ?? (favoriteCommand = new Command<Session>((s) => ExecuteFavoriteCommand(s)));
 
         void ExecuteFavoriteCommand(Session session)
         {
             MessagingService.Current.SendMessage<MessagingServiceQuestion>(MessageKeys.Question, new MessagingServiceQuestion
-                {
-                    Negative = "Cancel",
-                    Positive = "Unfavorite",
-                    Question = "Are you sure you want to remove this session from your favorites?",
-                    Title = "Unfavorite Session",
-                    OnCompleted = (async (result) =>
-                        {
-                            if(!result)
-                                return;
+            {
+                Negative = "Cancel",
+                Positive = "Unfavorite",
+                Question = "Are you sure you want to remove this session from your favorites?",
+                Title = "Unfavorite Session",
+                OnCompleted = (async (result) =>
+                    {
+                        if (!result)
+                            return;
 
-                            var toggled = await FavoriteService.ToggleFavorite(session);
-                            if(toggled)
-                                await ExecuteLoadSessionsCommandAsync();
-                        })
-                });
-            
-        }
+                        var toggled = await FavoriteService.ToggleFavorite(session);
+                        if (toggled)
+                            await ExecuteLoadSessionsCommandAsync();
+                    })
+            });
+
+        } 
+        #endregion
     }
 }
 

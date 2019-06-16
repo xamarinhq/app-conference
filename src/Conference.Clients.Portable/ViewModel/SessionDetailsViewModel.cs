@@ -6,6 +6,7 @@ using Conference.DataObjects;
 using System.Windows.Input;
 using FormsToolkit;
 using Xamarin.Essentials;
+using Conference.Utils.Helpers;
 
 namespace Conference.Clients.Portable
 {
@@ -28,6 +29,7 @@ namespace Conference.Clients.Portable
                 ShowReminder = false;
         }
 
+        public bool LoginEnabled => FeatureFlags.LoginEnabled;
 
         public bool ShowReminder { get; set; }
      

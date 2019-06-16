@@ -1,257 +1,292 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage 
-    xmlns="http://xamarin.com/schemas/2014/forms" 
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
     x:Class="Conference.Clients.UI.SessionDetailsPage"
-    xmlns:local="clr-namespace:Conference.Clients.UI;assembly=Conference.Clients.UI"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:imagecircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    xmlns:local="clr-namespace:Conference.Clients.UI;assembly=Conference.Clients.UI"
     xmlns:toolkit="clr-namespace:FormsToolkit;assembly=FormsToolkit"
     Title="Session Details"
-    NavigationPage.BackButtonTitle="Back"
-    BackgroundColor="{DynamicResource WindowBackgroundTable}">
+    BackgroundColor="{DynamicResource WindowBackgroundTable}"
+    NavigationPage.BackButtonTitle="Back">
     <ContentPage.Resources>
-     <ResourceDictionary>
-        <toolkit:HexToColorConverter x:Key="StringToColorConverter" />
-        <local:SessionDateDisplayConverter x:Key="SessionDateDisplayConverter" />
-        <local:IsFavoriteDetailTextConverter x:Key="IsFavoriteDetailTextConverter" />
-        <local:HasReminderTextConverter x:Key="HasReminderTextConverter" />
-        <local:IsFilledIconConverter x:Key="IsFilledIconConverter" />
-        <toolkit:HasDataConverter x:Key="GenericIsVisibleConverter"/>
-        <local:RatingVisibleConverter x:Key="RatingVisibleConverter" />
-        <toolkit:InvertedBooleanConverter x:Key="InvertedBooleanConverter" />
-     </ResourceDictionary>
+        <ResourceDictionary>
+            <toolkit:HexToColorConverter x:Key="StringToColorConverter" />
+            <local:SessionDateDisplayConverter x:Key="SessionDateDisplayConverter" />
+            <local:IsFavoriteDetailTextConverter x:Key="IsFavoriteDetailTextConverter" />
+            <local:HasReminderTextConverter x:Key="HasReminderTextConverter" />
+            <local:IsFilledIconConverter x:Key="IsFilledIconConverter" />
+            <toolkit:HasDataConverter x:Key="GenericIsVisibleConverter" />
+            <local:RatingVisibleConverter x:Key="RatingVisibleConverter" />
+            <toolkit:InvertedBooleanConverter x:Key="InvertedBooleanConverter" />
+        </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Icon="toolbar_share.png" Text="Share" Command="{Binding ShareCommand}"/>
+        <ToolbarItem
+            Command="{Binding ShareCommand}"
+            Icon="toolbar_share.png"
+            Text="Share" />
     </ContentPage.ToolbarItems>
-        <local:AlwaysScrollView Grid.RowSpan="2" x:Name="MainScroll">
-            <StackLayout Spacing="0"> <!--Padding set dynamic in code behind-->
-              <!--This first stack is what overlays on top of the hero image-->
-              <StackLayout 
-                   Padding="16,32,16,16" 
-                   Spacing="{StaticResource SmallSpacing}"
-                   HorizontalOptions="FillAndExpand" 
-                   BackgroundColor="{DynamicResource Primary}">
-                    <Label
-                        Text="{Binding Session.Title}"
-                        FontSize="Large"
-                        Style="{DynamicResource TitleStyle}"
-                        TextColor="White"
-                        StyleId="SessionTitle"/>
-                    <Label
-                        x:Name="SessionDate"
-                        Text="{Binding Session, Converter={StaticResource SessionDateDisplayConverter}}"
-                        Style="{DynamicResource ConferenceDetailTextStyle}"
-                        TextColor="White"
-                        StyleId="SessionDate"/>
-                </StackLayout>
-                <StackLayout 
-                    BackgroundColor="{DynamicResource WindowBackgroundTable}"
-                    Spacing="{DynamicResource CardSpacing}"
-                    Padding="{DynamicResource CardPadding}">
-
-
-                     <local:CardView IsVisible="{Binding Session.Speakers, Converter={StaticResource GenericIsVisibleConverter}}">
-                         <!--Speakers-->
-                         <StackLayout Spacing="0">
-                            <local:LabelSection Text="Speakers"/>
-                            <local:HeaderDivider/>
-                            <StackLayout IsVisible="{Binding IsBusy}" 
-                                         HorizontalOptions="FillAndExpand" 
-                                         VerticalOptions="Center" 
-                                          BackgroundColor="White"
-                                          Padding="{StaticResource StandardPadding}">
-                                <ActivityIndicator IsRunning="{Binding IsBusy}">
-                                    <ActivityIndicator.Color>
-                                        <OnPlatform x:TypeArguments="Color" Android="{StaticResource Accent}"/>
-                                    </ActivityIndicator.Color>
-                                </ActivityIndicator>
-                                <Label Text="Loading Speakers..." 
-                                       HorizontalOptions="Center" 
-                                       Style="{DynamicResource ConferenceListItemTextStyle}"/>
-                           </StackLayout>
-                            <local:NonScrollableListView 
-                                x:Name="ListViewSpeakers"
-                                ItemsSource="{Binding Session.Speakers}"
-                                StyleId="SessionSpeakers"
-                                RowHeight="88"> 
-                                <local:NonScrollableListView.SeparatorColor>
-                                    <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}"/>
-                                </local:NonScrollableListView.SeparatorColor>
-                                <local:NonScrollableListView.ItemTemplate>
-                                    <DataTemplate>
-                                        <ViewCell StyleId="disclosure">
-                                            <local:SpeakerCellView/>
-                                        </ViewCell>
-                                    </DataTemplate>
-                                </local:NonScrollableListView.ItemTemplate>
-                            </local:NonScrollableListView>
-                            <local:FooterDivider/>
-                        </StackLayout>
-                    </local:CardView>
-
-				<local:CardView IsVisible="{Binding Session, Converter={StaticResource RatingVisibleConverter}}">
-                        <StackLayout Spacing="0">
-                            <!--Rate-->
-                            <local:LabelSection Text="Leave Feedback" StyleId="FeedbackTitle"/>
-                                <local:HeaderDivider/>
-                                <StackLayout Padding="{StaticResource StandardPadding}" BackgroundColor="White" StyleId="RateCardBox">
-                                          <Label Text="Thanks for your feedback!" 
-                                                   HorizontalOptions="Center" 
-                                                   IsVisible="{Binding Session.FeedbackLeft}"
-                                                   Style="{DynamicResource ConferenceListItemTextStyle}"/>
-                                        <Button
-                                            IsVisible="{Binding Session.FeedbackLeft, Converter={StaticResource InvertedBooleanConverter}}"
-                                            Text="Rate this Session"                                     
-                                            x:Name="ButtonRate">
-                                            <Button.FontAttributes>
-                                                <OnPlatform x:TypeArguments="FontAttributes" iOS="Bold"/>
-                                            </Button.FontAttributes>
-                                            <Button.BackgroundColor>
-                                                <OnPlatform x:TypeArguments="Color" Android="{StaticResource PrimaryDark}" iOS="Transparent"/>
-                                            </Button.BackgroundColor>
-                                            <Button.TextColor>
-                                                <OnPlatform x:TypeArguments="Color" Android="White" iOS="{StaticResource PrimaryDark}"/>
-                                            </Button.TextColor>
-                                            <Button.BorderWidth>
-                                                <OnPlatform x:TypeArguments="x:Double" iOS="1"/>
-                                            </Button.BorderWidth> 
-                                            <Button.BorderColor>
-                                                <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ButtonBorder}"/>
-                                            </Button.BorderColor> 
-                                        </Button>
-                                    </StackLayout>
-                                <local:FooterDivider/>
-                        </StackLayout>
-                    </local:CardView>
-				
-                    <!--Follow-->
-                    <local:CardView>
-                      <StackLayout Spacing="0">
-                            <local:LabelSection Text="Follow"/> 
-                            <local:HeaderDivider/>
-                             <Grid Padding="{StaticResource StandardPadding}" 
-                                           BackgroundColor="White"
-                                           ColumnSpacing="{StaticResource StandardSpacing}">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions> 
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="24"/>
-                                </Grid.ColumnDefinitions>
-                               <Grid.IsVisible>
-                                <OnPlatform x:TypeArguments="x:Boolean">
-                                    <On Platform="Android" Value="true"/>
-                                    <On Platform="iOS" Value="false"/>
-                                    <On Platform="UWP" Value="true"/>
-                                </OnPlatform>
-                               </Grid.IsVisible>
-                                <Button StyleId="ReminderButton"
-                                        IsVisible="{Binding ShowReminder}"
-                                        Text="{Binding IsReminderSet, Converter={StaticResource HasReminderTextConverter}"
-                                        BackgroundColor="{StaticResource PrimaryDark}"
-                                        Command="{Binding ReminderCommand}"
-                                        TextColor="White"/>
-                                <Button Grid.Row="1"
-                                        StyleId="FavoriteButton"
-                                        x:Name="FavoriteButtonAndroid"
-                                        Text="{Binding Session.IsFavorite, Converter={StaticResource IsFavoriteDetailTextConverter}}"
-                                        BackgroundColor="{StaticResource PrimaryDark}" 
-                                        Command="{Binding FavoriteCommand}"
-                                        TextColor="White"/>
-
-                                 <local:FavoriteImage StyleId="FavoriteIcon"
-                                        x:Name="FavoriteIconAndroid"
-                                        Source="{Binding Session.IsFavorite, Converter={StaticResource IsFilledIconConverter}, ConverterParameter='heart'}"
-                                        Grid.Row="1" Grid.Column="1">
-                                     <local:FavoriteImage.GestureRecognizers>
-                                         <TapGestureRecognizer Command="{Binding FavoriteCommand}"/>
-                                     </local:FavoriteImage.GestureRecognizers>
-                                 </local:FavoriteImage>
-                                        
-                             </Grid>
-   
-                             <StackLayout Padding="16,0" Spacing="8" Orientation="Horizontal" BackgroundColor="White">
-                                <StackLayout.IsVisible>
-                                <OnPlatform x:TypeArguments="x:Boolean">
-                                    <On Platform="Android" Value="false"/>
-                                    <On Platform="iOS" Value="true"/>
-                                    <On Platform="UWP" Value="false"/>
-                                </OnPlatform>
-                            </StackLayout.IsVisible>
-                                <Button 
-                                    StyleId="ReminderButton"
-                                    IsVisible="{Binding ShowReminder}"
-                                    Text="{Binding IsReminderSet, Converter={StaticResource HasReminderTextConverter}}"
-                                    FontAttributes="Bold"
-                                    HorizontalOptions="StartAndExpand"
-                                    TextColor="{DynamicResource Primary}"
-                                    Command="{Binding ReminderCommand}" />
-                             </StackLayout>
-                             <local:SectionDivider/>
-                                
-                              <StackLayout Padding="16,0" Spacing="8" Orientation="Horizontal" BackgroundColor="White">
-                                <StackLayout.IsVisible>
-                                <OnPlatform x:TypeArguments="x:Boolean">
-                                    <On Platform="Android" Value="false"/>
-                                    <On Platform="iOS" Value="true"/>
-                                    <On Platform="UWP" Value="false"/>
-                                </OnPlatform>
-                            </StackLayout.IsVisible>
-                                <Button 
-                                    StyleId="FavoriteButton"
-                                    x:Name="FavoriteButtoniOS"
-                                    Text="{Binding Session.IsFavorite, Converter={StaticResource IsFavoriteDetailTextConverter}}"
-                                    FontAttributes="Bold"
-                                    HorizontalOptions="StartAndExpand"
-                                    TextColor="{DynamicResource Primary}"
-                                    Command="{Binding FavoriteCommand}" />
-                                <local:FavoriteImage StyleId="FavoriteIcon" 
-                                    x:Name="FavoriteIconiOS"
-                                    Source="{Binding Session.IsFavorite, Converter={StaticResource IsFilledIconConverter}, ConverterParameter='heart'}">
-                                    <local:FavoriteImage.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding FavoriteCommand}"/>
-                                    </local:FavoriteImage.GestureRecognizers>
-                                </local:FavoriteImage>
-                            </StackLayout>
-
-                            <local:FooterDivider/>
-                         </StackLayout>
-                     </local:CardView>
-
-				 <local:CardView IsVisible="{Binding Session.Room, Converter={StaticResource GenericIsVisibleConverter}}">
-                      <StackLayout Spacing="0">
-                            <local:LabelSection Text="Location"/> 
-                            <local:HeaderDivider/>
-                             <StackLayout Padding="{StaticResource StandardPadding}" BackgroundColor="White">
-                                <Label Text="{Binding Session.Room.Name}" Style="{DynamicResource ConferenceListItemTextStyle}">
-                                    <Label.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding GoToRoom}"/>
-                                    </Label.GestureRecognizers>
-                                </Label>
-                             </StackLayout>
-                            <local:FooterDivider/>
-                         </StackLayout>
-                     </local:CardView>
-
-                    <!--Abstract-->
-                    <local:CardView IsVisible="{Binding Session.Abstract, Converter={StaticResource GenericIsVisibleConverter}}">
-                      <StackLayout Spacing="0">
-                            <local:LabelSection Text="Abstract"/> 
-                            <local:HeaderDivider/>
-                             <StackLayout Padding="{StaticResource StandardPadding}" BackgroundColor="White">
-                                <Label Text="{Binding Session.Abstract}" Style="{DynamicResource ConferenceListItemTextStyle}" StyleId="SessionAbstract"/>
-                             </StackLayout>
-                            <local:FooterDivider/>
-                         </StackLayout>
-                     </local:CardView>
-
-                    
-
-                    
-                </StackLayout>
+    <local:AlwaysScrollView x:Name="MainScroll" Grid.RowSpan="2">
+        <StackLayout Spacing="0"> 
+            <!--  Padding set dynamic in code behind  -->
+            <!--  This first stack is what overlays on top of the hero image  -->
+            <StackLayout
+                Padding="16,32,16,16"
+                BackgroundColor="{DynamicResource Primary}"
+                HorizontalOptions="FillAndExpand"
+                Spacing="{StaticResource SmallSpacing}">
+                <Label
+                    FontSize="Large"
+                    Style="{DynamicResource TitleStyle}"
+                    StyleId="SessionTitle"
+                    Text="{Binding Session.Title}"
+                    TextColor="White" />
+                <Label
+                    x:Name="SessionDate"
+                    Style="{DynamicResource ConferenceDetailTextStyle}"
+                    StyleId="SessionDate"
+                    Text="{Binding Session, Converter={StaticResource SessionDateDisplayConverter}}"
+                    TextColor="White" />
             </StackLayout>
-        </local:AlwaysScrollView>
+            <StackLayout
+                Padding="{DynamicResource CardPadding}"
+                BackgroundColor="{DynamicResource WindowBackgroundTable}"
+                Spacing="{DynamicResource CardSpacing}">
+
+
+                <local:CardView IsVisible="{Binding Session.Speakers, Converter={StaticResource GenericIsVisibleConverter}}">
+                    <!--  Speakers  -->
+                    <StackLayout Spacing="0">
+                        <local:LabelSection Text="Speakers" />
+                        <local:HeaderDivider />
+                        <StackLayout
+                            Padding="{StaticResource StandardPadding}"
+                            BackgroundColor="White"
+                            HorizontalOptions="FillAndExpand"
+                            IsVisible="{Binding IsBusy}"
+                            VerticalOptions="Center">
+                            <ActivityIndicator IsRunning="{Binding IsBusy}">
+                                <ActivityIndicator.Color>
+                                    <OnPlatform x:TypeArguments="Color" Android="{StaticResource Accent}" />
+                                </ActivityIndicator.Color>
+                            </ActivityIndicator>
+                            <Label
+                                HorizontalOptions="Center"
+                                Style="{DynamicResource ConferenceListItemTextStyle}"
+                                Text="Loading Speakers..." />
+                        </StackLayout>
+                        <local:NonScrollableListView
+                            x:Name="ListViewSpeakers"
+                            ItemsSource="{Binding Session.Speakers}"
+                            RowHeight="88"
+                            StyleId="SessionSpeakers">
+                            <local:NonScrollableListView.SeparatorColor>
+                                <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" />
+                            </local:NonScrollableListView.SeparatorColor>
+                            <local:NonScrollableListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell StyleId="disclosure">
+                                        <local:SpeakerCellView />
+                                    </ViewCell>
+                                </DataTemplate>
+                            </local:NonScrollableListView.ItemTemplate>
+                        </local:NonScrollableListView>
+                        <local:FooterDivider />
+                    </StackLayout>
+                </local:CardView>
+
+                <local:CardView IsVisible="{Binding Session, Converter={StaticResource RatingVisibleConverter}}">
+                    <StackLayout Spacing="0">
+                        <!--  Rate  -->
+                        <local:LabelSection StyleId="FeedbackTitle" Text="Leave Feedback" />
+                        <local:HeaderDivider />
+                        <StackLayout
+                            Padding="{StaticResource StandardPadding}"
+                            BackgroundColor="White"
+                            StyleId="RateCardBox">
+                            <Label
+                                HorizontalOptions="Center"
+                                IsVisible="{Binding Session.FeedbackLeft}"
+                                Style="{DynamicResource ConferenceListItemTextStyle}"
+                                Text="Thanks for your feedback!" />
+                            <Button
+                                x:Name="ButtonRate"
+                                IsVisible="{Binding Session.FeedbackLeft, Converter={StaticResource InvertedBooleanConverter}}"
+                                Text="Rate this Session">
+                                <Button.FontAttributes>
+                                    <OnPlatform x:TypeArguments="FontAttributes" iOS="Bold" />
+                                </Button.FontAttributes>
+                                <Button.BackgroundColor>
+                                    <OnPlatform
+                                        x:TypeArguments="Color"
+                                        Android="{StaticResource PrimaryDark}"
+                                        iOS="Transparent" />
+                                </Button.BackgroundColor>
+                                <Button.TextColor>
+                                    <OnPlatform
+                                        x:TypeArguments="Color"
+                                        Android="White"
+                                        iOS="{StaticResource PrimaryDark}" />
+                                </Button.TextColor>
+                                <Button.BorderWidth>
+                                    <OnPlatform x:TypeArguments="x:Double" iOS="1" />
+                                </Button.BorderWidth>
+                                <Button.BorderColor>
+                                    <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ButtonBorder}" />
+                                </Button.BorderColor>
+                            </Button>
+                        </StackLayout>
+                        <local:FooterDivider />
+                    </StackLayout>
+                </local:CardView>
+
+                <!--  Follow  -->
+                <local:CardView>
+                    <StackLayout Spacing="0">
+                        <local:LabelSection Text="Follow" />
+                        <local:HeaderDivider />
+                        <Grid
+                            Padding="{StaticResource StandardPadding}"
+                            BackgroundColor="White"
+                            ColumnSpacing="{StaticResource StandardSpacing}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="24" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.IsVisible>
+                                <OnPlatform x:TypeArguments="x:Boolean">
+                                    <On Platform="Android" Value="true" />
+                                    <On Platform="iOS" Value="false" />
+                                    <On Platform="UWP" Value="true" />
+                                </OnPlatform>
+                            </Grid.IsVisible>
+                            <Button
+                                BackgroundColor="{StaticResource PrimaryDark}"
+                                Command="{Binding ReminderCommand}"
+                                IsVisible="{Binding ShowReminder}"
+                                StyleId="ReminderButton"
+                                Text="{Binding IsReminderSet, Converter={StaticResource HasReminderTextConverter}}"
+                                TextColor="White" />
+                            <Button
+                                x:Name="FavoriteButtonAndroid"
+                                Grid.Row="1"
+                                BackgroundColor="{StaticResource PrimaryDark}"
+                                Command="{Binding FavoriteCommand}"
+                                IsVisible="{Binding LoginEnabled}"
+                                StyleId="FavoriteButton"
+                                Text="{Binding Session.IsFavorite, Converter={StaticResource IsFavoriteDetailTextConverter}}"
+                                TextColor="White" />
+
+                            <local:FavoriteImage
+                                x:Name="FavoriteIconAndroid"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                IsVisible="{Binding LoginEnabled}"
+                                Source="{Binding Session.IsFavorite, Converter={StaticResource IsFilledIconConverter}, ConverterParameter='heart'}"
+                                StyleId="FavoriteIcon">
+                                <local:FavoriteImage.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding FavoriteCommand}" />
+                                </local:FavoriteImage.GestureRecognizers>
+                            </local:FavoriteImage>
+
+                        </Grid>
+
+                        <StackLayout
+                            Padding="16,0"
+                            BackgroundColor="White"
+                            Orientation="Horizontal"
+                            Spacing="8">
+                            <StackLayout.IsVisible>
+                                <OnPlatform x:TypeArguments="x:Boolean">
+                                    <On Platform="Android" Value="false" />
+                                    <On Platform="iOS" Value="true" />
+                                    <On Platform="UWP" Value="false" />
+                                </OnPlatform>
+                            </StackLayout.IsVisible>
+                            <Button
+                                Command="{Binding ReminderCommand}"
+                                FontAttributes="Bold"
+                                HorizontalOptions="StartAndExpand"
+                                IsVisible="{Binding ShowReminder}"
+                                StyleId="ReminderButton"
+                                Text="{Binding IsReminderSet, Converter={StaticResource HasReminderTextConverter}}"
+                                TextColor="{DynamicResource Primary}" />
+                        </StackLayout>
+                        <local:SectionDivider />
+
+                        <StackLayout
+                            Padding="16,0"
+                            BackgroundColor="White"
+                            Orientation="Horizontal"
+                            Spacing="8">
+                            <StackLayout.IsVisible>
+                                <OnPlatform x:TypeArguments="x:Boolean">
+                                    <On Platform="Android" Value="false" />
+                                    <On Platform="iOS" Value="true" />
+                                    <On Platform="UWP" Value="false" />
+                                </OnPlatform>
+                            </StackLayout.IsVisible>
+                            <Button
+                                x:Name="FavoriteButtoniOS"
+                                Command="{Binding FavoriteCommand}"
+                                FontAttributes="Bold"
+                                HorizontalOptions="StartAndExpand"
+                                StyleId="FavoriteButton"
+                                Text="{Binding Session.IsFavorite, Converter={StaticResource IsFavoriteDetailTextConverter}}"
+                                TextColor="{DynamicResource Primary}" />
+                            <local:FavoriteImage
+                                x:Name="FavoriteIconiOS"
+                                Source="{Binding Session.IsFavorite, Converter={StaticResource IsFilledIconConverter}, ConverterParameter='heart'}"
+                                StyleId="FavoriteIcon">
+                                <local:FavoriteImage.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding FavoriteCommand}" />
+                                </local:FavoriteImage.GestureRecognizers>
+                            </local:FavoriteImage>
+                        </StackLayout>
+
+                        <local:FooterDivider />
+                    </StackLayout>
+                </local:CardView>
+
+                <local:CardView IsVisible="{Binding Session.Room, Converter={StaticResource GenericIsVisibleConverter}}">
+                    <StackLayout Spacing="0">
+                        <local:LabelSection Text="Location" />
+                        <local:HeaderDivider />
+                        <StackLayout Padding="{StaticResource StandardPadding}" BackgroundColor="White">
+                            <Label Style="{DynamicResource ConferenceListItemTextStyle}" Text="{Binding Session.Room.Name}">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding GoToRoom}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                        <local:FooterDivider />
+                    </StackLayout>
+                </local:CardView>
+
+                <!--  Abstract  -->
+                <local:CardView IsVisible="{Binding Session.Abstract, Converter={StaticResource GenericIsVisibleConverter}}">
+                    <StackLayout Spacing="0">
+                        <local:LabelSection Text="Abstract" />
+                        <local:HeaderDivider />
+                        <StackLayout Padding="{StaticResource StandardPadding}" BackgroundColor="White">
+                            <Label
+                                Style="{DynamicResource ConferenceListItemTextStyle}"
+                                StyleId="SessionAbstract"
+                                Text="{Binding Session.Abstract}" />
+                        </StackLayout>
+                        <local:FooterDivider />
+                    </StackLayout>
+                </local:CardView>
+
+
+
+
+            </StackLayout>
+        </StackLayout>
+    </local:AlwaysScrollView>
 </ContentPage>

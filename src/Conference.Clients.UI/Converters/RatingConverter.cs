@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Conference.DataObjects;
 using Conference.DataStore.Abstractions;
 using System.Globalization;
+using Conference.Utils.Helpers;
 
 namespace Conference.Clients.UI
 {
@@ -44,10 +45,12 @@ namespace Conference.Clients.UI
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            if (!FeatureFlags.LoginEnabled)
+                return false;
 
-            #if DEBUG || ENABLE_TEST_CLOUD
+#if DEBUG || ENABLE_TEST_CLOUD
             return true;
-            #endif
+#endif
 
             var session = value as Session;
             if (session == null)

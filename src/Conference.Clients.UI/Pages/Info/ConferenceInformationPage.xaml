@@ -1,91 +1,99 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage 
-    xmlns="http://xamarin.com/schemas/2014/forms" 
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
     x:Class="Conference.Clients.UI.ConferenceInformationPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Conference.Clients.UI;assembly=Conference.Clients.UI"
     Title="Conference Information"
-    
     BackgroundColor="{DynamicResource WindowBackgroundTable}">
 
     <local:AlwaysScrollView Grid.RowSpan="2">
-        <StackLayout Spacing="0"> 
-            <StackLayout 
+        <StackLayout Spacing="0">
+            <StackLayout
+                Padding="{DynamicResource CardPadding}"
                 BackgroundColor="{DynamicResource WindowBackgroundTable}"
-                Spacing="{DynamicResource CardSpacing}"
-                Padding="{DynamicResource CardPadding}">
-                <local:CardView>
-                     <StackLayout Spacing="0" StyleId="2.4GHzCard">
-                        <local:LabelSection Text="Wi-Fi Configuration"/>
-                        <local:HeaderDivider/>  
+                Spacing="{DynamicResource CardSpacing}">
+
+                <local:CardView IsVisible="{Binding WiFiEnabled}">
+                    <StackLayout Spacing="0" StyleId="2.4GHzCard">
+                        <local:LabelSection Text="Wi-Fi Configuration" />
+                        <local:HeaderDivider />
                         <Grid Padding="{StaticResource StandardPadding}" BackgroundColor="White">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <StackLayout>
-                                <Label Text="SSID" Style="{DynamicResource ConferenceListItemTextStyle}"/>
-                                <Label Text="{Binding Settings.WiFiSSID}"
-                                        Style="{DynamicResource ConferenceListItemDetailTextStyle}"
-                                        StyleId="2.4GHzSSID"/>
+                                <Label Style="{DynamicResource ConferenceListItemTextStyle}" Text="SSID" />
+                                <Label
+                                    Style="{DynamicResource ConferenceListItemDetailTextStyle}"
+                                    StyleId="2.4GHzSSID"
+                                    Text="{Binding Settings.WiFiSSID}" />
                             </StackLayout>
                             <StackLayout Grid.Column="1">
-                                <Label Text="Password" Style="{DynamicResource ConferenceListItemTextStyle}"/>
-                                <Label Text="{Binding Settings.WiFiPass}"
-                                        Style="{DynamicResource ConferenceListItemDetailTextStyle}"
-                                        StyleId="2.4GHzPassword"/>
+                                <Label Style="{DynamicResource ConferenceListItemTextStyle}" Text="Password" />
+                                <Label
+                                    Style="{DynamicResource ConferenceListItemDetailTextStyle}"
+                                    StyleId="2.4GHzPassword"
+                                    Text="{Binding Settings.WiFiPass}" />
                             </StackLayout>
 
                             <Grid.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding CopyPasswordCommand}" CommandParameter="{Binding Settings.WiFiPass}"/> 
+                                <TapGestureRecognizer Command="{Binding CopyPasswordCommand}" CommandParameter="{Binding Settings.WiFiPass}" />
                             </Grid.GestureRecognizers>
                         </Grid>
-                        <local:SectionDivider/>
-                        <StackLayout Padding="{StaticResource StandardPadding}" 
-                                Spacing="{StaticResource MediumSpacing}" 
-                               BackgroundColor="White">
+                        <local:SectionDivider />
+                        <StackLayout
+                            Padding="{StaticResource StandardPadding}"
+                            BackgroundColor="White"
+                            Spacing="{StaticResource MediumSpacing}">
                             <StackLayout.IsVisible>
                                 <OnPlatform x:TypeArguments="x:Boolean">
-                                    <On Platform="Android" Value="true"/>
-                                    <On Platform="iOS" Value="false"/>
-                                    <On Platform="UWP" Value="false"/>
+                                    <On Platform="Android" Value="true" />
+                                    <On Platform="iOS" Value="false" />
+                                    <On Platform="UWP" Value="false" />
                                 </OnPlatform>
                             </StackLayout.IsVisible>
-                            <Button Text="Setup Connection"
-                                    Command="{Binding ConfigureWiFiCommand}"
-                                    BackgroundColor="{StaticResource PrimaryDark}"
-                                    IsEnabled="{Binding IsNotBusy}"
-                                    TextColor="White"
-                                    StyleId="2.4GHzSetUpButton"/>
-                            <Label Text="You're all set, WiFi has been configured." HorizontalOptions="Center" 
-                                   IsVisible="{Binding WiFiConfigured}"
-                                   Style="{DynamicResource ConferenceListItemDetailTextStyle}"
-                                   StyleId="2.4GHzSuccessText"/>
-                         </StackLayout>
-                        <local:FooterDivider/>
+                            <Button
+                                BackgroundColor="{StaticResource PrimaryDark}"
+                                Command="{Binding ConfigureWiFiCommand}"
+                                IsEnabled="{Binding IsNotBusy}"
+                                StyleId="2.4GHzSetUpButton"
+                                Text="Setup Connection"
+                                TextColor="White" />
+                            <Label
+                                HorizontalOptions="Center"
+                                IsVisible="{Binding WiFiConfigured}"
+                                Style="{DynamicResource ConferenceListItemDetailTextStyle}"
+                                StyleId="2.4GHzSuccessText"
+                                Text="You're all set, WiFi has been configured." />
+                        </StackLayout>
+                        <local:FooterDivider />
                     </StackLayout>
                 </local:CardView>
 
-				<StackLayout IsVisible="{Binding IsBusy}">
-                    <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+                <StackLayout IsVisible="{Binding IsBusy}">
+                    <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
                 </StackLayout>
 
                 <local:CardView>
-                 <StackLayout Spacing="0" StyleId="CodeOfConductCard">
-                  <local:LabelSection Text="Code of Conduct"/>
-                    <local:HeaderDivider/>  
-                    <StackLayout HorizontalOptions="FillAndExpand" 
-                                 VerticalOptions="FillAndExpand" 
-                                  BackgroundColor="White"
-                                  Padding="{StaticResource StandardPadding}">
-                       
-                        <Label x:Name="CodeOfConductText"
-                               Style="{DynamicResource ConferenceListItemDetailTextStyle}"
-                               StyleId="CodeOfConductText"/>
-                   </StackLayout>
-                   <local:FooterDivider/>  
-                </StackLayout>
-            </local:CardView>
+                    <StackLayout Spacing="0" StyleId="CodeOfConductCard">
+                        <local:LabelSection Text="Code of Conduct" />
+                        <local:HeaderDivider />
+                        <StackLayout
+                            Padding="{StaticResource StandardPadding}"
+                            BackgroundColor="White"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand">
+
+                            <Label
+                                x:Name="CodeOfConductText"
+                                Style="{DynamicResource ConferenceListItemDetailTextStyle}"
+                                StyleId="CodeOfConductText" />
+                        </StackLayout>
+                        <local:FooterDivider />
+                    </StackLayout>
+                </local:CardView>
             </StackLayout>
         </StackLayout>
     </local:AlwaysScrollView>

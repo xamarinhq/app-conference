@@ -2,6 +2,7 @@
 using Conference.DataObjects;
 using Conference.Clients.Portable;
 using System.Windows.Input;
+using Conference.Utils.Helpers;
 
 namespace Conference.Clients.UI
 {
@@ -14,7 +15,6 @@ namespace Conference.Clients.UI
             Height = 120;
             View = new SessionCellView ();
             this.navigation = navigation;
-
         }
 
         protected override async void OnTapped()
@@ -36,6 +36,10 @@ namespace Conference.Clients.UI
         public SessionCellView()
         {
             InitializeComponent();
+
+            if (!FeatureFlags.LoginEnabled)            
+                favoriteImage.IsVisible = false;            
+            
             if (Device.RuntimePlatform == Device.UWP)
                 LabelBadgetName.FontSize = 10;
         }
