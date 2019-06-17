@@ -87,7 +87,7 @@ namespace Conference.DataStore.Azure
                 IsInitialized = true;
                 var dbId = Settings.DatabaseId;
                 var path = $"syncstore{dbId}.db";
-                MobileService = new MobileServiceClient ("https://xamarinevolveappdemo.azurewebsites.net");
+                MobileService = new MobileServiceClient ("https://lacomarca-backend.azurewebsites.net");
                 store = new MobileServiceSQLiteStore (path);
                 store.DefineTable<Category> ();
                 store.DefineTable<Favorite> ();
