@@ -86,7 +86,7 @@ namespace Conference.Backend.Controllers
                 var queryResponse = await
                     (from tweet in twitterContext.Search
                      where tweet.Type == SearchType.Search &&
-                         (tweet.Query == "#Conference") &&
+                         (tweet.Query == "#LaComarcaDO") &&
                          tweet.Count == 100
                      select tweet).SingleOrDefaultAsync();
 
