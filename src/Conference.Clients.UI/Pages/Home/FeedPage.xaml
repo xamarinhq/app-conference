@@ -54,7 +54,7 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="34" />
                             </Grid.ColumnDefinitions>
-                            <local:LabelSection Text="Anuncions" />
+                            <local:LabelSection Text="Anuncios" />
                         </Grid>
                         <local:HeaderDivider />
                         <StackLayout
@@ -178,7 +178,7 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="34" />
                             </Grid.ColumnDefinitions>
-                            <local:LabelSection Text="Social - #LaComarca" />
+                            <local:LabelSection Text="Social - #LaComarcaDO" />
                         </Grid>
                         <local:HeaderDivider />
                         <StackLayout
