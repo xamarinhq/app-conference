@@ -30,7 +30,7 @@
                 BackgroundColor="{DynamicResource WindowBackgroundTable}"
                 Spacing="{DynamicResource CardSpacing}">
 
-                <local:CardView IsVisible="{Binding LoginEnabled}">
+                <local:CardView x:Name="datasycnCardView">
                     <local:CardView.IsVisible>
                         <OnPlatform x:TypeArguments="x:Boolean">
                             <On Platform="Android" Value="true" />

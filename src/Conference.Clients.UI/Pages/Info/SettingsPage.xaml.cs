@@ -13,9 +13,14 @@ namespace Conference.Clients.UI
         public SettingsPage ()
         {
             InitializeComponent ();
-
-
             BindingContext = vm = new SettingsViewModel ();
+
+            if (!vm.LoginEnabled)
+            {
+                datasycnCardView.IsVisible = false;
+            }
+
+
             var adjust = Device.RuntimePlatform != Device.Android ? 1 : -vm.AboutItems.Count + 1;
             ListViewAbout.HeightRequest = (vm.AboutItems.Count * ListViewAbout.RowHeight) - adjust;
             ListViewAbout.ItemTapped += (sender, e) => ListViewAbout.SelectedItem = null;
