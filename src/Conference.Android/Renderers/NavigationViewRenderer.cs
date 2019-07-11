@@ -48,6 +48,9 @@ namespace Conference.Droid
                 navView.Menu.FindItem(Resource.Id.nav_evals).SetVisible(false);
             }
 
+            if (!FeatureFlags.MiniHacksEnabled)            
+                navView.Menu.FindItem(Resource.Id.nav_mini_hacks).SetVisible(false);            
+
             if (!FeatureFlags.EvalEnabled)            
                 navView.Menu.FindItem(Resource.Id.nav_evals).SetVisible(false);
             
