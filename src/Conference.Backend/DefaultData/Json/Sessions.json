@@ -1,0 +1,22 @@
+[
+  {
+    "eventID": 0,
+    "title": "Session 1",
+    "shortTitle": "S1",
+    "abstract": "My abstract",
+    "speakers": 
+    [
+      {
+        "id": 0
+      }
+    ],
+    "room": {
+      "id": 0
+    },
+    "mainCategory": {
+        "id": 0
+    },
+    "startTime": null,
+    "endTime": null
+  }
+]

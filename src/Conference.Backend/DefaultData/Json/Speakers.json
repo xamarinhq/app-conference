@@ -1,0 +1,22 @@
+[
+  {
+    "firstName": "La COmarca",
+    "lastName": "Dominicana",
+    "biography": "Comunidad creativa y tecnologica",
+    "photoUrl": "https://pbs.twimg.com/profile_images/1118291742468517890/U2x87eqb.jpg",
+    "avatarUrl": "https://pbs.twimg.com/profile_images/1118291742468517890/U2x87eqb.jpg",
+    "positionName": "Community",
+    "companyName": "LaComarca",
+    "companyWebsiteUrl": "lacomarca.do",
+    "blogUrl": "https://lacomarca.do/blog",
+    "twitterUrl": "https://twitter.com/lacomarcaDO",
+    "linkedInUrl": "https://www.linkedin.com/company/lacomarcado",
+    "sessions": [
+      {
+        "id": 1
+      }
+    ],
+    "email": "info@lacomarca.do"
+  }
+
+]

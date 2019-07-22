@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Registration for Training & System Config",
+    "description": "Get ready for Conference training with open registration and full system configuration prep throughout the day!",
+    "startTime": "2019-08-24T16:00:00Z",
+    "endTime": "2019-08-25T00:00:00Z",
+    "isAllDay": false,
+    "locationName": "Registration",
+    "sponsors": [
+      {
+        "id": 1
+      },
+      {
+        "id": 2
+      }
+    ]
+  },
+  {
+    "title": "Training & System",
+    "description": "Get ready for Conference training with open registration and full system configuration prep throughout the day!",
+    "startTime": "2019-08-24T16:00:00Z",
+    "endTime": "2019-08-25T00:00:00Z",
+    "isAllDay": true,
+    "locationName": "LocationName",
+    "sponsors": null
+  }
+]

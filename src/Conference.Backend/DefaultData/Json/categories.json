@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Android",
+    "shortName": "Android",
+    "color": "#B8E986"
+  },
+  {
+    "name": "iOS",
+    "shortName": "iOS",
+    "color": "#F16EB0"
+  },
+  {
+    "name": "Xamarin.Forms",
+    "shortName": "X.Forms",
+    "color": "#7DD5C9"
+  },
+  {
+    "name": "Design",
+    "shortName": "Design",
+    "color": "#51C7E3"
+  },
+  {
+    "name": "Secure",
+    "shortName": "Secure",
+    "color": "#F88F73"
+  },
+  {
+    "name": "Test",
+    "shortName": "Test",
+    "color": "#4B637E"
+  },
+  {
+    "name": "Monitor",
+    "shortName": "Monitor",
+    "color": "#AC9AD3"
+  }
+]

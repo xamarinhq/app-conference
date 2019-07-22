@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Malla Agency",
+    "description": "Description test",
+    "imageUrl": "https://malla.agency/wp-content/uploads/2019/05/malla-agency-logo-blanco-300x97.png",
+    "websiteUrl": "malla.agency",
+    "twitterUrl": "",
+    "boothLocation": null,
+    "rank": 0,
+    "sponsorLevel": {
+      "id": 0
+    }
+  }
+]
