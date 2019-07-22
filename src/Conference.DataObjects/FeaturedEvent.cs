@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 namespace Conference.DataObjects
 {
@@ -39,17 +40,23 @@ namespace Conference.DataObjects
         public string LocationName { get; set; }
 
         /// <summary>
-        /// Gets or sets the sponsor if there is one for the event
+        /// Gets or sets the sponsors if there is one for the event
         /// </summary>
         /// <value>The sponsor.</value>
-        public virtual Sponsor Sponsor { get; set; }
+        public virtual ICollection<Sponsor> Sponsors { get; set; }
 
-        #if MOBILE
+        /// <summary>
+        /// Gets or sets the sessions if there is one for the event
+        /// </summary>
+        /// <value>The sessions.</value>
+        public virtual ICollection<Session> Sessions { get; set; }
+
+#if MOBILE
         [JsonIgnore]
-        public bool HasSponsor => Sponsor != null;
+        public bool HasSponsor => Sponsors?.Count > 0;
         [JsonIgnore]
         public DateTime StartTimeOrderBy { get { return StartTime.HasValue ? StartTime.Value : DateTime.MinValue; } }
-        #endif
+#endif
     }
 }
 

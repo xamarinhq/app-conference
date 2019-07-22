@@ -13,6 +13,13 @@ namespace Conference.DataObjects
         public Session() {
             this.Speakers = new List<Speaker>();
         }
+
+        /// <summary>
+        /// Gets or sets the EventID
+        /// </summary>
+        /// <value>Event ID.</value>
+        public string EventID { get; set; }
+
         /// <summary>
         /// Gets or sets the title.
         /// </summary>

@@ -33,8 +33,7 @@ namespace Conference.DataStore.Mock
                     StartTime = new DateTime(2016, 4, 24, 16, 0, 0, DateTimeKind.Utc),
                     EndTime = new DateTime(2016, 4, 25, 0, 0, 0, DateTimeKind.Utc),
                     LocationName = "Registration",
-                    IsAllDay = false,
-                });
+            });
             
             Events.Add(new FeaturedEvent
                 {
@@ -155,7 +154,7 @@ namespace Conference.DataStore.Mock
                     EndTime = new DateTime(2016, 4, 28, 0, 0, 0, DateTimeKind.Utc),
                     LocationName = "Expo Hall",
                     IsAllDay = false,
-                    Sponsor = sponsorList.FirstOrDefault(x => x.Name == "Microsoft")
+                    Sponsors = new List<Sponsor>() { sponsorList.FirstOrDefault(x => x.Name == "Microsoft") }
                 });
 
 

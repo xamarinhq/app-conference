@@ -21,8 +21,15 @@ namespace Conference.Clients.Portable
         {
             Event = e;
             Sponsors = new ObservableRangeCollection<Sponsor>();
-            if (e.Sponsor != null)
-                Sponsors.Add(e.Sponsor);
+            if (e.Sponsors != null)
+            {
+                foreach (var sponsor in e.Sponsors)
+                {
+                    if (sponsor != null)
+                        Sponsors.Add(sponsor);
+                }                
+            }
+                
         }
 
         bool isReminderSet;
