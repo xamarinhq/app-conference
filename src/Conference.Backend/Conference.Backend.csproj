@@ -237,6 +237,7 @@
     <Compile Include="Controllers\SponsorLevelController.cs" />
     <Compile Include="Controllers\TweetController.cs" />
     <Compile Include="Controllers\XamarinAuthController.cs" />
+    <Compile Include="DefaultData\DefaultDataSetup.cs" />
     <Compile Include="Helpers\EmailHelper.cs" />
     <Compile Include="Helpers\QueryableExpandAttribute.cs" />
     <Compile Include="Identity\EmployeeAuthorizeAttribute.cs" />
@@ -271,9 +272,17 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DefaultData\Json\Categories.json" />
+    <Content Include="DefaultData\Json\SponsorLevels.json" />
+    <Content Include="DefaultData\Json\Sponsors.json" />
+    <Content Include="DefaultData\Json\FeaturedEvents.json" />
+    <Content Include="DefaultData\Json\Sessions.json" />
+    <Content Include="DefaultData\Json\Speakers.json" />
+    <Content Include="DefaultData\Json\Rooms.json" />
     <None Include="Properties\PublishProfiles\cdi-app - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\cdi-app - Web Deploy1.pubxml" />
     <None Include="Properties\PublishProfiles\DCI-App-Conference - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\lacomarca - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\lacomarca-backend - Web Deploy.pubxml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
