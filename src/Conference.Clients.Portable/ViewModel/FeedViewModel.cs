@@ -223,44 +223,44 @@ namespace Conference.Clients.Portable
 
                 using (var client = new HttpClient())
                 {
-#if DEBUG
-                    Tweets.ReplaceRange(new List<Tweet>
-                    {
-                        new Tweet
+                    if (FeatureFlags.UseMocks)
+                    { 
+                        Tweets.ReplaceRange(new List<Tweet>
                         {
-                            CreatedDate = DateTime.Now,
-                            Name = "James Montemagno",
-                            ScreenName = "@JamesMontemagno",
-                            Image = "https://pbs.twimg.com/profile_images/852007857729847296/0_c-XWrD_200x200.jpg",
-                            Text = "Xamarin is amazing for cross-platform mobile development in C#!",
-                            TweetedImage = "https://pbs.twimg.com/media/Dx3nhI9U8AAbedK?format=jpg&name=small",
-                            Url = "https://twitter.com/JamesMontemagno/status/1091428914847612928"
-                        }
-                    });
-#else
-
-
-                    var manager = DependencyService.Get<IStoreManager>() as Conference.DataStore.Azure.StoreManager;
-                    if (manager == null)
-                        return;
-
-                    await manager.InitializeAsync ();
-
-                    var mobileClient = DataStore.Azure.StoreManager.MobileService;
-                    if (mobileClient == null)
-                        return;
-                    
-                    var json =  await mobileClient.InvokeApiAsync<string> ("Tweet", System.Net.Http.HttpMethod.Get, null);
-
-                    if (string.IsNullOrWhiteSpace(json)) 
-                    {
-                        SocialError = true;
-                        return;
+                            new Tweet
+                            {
+                                CreatedDate = DateTime.Now,
+                                Name = "James Montemagno",
+                                ScreenName = "@JamesMontemagno",
+                                Image = "https://pbs.twimg.com/profile_images/852007857729847296/0_c-XWrD_200x200.jpg",
+                                Text = "Xamarin is amazing for cross-platform mobile development in C#!",
+                                TweetedImage = "https://pbs.twimg.com/media/Dx3nhI9U8AAbedK?format=jpg&name=small",
+                                Url = "https://twitter.com/JamesMontemagno/status/1091428914847612928"
+                            }
+                        });
                     }
+                    else
+                    { 
+                        var manager = DependencyService.Get<IStoreManager>() as Conference.DataStore.Azure.StoreManager;
+                        if (manager == null)
+                            return;
 
+                        await manager.InitializeAsync ();
 
-                    Tweets.ReplaceRange(JsonConvert.DeserializeObject<List<Tweet>>(json));
-#endif
+                        var mobileClient = DataStore.Azure.StoreManager.MobileService;
+                        if (mobileClient == null)
+                            return;
+                    
+                        var json =  await mobileClient.InvokeApiAsync<string> ("Tweet", System.Net.Http.HttpMethod.Get, null);
+
+                        if (string.IsNullOrWhiteSpace(json)) 
+                        {
+                            SocialError = true;
+                            return;
+                        }
+
+                        Tweets.ReplaceRange(JsonConvert.DeserializeObject<List<Tweet>>(json));
+                    }
                 }
 
             }
