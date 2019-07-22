@@ -8,9 +8,9 @@ using System.Web;
 
 namespace DataManager.Repository
 {
-    public class Techdays2016Repository : DbContext
+    public class LaComarcaRepository : DbContext
     {
-        public Techdays2016Repository() : base("Techdays2016Connection")//base("Techdays2016ConnectionLocalDB")
+        public LaComarcaRepository() : base("MS_TableConnectionString")//base("Techdays2016ConnectionLocalDB")
         {
             this.Configuration.LazyLoadingEnabled = false;
         }

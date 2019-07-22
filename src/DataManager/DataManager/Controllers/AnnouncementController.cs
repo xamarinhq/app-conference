@@ -30,7 +30,7 @@ namespace DataManager.Controllers
                         Id = Guid.NewGuid().ToString()
                     };
 
-                    var context = new Techdays2016Repository();
+                    var context = new LaComarcaRepository();
 
                     context.Notifications.Add(accounenement);
 

@@ -15,7 +15,7 @@ namespace DataManager.Controllers
     [Authorize]
     public class MiniHacksController : Controller
     {
-        private Techdays2016Repository db = new Techdays2016Repository();
+        private LaComarcaRepository db = new LaComarcaRepository();
 
         // GET: MiniHacks
         public async Task<ActionResult> Index()

@@ -16,7 +16,7 @@ namespace DataManager.Controllers
     [Authorize]
     public class SessionsController : Controller
     {
-        private Techdays2016Repository db = new Techdays2016Repository();
+        private LaComarcaRepository db = new LaComarcaRepository();
 
         // GET: Sessions
         public async Task<ActionResult> Index()

@@ -5,7 +5,7 @@ namespace DataManager.Repository
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Techdays2016Repository>
+    internal sealed class Configuration : DbMigrationsConfiguration<LaComarcaRepository>
     {
         public Configuration()
         {
@@ -13,7 +13,7 @@ namespace DataManager.Repository
             
         }
 
-        protected override void Seed(Techdays2016Repository context)
+        protected override void Seed(LaComarcaRepository context)
         {
             //  This method will be called after migrating to the latest version.
 

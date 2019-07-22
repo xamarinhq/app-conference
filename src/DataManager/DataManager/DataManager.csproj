@@ -26,6 +26,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <ApplicationInsightsResourceId>/subscriptions/5724033b-ff9f-4e56-803d-0166206f1cf1/resourcegroups/TechDays2016/providers/microsoft.insights/components/techdaysnldatamanager</ApplicationInsightsResourceId>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -267,7 +268,7 @@
     <Compile Include="Models\TechdaysNotifications.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\Configuration.cs" />
-    <Compile Include="Repository\Techdays2016Repository.cs" />
+    <Compile Include="Repository\LaComarcaRepository.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\SessionWithRatingsViewModel.cs" />
     <Compile Include="ViewModels\SessionWithFavoritesViewModel.cs" />

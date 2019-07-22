@@ -14,7 +14,7 @@ namespace DataManager.Controllers
     [Authorize]
     public class TopSessionsController : Controller
     {
-        private Techdays2016Repository db = new Techdays2016Repository();
+        private LaComarcaRepository db = new LaComarcaRepository();
 
         const string queryName = "DataManager.Repository.Queries.TopSessions.sql";
 

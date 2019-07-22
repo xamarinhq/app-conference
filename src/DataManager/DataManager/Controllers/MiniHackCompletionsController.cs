@@ -8,7 +8,7 @@ namespace DataManager.Controllers
 {
     public class MiniHackCompletionsController : Controller
     {
-        private Techdays2016Repository db = new Techdays2016Repository();
+        private LaComarcaRepository db = new LaComarcaRepository();
 
         const string queryName = "DataManager.Repository.Queries.MiniHackCompletions.sql";
 
