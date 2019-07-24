@@ -5,10 +5,8 @@ namespace Conference.Clients.Portable
    
     public static class ApiKeys
     {
-        
-
-        public const string AzureServiceBusName = "AzureServiceBusName";
-        public const string AzureServiceBusUrl = "AzureServiceBusUrl"; // EX: sb://techdays-2016.servicebus.windows.net/
+        public const string AzureServiceBusName = "LaComarcaDO";
+        public const string AzureServiceBusUrl = "sb://lacomarca-backend.azurewebsites.net"; // EX: sb://techdays-2016.servicebus.windows.net/
         public const string AzureKey ="AzureKey";  // TODO: take from your Azure portal
 
         public const string AzureHubName = "LaComarcaDO";
@@ -38,7 +36,7 @@ namespace Conference.Clients.Portable
         public const string MiniHackStaffMemberName = "Mini-Hack coach";
         public const string MiniHackUnlockTag = "LaComarcaDO";
 
-        public const string TicketUrl = "https://techdays.msnlevents.net/techdays2016";
+        public const string TicketUrl = "https://lacomarca.do/events/ticket";
         public static readonly DateTime StartOfConference = new DateTime(2016, 10, 04, 6, 0, 0, DateTimeKind.Utc);
         public static readonly DateTime EndOfConference = new DateTime(2016, 10, 05, 15, 30, 0, DateTimeKind.Utc);
     }
@@ -46,23 +44,23 @@ namespace Conference.Clients.Portable
     public static class AboutThisApp
     {
         public const string AppLinkProtocol = "lacomarca";
-        public const string PackageName = "do.lacomarca.app";
+        public const string PackageName = "com.lacomarca.app";
         public const string AppName = "LaComarca Events";
         public const string CompanyName = "LaComarca";
-        public const string Developer = "Community";
+        public const string Developer = "LaComarca Community";
         public const string DeveloperWebsite = "https://lacomarca.do";
-        public const string OpenSourceUrl = "http://tiny.cc/app-evolve";
+        public const string OpenSourceUrl = "https://github.com/lacomarcaDO/app-conference";
         public const string TermsOfUseUrl = "http://go.microsoft.com/fwlink/?linkid=206977";
         public const string PrivacyPolicyUrl = "http://go.microsoft.com/fwlink/?LinkId=521839";
-        public const string OpenSourceNoticeUrl = "http://tiny.cc/app-evolve-osn";
-        public const string EventRegistrationPage = "";
+        public const string OpenSourceNoticeUrl = "https://github.com/lacomarcaDO/app-conferencen";
+        public const string EventRegistrationPage = "http://lacomarcado.eventbrite.com";
         public const string CdnUrl = ""; // TODO: set up your own CDN for static content
         public const string AppLinksBaseDomain = "www.lacomarca.do"; // TODO: use the domain name of the site you want to integrate AppLinks with
         public const string SessionsSiteSubdirectory = "Sessies";
         public const string SpeakersSiteSubdirectory = "Sprekers";
         public const string SponsorsSiteSubdirectory = "Sponsors";
         public const string MiniHacksSiteSubdirectory = "MiniHacks";
-        public const string Copyright = "Copyright 2016 - TechDays";
+        public const string Copyright = "Copyright 2016 - LaComarca";
         public const string CodeOfConductPageTitle = "Permission to be filmed";
 
         public const string Credits = "LaComarca mobile apps were handcrafted by LaComarcaDO, based on the great work done by Xamarin.\n\n" +
